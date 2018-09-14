@@ -74,7 +74,8 @@ Src/usart.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c \
-Src/syscalls.c
+Src/syscalls.c \
+Src/global.c 
 
 # ASM sources
 ASM_SOURCES =  \

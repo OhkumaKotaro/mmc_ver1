@@ -36,7 +36,11 @@
 #include "stm32f4xx_it.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "adc.h"
+#include "gpio.h"
+#include "spi.h"
+#include "tim.h"
+#include "global.h"
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -181,7 +185,15 @@ void SysTick_Handler(void)
   HAL_IncTick();
   HAL_SYSTICK_IRQHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
+  if(flag.gyro_calc == true){
+    gyro.befor = gyro.degree;
+    gyro.degree = get_gyro();
+    gyro.degree_sum += (gyro.degree + gyro.befor)/2.0/1000.0;
+  }else{
+    gyro_offset_calc();
+  }
 
+  update_encoder();
   /* USER CODE END SysTick_IRQn 1 */
 }
 
@@ -202,7 +214,40 @@ void TIM5_IRQHandler(void)
   /* USER CODE END TIM5_IRQn 0 */
   HAL_TIM_IRQHandler(&htim5);
   /* USER CODE BEGIN TIM5_IRQn 1 */
+  count_tim5++;
 
+  switch(count_tim5){
+    case 1:
+      update_side_sen_on();
+      All_IR_OFF();
+      break;
+    case 2:
+      update_batt_date();
+      break;
+    case 3:
+      update_side_sen_off();
+      break;
+    case 4:
+      IR_Contoroll(0b0110);
+      break;
+    case 5:
+      update_fr_sen_on();
+      All_IR_OFF();
+      break;
+    case 6:
+      break;
+    case 7:
+      update_fr_sen_off();
+      break;
+    case 8:
+      update_all_sen();
+      IR_Contoroll(0b1001);
+      count_tim5 = 0;
+      break;
+    default:
+      count_tim5 = 0;
+      break;
+  }
   /* USER CODE END TIM5_IRQn 1 */
 }
 

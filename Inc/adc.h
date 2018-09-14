@@ -56,7 +56,10 @@ extern ADC_HandleTypeDef hadc2;
 extern ADC_HandleTypeDef hadc3;
 
 /* USER CODE BEGIN Private defines */
-
+#define threshhold_0 800
+#define threshhold_1 800
+#define threshhold_2 800
+#define threshhold_3 800
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
@@ -66,7 +69,12 @@ void MX_ADC2_Init(void);
 void MX_ADC3_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void update_batt_date(void);
+void update_fr_sen_on(void);
+void update_side_sen_on(void);
+void update_fr_sen_off(void);
+void update_side_sen_off(void);
+void update_all_sen(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

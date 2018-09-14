@@ -43,7 +43,10 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
+#include "global.h"
 
+TIM_MasterConfigTypeDef sMasterConfig;
+TIM_OC_InitTypeDef sConfigOC;
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim1;
@@ -486,6 +489,118 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+void Buzzer_pwm(int hz,int vol)
+{
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = hz;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 999;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.RepetitionCounter = 0;
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = vol;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+  if(HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1)!=HAL_OK){
+    Error_Handler();
+  }
+}
+void Motor_pwm(int left_pwm,int right_pwm){
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+
+  //set left_pwm
+  if(left_pwm >= 0){
+    sConfigOC.Pulse = left_pwm;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+    sConfigOC.Pulse = 0;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+  }
+  else  if(left_pwm < 0){
+    left_pwm *= -1; 
+    sConfigOC.Pulse = 0;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+    sConfigOC.Pulse = left_pwm;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+  }
+
+  //set right_pwm
+  if(right_pwm >= 0){
+    sConfigOC.Pulse = right_pwm;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+    sConfigOC.Pulse = 0;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+  }
+  else if(right_pwm < 0){
+    left_pwm *= -1;
+    sConfigOC.Pulse = 0;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+    sConfigOC.Pulse = right_pwm;
+    if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+    {
+      _Error_Handler(__FILE__, __LINE__);
+    }
+  }
+
+  //start
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK){
+		Error_Handler();
+	}
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2) != HAL_OK){
+		Error_Handler();
+	}
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK){
+		Error_Handler();
+	}
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4) != HAL_OK){
+		Error_Handler();
+	}
+}
+
+void update_encoder(void){
+  int16_t l_buff = TIM3 -> CNT;
+  int16_t r_buff = TIM4 -> CNT;
+  TIM3->CNT = 0;
+  TIM4->CNT = 0;
+  
+  enc.l = l_buff;
+  enc.r = r_buff;
+}
 
 /* USER CODE END 1 */
 

@@ -27,7 +27,7 @@ build/main.d: Src/main.c Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/adc.h \
- Inc/spi.h Inc/tim.h Inc/usart.h Inc/gpio.h
+ Inc/spi.h Inc/tim.h Inc/usart.h Inc/gpio.h Inc/global.h
 
 Inc/main.h:
 
@@ -102,3 +102,5 @@ Inc/tim.h:
 Inc/usart.h:
 
 Inc/gpio.h:
+
+Inc/global.h:

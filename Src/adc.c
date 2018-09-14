@@ -43,7 +43,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "global.h"
 /* USER CODE END 0 */
 
 ADC_HandleTypeDef hadc1;
@@ -283,7 +283,143 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+void update_batt_date(void)
+{
+  ADC_ChannelConfTypeDef sConfig;
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+  HAL_ADC_ConfigChannel( &hadc1, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc1 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc1,50 ) != HAL_OK );  // trans
+  batt_analog=HAL_ADC_GetValue(&hadc1);
+}
 
+void update_fr_sen_on(void)
+{
+  ADC_ChannelConfTypeDef sConfig;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+
+  sConfig.Channel = ADC_CHANNEL_0;
+  HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc2 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+  sensor.adc_on[0] = HAL_ADC_GetValue(&hadc2);
+
+  sConfig.Channel = ADC_CHANNEL_3;
+  HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc2 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+  sensor.adc_on[3] = HAL_ADC_GetValue(&hadc2);
+}
+
+void update_side_sen_on(void)
+{
+  ADC_ChannelConfTypeDef sConfig;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+
+  sConfig.Channel = ADC_CHANNEL_1;
+  HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc3 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+  sensor.adc_on[1] = HAL_ADC_GetValue(&hadc3);
+
+  sConfig.Channel = ADC_CHANNEL_2;
+  HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc3 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+  sensor.adc_on[2] = HAL_ADC_GetValue(&hadc3);
+}
+
+void update_fr_sen_off(void)
+{
+  ADC_ChannelConfTypeDef sConfig;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+
+  sConfig.Channel = ADC_CHANNEL_0;
+  HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc2 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+  sensor.adc_off[0] = HAL_ADC_GetValue(&hadc2);
+
+  sConfig.Channel = ADC_CHANNEL_3;
+  HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc2 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+  sensor.adc_off[3] = HAL_ADC_GetValue(&hadc2);
+}
+
+void update_side_sen_off(void)
+{
+  ADC_ChannelConfTypeDef sConfig;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+
+  sConfig.Channel = ADC_CHANNEL_1;
+  HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc3 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+  sensor.adc_off[1] = HAL_ADC_GetValue(&hadc3);
+
+  sConfig.Channel = ADC_CHANNEL_2;
+  HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+  HAL_ADC_Start( &hadc3 );     // ad convert start
+  while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+  sensor.adc_off[2] = HAL_ADC_GetValue(&hadc3);
+}
+
+void update_all_sen(void){
+  for( int i=0;i<4;i++){
+    sensor.adc[i] = sensor.adc_on[i] - sensor.adc_off[i];
+  }
+  
+  if(sensor.adc[0] > threshhold_0){
+    if(sensor.count[0] > 20){
+      sensor.wall[0] = true;
+    } else{
+      sensor.count[0] ++;
+    }
+  }else{
+    sensor.wall[0] = false;
+    sensor.count[0] = 0;
+  }
+  
+  if(sensor_adc[1] > threshhold_1){
+    if(sensor.count[1] > 20){
+      sensor.wall[1] = true;
+    } else{
+      sensor.count[1] ++;
+    }
+  }else{
+    sensor.wall[1] = false;
+    sensor.count[1] = 0;
+  }
+
+  if(sensor_adc[2] > threshhold_2){
+    if(sensor.count[2] > 20){
+      sensor.wall[2] = true;
+    } else{
+      sensor.count[2] ++;
+    }
+  }else{
+    sensor.wall[2] = false;
+    sensor.count[2] = 0;
+  }
+
+  if(sensor.adc[3] > threshhold_3){
+    if(sensor.count[3] > 20){
+      sensor.wall[3] = true;
+    } else{
+      sensor.count[3] ++;
+    }
+  }else{
+    sensor.wall[3] = false;
+    sensor.count[3] = 0;
+  }
+}
 /* USER CODE END 1 */
 
 /**

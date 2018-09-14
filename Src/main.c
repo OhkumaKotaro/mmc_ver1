@@ -44,6 +44,13 @@
 #include "usart.h"
 #include "gpio.h"
 
+/* USER CODE BEGIN Includes */
+#include "global.h"
+/* USER CODE END Includes */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
 #ifdef __GNUC__
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #else
@@ -52,13 +59,6 @@
 void __io_putchar(uint8_t ch) {
   HAL_UART_Transmit(&huart3, &ch, 1, 1);
 }
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE END PV */
@@ -68,7 +68,8 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-
+void l_chika(void);
+float Batt_Check(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -92,7 +93,19 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  setbuf(stdout, NULL);
+  HAL_TIM_Base_Start_IT(&htim5);
+  HAL_TIM_Encoder_Start(&htim3,TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start(&htim4,TIM_CHANNEL_ALL);
+  set_mpu6500();
+  gyro_offset_calc_start();
+  printf("\nbatt:%lf\r\n",Batt_Check());
+  HAL_Delay(1000);
+  if(flag.gyro_calc == true){
+    Buzzer_pwm(C,200);
+    HAL_Delay(200);
+    Buzzer_pwm(NORMAL,0);
+  }
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -115,14 +128,14 @@ int main(void)
   MX_ADC2_Init();
   MX_ADC3_Init();
   /* USER CODE BEGIN 2 */
-  setbuf(stdout, NULL);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("hello world\n");
+    printf("gyro.degree_sum:%d\r",gyro.degree_sum);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -142,7 +155,6 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct;
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
   
-
     /**Configure the main internal regulator output voltage 
     */
   __HAL_RCC_PWR_CLK_ENABLE();
@@ -192,7 +204,21 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void l_chika(void)
+{
+    All_LED_ON();
+    HAL_Delay(1000);
+    All_LED_OFF();
+    HAL_Delay(1000);
+}
 
+float Batt_Check(void)
+{
+  float batt=0;
+  batt = batt_analog;
+  batt = batt/4095.0*3.3*1330/330;
+  return batt;
+}
 /* USER CODE END 4 */
 
 /**

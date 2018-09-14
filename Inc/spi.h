@@ -48,13 +48,29 @@
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
+#define WHO_AM_I    0x75//
+#define PWR_MGMT_1  0x6B
+#define GYRO_OUT_Z_L     0x48//
+#define GYRO_OUT_Z_H     0x47//
+#define Certain         0x70//
+#define SETTING         0x80  //0b1000 0000 8bitの上位bitを立てると???��?��??��?��????��?��??��?��?
+#define CONFIG          0x1A//
+#define GYRO_CONFIG     0x1B//
 
+#define GYRO_FACTOR  16.4f
 /* USER CODE END Includes */
 
 extern SPI_HandleTypeDef hspi2;
 
 /* USER CODE BEGIN Private defines */
+uint8_t read_byte(uint8_t reg);
+int16_t read_shift_byte(uint8_t reg);
 
+void write_byte( uint8_t reg,uint8_t val);
+void set_mpu6500(void);
+float get_gyro(void);
+void gyro_offset_calc_start(void);
+void gyro_offset_calc(void);
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);

@@ -58,7 +58,16 @@ extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 
 /* USER CODE BEGIN Private defines */
-
+// music scale
+#define C 152
+#define D 135
+#define E 120
+#define F 113
+#define G 101
+#define A 90
+#define B 80
+#define C_H 75
+#define NORMAL 9
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
@@ -73,7 +82,9 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                                 
 
 /* USER CODE BEGIN Prototypes */
-
+void Buzzer_pwm(int hz,int vol);
+void Motor_pwm(int left_pwm,int right_pwm);
+void update_encoder(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

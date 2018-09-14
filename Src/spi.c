@@ -43,7 +43,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "global.h"
 /* USER CODE END 0 */
 
 SPI_HandleTypeDef hspi2;
@@ -126,7 +126,116 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+/********************************************************************
+ * Overview : spi read register
+ * Argument : register
+ * Return : 1byte data
+********************************************************************/
+uint8_t read_byte(uint8_t reg){
+  uint8_t ret,val;
+  HAL_GPIO_WritePin(gyro_cs_GPIO_Port,gyro_cs_Pin,GPIO_PIN_RESET);
+  ret = reg|SETTING ;
+  //HAL_SPI_TransmitReceive(&hspi2,&ret,&val,1,400); //not work
+  HAL_SPI_Transmit(&hspi2,&ret,1,100);
+  HAL_SPI_Receive(&hspi2,&val,1,100);
+  HAL_GPIO_WritePin(gyro_cs_GPIO_Port,gyro_cs_Pin,GPIO_PIN_SET);
+  return val;
+}
 
+
+/****************************************************************
+ * Overview : shift 8bit and spi read register
+ * Argument : register
+ * Return : 2byte data (shift 8bit)
+ ************************************************************/
+int16_t read_shift_byte(uint8_t reg){
+  uint8_t address,val_1;
+  int16_t val_2;
+  HAL_GPIO_WritePin(gyro_cs_GPIO_Port,gyro_cs_Pin,GPIO_PIN_RESET);
+  address = reg | SETTING ;
+  //HAL_SPI_TransmitReceive(&hspi2,&address,&val_1,1,100); //not work
+  HAL_SPI_Transmit(&hspi2,&address,1,100);
+  HAL_SPI_Receive(&hspi2,&val_1,1,100);
+  val_2 = (int16_t)(val_1 << 8);
+  HAL_GPIO_WritePin(gyro_cs_GPIO_Port,gyro_cs_Pin,GPIO_PIN_SET);
+  return val_2;
+}
+
+
+/**************************************************************
+ * Overview : spi write 1byte
+ * Argument : register
+ * Return : 
+ *************************************************************/
+void write_byte( uint8_t reg,uint8_t val){
+  uint8_t ret;
+  ret = reg & 0x7F;
+  HAL_GPIO_WritePin(gyro_cs_GPIO_Port,gyro_cs_Pin,GPIO_PIN_RESET);
+  HAL_SPI_Transmit(&hspi2,&ret,1,100);
+  HAL_SPI_Transmit(&hspi2,&val,1,100);
+  HAL_GPIO_WritePin(gyro_cs_GPIO_Port,gyro_cs_Pin,GPIO_PIN_SET);
+}
+
+
+/****************************************************************
+ * Overview : set up mpu6500
+ * argument : 
+ * return :
+ ****************************************************************/
+void set_mpu6500(void){
+  uint8_t val;
+  val = read_byte(WHO_AM_I);
+  printf("\nI am 0x%x\r\n",val );
+  if(val != Certain){
+    All_LED_ON();
+    HAL_Delay(1000);
+    All_LED_OFF();
+  }
+  
+  write_byte(PWR_MGMT_1,0x00);
+  write_byte(CONFIG,0x00);
+  write_byte(GYRO_CONFIG,0x18);
+}
+
+
+/*****************************************************************
+ * Overview : read mpu6500
+ * argument :
+ * Return : int data (2000 deg/sec)
+ ****************************************************************/
+float get_gyro(void){
+  int16_t gyro_z;
+  float degree;
+  gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
+  degree = (float)gyro_z/GYRO_FACTOR;
+  degree -= gyro.offset;
+  return degree;
+}
+
+void gyro_offset_calc_start(void){
+  gyro.offset = 0.0f;
+  gyro.offset_cnt = 0;
+  flag.gyro_calc = false;
+
+  gyro.degree_sum = 0;
+  gyro.befor = 0;
+}
+
+void gyro_offset_calc(void){
+  int16_t gyro_z;
+  float degree;
+
+  gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
+  degree = (float)gyro_z/GYRO_FACTOR;
+
+  if(gyro.offset_cnt<1024){
+    gyro.offset += degree;
+    gyro.offset_cnt++;
+  }else{
+    gyro.offset/=1024.0;
+    flag.gyro_calc = true;
+  }
+}
 /* USER CODE END 1 */
 
 /**

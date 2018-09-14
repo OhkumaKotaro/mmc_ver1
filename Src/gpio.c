@@ -102,8 +102,48 @@ void MX_GPIO_Init(void)
 
 }
 
-/* USER CODE BEGIN 2 */
 
+/* USER CODE BEGIN 2 */
+int8_t Push(void){
+  if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
+  else                                                              return 0;
+}
+void All_LED_ON(void)
+{
+  HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
+}
+void All_LED_OFF(void)
+{
+  HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
+}
+void All_IR_ON(void){
+  HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
+}
+void All_IR_OFF(void){
+  HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
+}
+void IR_Contoroll(int pattern){
+  if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
+  if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
+  if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
+  if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
+}
 /* USER CODE END 2 */
 
 /**
