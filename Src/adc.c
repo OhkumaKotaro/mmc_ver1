@@ -283,6 +283,12 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+
+/****************************************************************************************
+ * outline  : update battery 
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void update_batt_date(void)
 {
   ADC_ChannelConfTypeDef sConfig;

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
   29:Src/gpio.c    ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   30:Src/gpio.c    ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   31:Src/gpio.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 2
 
 
   32:Src/gpio.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
   47 0008 2A4B     		ldr	r3, .L3
   48 000a 1A6B     		ldr	r2, [r3, #48]
   49 000c 42F00402 		orr	r2, r2, #4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 3
 
 
   50 0010 1A63     		str	r2, [r3, #48]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
   75:Src/gpio.c    **** 
   76:Src/gpio.c    ****   /*Configure GPIO pin Output Level */
   77:Src/gpio.c    ****   HAL_GPIO_WritePin(gyro_cs_GPIO_Port, gyro_cs_Pin, GPIO_PIN_RESET);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 4
 
 
   96              		.loc 1 77 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
   96:Src/gpio.c    **** 
   97:Src/gpio.c    ****   /*Configure GPIO pin : PtPin */
   98:Src/gpio.c    ****   GPIO_InitStruct.Pin = push0_Pin;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 5
 
 
  132              		.loc 1 98 0
@@ -283,10 +283,9 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  168              	Push:
  169              	.LFB127:
  104:Src/gpio.c    **** 
- 105:Src/gpio.c    **** 
- 106:Src/gpio.c    **** /* USER CODE BEGIN 2 */
- 107:Src/gpio.c    **** int8_t Push(void){
- 170              		.loc 1 107 0
+ 105:Src/gpio.c    **** /* USER CODE BEGIN 2 */
+ 106:Src/gpio.c    **** int8_t Push(void){
+ 170              		.loc 1 106 0
  171              		.cfi_startproc
  172              		@ args = 0, pretend = 0, frame = 0
  173              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -295,26 +294,26 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  176              		.cfi_def_cfa_offset 8
  177              		.cfi_offset 3, -8
  178              		.cfi_offset 14, -4
- 108:Src/gpio.c    ****   if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
- 179              		.loc 1 108 0
+ 107:Src/gpio.c    ****   if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
+ 179              		.loc 1 107 0
  180 0002 0421     		movs	r1, #4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 6
-
-
  181 0004 0348     		ldr	r0, .L10
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 6
+
+
  182 0006 FFF7FEFF 		bl	HAL_GPIO_ReadPin
  183              	.LVL5:
  184 000a 08B1     		cbz	r0, .L9
- 109:Src/gpio.c    ****   else                                                              return 0;
- 185              		.loc 1 109 0
+ 108:Src/gpio.c    ****   else                                                              return 0;
+ 185              		.loc 1 108 0
  186 000c 0020     		movs	r0, #0
  187              	.L6:
- 110:Src/gpio.c    **** }
- 188              		.loc 1 110 0
+ 109:Src/gpio.c    **** }
+ 188              		.loc 1 109 0
  189 000e 08BD     		pop	{r3, pc}
  190              	.L9:
- 108:Src/gpio.c    ****   if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
- 191              		.loc 1 108 0
+ 107:Src/gpio.c    ****   if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
+ 191              		.loc 1 107 0
  192 0010 0120     		movs	r0, #1
  193 0012 FCE7     		b	.L6
  194              	.L11:
@@ -332,9 +331,9 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  207              		.fpu fpv4-sp-d16
  209              	All_LED_ON:
  210              	.LFB128:
- 111:Src/gpio.c    **** void All_LED_ON(void)
- 112:Src/gpio.c    **** {
- 211              		.loc 1 112 0
+ 110:Src/gpio.c    **** void All_LED_ON(void)
+ 111:Src/gpio.c    **** {
+ 211              		.loc 1 111 0
  212              		.cfi_startproc
  213              		@ args = 0, pretend = 0, frame = 0
  214              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -343,40 +342,40 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  217              		.cfi_def_cfa_offset 8
  218              		.cfi_offset 4, -8
  219              		.cfi_offset 14, -4
- 113:Src/gpio.c    ****   HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
- 220              		.loc 1 113 0
+ 112:Src/gpio.c    ****   HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
+ 220              		.loc 1 112 0
  221 0002 0C4C     		ldr	r4, .L14
  222 0004 0022     		movs	r2, #0
  223 0006 4FF40051 		mov	r1, #8192
  224 000a 2046     		mov	r0, r4
  225 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
  226              	.LVL6:
- 114:Src/gpio.c    ****   HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
- 227              		.loc 1 114 0
+ 113:Src/gpio.c    ****   HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
+ 227              		.loc 1 113 0
  228 0010 0022     		movs	r2, #0
  229 0012 4FF48041 		mov	r1, #16384
  230 0016 2046     		mov	r0, r4
  231 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
  232              	.LVL7:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 7
+ 114:Src/gpio.c    ****   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 7
 
 
- 115:Src/gpio.c    ****   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
- 233              		.loc 1 115 0
+ 233              		.loc 1 114 0
  234 001c 0022     		movs	r2, #0
  235 001e 8021     		movs	r1, #128
  236 0020 2046     		mov	r0, r4
  237 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
  238              	.LVL8:
- 116:Src/gpio.c    ****   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
- 239              		.loc 1 116 0
+ 115:Src/gpio.c    ****   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
+ 239              		.loc 1 115 0
  240 0026 0022     		movs	r2, #0
  241 0028 4FF48071 		mov	r1, #256
  242 002c 2046     		mov	r0, r4
  243 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
  244              	.LVL9:
- 117:Src/gpio.c    **** }
- 245              		.loc 1 117 0
+ 116:Src/gpio.c    **** }
+ 245              		.loc 1 116 0
  246 0032 10BD     		pop	{r4, pc}
  247              	.L15:
  248              		.align	2
@@ -393,9 +392,9 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  260              		.fpu fpv4-sp-d16
  262              	All_LED_OFF:
  263              	.LFB129:
- 118:Src/gpio.c    **** void All_LED_OFF(void)
- 119:Src/gpio.c    **** {
- 264              		.loc 1 119 0
+ 117:Src/gpio.c    **** void All_LED_OFF(void)
+ 118:Src/gpio.c    **** {
+ 264              		.loc 1 118 0
  265              		.cfi_startproc
  266              		@ args = 0, pretend = 0, frame = 0
  267              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -404,40 +403,40 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  270              		.cfi_def_cfa_offset 8
  271              		.cfi_offset 4, -8
  272              		.cfi_offset 14, -4
- 120:Src/gpio.c    ****   HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
- 273              		.loc 1 120 0
+ 119:Src/gpio.c    ****   HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
+ 273              		.loc 1 119 0
  274 0002 0C4C     		ldr	r4, .L18
  275 0004 0122     		movs	r2, #1
  276 0006 4FF40051 		mov	r1, #8192
  277 000a 2046     		mov	r0, r4
  278 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
  279              	.LVL10:
- 121:Src/gpio.c    ****   HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
- 280              		.loc 1 121 0
+ 120:Src/gpio.c    ****   HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
+ 280              		.loc 1 120 0
  281 0010 0122     		movs	r2, #1
  282 0012 4FF48041 		mov	r1, #16384
  283 0016 2046     		mov	r0, r4
  284 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 8
-
-
  285              	.LVL11:
- 122:Src/gpio.c    ****   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
- 286              		.loc 1 122 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 8
+
+
+ 121:Src/gpio.c    ****   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
+ 286              		.loc 1 121 0
  287 001c 0122     		movs	r2, #1
  288 001e 8021     		movs	r1, #128
  289 0020 2046     		mov	r0, r4
  290 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
  291              	.LVL12:
- 123:Src/gpio.c    ****   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
- 292              		.loc 1 123 0
+ 122:Src/gpio.c    ****   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
+ 292              		.loc 1 122 0
  293 0026 0122     		movs	r2, #1
  294 0028 4FF48071 		mov	r1, #256
  295 002c 2046     		mov	r0, r4
  296 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
  297              	.LVL13:
- 124:Src/gpio.c    **** }
- 298              		.loc 1 124 0
+ 123:Src/gpio.c    **** }
+ 298              		.loc 1 123 0
  299 0032 10BD     		pop	{r4, pc}
  300              	.L19:
  301              		.align	2
@@ -454,8 +453,8 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  313              		.fpu fpv4-sp-d16
  315              	All_IR_ON:
  316              	.LFB130:
- 125:Src/gpio.c    **** void All_IR_ON(void){
- 317              		.loc 1 125 0
+ 124:Src/gpio.c    **** void All_IR_ON(void){
+ 317              		.loc 1 124 0
  318              		.cfi_startproc
  319              		@ args = 0, pretend = 0, frame = 0
  320              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -464,40 +463,40 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  323              		.cfi_def_cfa_offset 8
  324              		.cfi_offset 4, -8
  325              		.cfi_offset 14, -4
- 126:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
- 326              		.loc 1 126 0
+ 125:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
+ 326              		.loc 1 125 0
  327 0002 0B4C     		ldr	r4, .L22
  328 0004 0122     		movs	r2, #1
  329 0006 1146     		mov	r1, r2
  330 0008 2046     		mov	r0, r4
  331 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
  332              	.LVL14:
- 127:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
- 333              		.loc 1 127 0
+ 126:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
+ 333              		.loc 1 126 0
  334 000e 0122     		movs	r2, #1
  335 0010 0221     		movs	r1, #2
  336 0012 2046     		mov	r0, r4
  337 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 9
-
-
  338              	.LVL15:
- 128:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
- 339              		.loc 1 128 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 9
+
+
+ 127:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
+ 339              		.loc 1 127 0
  340 0018 0122     		movs	r2, #1
  341 001a 0421     		movs	r1, #4
  342 001c 2046     		mov	r0, r4
  343 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
  344              	.LVL16:
- 129:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
- 345              		.loc 1 129 0
+ 128:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
+ 345              		.loc 1 128 0
  346 0022 0122     		movs	r2, #1
  347 0024 0821     		movs	r1, #8
  348 0026 2046     		mov	r0, r4
  349 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
  350              	.LVL17:
- 130:Src/gpio.c    **** }
- 351              		.loc 1 130 0
+ 129:Src/gpio.c    **** }
+ 351              		.loc 1 129 0
  352 002c 10BD     		pop	{r4, pc}
  353              	.L23:
  354 002e 00BF     		.align	2
@@ -514,8 +513,8 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  366              		.fpu fpv4-sp-d16
  368              	All_IR_OFF:
  369              	.LFB131:
- 131:Src/gpio.c    **** void All_IR_OFF(void){
- 370              		.loc 1 131 0
+ 130:Src/gpio.c    **** void All_IR_OFF(void){
+ 370              		.loc 1 130 0
  371              		.cfi_startproc
  372              		@ args = 0, pretend = 0, frame = 0
  373              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -524,40 +523,40 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  376              		.cfi_def_cfa_offset 8
  377              		.cfi_offset 4, -8
  378              		.cfi_offset 14, -4
- 132:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
- 379              		.loc 1 132 0
+ 131:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
+ 379              		.loc 1 131 0
  380 0002 0B4C     		ldr	r4, .L26
  381 0004 0022     		movs	r2, #0
  382 0006 0121     		movs	r1, #1
  383 0008 2046     		mov	r0, r4
  384 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
  385              	.LVL18:
- 133:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
- 386              		.loc 1 133 0
+ 132:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
+ 386              		.loc 1 132 0
  387 000e 0022     		movs	r2, #0
  388 0010 0221     		movs	r1, #2
  389 0012 2046     		mov	r0, r4
  390 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 10
-
-
  391              	.LVL19:
- 134:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
- 392              		.loc 1 134 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 10
+
+
+ 133:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
+ 392              		.loc 1 133 0
  393 0018 0022     		movs	r2, #0
  394 001a 0421     		movs	r1, #4
  395 001c 2046     		mov	r0, r4
  396 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
  397              	.LVL20:
- 135:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
- 398              		.loc 1 135 0
+ 134:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
+ 398              		.loc 1 134 0
  399 0022 0022     		movs	r2, #0
  400 0024 0821     		movs	r1, #8
  401 0026 2046     		mov	r0, r4
  402 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
  403              	.LVL21:
- 136:Src/gpio.c    **** }
- 404              		.loc 1 136 0
+ 135:Src/gpio.c    **** }
+ 404              		.loc 1 135 0
  405 002c 10BD     		pop	{r4, pc}
  406              	.L27:
  407 002e 00BF     		.align	2
@@ -574,8 +573,8 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  419              		.fpu fpv4-sp-d16
  421              	IR_Contoroll:
  422              	.LFB132:
- 137:Src/gpio.c    **** void IR_Contoroll(int pattern){
- 423              		.loc 1 137 0
+ 136:Src/gpio.c    **** void IR_Contoroll(int pattern){
+ 423              		.loc 1 136 0
  424              		.cfi_startproc
  425              		@ args = 0, pretend = 0, frame = 0
  426              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -586,11 +585,11 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  431              		.cfi_offset 4, -8
  432              		.cfi_offset 14, -4
  433 0002 0446     		mov	r4, r0
- 138:Src/gpio.c    ****   if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
- 434              		.loc 1 138 0
+ 137:Src/gpio.c    ****   if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
+ 434              		.loc 1 137 0
  435 0004 10F0010F 		tst	r0, #1
  436 0008 1DD0     		beq	.L29
- 437              		.loc 1 138 0 is_stmt 0 discriminator 1
+ 437              		.loc 1 137 0 is_stmt 0 discriminator 1
  438 000a 0122     		movs	r2, #1
  439 000c 1146     		mov	r1, r2
  440 000e 1A48     		ldr	r0, .L39
@@ -598,53 +597,53 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  442 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
  443              	.LVL24:
  444              	.L30:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 11
+ 138:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 11
 
 
- 139:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
- 140:Src/gpio.c    ****   if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
- 445              		.loc 1 140 0 is_stmt 1
+ 139:Src/gpio.c    ****   if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
+ 445              		.loc 1 139 0 is_stmt 1
  446 0014 14F0020F 		tst	r4, #2
  447 0018 1BD0     		beq	.L31
- 448              		.loc 1 140 0 is_stmt 0 discriminator 1
+ 448              		.loc 1 139 0 is_stmt 0 discriminator 1
  449 001a 0122     		movs	r2, #1
  450 001c 0221     		movs	r1, #2
  451 001e 1648     		ldr	r0, .L39
  452 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
  453              	.LVL25:
  454              	.L32:
- 141:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
- 142:Src/gpio.c    ****   if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
- 455              		.loc 1 142 0 is_stmt 1
+ 140:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
+ 141:Src/gpio.c    ****   if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
+ 455              		.loc 1 141 0 is_stmt 1
  456 0024 14F0040F 		tst	r4, #4
  457 0028 19D0     		beq	.L33
- 458              		.loc 1 142 0 is_stmt 0 discriminator 1
+ 458              		.loc 1 141 0 is_stmt 0 discriminator 1
  459 002a 0122     		movs	r2, #1
  460 002c 0421     		movs	r1, #4
  461 002e 1248     		ldr	r0, .L39
  462 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
  463              	.LVL26:
  464              	.L34:
- 143:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
- 144:Src/gpio.c    ****   if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
- 465              		.loc 1 144 0 is_stmt 1
+ 142:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
+ 143:Src/gpio.c    ****   if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
+ 465              		.loc 1 143 0 is_stmt 1
  466 0034 14F0080F 		tst	r4, #8
  467 0038 17D1     		bne	.L38
- 145:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
- 468              		.loc 1 145 0
+ 144:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
+ 468              		.loc 1 144 0
  469 003a 0022     		movs	r2, #0
  470 003c 0821     		movs	r1, #8
  471 003e 0E48     		ldr	r0, .L39
  472 0040 FFF7FEFF 		bl	HAL_GPIO_WritePin
  473              	.LVL27:
  474              	.L28:
- 146:Src/gpio.c    **** }
- 475              		.loc 1 146 0
+ 145:Src/gpio.c    **** }
+ 475              		.loc 1 145 0
  476 0044 10BD     		pop	{r4, pc}
  477              	.LVL28:
  478              	.L29:
- 139:Src/gpio.c    ****   if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
- 479              		.loc 1 139 0
+ 138:Src/gpio.c    ****   if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
+ 479              		.loc 1 138 0
  480 0046 0022     		movs	r2, #0
  481 0048 0121     		movs	r1, #1
  482 004a 0B48     		ldr	r0, .L39
@@ -653,20 +652,20 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  485              	.LVL30:
  486 0050 E0E7     		b	.L30
  487              	.L31:
- 141:Src/gpio.c    ****   if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
- 488              		.loc 1 141 0
+ 140:Src/gpio.c    ****   if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
+ 488              		.loc 1 140 0
  489 0052 0022     		movs	r2, #0
  490 0054 0221     		movs	r1, #2
  491 0056 0848     		ldr	r0, .L39
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 12
-
-
  492 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 12
+
+
  493              	.LVL31:
  494 005c E2E7     		b	.L32
  495              	.L33:
- 143:Src/gpio.c    ****   if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
- 496              		.loc 1 143 0
+ 142:Src/gpio.c    ****   if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
+ 496              		.loc 1 142 0
  497 005e 0022     		movs	r2, #0
  498 0060 0421     		movs	r1, #4
  499 0062 0548     		ldr	r0, .L39
@@ -674,8 +673,8 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  501              	.LVL32:
  502 0068 E4E7     		b	.L34
  503              	.L38:
- 144:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
- 504              		.loc 1 144 0 discriminator 1
+ 143:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
+ 504              		.loc 1 143 0 discriminator 1
  505 006a 0122     		movs	r2, #1
  506 006c 0821     		movs	r1, #8
  507 006e 0248     		ldr	r0, .L39
@@ -700,32 +699,32 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 1
  527              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
  528              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  529              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s 			page 13
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:18     .text.MX_GPIO_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:153    .text.MX_GPIO_Init:000000b4 $d
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:161    .text.Push:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:168    .text.Push:00000000 Push
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:197    .text.Push:00000014 $d
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:202    .text.All_LED_ON:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:209    .text.All_LED_ON:00000000 All_LED_ON
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:250    .text.All_LED_ON:00000034 $d
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:255    .text.All_LED_OFF:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:262    .text.All_LED_OFF:00000000 All_LED_OFF
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:303    .text.All_LED_OFF:00000034 $d
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:308    .text.All_IR_ON:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:315    .text.All_IR_ON:00000000 All_IR_ON
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:356    .text.All_IR_ON:00000030 $d
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:361    .text.All_IR_OFF:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:368    .text.All_IR_OFF:00000000 All_IR_OFF
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:409    .text.All_IR_OFF:00000030 $d
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:414    .text.IR_Contoroll:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:421    .text.IR_Contoroll:00000000 IR_Contoroll
-C:\Users\kotaro\AppData\Local\Temp\cc3cViSg.s:514    .text.IR_Contoroll:00000078 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:18     .text.MX_GPIO_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:153    .text.MX_GPIO_Init:000000b4 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:161    .text.Push:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:168    .text.Push:00000000 Push
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:197    .text.Push:00000014 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:202    .text.All_LED_ON:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:209    .text.All_LED_ON:00000000 All_LED_ON
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:250    .text.All_LED_ON:00000034 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:255    .text.All_LED_OFF:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:262    .text.All_LED_OFF:00000000 All_LED_OFF
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:303    .text.All_LED_OFF:00000034 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:308    .text.All_IR_ON:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:315    .text.All_IR_ON:00000000 All_IR_ON
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:356    .text.All_IR_ON:00000030 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:361    .text.All_IR_OFF:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:368    .text.All_IR_OFF:00000000 All_IR_OFF
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:409    .text.All_IR_OFF:00000030 $d
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:414    .text.IR_Contoroll:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:421    .text.IR_Contoroll:00000000 IR_Contoroll
+C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:514    .text.IR_Contoroll:00000078 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

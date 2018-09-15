@@ -9,8 +9,22 @@
 #include <stdio.h>
 #include <string.h>
 
+//define
 #define true  1
 #define false 0
+#define GEAR_RATE 5.25
+#define IE_1024 1024
+
+//motor 003SR
+#define KT  1.98//toluku[mNm/A]
+#define KE  0.207//return vatt[mV/min^-1]
+#define Resistance 1.07//[S^-1]
+
+//mouse
+#define WEIGHT 100 //[g]
+#define TIRE_RADIUS 12  //[mm]
+#define INERTIA 
+#define TREAD 73  //[mm]
 
 
 //flag
@@ -30,8 +44,10 @@ typedef struct{
 extern gyro_t gyro;
 
 typedef struct{
-  int l;
-  int r;
+  int left;
+  int right;
+  int32_t sum_l;
+  int32_t sum_r;
 }enc_t;
 extern enc_t enc;
 
@@ -44,6 +60,12 @@ typedef struct{
 }sensor_t;
 extern sensor_t sensor;
 
+typedef struct{
+  float distance_l;
+  float distance_r; 
+}sit_t;
+extern sit_t sit;
+
 extern uint16_t sensor_adc_on[4];
 extern uint16_t sensor_adc_off[4];
 extern uint16_t sensor_adc[4];
@@ -52,6 +74,10 @@ extern uint16_t sensor_count[4];
 
 extern uint16_t count_tim5;
 extern uint16_t batt_analog;
+
+extern uint16_t ms_count;
+extern uint16_t s_count;
+
 
 #ifdef __cplusplus
 }

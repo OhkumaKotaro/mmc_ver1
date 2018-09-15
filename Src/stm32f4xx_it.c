@@ -194,6 +194,16 @@ void SysTick_Handler(void)
   }
 
   update_encoder();
+  enc.sum_l += enc.left;
+  enc.sum_r += enc.right;
+  sit.distance_l = enc.sum_l / IE_1024 / GEAR_RATE;//hoeal rot
+  sit.distance_r = enc.sum_r / IE_1024 / GEAR_RATE;//hoeal rot
+
+  ms_count ++;
+  if(ms_count == 10000){
+    ms_count == 0;
+    s_count ++;
+  }
   /* USER CODE END SysTick_IRQn 1 */
 }
 

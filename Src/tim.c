@@ -598,8 +598,8 @@ void update_encoder(void){
   TIM3->CNT = 0;
   TIM4->CNT = 0;
   
-  enc.l = l_buff;
-  enc.r = r_buff;
+  enc.left = l_buff;
+  enc.right = r_buff;
 }
 
 /* USER CODE END 1 */
