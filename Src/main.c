@@ -45,8 +45,9 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-#include "global.h"
 #include "arm_math.h"
+#include "global.h"
+#include "control.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -69,8 +70,7 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-void l_chika(void);
-float Batt_Check(void);
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -94,8 +94,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  
-  
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -119,26 +118,13 @@ int main(void)
   MX_ADC3_Init();
   /* USER CODE BEGIN 2 */
   setbuf(stdout, NULL);
-  //HAL_TIM_Base_Start_IT(&htim5);  //timer for infrared LED
-  HAL_TIM_Encoder_Start(&htim3,TIM_CHANNEL_ALL);//
-  HAL_TIM_Encoder_Start(&htim4,TIM_CHANNEL_ALL);
-  set_mpu6500();
-  gyro_offset_calc_start();
-  ms_count = 0;
-  s_count = 0;
-  printf("\nbatt:%lf\r\n",Batt_Check());
-  Buzzer_pwm(C,200);
-  HAL_Delay(200);
-  Buzzer_pwm(NORMAL,0);
-  enc.sum_l = 0;
-  enc.sum_r = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("rot_l:%f  rot_r:%f\r",sit.distance_l,sit.distance_r);
+    printf("%d",PI);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -207,36 +193,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void l_chika(void)
-{
-    All_LED_ON();
-    HAL_Delay(1000);
-    All_LED_OFF();
-    HAL_Delay(1000);
-}
 
-float Batt_Check(void)
-{
-  float batt=0;
-  batt = batt_analog;
-  batt = batt/4095.0*3.3*1330/330;
-  return batt;
-}
-
-void control_motor(int velocity_l,int velocity_r){
-  int16_t pwm_l=0;
-  int16_t pwm_r=0;
-  float torque_l = 0.000567;
-  float torque_r = 0.000567;
-  float rpm_l = enc.left/IE_1024/GEAR_RATE*60*1000;
-  if(velocity_l < 100){
-    pwm_l = 999 * (Resistance*torque_l*0.0001/KT+KE*rpm_l)/Batt_Check();
-  }
-  if(velocity_l < 100){
-    pwm_r = 999 * (Resistance*torque_r*0.0001/KT+KE*rpm_l)/Batt_Check();
-  }
-  Motor_pwm(pwm_l,pwm_r);
-}
 /* USER CODE END 4 */
 
 /**

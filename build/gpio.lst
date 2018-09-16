@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
   29:Src/gpio.c    ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   30:Src/gpio.c    ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   31:Src/gpio.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 2
 
 
   32:Src/gpio.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
   47 0008 2A4B     		ldr	r3, .L3
   48 000a 1A6B     		ldr	r2, [r3, #48]
   49 000c 42F00402 		orr	r2, r2, #4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 3
 
 
   50 0010 1A63     		str	r2, [r3, #48]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
   75:Src/gpio.c    **** 
   76:Src/gpio.c    ****   /*Configure GPIO pin Output Level */
   77:Src/gpio.c    ****   HAL_GPIO_WritePin(gyro_cs_GPIO_Port, gyro_cs_Pin, GPIO_PIN_RESET);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 4
 
 
   96              		.loc 1 77 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
   96:Src/gpio.c    **** 
   97:Src/gpio.c    ****   /*Configure GPIO pin : PtPin */
   98:Src/gpio.c    ****   GPIO_InitStruct.Pin = push0_Pin;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 5
 
 
  132              		.loc 1 98 0
@@ -284,7 +284,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  169              	.LFB127:
  104:Src/gpio.c    **** 
  105:Src/gpio.c    **** /* USER CODE BEGIN 2 */
- 106:Src/gpio.c    **** int8_t Push(void){
+ 106:Src/gpio.c    **** short Push(void){
  170              		.loc 1 106 0
  171              		.cfi_startproc
  172              		@ args = 0, pretend = 0, frame = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  179              		.loc 1 107 0
  180 0002 0421     		movs	r1, #4
  181 0004 0348     		ldr	r0, .L10
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 6
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 6
 
 
  182 0006 FFF7FEFF 		bl	HAL_GPIO_ReadPin
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  231 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
  232              	.LVL7:
  114:Src/gpio.c    ****   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 7
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 7
 
 
  233              		.loc 1 114 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  283 0016 2046     		mov	r0, r4
  284 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
  285              	.LVL11:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 8
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 8
 
 
  121:Src/gpio.c    ****   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  336 0012 2046     		mov	r0, r4
  337 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
  338              	.LVL15:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 9
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 9
 
 
  127:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  389 0012 2046     		mov	r0, r4
  390 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
  391              	.LVL19:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 10
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 10
 
 
  133:Src/gpio.c    ****   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  443              	.LVL24:
  444              	.L30:
  138:Src/gpio.c    ****   else                             HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 11
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 11
 
 
  139:Src/gpio.c    ****   if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  490 0054 0221     		movs	r1, #2
  491 0056 0848     		ldr	r0, .L39
  492 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 12
 
 
  493              	.LVL31:
@@ -699,32 +699,32 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 1
  527              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
  528              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  529              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s 			page 13
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:18     .text.MX_GPIO_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:153    .text.MX_GPIO_Init:000000b4 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:161    .text.Push:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:168    .text.Push:00000000 Push
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:197    .text.Push:00000014 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:202    .text.All_LED_ON:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:209    .text.All_LED_ON:00000000 All_LED_ON
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:250    .text.All_LED_ON:00000034 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:255    .text.All_LED_OFF:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:262    .text.All_LED_OFF:00000000 All_LED_OFF
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:303    .text.All_LED_OFF:00000034 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:308    .text.All_IR_ON:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:315    .text.All_IR_ON:00000000 All_IR_ON
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:356    .text.All_IR_ON:00000030 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:361    .text.All_IR_OFF:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:368    .text.All_IR_OFF:00000000 All_IR_OFF
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:409    .text.All_IR_OFF:00000030 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:414    .text.IR_Contoroll:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:421    .text.IR_Contoroll:00000000 IR_Contoroll
-C:\Users\kotaro\AppData\Local\Temp\ccPJw34i.s:514    .text.IR_Contoroll:00000078 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:18     .text.MX_GPIO_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:153    .text.MX_GPIO_Init:000000b4 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:161    .text.Push:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:168    .text.Push:00000000 Push
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:197    .text.Push:00000014 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:202    .text.All_LED_ON:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:209    .text.All_LED_ON:00000000 All_LED_ON
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:250    .text.All_LED_ON:00000034 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:255    .text.All_LED_OFF:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:262    .text.All_LED_OFF:00000000 All_LED_OFF
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:303    .text.All_LED_OFF:00000034 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:308    .text.All_IR_ON:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:315    .text.All_IR_ON:00000000 All_IR_ON
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:356    .text.All_IR_ON:00000030 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:361    .text.All_IR_OFF:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:368    .text.All_IR_OFF:00000000 All_IR_OFF
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:409    .text.All_IR_OFF:00000030 $d
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:414    .text.IR_Contoroll:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:421    .text.IR_Contoroll:00000000 IR_Contoroll
+C:\Users\kotaro\AppData\Local\Temp\ccfwOk2m.s:514    .text.IR_Contoroll:00000078 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

@@ -201,7 +201,7 @@ void SysTick_Handler(void)
 
   ms_count ++;
   if(ms_count == 10000){
-    ms_count == 0;
+    ms_count = 0;
     s_count ++;
   }
   /* USER CODE END SysTick_IRQn 1 */

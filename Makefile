@@ -74,8 +74,9 @@ Src/stm32f4xx_hal_msp.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
 Src/spi.c \
+Src/syscalls.c \
 Src/global.c \
-Src/syscalls.c 
+Src/control.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -160,7 +161,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"
 LDSCRIPT = STM32F405RGTx_FLASH.ld
 
 # libraries
-LIBS = -lc -lm -lnosys-larm_cortexM4lf_math
+LIBS = -lc -lm -lnosys -larm_cortexM4lf_math
 LIBDIR = -L Drivers/CMSIS/Lib/GCC/
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -u _printf_float
 

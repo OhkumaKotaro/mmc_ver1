@@ -53,18 +53,18 @@
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-int8_t Push(void);
-void All_LED_ON(void);
-void All_LED_OFF(void);
-void All_IR_ON(void);
-void All_IR_OFF(void);
-void IR_Contoroll(int pattern);
+
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+short Push(void);
+void All_LED_ON(void);
+void All_LED_OFF(void);
+void All_IR_ON(void);
+void All_IR_OFF(void);
+void IR_Contoroll(int pattern);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

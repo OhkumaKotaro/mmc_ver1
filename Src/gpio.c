@@ -103,7 +103,7 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
-int8_t Push(void){
+short Push(void){
   if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
   else                                                              return 0;
 }

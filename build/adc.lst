@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
   29:Src/adc.c     ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   30:Src/adc.c     ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   31:Src/adc.c     ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 2
 
 
   32:Src/adc.c     ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
   50 0014 0361     		str	r3, [r0, #16]
   64:Src/adc.c     ****   hadc1.Init.ContinuousConvMode = DISABLE;
   51              		.loc 1 64 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 3
 
 
   52 0016 8361     		str	r3, [r0, #24]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
   88 0044 38B9     		cbnz	r0, .L6
   89              	.L1:
   83:Src/adc.c     ****   {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 4
 
 
   84:Src/adc.c     ****     _Error_Handler(__FILE__, __LINE__);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  137              		@ frame_needed = 0, uses_anonymous_args = 0
  138 0000 00B5     		push	{lr}
  139              	.LCFI4:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 5
 
 
  140              		.cfi_def_cfa_offset 4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  177              	.LVL4:
  178 002e 60B9     		cbnz	r0, .L13
  179              	.L10:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 6
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 6
 
 
  108:Src/adc.c     ****   {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  217              		.loc 1 122 0
  218 005c F2E7     		b	.L9
  219              	.L16:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 7
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 7
 
 
  220 005e 00BF     		.align	2
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  135:Src/adc.c     ****   hadc3.Init.DiscontinuousConvMode = DISABLE;
  264              		.loc 1 135 0
  265 0018 0362     		str	r3, [r0, #32]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 8
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 8
 
 
  136:Src/adc.c     ****   hadc3.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  156:Src/adc.c     **** 
  157:Src/adc.c     **** }
  300              		.loc 1 157 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 9
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 9
 
 
  301 0044 05B0     		add	sp, sp, #20
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  352              		.cfi_offset 14, -4
  353 0002 89B0     		sub	sp, sp, #36
  354              	.LCFI13:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 10
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 10
 
 
  355              		.cfi_def_cfa_offset 40
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  365              		.loc 1 204 0
  366 0012 264A     		ldr	r2, .L33+8
  367 0014 9342     		cmp	r3, r2
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 11
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 11
 
 
  368 0016 2ED0     		beq	.L32
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  398              		.loc 1 175 0
  399 003a 0323     		movs	r3, #3
  400 003c 0493     		str	r3, [sp, #16]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 12
 
 
  176:Src/adc.c     ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  447 007c 5A6C     		ldr	r2, [r3, #68]
  448 007e 42F48062 		orr	r2, r2, #1024
  449 0082 5A64     		str	r2, [r3, #68]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 13
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 13
 
 
  450 0084 5B6C     		ldr	r3, [r3, #68]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  499              		.cfi_def_cfa_offset 8
  500              		.cfi_offset 3, -8
  501              		.cfi_offset 14, -4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 14
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 14
 
 
  229:Src/adc.c     **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  268:Src/adc.c     **** 
  269:Src/adc.c     ****   /* USER CODE END ADC3_MspDeInit 0 */
  270:Src/adc.c     ****     /* Peripheral clock disable */
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 15
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 15
 
 
  271:Src/adc.c     ****     __HAL_RCC_ADC3_CLK_DISABLE();
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  553 004c 5364     		str	r3, [r2, #68]
  277:Src/adc.c     **** 
  554              		.loc 1 277 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 16
 
 
  555 004e 0621     		movs	r1, #6
@@ -929,15 +929,14 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  582              	.LFB131:
  284:Src/adc.c     **** 
  285:Src/adc.c     **** /* USER CODE BEGIN 1 */
- 286:Src/adc.c     **** 
- 287:Src/adc.c     **** /****************************************************************************************
- 288:Src/adc.c     ****  * outline  : update battery 
- 289:Src/adc.c     ****  * argument : void
- 290:Src/adc.c     ****  * return   : void
- 291:Src/adc.c     **** ********************************************************************************************/
- 292:Src/adc.c     **** void update_batt_date(void)
- 293:Src/adc.c     **** {
- 583              		.loc 1 293 0
+ 286:Src/adc.c     **** /****************************************************************************************
+ 287:Src/adc.c     ****  * outline  : update battery 
+ 288:Src/adc.c     ****  * argument : void
+ 289:Src/adc.c     ****  * return   : void
+ 290:Src/adc.c     **** ********************************************************************************************/
+ 291:Src/adc.c     **** void update_batt_date(void)
+ 292:Src/adc.c     **** {
+ 583              		.loc 1 292 0
  584              		.cfi_startproc
  585              		@ args = 0, pretend = 0, frame = 16
  586              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -949,52 +948,52 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  592 0002 84B0     		sub	sp, sp, #16
  593              	.LCFI18:
  594              		.cfi_def_cfa_offset 24
- 294:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
- 295:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_4;
- 595              		.loc 1 295 0
+ 293:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
+ 294:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_4;
+ 595              		.loc 1 294 0
  596 0004 0423     		movs	r3, #4
  597 0006 0093     		str	r3, [sp]
- 296:Src/adc.c     ****   sConfig.Rank = 1;
- 598              		.loc 1 296 0
+ 295:Src/adc.c     ****   sConfig.Rank = 1;
+ 598              		.loc 1 295 0
  599 0008 0123     		movs	r3, #1
  600 000a 0193     		str	r3, [sp, #4]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 17
+ 296:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 17
 
 
- 297:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
- 601              		.loc 1 297 0
+ 601              		.loc 1 296 0
  602 000c 0323     		movs	r3, #3
  603 000e 0293     		str	r3, [sp, #8]
- 298:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc1, &sConfig );  // setting store
- 604              		.loc 1 298 0
+ 297:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc1, &sConfig );  // setting store
+ 604              		.loc 1 297 0
  605 0010 0A4C     		ldr	r4, .L48
  606 0012 6946     		mov	r1, sp
  607 0014 2046     		mov	r0, r4
  608 0016 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  609              	.LVL34:
- 299:Src/adc.c     ****   HAL_ADC_Start( &hadc1 );     // ad convert start
- 610              		.loc 1 299 0
+ 298:Src/adc.c     ****   HAL_ADC_Start( &hadc1 );     // ad convert start
+ 610              		.loc 1 298 0
  611 001a 2046     		mov	r0, r4
  612 001c FFF7FEFF 		bl	HAL_ADC_Start
  613              	.LVL35:
  614              	.L46:
- 300:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc1,50 ) != HAL_OK );  // trans
- 615              		.loc 1 300 0 discriminator 1
+ 299:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc1,50 ) != HAL_OK );  // trans
+ 615              		.loc 1 299 0 discriminator 1
  616 0020 3221     		movs	r1, #50
  617 0022 0648     		ldr	r0, .L48
  618 0024 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  619              	.LVL36:
  620 0028 0028     		cmp	r0, #0
  621 002a F9D1     		bne	.L46
- 301:Src/adc.c     ****   batt_analog=HAL_ADC_GetValue(&hadc1);
- 622              		.loc 1 301 0
+ 300:Src/adc.c     ****   batt_analog=HAL_ADC_GetValue(&hadc1);
+ 622              		.loc 1 300 0
  623 002c 0348     		ldr	r0, .L48
  624 002e FFF7FEFF 		bl	HAL_ADC_GetValue
  625              	.LVL37:
  626 0032 034B     		ldr	r3, .L48+4
  627 0034 1880     		strh	r0, [r3]	@ movhi
- 302:Src/adc.c     **** }
- 628              		.loc 1 302 0
+ 301:Src/adc.c     **** }
+ 628              		.loc 1 301 0
  629 0036 04B0     		add	sp, sp, #16
  630              	.LCFI19:
  631              		.cfi_def_cfa_offset 8
@@ -1016,13 +1015,13 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  648              		.fpu fpv4-sp-d16
  650              	update_fr_sen_on:
  651              	.LFB132:
- 303:Src/adc.c     **** 
- 304:Src/adc.c     **** void update_fr_sen_on(void)
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 18
+ 302:Src/adc.c     **** 
+ 303:Src/adc.c     **** void update_fr_sen_on(void)
+ 304:Src/adc.c     **** {
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 18
 
 
- 305:Src/adc.c     **** {
- 652              		.loc 1 305 0
+ 652              		.loc 1 304 0
  653              		.cfi_startproc
  654              		@ args = 0, pretend = 0, frame = 16
  655              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1034,86 +1033,86 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  661 0002 84B0     		sub	sp, sp, #16
  662              	.LCFI21:
  663              		.cfi_def_cfa_offset 24
- 306:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
- 307:Src/adc.c     ****   sConfig.Rank = 1;
- 664              		.loc 1 307 0
+ 305:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
+ 306:Src/adc.c     ****   sConfig.Rank = 1;
+ 664              		.loc 1 306 0
  665 0004 0123     		movs	r3, #1
  666 0006 0193     		str	r3, [sp, #4]
- 308:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
- 667              		.loc 1 308 0
+ 307:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+ 667              		.loc 1 307 0
  668 0008 0323     		movs	r3, #3
  669 000a 0293     		str	r3, [sp, #8]
- 309:Src/adc.c     **** 
- 310:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_0;
- 670              		.loc 1 310 0
+ 308:Src/adc.c     **** 
+ 309:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_0;
+ 670              		.loc 1 309 0
  671 000c 04A9     		add	r1, sp, #16
  672 000e 0023     		movs	r3, #0
  673 0010 41F8103D 		str	r3, [r1, #-16]!
- 311:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
- 674              		.loc 1 311 0
+ 310:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+ 674              		.loc 1 310 0
  675 0014 144C     		ldr	r4, .L54
  676 0016 2046     		mov	r0, r4
  677 0018 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  678              	.LVL38:
- 312:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
- 679              		.loc 1 312 0
+ 311:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
+ 679              		.loc 1 311 0
  680 001c 2046     		mov	r0, r4
  681 001e FFF7FEFF 		bl	HAL_ADC_Start
  682              	.LVL39:
  683              	.L51:
- 313:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
- 684              		.loc 1 313 0 discriminator 1
+ 312:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+ 684              		.loc 1 312 0 discriminator 1
  685 0022 3221     		movs	r1, #50
  686 0024 1048     		ldr	r0, .L54
  687 0026 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  688              	.LVL40:
  689 002a 0028     		cmp	r0, #0
  690 002c F9D1     		bne	.L51
- 314:Src/adc.c     ****   sensor.adc_on[0] = HAL_ADC_GetValue(&hadc2);
- 691              		.loc 1 314 0
+ 313:Src/adc.c     ****   sensor.adc_on[0] = HAL_ADC_GetValue(&hadc2);
+ 691              		.loc 1 313 0
  692 002e 0E4C     		ldr	r4, .L54
  693 0030 2046     		mov	r0, r4
  694 0032 FFF7FEFF 		bl	HAL_ADC_GetValue
  695              	.LVL41:
  696 0036 0D4B     		ldr	r3, .L54+4
  697 0038 1880     		strh	r0, [r3]	@ movhi
- 315:Src/adc.c     **** 
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 19
+ 314:Src/adc.c     **** 
+ 315:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_3;
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 19
 
 
- 316:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_3;
- 698              		.loc 1 316 0
+ 698              		.loc 1 315 0
  699 003a 04A9     		add	r1, sp, #16
  700 003c 0323     		movs	r3, #3
  701 003e 41F8103D 		str	r3, [r1, #-16]!
- 317:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
- 702              		.loc 1 317 0
+ 316:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+ 702              		.loc 1 316 0
  703 0042 2046     		mov	r0, r4
  704 0044 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  705              	.LVL42:
- 318:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
- 706              		.loc 1 318 0
+ 317:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
+ 706              		.loc 1 317 0
  707 0048 2046     		mov	r0, r4
  708 004a FFF7FEFF 		bl	HAL_ADC_Start
  709              	.LVL43:
  710              	.L52:
- 319:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
- 711              		.loc 1 319 0 discriminator 1
+ 318:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+ 711              		.loc 1 318 0 discriminator 1
  712 004e 3221     		movs	r1, #50
  713 0050 0548     		ldr	r0, .L54
  714 0052 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  715              	.LVL44:
  716 0056 0028     		cmp	r0, #0
  717 0058 F9D1     		bne	.L52
- 320:Src/adc.c     ****   sensor.adc_on[3] = HAL_ADC_GetValue(&hadc2);
- 718              		.loc 1 320 0
+ 319:Src/adc.c     ****   sensor.adc_on[3] = HAL_ADC_GetValue(&hadc2);
+ 718              		.loc 1 319 0
  719 005a 0348     		ldr	r0, .L54
  720 005c FFF7FEFF 		bl	HAL_ADC_GetValue
  721              	.LVL45:
  722 0060 024B     		ldr	r3, .L54+4
  723 0062 D880     		strh	r0, [r3, #6]	@ movhi
- 321:Src/adc.c     **** }
- 724              		.loc 1 321 0
+ 320:Src/adc.c     **** }
+ 724              		.loc 1 320 0
  725 0064 04B0     		add	sp, sp, #16
  726              	.LCFI22:
  727              		.cfi_def_cfa_offset 8
@@ -1135,13 +1134,13 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  744              		.fpu fpv4-sp-d16
  746              	update_side_sen_on:
  747              	.LFB133:
- 322:Src/adc.c     **** 
- 323:Src/adc.c     **** void update_side_sen_on(void)
- 324:Src/adc.c     **** {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 20
+ 321:Src/adc.c     **** 
+ 322:Src/adc.c     **** void update_side_sen_on(void)
+ 323:Src/adc.c     **** {
+ 748              		.loc 1 323 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 20
 
 
- 748              		.loc 1 324 0
  749              		.cfi_startproc
  750              		@ args = 0, pretend = 0, frame = 16
  751              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1153,85 +1152,85 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  757 0002 84B0     		sub	sp, sp, #16
  758              	.LCFI24:
  759              		.cfi_def_cfa_offset 24
- 325:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
- 326:Src/adc.c     ****   sConfig.Rank = 1;
- 760              		.loc 1 326 0
+ 324:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
+ 325:Src/adc.c     ****   sConfig.Rank = 1;
+ 760              		.loc 1 325 0
  761 0004 0123     		movs	r3, #1
  762 0006 0193     		str	r3, [sp, #4]
- 327:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
- 763              		.loc 1 327 0
+ 326:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+ 763              		.loc 1 326 0
  764 0008 0322     		movs	r2, #3
  765 000a 0292     		str	r2, [sp, #8]
- 328:Src/adc.c     **** 
- 329:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_1;
- 766              		.loc 1 329 0
+ 327:Src/adc.c     **** 
+ 328:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_1;
+ 766              		.loc 1 328 0
  767 000c 04A9     		add	r1, sp, #16
  768 000e 41F8103D 		str	r3, [r1, #-16]!
- 330:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
- 769              		.loc 1 330 0
+ 329:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+ 769              		.loc 1 329 0
  770 0012 154C     		ldr	r4, .L60
  771 0014 2046     		mov	r0, r4
  772 0016 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  773              	.LVL46:
- 331:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
- 774              		.loc 1 331 0
+ 330:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
+ 774              		.loc 1 330 0
  775 001a 2046     		mov	r0, r4
  776 001c FFF7FEFF 		bl	HAL_ADC_Start
  777              	.LVL47:
  778              	.L57:
- 332:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
- 779              		.loc 1 332 0 discriminator 1
+ 331:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+ 779              		.loc 1 331 0 discriminator 1
  780 0020 3221     		movs	r1, #50
  781 0022 1148     		ldr	r0, .L60
  782 0024 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  783              	.LVL48:
  784 0028 0028     		cmp	r0, #0
  785 002a F9D1     		bne	.L57
- 333:Src/adc.c     ****   sensor.adc_on[1] = HAL_ADC_GetValue(&hadc3);
- 786              		.loc 1 333 0
+ 332:Src/adc.c     ****   sensor.adc_on[1] = HAL_ADC_GetValue(&hadc3);
+ 786              		.loc 1 332 0
  787 002c 0E4C     		ldr	r4, .L60
  788 002e 2046     		mov	r0, r4
  789 0030 FFF7FEFF 		bl	HAL_ADC_GetValue
  790              	.LVL49:
  791 0034 0D4B     		ldr	r3, .L60+4
  792 0036 5880     		strh	r0, [r3, #2]	@ movhi
- 334:Src/adc.c     **** 
- 335:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_2;
- 793              		.loc 1 335 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 21
-
-
+ 333:Src/adc.c     **** 
+ 334:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_2;
+ 793              		.loc 1 334 0
  794 0038 04A9     		add	r1, sp, #16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 21
+
+
  795 003a 0223     		movs	r3, #2
  796 003c 41F8103D 		str	r3, [r1, #-16]!
- 336:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
- 797              		.loc 1 336 0
+ 335:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+ 797              		.loc 1 335 0
  798 0040 2046     		mov	r0, r4
  799 0042 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  800              	.LVL50:
- 337:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
- 801              		.loc 1 337 0
+ 336:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
+ 801              		.loc 1 336 0
  802 0046 2046     		mov	r0, r4
  803 0048 FFF7FEFF 		bl	HAL_ADC_Start
  804              	.LVL51:
  805              	.L58:
- 338:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
- 806              		.loc 1 338 0 discriminator 1
+ 337:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+ 806              		.loc 1 337 0 discriminator 1
  807 004c 3221     		movs	r1, #50
  808 004e 0648     		ldr	r0, .L60
  809 0050 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  810              	.LVL52:
  811 0054 0028     		cmp	r0, #0
  812 0056 F9D1     		bne	.L58
- 339:Src/adc.c     ****   sensor.adc_on[2] = HAL_ADC_GetValue(&hadc3);
- 813              		.loc 1 339 0
+ 338:Src/adc.c     ****   sensor.adc_on[2] = HAL_ADC_GetValue(&hadc3);
+ 813              		.loc 1 338 0
  814 0058 0348     		ldr	r0, .L60
  815 005a FFF7FEFF 		bl	HAL_ADC_GetValue
  816              	.LVL53:
  817 005e 034B     		ldr	r3, .L60+4
  818 0060 9880     		strh	r0, [r3, #4]	@ movhi
- 340:Src/adc.c     **** }
- 819              		.loc 1 340 0
+ 339:Src/adc.c     **** }
+ 819              		.loc 1 339 0
  820 0062 04B0     		add	sp, sp, #16
  821              	.LCFI25:
  822              		.cfi_def_cfa_offset 8
@@ -1253,15 +1252,15 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  839              		.fpu fpv4-sp-d16
  841              	update_fr_sen_off:
  842              	.LFB134:
- 341:Src/adc.c     **** 
- 342:Src/adc.c     **** void update_fr_sen_off(void)
- 343:Src/adc.c     **** {
- 843              		.loc 1 343 0
+ 340:Src/adc.c     **** 
+ 341:Src/adc.c     **** void update_fr_sen_off(void)
+ 342:Src/adc.c     **** {
+ 843              		.loc 1 342 0
  844              		.cfi_startproc
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 22
-
-
  845              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 22
+
+
  846              		@ frame_needed = 0, uses_anonymous_args = 0
  847 0000 10B5     		push	{r4, lr}
  848              	.LCFI26:
@@ -1271,86 +1270,86 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  852 0002 84B0     		sub	sp, sp, #16
  853              	.LCFI27:
  854              		.cfi_def_cfa_offset 24
- 344:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
- 345:Src/adc.c     ****   sConfig.Rank = 1;
- 855              		.loc 1 345 0
+ 343:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
+ 344:Src/adc.c     ****   sConfig.Rank = 1;
+ 855              		.loc 1 344 0
  856 0004 0123     		movs	r3, #1
  857 0006 0193     		str	r3, [sp, #4]
- 346:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
- 858              		.loc 1 346 0
+ 345:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+ 858              		.loc 1 345 0
  859 0008 0323     		movs	r3, #3
  860 000a 0293     		str	r3, [sp, #8]
- 347:Src/adc.c     **** 
- 348:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_0;
- 861              		.loc 1 348 0
+ 346:Src/adc.c     **** 
+ 347:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_0;
+ 861              		.loc 1 347 0
  862 000c 04A9     		add	r1, sp, #16
  863 000e 0023     		movs	r3, #0
  864 0010 41F8103D 		str	r3, [r1, #-16]!
- 349:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
- 865              		.loc 1 349 0
+ 348:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+ 865              		.loc 1 348 0
  866 0014 144C     		ldr	r4, .L66
  867 0016 2046     		mov	r0, r4
  868 0018 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  869              	.LVL54:
- 350:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
- 870              		.loc 1 350 0
+ 349:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
+ 870              		.loc 1 349 0
  871 001c 2046     		mov	r0, r4
  872 001e FFF7FEFF 		bl	HAL_ADC_Start
  873              	.LVL55:
  874              	.L63:
- 351:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
- 875              		.loc 1 351 0 discriminator 1
+ 350:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+ 875              		.loc 1 350 0 discriminator 1
  876 0022 3221     		movs	r1, #50
  877 0024 1048     		ldr	r0, .L66
  878 0026 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  879              	.LVL56:
  880 002a 0028     		cmp	r0, #0
  881 002c F9D1     		bne	.L63
- 352:Src/adc.c     ****   sensor.adc_off[0] = HAL_ADC_GetValue(&hadc2);
- 882              		.loc 1 352 0
+ 351:Src/adc.c     ****   sensor.adc_off[0] = HAL_ADC_GetValue(&hadc2);
+ 882              		.loc 1 351 0
  883 002e 0E4C     		ldr	r4, .L66
  884 0030 2046     		mov	r0, r4
  885 0032 FFF7FEFF 		bl	HAL_ADC_GetValue
  886              	.LVL57:
  887 0036 0D4B     		ldr	r3, .L66+4
  888 0038 1881     		strh	r0, [r3, #8]	@ movhi
- 353:Src/adc.c     **** 
- 354:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_3;
- 889              		.loc 1 354 0
+ 352:Src/adc.c     **** 
+ 353:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_3;
+ 889              		.loc 1 353 0
  890 003a 04A9     		add	r1, sp, #16
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 23
-
-
  891 003c 0323     		movs	r3, #3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 23
+
+
  892 003e 41F8103D 		str	r3, [r1, #-16]!
- 355:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
- 893              		.loc 1 355 0
+ 354:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
+ 893              		.loc 1 354 0
  894 0042 2046     		mov	r0, r4
  895 0044 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  896              	.LVL58:
- 356:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
- 897              		.loc 1 356 0
+ 355:Src/adc.c     ****   HAL_ADC_Start( &hadc2 );     // ad convert start
+ 897              		.loc 1 355 0
  898 0048 2046     		mov	r0, r4
  899 004a FFF7FEFF 		bl	HAL_ADC_Start
  900              	.LVL59:
  901              	.L64:
- 357:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
- 902              		.loc 1 357 0 discriminator 1
+ 356:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
+ 902              		.loc 1 356 0 discriminator 1
  903 004e 3221     		movs	r1, #50
  904 0050 0548     		ldr	r0, .L66
  905 0052 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  906              	.LVL60:
  907 0056 0028     		cmp	r0, #0
  908 0058 F9D1     		bne	.L64
- 358:Src/adc.c     ****   sensor.adc_off[3] = HAL_ADC_GetValue(&hadc2);
- 909              		.loc 1 358 0
+ 357:Src/adc.c     ****   sensor.adc_off[3] = HAL_ADC_GetValue(&hadc2);
+ 909              		.loc 1 357 0
  910 005a 0348     		ldr	r0, .L66
  911 005c FFF7FEFF 		bl	HAL_ADC_GetValue
  912              	.LVL61:
  913 0060 024B     		ldr	r3, .L66+4
  914 0062 D881     		strh	r0, [r3, #14]	@ movhi
- 359:Src/adc.c     **** }
- 915              		.loc 1 359 0
+ 358:Src/adc.c     **** }
+ 915              		.loc 1 358 0
  916 0064 04B0     		add	sp, sp, #16
  917              	.LCFI28:
  918              		.cfi_def_cfa_offset 8
@@ -1372,16 +1371,16 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  935              		.fpu fpv4-sp-d16
  937              	update_side_sen_off:
  938              	.LFB135:
- 360:Src/adc.c     **** 
- 361:Src/adc.c     **** void update_side_sen_off(void)
- 362:Src/adc.c     **** {
- 939              		.loc 1 362 0
+ 359:Src/adc.c     **** 
+ 360:Src/adc.c     **** void update_side_sen_off(void)
+ 361:Src/adc.c     **** {
+ 939              		.loc 1 361 0
  940              		.cfi_startproc
  941              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 24
-
-
  942              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 24
+
+
  943 0000 10B5     		push	{r4, lr}
  944              	.LCFI29:
  945              		.cfi_def_cfa_offset 8
@@ -1390,85 +1389,85 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  948 0002 84B0     		sub	sp, sp, #16
  949              	.LCFI30:
  950              		.cfi_def_cfa_offset 24
- 363:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
- 364:Src/adc.c     ****   sConfig.Rank = 1;
- 951              		.loc 1 364 0
+ 362:Src/adc.c     ****   ADC_ChannelConfTypeDef sConfig;
+ 363:Src/adc.c     ****   sConfig.Rank = 1;
+ 951              		.loc 1 363 0
  952 0004 0123     		movs	r3, #1
  953 0006 0193     		str	r3, [sp, #4]
- 365:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
- 954              		.loc 1 365 0
+ 364:Src/adc.c     ****   sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+ 954              		.loc 1 364 0
  955 0008 0322     		movs	r2, #3
  956 000a 0292     		str	r2, [sp, #8]
- 366:Src/adc.c     **** 
- 367:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_1;
- 957              		.loc 1 367 0
+ 365:Src/adc.c     **** 
+ 366:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_1;
+ 957              		.loc 1 366 0
  958 000c 04A9     		add	r1, sp, #16
  959 000e 41F8103D 		str	r3, [r1, #-16]!
- 368:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
- 960              		.loc 1 368 0
+ 367:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+ 960              		.loc 1 367 0
  961 0012 154C     		ldr	r4, .L72
  962 0014 2046     		mov	r0, r4
  963 0016 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  964              	.LVL62:
- 369:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
- 965              		.loc 1 369 0
+ 368:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
+ 965              		.loc 1 368 0
  966 001a 2046     		mov	r0, r4
  967 001c FFF7FEFF 		bl	HAL_ADC_Start
  968              	.LVL63:
  969              	.L69:
- 370:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
- 970              		.loc 1 370 0 discriminator 1
+ 369:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+ 970              		.loc 1 369 0 discriminator 1
  971 0020 3221     		movs	r1, #50
  972 0022 1148     		ldr	r0, .L72
  973 0024 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  974              	.LVL64:
  975 0028 0028     		cmp	r0, #0
  976 002a F9D1     		bne	.L69
- 371:Src/adc.c     ****   sensor.adc_off[1] = HAL_ADC_GetValue(&hadc3);
- 977              		.loc 1 371 0
+ 370:Src/adc.c     ****   sensor.adc_off[1] = HAL_ADC_GetValue(&hadc3);
+ 977              		.loc 1 370 0
  978 002c 0E4C     		ldr	r4, .L72
  979 002e 2046     		mov	r0, r4
  980 0030 FFF7FEFF 		bl	HAL_ADC_GetValue
  981              	.LVL65:
  982 0034 0D4B     		ldr	r3, .L72+4
  983 0036 5881     		strh	r0, [r3, #10]	@ movhi
- 372:Src/adc.c     **** 
- 373:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_2;
- 984              		.loc 1 373 0
+ 371:Src/adc.c     **** 
+ 372:Src/adc.c     ****   sConfig.Channel = ADC_CHANNEL_2;
+ 984              		.loc 1 372 0
  985 0038 04A9     		add	r1, sp, #16
  986 003a 0223     		movs	r3, #2
  987 003c 41F8103D 		str	r3, [r1, #-16]!
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 25
+ 373:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 25
 
 
- 374:Src/adc.c     ****   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
- 988              		.loc 1 374 0
+ 988              		.loc 1 373 0
  989 0040 2046     		mov	r0, r4
  990 0042 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
  991              	.LVL66:
- 375:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
- 992              		.loc 1 375 0
+ 374:Src/adc.c     ****   HAL_ADC_Start( &hadc3 );     // ad convert start
+ 992              		.loc 1 374 0
  993 0046 2046     		mov	r0, r4
  994 0048 FFF7FEFF 		bl	HAL_ADC_Start
  995              	.LVL67:
  996              	.L70:
- 376:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
- 997              		.loc 1 376 0 discriminator 1
+ 375:Src/adc.c     ****   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
+ 997              		.loc 1 375 0 discriminator 1
  998 004c 3221     		movs	r1, #50
  999 004e 0648     		ldr	r0, .L72
  1000 0050 FFF7FEFF 		bl	HAL_ADC_PollForConversion
  1001              	.LVL68:
  1002 0054 0028     		cmp	r0, #0
  1003 0056 F9D1     		bne	.L70
- 377:Src/adc.c     ****   sensor.adc_off[2] = HAL_ADC_GetValue(&hadc3);
- 1004              		.loc 1 377 0
+ 376:Src/adc.c     ****   sensor.adc_off[2] = HAL_ADC_GetValue(&hadc3);
+ 1004              		.loc 1 376 0
  1005 0058 0348     		ldr	r0, .L72
  1006 005a FFF7FEFF 		bl	HAL_ADC_GetValue
  1007              	.LVL69:
  1008 005e 034B     		ldr	r3, .L72+4
  1009 0060 9881     		strh	r0, [r3, #12]	@ movhi
- 378:Src/adc.c     **** }
- 1010              		.loc 1 378 0
+ 377:Src/adc.c     **** }
+ 1010              		.loc 1 377 0
  1011 0062 04B0     		add	sp, sp, #16
  1012              	.LCFI31:
  1013              		.cfi_def_cfa_offset 8
@@ -1490,26 +1489,26 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  1030              		.fpu fpv4-sp-d16
  1032              	update_all_sen:
  1033              	.LFB136:
- 379:Src/adc.c     **** 
- 380:Src/adc.c     **** void update_all_sen(void){
- 1034              		.loc 1 380 0
+ 378:Src/adc.c     **** 
+ 379:Src/adc.c     **** void update_all_sen(void){
+ 1034              		.loc 1 379 0
  1035              		.cfi_startproc
  1036              		@ args = 0, pretend = 0, frame = 0
  1037              		@ frame_needed = 0, uses_anonymous_args = 0
  1038              		@ link register save eliminated.
  1039              	.LVL70:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 26
-
-
  1040              	.LBB5:
- 381:Src/adc.c     ****   for( int i=0;i<4;i++){
- 1041              		.loc 1 381 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 26
+
+
+ 380:Src/adc.c     ****   for( int i=0;i<4;i++){
+ 1041              		.loc 1 380 0
  1042 0000 0023     		movs	r3, #0
  1043 0002 0BE0     		b	.L75
  1044              	.LVL71:
  1045              	.L76:
- 382:Src/adc.c     ****     sensor.adc[i] = sensor.adc_on[i] - sensor.adc_off[i];
- 1046              		.loc 1 382 0 discriminator 3
+ 381:Src/adc.c     ****     sensor.adc[i] = sensor.adc_on[i] - sensor.adc_off[i];
+ 1046              		.loc 1 381 0 discriminator 3
  1047 0004 314A     		ldr	r2, .L89
  1048 0006 32F81310 		ldrh	r1, [r2, r3, lsl #1]
  1049 000a 181D     		adds	r0, r3, #4
@@ -1517,188 +1516,188 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  1051 0010 091A     		subs	r1, r1, r0
  1052 0012 03F10800 		add	r0, r3, #8
  1053 0016 22F81010 		strh	r1, [r2, r0, lsl #1]	@ movhi
- 381:Src/adc.c     ****   for( int i=0;i<4;i++){
- 1054              		.loc 1 381 0 discriminator 3
+ 380:Src/adc.c     ****   for( int i=0;i<4;i++){
+ 1054              		.loc 1 380 0 discriminator 3
  1055 001a 0133     		adds	r3, r3, #1
  1056              	.LVL72:
  1057              	.L75:
- 381:Src/adc.c     ****   for( int i=0;i<4;i++){
- 1058              		.loc 1 381 0 is_stmt 0 discriminator 1
+ 380:Src/adc.c     ****   for( int i=0;i<4;i++){
+ 1058              		.loc 1 380 0 is_stmt 0 discriminator 1
  1059 001c 032B     		cmp	r3, #3
  1060 001e F1DD     		ble	.L76
  1061              	.LBE5:
- 383:Src/adc.c     ****   }
- 384:Src/adc.c     ****   
- 385:Src/adc.c     ****   if(sensor.adc[0] > threshhold_0){
- 1062              		.loc 1 385 0 is_stmt 1
+ 382:Src/adc.c     ****   }
+ 383:Src/adc.c     ****   
+ 384:Src/adc.c     ****   if(sensor.adc[0] > threshhold_0){
+ 1062              		.loc 1 384 0 is_stmt 1
  1063 0020 2A4B     		ldr	r3, .L89
  1064              	.LVL73:
  1065 0022 1B8A     		ldrh	r3, [r3, #16]
  1066 0024 B3F5487F 		cmp	r3, #800
  1067 0028 0BD9     		bls	.L77
- 386:Src/adc.c     ****     if(sensor.count[0] > 20){
- 1068              		.loc 1 386 0
+ 385:Src/adc.c     ****     if(sensor.count[0] > 20){
+ 1068              		.loc 1 385 0
  1069 002a 284B     		ldr	r3, .L89
  1070 002c 1B8C     		ldrh	r3, [r3, #32]
  1071 002e 142B     		cmp	r3, #20
  1072 0030 03D9     		bls	.L78
- 387:Src/adc.c     ****       sensor.wall[0] = true;
- 1073              		.loc 1 387 0
+ 386:Src/adc.c     ****       sensor.wall[0] = true;
+ 1073              		.loc 1 386 0
  1074 0032 264B     		ldr	r3, .L89
  1075 0034 0122     		movs	r2, #1
  1076 0036 1A83     		strh	r2, [r3, #24]	@ movhi
  1077 0038 07E0     		b	.L79
  1078              	.L78:
- 388:Src/adc.c     ****     } else{
- 389:Src/adc.c     ****       sensor.count[0] ++;
- 1079              		.loc 1 389 0
+ 387:Src/adc.c     ****     } else{
+ 388:Src/adc.c     ****       sensor.count[0] ++;
+ 1079              		.loc 1 388 0
  1080 003a 0133     		adds	r3, r3, #1
  1081 003c 234A     		ldr	r2, .L89
  1082 003e 1384     		strh	r3, [r2, #32]	@ movhi
  1083 0040 03E0     		b	.L79
  1084              	.L77:
- 390:Src/adc.c     ****     }
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 27
+ 389:Src/adc.c     ****     }
+ 390:Src/adc.c     ****   }else{
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 27
 
 
- 391:Src/adc.c     ****   }else{
- 392:Src/adc.c     ****     sensor.wall[0] = false;
- 1085              		.loc 1 392 0
+ 391:Src/adc.c     ****     sensor.wall[0] = false;
+ 1085              		.loc 1 391 0
  1086 0042 224B     		ldr	r3, .L89
  1087 0044 0022     		movs	r2, #0
  1088 0046 1A83     		strh	r2, [r3, #24]	@ movhi
- 393:Src/adc.c     ****     sensor.count[0] = 0;
- 1089              		.loc 1 393 0
+ 392:Src/adc.c     ****     sensor.count[0] = 0;
+ 1089              		.loc 1 392 0
  1090 0048 1A84     		strh	r2, [r3, #32]	@ movhi
  1091              	.L79:
- 394:Src/adc.c     ****   }
- 395:Src/adc.c     ****   
- 396:Src/adc.c     ****   if(sensor_adc[1] > threshhold_1){
- 1092              		.loc 1 396 0
+ 393:Src/adc.c     ****   }
+ 394:Src/adc.c     ****   
+ 395:Src/adc.c     ****   if(sensor_adc[1] > threshhold_1){
+ 1092              		.loc 1 395 0
  1093 004a 214B     		ldr	r3, .L89+4
  1094 004c 5B88     		ldrh	r3, [r3, #2]
  1095 004e B3F5487F 		cmp	r3, #800
  1096 0052 0BD9     		bls	.L80
- 397:Src/adc.c     ****     if(sensor.count[1] > 20){
- 1097              		.loc 1 397 0
+ 396:Src/adc.c     ****     if(sensor.count[1] > 20){
+ 1097              		.loc 1 396 0
  1098 0054 1D4B     		ldr	r3, .L89
  1099 0056 5B8C     		ldrh	r3, [r3, #34]
  1100 0058 142B     		cmp	r3, #20
  1101 005a 03D9     		bls	.L81
- 398:Src/adc.c     ****       sensor.wall[1] = true;
- 1102              		.loc 1 398 0
+ 397:Src/adc.c     ****       sensor.wall[1] = true;
+ 1102              		.loc 1 397 0
  1103 005c 1B4B     		ldr	r3, .L89
  1104 005e 0122     		movs	r2, #1
  1105 0060 5A83     		strh	r2, [r3, #26]	@ movhi
  1106 0062 07E0     		b	.L82
  1107              	.L81:
- 399:Src/adc.c     ****     } else{
- 400:Src/adc.c     ****       sensor.count[1] ++;
- 1108              		.loc 1 400 0
+ 398:Src/adc.c     ****     } else{
+ 399:Src/adc.c     ****       sensor.count[1] ++;
+ 1108              		.loc 1 399 0
  1109 0064 0133     		adds	r3, r3, #1
  1110 0066 194A     		ldr	r2, .L89
  1111 0068 5384     		strh	r3, [r2, #34]	@ movhi
  1112 006a 03E0     		b	.L82
  1113              	.L80:
- 401:Src/adc.c     ****     }
- 402:Src/adc.c     ****   }else{
- 403:Src/adc.c     ****     sensor.wall[1] = false;
- 1114              		.loc 1 403 0
+ 400:Src/adc.c     ****     }
+ 401:Src/adc.c     ****   }else{
+ 402:Src/adc.c     ****     sensor.wall[1] = false;
+ 1114              		.loc 1 402 0
  1115 006c 174B     		ldr	r3, .L89
  1116 006e 0022     		movs	r2, #0
  1117 0070 5A83     		strh	r2, [r3, #26]	@ movhi
- 404:Src/adc.c     ****     sensor.count[1] = 0;
- 1118              		.loc 1 404 0
+ 403:Src/adc.c     ****     sensor.count[1] = 0;
+ 1118              		.loc 1 403 0
  1119 0072 5A84     		strh	r2, [r3, #34]	@ movhi
  1120              	.L82:
- 405:Src/adc.c     ****   }
- 406:Src/adc.c     **** 
- 407:Src/adc.c     ****   if(sensor_adc[2] > threshhold_2){
- 1121              		.loc 1 407 0
+ 404:Src/adc.c     ****   }
+ 405:Src/adc.c     **** 
+ 406:Src/adc.c     ****   if(sensor_adc[2] > threshhold_2){
+ 1121              		.loc 1 406 0
  1122 0074 164B     		ldr	r3, .L89+4
  1123 0076 9B88     		ldrh	r3, [r3, #4]
  1124 0078 B3F5487F 		cmp	r3, #800
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 28
-
-
  1125 007c 0BD9     		bls	.L83
- 408:Src/adc.c     ****     if(sensor.count[2] > 20){
- 1126              		.loc 1 408 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 28
+
+
+ 407:Src/adc.c     ****     if(sensor.count[2] > 20){
+ 1126              		.loc 1 407 0
  1127 007e 134B     		ldr	r3, .L89
  1128 0080 9B8C     		ldrh	r3, [r3, #36]
  1129 0082 142B     		cmp	r3, #20
  1130 0084 03D9     		bls	.L84
- 409:Src/adc.c     ****       sensor.wall[2] = true;
- 1131              		.loc 1 409 0
+ 408:Src/adc.c     ****       sensor.wall[2] = true;
+ 1131              		.loc 1 408 0
  1132 0086 114B     		ldr	r3, .L89
  1133 0088 0122     		movs	r2, #1
  1134 008a 9A83     		strh	r2, [r3, #28]	@ movhi
  1135 008c 07E0     		b	.L85
  1136              	.L84:
- 410:Src/adc.c     ****     } else{
- 411:Src/adc.c     ****       sensor.count[2] ++;
- 1137              		.loc 1 411 0
+ 409:Src/adc.c     ****     } else{
+ 410:Src/adc.c     ****       sensor.count[2] ++;
+ 1137              		.loc 1 410 0
  1138 008e 0133     		adds	r3, r3, #1
  1139 0090 0E4A     		ldr	r2, .L89
  1140 0092 9384     		strh	r3, [r2, #36]	@ movhi
  1141 0094 03E0     		b	.L85
  1142              	.L83:
- 412:Src/adc.c     ****     }
- 413:Src/adc.c     ****   }else{
- 414:Src/adc.c     ****     sensor.wall[2] = false;
- 1143              		.loc 1 414 0
+ 411:Src/adc.c     ****     }
+ 412:Src/adc.c     ****   }else{
+ 413:Src/adc.c     ****     sensor.wall[2] = false;
+ 1143              		.loc 1 413 0
  1144 0096 0D4B     		ldr	r3, .L89
  1145 0098 0022     		movs	r2, #0
  1146 009a 9A83     		strh	r2, [r3, #28]	@ movhi
- 415:Src/adc.c     ****     sensor.count[2] = 0;
- 1147              		.loc 1 415 0
+ 414:Src/adc.c     ****     sensor.count[2] = 0;
+ 1147              		.loc 1 414 0
  1148 009c 9A84     		strh	r2, [r3, #36]	@ movhi
  1149              	.L85:
- 416:Src/adc.c     ****   }
- 417:Src/adc.c     **** 
- 418:Src/adc.c     ****   if(sensor.adc[3] > threshhold_3){
- 1150              		.loc 1 418 0
+ 415:Src/adc.c     ****   }
+ 416:Src/adc.c     **** 
+ 417:Src/adc.c     ****   if(sensor.adc[3] > threshhold_3){
+ 1150              		.loc 1 417 0
  1151 009e 0B4B     		ldr	r3, .L89
  1152 00a0 DB8A     		ldrh	r3, [r3, #22]
  1153 00a2 B3F5487F 		cmp	r3, #800
  1154 00a6 0BD9     		bls	.L86
- 419:Src/adc.c     ****     if(sensor.count[3] > 20){
- 1155              		.loc 1 419 0
+ 418:Src/adc.c     ****     if(sensor.count[3] > 20){
+ 1155              		.loc 1 418 0
  1156 00a8 084B     		ldr	r3, .L89
  1157 00aa DB8C     		ldrh	r3, [r3, #38]
  1158 00ac 142B     		cmp	r3, #20
  1159 00ae 03D9     		bls	.L87
- 420:Src/adc.c     ****       sensor.wall[3] = true;
- 1160              		.loc 1 420 0
+ 419:Src/adc.c     ****       sensor.wall[3] = true;
+ 1160              		.loc 1 419 0
  1161 00b0 064B     		ldr	r3, .L89
  1162 00b2 0122     		movs	r2, #1
  1163 00b4 DA83     		strh	r2, [r3, #30]	@ movhi
  1164 00b6 7047     		bx	lr
  1165              	.L87:
- 421:Src/adc.c     ****     } else{
- 422:Src/adc.c     ****       sensor.count[3] ++;
- 1166              		.loc 1 422 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 29
-
-
+ 420:Src/adc.c     ****     } else{
+ 421:Src/adc.c     ****       sensor.count[3] ++;
+ 1166              		.loc 1 421 0
  1167 00b8 0133     		adds	r3, r3, #1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 29
+
+
  1168 00ba 044A     		ldr	r2, .L89
  1169 00bc D384     		strh	r3, [r2, #38]	@ movhi
  1170 00be 7047     		bx	lr
  1171              	.L86:
- 423:Src/adc.c     ****     }
- 424:Src/adc.c     ****   }else{
- 425:Src/adc.c     ****     sensor.wall[3] = false;
- 1172              		.loc 1 425 0
+ 422:Src/adc.c     ****     }
+ 423:Src/adc.c     ****   }else{
+ 424:Src/adc.c     ****     sensor.wall[3] = false;
+ 1172              		.loc 1 424 0
  1173 00c0 024B     		ldr	r3, .L89
  1174 00c2 0022     		movs	r2, #0
  1175 00c4 DA83     		strh	r2, [r3, #30]	@ movhi
- 426:Src/adc.c     ****     sensor.count[3] = 0;
- 1176              		.loc 1 426 0
+ 425:Src/adc.c     ****     sensor.count[3] = 0;
+ 1176              		.loc 1 425 0
  1177 00c6 DA84     		strh	r2, [r3, #38]	@ movhi
- 427:Src/adc.c     ****   }
- 428:Src/adc.c     **** }
- 1178              		.loc 1 428 0
+ 426:Src/adc.c     ****   }
+ 427:Src/adc.c     **** }
+ 1178              		.loc 1 427 0
  1179 00c8 7047     		bx	lr
  1180              	.L90:
  1181 00ca 00BF     		.align	2
@@ -1734,48 +1733,48 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 1
  1210              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
  1211              		.file 16 "Inc/adc.h"
  1212              		.file 17 "Inc/global.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s 			page 30
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 adc.c
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:18     .text.MX_ADC1_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:25     .text.MX_ADC1_Init:00000000 MX_ADC1_Init
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:117    .text.MX_ADC1_Init:00000060 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:18     .text.MX_ADC1_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:25     .text.MX_ADC1_Init:00000000 MX_ADC1_Init
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:117    .text.MX_ADC1_Init:00000060 $d
                             *COM*:00000048 hadc1
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:125    .text.MX_ADC2_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:132    .text.MX_ADC2_Init:00000000 MX_ADC2_Init
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:222    .text.MX_ADC2_Init:00000060 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:125    .text.MX_ADC2_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:132    .text.MX_ADC2_Init:00000000 MX_ADC2_Init
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:222    .text.MX_ADC2_Init:00000060 $d
                             *COM*:00000048 hadc2
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:230    .text.MX_ADC3_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:237    .text.MX_ADC3_Init:00000000 MX_ADC3_Init
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:327    .text.MX_ADC3_Init:00000060 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:230    .text.MX_ADC3_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:237    .text.MX_ADC3_Init:00000000 MX_ADC3_Init
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:327    .text.MX_ADC3_Init:00000060 $d
                             *COM*:00000048 hadc3
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:335    .text.HAL_ADC_MspInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:342    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:474    .text.HAL_ADC_MspInit:000000a4 $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:483    .text.HAL_ADC_MspDeInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:490    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:565    .text.HAL_ADC_MspDeInit:00000058 $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:574    .text.update_batt_date:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:581    .text.update_batt_date:00000000 update_batt_date
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:637    .text.update_batt_date:0000003c $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:643    .text.update_fr_sen_on:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:650    .text.update_fr_sen_on:00000000 update_fr_sen_on
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:733    .text.update_fr_sen_on:00000068 $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:739    .text.update_side_sen_on:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:746    .text.update_side_sen_on:00000000 update_side_sen_on
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:828    .text.update_side_sen_on:00000068 $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:834    .text.update_fr_sen_off:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:841    .text.update_fr_sen_off:00000000 update_fr_sen_off
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:924    .text.update_fr_sen_off:00000068 $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:930    .text.update_side_sen_off:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:937    .text.update_side_sen_off:00000000 update_side_sen_off
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:1019   .text.update_side_sen_off:00000068 $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:1025   .text.update_all_sen:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:1032   .text.update_all_sen:00000000 update_all_sen
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:1183   .text.update_all_sen:000000cc $d
-C:\Users\kotaro\AppData\Local\Temp\cctw4VgC.s:1192   .rodata.MX_ADC1_Init.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:335    .text.HAL_ADC_MspInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:342    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:474    .text.HAL_ADC_MspInit:000000a4 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:483    .text.HAL_ADC_MspDeInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:490    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:565    .text.HAL_ADC_MspDeInit:00000058 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:574    .text.update_batt_date:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:581    .text.update_batt_date:00000000 update_batt_date
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:637    .text.update_batt_date:0000003c $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:643    .text.update_fr_sen_on:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:650    .text.update_fr_sen_on:00000000 update_fr_sen_on
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:733    .text.update_fr_sen_on:00000068 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:739    .text.update_side_sen_on:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:746    .text.update_side_sen_on:00000000 update_side_sen_on
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:828    .text.update_side_sen_on:00000068 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:834    .text.update_fr_sen_off:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:841    .text.update_fr_sen_off:00000000 update_fr_sen_off
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:924    .text.update_fr_sen_off:00000068 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:930    .text.update_side_sen_off:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:937    .text.update_side_sen_off:00000000 update_side_sen_off
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:1019   .text.update_side_sen_off:00000068 $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:1025   .text.update_all_sen:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:1032   .text.update_all_sen:00000000 update_all_sen
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:1183   .text.update_all_sen:000000cc $d
+C:\Users\kotaro\AppData\Local\Temp\cc9h5LY7.s:1192   .rodata.MX_ADC1_Init.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_ADC_Init
