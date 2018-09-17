@@ -212,7 +212,7 @@ float get_gyro(void){
   return degree;
 }
 
-void gyro_offset_calc_start(void){
+void gyro_offset_calc_reset(void){
   gyro.offset = 0.0f;
   gyro.offset_cnt = 0;
   flag.gyro_calc = false;

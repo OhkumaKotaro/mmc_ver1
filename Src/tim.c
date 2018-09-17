@@ -489,6 +489,11 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+/****************************************************************************************
+ * outline  : out put pwm of buzzer
+ * argument : hz(frequency),vol(volume 0~Period)
+ * return   : void
+********************************************************************************************/
 void Buzzer_pwm(int hz,int vol)
 {
   htim2.Instance = TIM2;
@@ -518,10 +523,29 @@ void Buzzer_pwm(int hz,int vol)
     Error_Handler();
   }
 }
+
 void Motor_pwm(int left_pwm,int right_pwm){
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+
+  //max and min
+  if(left_pwm > 800){
+    left_pwm = 800;
+  }
+  if(left_pwm < -800){
+    left_pwm = -800;
+  }
+
+  if(right_pwm > 800){
+    right_pwm = 800;
+  }
+  if(right_pwm < -800){
+    right_pwm = -800;
+  }
 
   //set left_pwm
   if(left_pwm >= 0){
@@ -537,13 +561,12 @@ void Motor_pwm(int left_pwm,int right_pwm){
     }
   }
   else  if(left_pwm < 0){
-    left_pwm *= -1; 
     sConfigOC.Pulse = 0;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
     }
-    sConfigOC.Pulse = left_pwm;
+    sConfigOC.Pulse = -1 * left_pwm;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
@@ -564,13 +587,12 @@ void Motor_pwm(int left_pwm,int right_pwm){
     }
   }
   else if(right_pwm < 0){
-    left_pwm *= -1;
     sConfigOC.Pulse = 0;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
     }
-    sConfigOC.Pulse = right_pwm;
+    sConfigOC.Pulse = -1 * right_pwm;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
@@ -598,9 +620,10 @@ void update_encoder(void){
   TIM3->CNT = 0;
   TIM4->CNT = 0;
   
-  enc.left = l_buff;
-  enc.right = r_buff;
+  enc.rpms_left = l_buff;
+  enc.rpms_right = r_buff;
 }
+
 
 /* USER CODE END 1 */
 

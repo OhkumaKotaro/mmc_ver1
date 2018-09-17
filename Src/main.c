@@ -70,7 +70,7 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-
+void Batt_Check(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -117,14 +117,25 @@ int main(void)
   MX_ADC2_Init();
   MX_ADC3_Init();
   /* USER CODE BEGIN 2 */
+  flag.ir_led = OFF;
   setbuf(stdout, NULL);
-  /* USER CODE END 2 */
+  HAL_TIM_Base_Start_IT( &htim5 );
+  set_mpu6500();
+  gyro_offset_calc_reset();
+  Batt_Check();
 
+  Buzzer_pwm(HZ_C,250);
+  HAL_Delay(400);
+  Buzzer_pwm(HZ_NORMAL,0);
+  
+  /* USER CODE END 2 */
+  
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("%d",PI);
+    
+
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -193,6 +204,23 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+/****************************************************************************************
+ * outline  : normalize battery (12bit -> dec)
+ * argument : void
+ * return   : void
+********************************************************************************************/
+void Batt_Check(void)
+{
+  float batt=0;
+  for(int i=0;i<10;i++){
+    batt += batt_analog;
+  }
+  batt /= 10;
+  batt = batt/4095*1330/330*3.3;
+  sit.batt = batt;
+  printf("\nbatt:%lf\r\n",sit.batt);
+}
 
 /* USER CODE END 4 */
 

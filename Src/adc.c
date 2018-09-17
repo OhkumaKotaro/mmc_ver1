@@ -284,7 +284,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 
 /* USER CODE BEGIN 1 */
 /****************************************************************************************
- * outline  : update battery 
+ * outline  : update battery(16bit) 
  * argument : void
  * return   : void
 ********************************************************************************************/
@@ -300,6 +300,11 @@ void update_batt_date(void)
   batt_analog=HAL_ADC_GetValue(&hadc1);
 }
 
+/****************************************************************************************
+ * outline  : update battery 
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void update_fr_sen_on(void)
 {
   ADC_ChannelConfTypeDef sConfig;
@@ -319,6 +324,12 @@ void update_fr_sen_on(void)
   sensor.adc_on[3] = HAL_ADC_GetValue(&hadc2);
 }
 
+
+/****************************************************************************************
+ * outline  : update battery 
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void update_side_sen_on(void)
 {
   ADC_ChannelConfTypeDef sConfig;
@@ -338,6 +349,11 @@ void update_side_sen_on(void)
   sensor.adc_on[2] = HAL_ADC_GetValue(&hadc3);
 }
 
+/****************************************************************************************
+ * outline  : update front sensor value
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void update_fr_sen_off(void)
 {
   ADC_ChannelConfTypeDef sConfig;

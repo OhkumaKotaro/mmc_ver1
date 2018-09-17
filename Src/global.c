@@ -17,4 +17,7 @@ uint16_t sensor_count[4];
 
 uint16_t ms_count;
 uint16_t s_count;
+uint16_t speed_count;
+
+motor_t motor;
 

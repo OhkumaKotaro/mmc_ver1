@@ -5,13 +5,17 @@
 #endif
 
 // Includes
-#include <stdint.h>
+#include "stdint.h"
 #include <stdio.h>
 #include <string.h>
 
 //define
 #define true  1
 #define false 0
+
+#define ON 1
+#define OFF 0
+
 #define GEAR_RATE 5.25
 #define IE_1024 1024
 
@@ -29,7 +33,9 @@
 
 //flag
 typedef struct{
-  uint8_t gyro_calc;
+  short gyro_calc;
+  short accel;
+  short ir_led;
 }flag_t;
 extern flag_t flag;
 
@@ -44,8 +50,8 @@ typedef struct{
 extern gyro_t gyro;
 
 typedef struct{
-  int left;
-  int right;
+  int rpms_left;
+  int rpms_right;
   int32_t sum_l;
   int32_t sum_r;
 }enc_t;
@@ -63,8 +69,15 @@ extern sensor_t sensor;
 typedef struct{
   float distance_l;
   float distance_r; 
+  float batt;
 }sit_t;
 extern sit_t sit;
+
+typedef struct{
+  int16_t pwm_l;
+  int16_t pwm_r;
+}motor_t;
+extern motor_t motor;
 
 extern uint16_t sensor_adc_on[4];
 extern uint16_t sensor_adc_off[4];
@@ -77,6 +90,7 @@ extern uint16_t batt_analog;
 
 extern uint16_t ms_count;
 extern uint16_t s_count;
+extern uint16_t speed_count;
 
 
 #ifdef __cplusplus

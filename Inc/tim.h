@@ -58,7 +58,15 @@ extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 
 /* USER CODE BEGIN Private defines */
-
+#define HZ_C 153
+#define HZ_D 136
+#define HZ_E 121
+#define HZ_F 114
+#define HZ_G 102
+#define HZ_A 91
+#define HZ_B 81
+#define HZ_C_H 76
+#define HZ_NORMAL 10
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
@@ -76,6 +84,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void Buzzer_pwm(int hz,int vol);
 void Motor_pwm(int left_pwm,int right_pwm);
 void update_encoder(void);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
