@@ -56,10 +56,13 @@ extern ADC_HandleTypeDef hadc2;
 extern ADC_HandleTypeDef hadc3;
 
 /* USER CODE BEGIN Private defines */
+
+//wall threshhold
 #define threshhold_0 800
 #define threshhold_1 800
 #define threshhold_2 800
 #define threshhold_3 800
+
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
@@ -74,7 +77,7 @@ void update_fr_sen_on(void);
 void update_side_sen_on(void);
 void update_fr_sen_off(void);
 void update_side_sen_off(void);
-void update_all_sen(void);
+void update_wall(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

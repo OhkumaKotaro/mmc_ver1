@@ -54,16 +54,18 @@
 extern SPI_HandleTypeDef hspi2;
 
 /* USER CODE BEGIN Private defines */
-#define WHO_AM_I    0x75//
-#define PWR_MGMT_1  0x6B
-#define GYRO_OUT_Z_L     0x48//
-#define GYRO_OUT_Z_H     0x47//
-#define Certain         0x70//
-#define SETTING         0x80  //0b1000 0000 8bitの上位bitを立てると????��?��??��?��???��?��??��?��?????��?��??��?��???��?��??��?��?
-#define CONFIG          0x1A//
-#define GYRO_CONFIG     0x1B//
 
-#define GYRO_FACTOR  16.4f
+//mpu6500
+#define WHO_AM_I      0x75
+#define Certain       0x70//return from "WHO_AM_I"
+#define CONFIG        0x1A
+#define GYRO_CONFIG   0x1B
+#define PWR_MGMT_1    0x6B
+#define GYRO_OUT_Z_L  0x48
+#define GYRO_OUT_Z_H  0x47
+#define SETTING       0x80  //0b1000 0000 8bitの上位bitを立てると
+
+#define GYRO_FACTOR  16.4
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);

@@ -372,7 +372,11 @@ void update_fr_sen_off(void)
   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
   sensor.adc_off[3] = HAL_ADC_GetValue(&hadc2);
 }
-
+/****************************************************************************************
+ * outline  : update side sensor value
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void update_side_sen_off(void)
 {
   ADC_ChannelConfTypeDef sConfig;
@@ -391,8 +395,12 @@ void update_side_sen_off(void)
   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
   sensor.adc_off[2] = HAL_ADC_GetValue(&hadc3);
 }
-
-void update_all_sen(void){
+/****************************************************************************************
+ * outline  : update wall
+ * argument : void
+ * return   : void
+********************************************************************************************/
+void update_wall(void){
   for( int i=0;i<4;i++){
     sensor.adc[i] = sensor.adc_on[i] - sensor.adc_off[i];
   }
@@ -408,7 +416,7 @@ void update_all_sen(void){
     sensor.count[0] = 0;
   }
   
-  if(sensor_adc[1] > threshhold_1){
+  if(sensor.adc[1] > threshhold_1){
     if(sensor.count[1] > 20){
       sensor.wall[1] = true;
     } else{
@@ -419,7 +427,7 @@ void update_all_sen(void){
     sensor.count[1] = 0;
   }
 
-  if(sensor_adc[2] > threshhold_2){
+  if(sensor.adc[2] > threshhold_2){
     if(sensor.count[2] > 20){
       sensor.wall[2] = true;
     } else{

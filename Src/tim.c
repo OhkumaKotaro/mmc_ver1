@@ -489,6 +489,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+
 /****************************************************************************************
  * outline  : out put pwm of buzzer
  * argument : hz(frequency),vol(volume 0~Period)
@@ -524,6 +525,11 @@ void Buzzer_pwm(int hz,int vol)
   }
 }
 
+/****************************************************************************************
+ * outline  : out put pwm of motor
+ * argument : left pwm , reft pwm (-Period~Period,max 800)
+ * return   : void
+********************************************************************************************/
 void Motor_pwm(int left_pwm,int right_pwm){
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;

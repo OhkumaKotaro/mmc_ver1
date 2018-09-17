@@ -179,8 +179,8 @@ void write_byte( uint8_t reg,uint8_t val){
 
 /****************************************************************
  * Overview : set up mpu6500
- * argument : 
- * return :
+ * argument : void
+ * return   : void
  ****************************************************************/
 void set_mpu6500(void){
   uint8_t val;
@@ -199,19 +199,24 @@ void set_mpu6500(void){
 
 
 /*****************************************************************
- * Overview : read mpu6500
- * argument :
- * Return : int data (2000 deg/sec)
+ * Overview : get gyro value
+ * argument : void
+ * Return   : degree (2000 deg/sec)
  ****************************************************************/
 float get_gyro(void){
   int16_t gyro_z;
   float degree;
   gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
   degree = (float)gyro_z/GYRO_FACTOR;
-  degree -= gyro.offset;
+  //degree -= gyro.offset;
   return degree;
 }
 
+/*****************************************************************
+ * Overview : reset gyro offset variable
+ * argument : void
+ * Return   : void
+ ****************************************************************/
 void gyro_offset_calc_reset(void){
   gyro.offset = 0.0f;
   gyro.offset_cnt = 0;
@@ -221,6 +226,11 @@ void gyro_offset_calc_reset(void){
   gyro.befor = 0;
 }
 
+/*****************************************************************
+ * Overview : calculate gyro offset
+ * argument : void
+ * Return   : void
+ ****************************************************************/
 void gyro_offset_calc(void){
   int16_t gyro_z;
   float degree;

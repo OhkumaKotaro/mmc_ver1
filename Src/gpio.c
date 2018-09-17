@@ -103,10 +103,22 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
+
+/****************************************************************************************
+ * outline  : push -> ON , else -> OFF
+ * argument : void
+ * return   : ON or OFF
+********************************************************************************************/
 short Push(void){
   if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
   else                                                              return 0;
 }
+
+/****************************************************************************************
+ * outline  : turn on all led
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void All_LED_ON(void)
 {
   HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
@@ -114,6 +126,12 @@ void All_LED_ON(void)
   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
 }
+
+/****************************************************************************************
+ * outline  : turn off all led
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void All_LED_OFF(void)
 {
   HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
@@ -121,6 +139,12 @@ void All_LED_OFF(void)
   HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
 }
+
+/****************************************************************************************
+ * outline  : turn on all infrared led
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void All_IR_ON(void){
   if(flag.ir_led == ON){
     HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
@@ -131,12 +155,26 @@ void All_IR_ON(void){
     All_IR_OFF();
   }
 }
+
+/****************************************************************************************
+ * outline  : turn off all infrared led
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void All_IR_OFF(void){
   HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
 }
+
+/****************************************************************************************
+ * outline  : control infrared led
+ * argument : pattern
+ *            (front_left  side_right  side_left  front_right
+ *                1000        0100        0010       0001     )
+ * return   : void
+********************************************************************************************/
 void IR_Contoroll(int pattern){
   if(flag.ir_led == ON){
     if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);

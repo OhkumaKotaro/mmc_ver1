@@ -247,7 +247,7 @@ void TIM5_IRQHandler(void)
       update_fr_sen_off();
       break;
     case 8:
-      update_all_sen();
+      update_wall();
       IR_Contoroll(0b1001);
       count_tim5 = 0;
       break;

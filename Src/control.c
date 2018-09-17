@@ -18,6 +18,11 @@ void control_accel(int16_t accel_l,int16_t accel_r){
 
 }
 
+/****************************************************************************************
+ * outline  : straight run one block
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void straight_one(void){
     if(flag.accel == OFF){
         sit.batt = 7.72;

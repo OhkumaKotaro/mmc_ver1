@@ -58,6 +58,8 @@ extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 
 /* USER CODE BEGIN Private defines */
+
+//buzzer
 #define HZ_C 153
 #define HZ_D 136
 #define HZ_E 121
@@ -67,6 +69,7 @@ extern TIM_HandleTypeDef htim5;
 #define HZ_B 81
 #define HZ_C_H 76
 #define HZ_NORMAL 10
+
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
