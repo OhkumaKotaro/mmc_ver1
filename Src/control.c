@@ -3,6 +3,8 @@
 #include "global.h"
 #include "tim.h"
 #include "arm_math.h"
+#include "main.h"
+#include "stm32f4xx_hal.h"
 
 //argument : accel[mm/s^2]
 void control_accel(int16_t accel_l,int16_t accel_r){
@@ -25,13 +27,12 @@ void control_accel(int16_t accel_l,int16_t accel_r){
 ********************************************************************************************/
 void straight_one(void){
     if(flag.accel == OFF){
-        sit.batt = 7.72;
         motor.pwm_l = 0;
         motor.pwm_r = 0;
         speed_count = 0;
     }else if(flag.accel == ON){
         if(speed_count < 300){
-            motor.pwm_l = 999*(Resistance*0.114285714285714/KT+KE*ms_count*0.01/PI/TIRE_RADIUS*3.0)/sit.batt;
+            motor.pwm_l = 999*(Resistance*TORQUE/KT+KE*0.001*enc.rpm_l)/sit.batt;
             motor.pwm_r = motor.pwm_l;
         }
 
@@ -41,7 +42,7 @@ void straight_one(void){
         }
 
         if(speed_count >= 600 && speed_count < 900){
-            motor.pwm_l = 999*(-Resistance*0.114285714285714/KT+KE*0.001*(300-ms_count+599)/2.0/PI/TIRE_RADIUS*60.0)/sit.batt;
+            motor.pwm_l = 999*(-Resistance*TORQUE/KT+KE*0.001*enc.rpm_l)/sit.batt;
             motor.pwm_r = motor.pwm_l;
         }
         if(speed_count >= 900){
@@ -49,5 +50,28 @@ void straight_one(void){
         }
         speed_count ++;
     }
-    Motor_pwm(motor.pwm_l,motor.pwm_r);
+}
+
+void Sensor_Check(void){
+    if(sensor.wall[0]==true){
+        HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
+    }else{
+        HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
+    }
+    if(sensor.wall[1]==true){
+        HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
+    }else{
+        HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
+    }
+    if(sensor.wall[2]==true){
+        HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
+    }else{
+        HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
+    }
+    if(sensor.wall[3]==true){
+        HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
+    }else{
+        HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
+    }
+    
 }

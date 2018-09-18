@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccb38nhF.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccaiPOIX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -30,7 +30,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccb38nhF.s 			page 1
   27              		.comm	count_tim5,2,2
   28              		.comm	sensor,40,4
   29              		.comm	sit,12,4
-  30              		.comm	enc,16,4
+  30              		.comm	enc,20,4
   31              		.comm	gyro,24,4
   32              		.comm	flag,6,4
   33              	.Letext0:
@@ -42,7 +42,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccb38nhF.s 			page 1
   39              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
   40              		.file 7 "Inc/global.h"
   41              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccb38nhF.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccaiPOIX.s 			page 2
 
 
 DEFINED SYMBOLS
@@ -60,7 +60,7 @@ DEFINED SYMBOLS
                             *COM*:00000002 count_tim5
                             *COM*:00000028 sensor
                             *COM*:0000000c sit
-                            *COM*:00000010 enc
+                            *COM*:00000014 enc
                             *COM*:00000018 gyro
                             *COM*:00000006 flag
 

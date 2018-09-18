@@ -122,19 +122,23 @@ int main(void)
   HAL_TIM_Base_Start_IT( &htim5 );
   set_mpu6500();
   gyro_offset_calc_reset();
-  Batt_Check();
 
   Buzzer_pwm(HZ_C,250);
   HAL_Delay(400);
   Buzzer_pwm(HZ_NORMAL,0);
+
+  Batt_Check();
   
+  flag.ir_led = ON;
+  flag.accel = ON;
   /* USER CODE END 2 */
   
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("\n%f\r",gyro.degree);
+    Sensor_Check();
+    printf("%d,%d,%d,%d\t\r",sensor.adc[3],sensor.adc[2],sensor.adc[1],sensor.adc[0]);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -212,11 +216,11 @@ void SystemClock_Config(void)
 void Batt_Check(void)
 {
   float batt=0;
-  for(int i=0;i<10;i++){
+  for(int i=0;i<50;i++){
     batt += batt_analog;
   }
-  batt /= 10;
-  batt = batt/4095*1330/330*3.3;
+  batt /= 50.0;
+  batt = batt/4095.0*133.0/33.0*3.3;
   sit.batt = batt;
   printf("\nbatt:%lf\r\n",sit.batt);
 }

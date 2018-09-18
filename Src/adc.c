@@ -298,10 +298,11 @@ void update_batt_date(void)
   HAL_ADC_Start( &hadc1 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc1,50 ) != HAL_OK );  // trans
   batt_analog=HAL_ADC_GetValue(&hadc1);
+  HAL_ADC_Stop(&hadc1);
 }
 
 /****************************************************************************************
- * outline  : update battery 
+ * outline  : update front sensor
  * argument : void
  * return   : void
 ********************************************************************************************/
@@ -316,12 +317,14 @@ void update_fr_sen_on(void)
   HAL_ADC_Start( &hadc2 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
   sensor.adc_on[0] = HAL_ADC_GetValue(&hadc2);
+  HAL_ADC_Stop(&hadc2);
 
   sConfig.Channel = ADC_CHANNEL_3;
   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
   HAL_ADC_Start( &hadc2 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
   sensor.adc_on[3] = HAL_ADC_GetValue(&hadc2);
+  HAL_ADC_Stop(&hadc2);
 }
 
 
@@ -341,12 +344,14 @@ void update_side_sen_on(void)
   HAL_ADC_Start( &hadc3 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
   sensor.adc_on[1] = HAL_ADC_GetValue(&hadc3);
+  HAL_ADC_Stop(&hadc3);
 
   sConfig.Channel = ADC_CHANNEL_2;
   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
   HAL_ADC_Start( &hadc3 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
   sensor.adc_on[2] = HAL_ADC_GetValue(&hadc3);
+  HAL_ADC_Stop(&hadc3);
 }
 
 /****************************************************************************************
@@ -365,12 +370,14 @@ void update_fr_sen_off(void)
   HAL_ADC_Start( &hadc2 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
   sensor.adc_off[0] = HAL_ADC_GetValue(&hadc2);
+  HAL_ADC_Stop(&hadc2);
 
   sConfig.Channel = ADC_CHANNEL_3;
   HAL_ADC_ConfigChannel( &hadc2, &sConfig );  // setting store
   HAL_ADC_Start( &hadc2 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc2,50 ) != HAL_OK );  // trans
   sensor.adc_off[3] = HAL_ADC_GetValue(&hadc2);
+  HAL_ADC_Stop(&hadc2);
 }
 /****************************************************************************************
  * outline  : update side sensor value
@@ -388,12 +395,14 @@ void update_side_sen_off(void)
   HAL_ADC_Start( &hadc3 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
   sensor.adc_off[1] = HAL_ADC_GetValue(&hadc3);
+  HAL_ADC_Stop(&hadc3);
 
   sConfig.Channel = ADC_CHANNEL_2;
   HAL_ADC_ConfigChannel( &hadc3, &sConfig );  // setting store
   HAL_ADC_Start( &hadc3 );     // ad convert start
   while( HAL_ADC_PollForConversion( &hadc3,50 ) != HAL_OK );  // trans
   sensor.adc_off[2] = HAL_ADC_GetValue(&hadc3);
+  HAL_ADC_Stop(&hadc3);
 }
 /****************************************************************************************
  * outline  : update wall

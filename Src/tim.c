@@ -230,7 +230,7 @@ void MX_TIM5_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim5.Instance = TIM5;
-  htim5.Init.Prescaler = 9;
+  htim5.Init.Prescaler = 19;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim5.Init.Period = 999;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -554,8 +554,8 @@ void Motor_pwm(int left_pwm,int right_pwm){
   }
 
   //set left_pwm
-  if(left_pwm >= 0){
-    sConfigOC.Pulse = left_pwm;
+  if(left_pwm < 0){
+    sConfigOC.Pulse = -1 * left_pwm;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
@@ -566,13 +566,13 @@ void Motor_pwm(int left_pwm,int right_pwm){
       _Error_Handler(__FILE__, __LINE__);
     }
   }
-  else  if(left_pwm < 0){
+  else  if(left_pwm >= 0){
     sConfigOC.Pulse = 0;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
     }
-    sConfigOC.Pulse = -1 * left_pwm;
+    sConfigOC.Pulse = left_pwm;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
@@ -580,8 +580,8 @@ void Motor_pwm(int left_pwm,int right_pwm){
   }
 
   //set right_pwm
-  if(right_pwm >= 0){
-    sConfigOC.Pulse = right_pwm;
+  if(right_pwm < 0){
+    sConfigOC.Pulse = -1 * right_pwm;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
@@ -592,13 +592,13 @@ void Motor_pwm(int left_pwm,int right_pwm){
       _Error_Handler(__FILE__, __LINE__);
     }
   }
-  else if(right_pwm < 0){
+  else if(right_pwm >= 0){
     sConfigOC.Pulse = 0;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);
     }
-    sConfigOC.Pulse = -1 * right_pwm;
+    sConfigOC.Pulse = right_pwm;
     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
     {
       _Error_Handler(__FILE__, __LINE__);

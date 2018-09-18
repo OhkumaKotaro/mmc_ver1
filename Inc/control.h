@@ -8,7 +8,7 @@
 
 void control_accel(int16_t accel_l,int16_t accel_r );
 void straight_one(void);
-
+void Sensor_Check(void);
 
 #ifdef __cplusplus
 }

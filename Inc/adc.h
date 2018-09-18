@@ -58,10 +58,10 @@ extern ADC_HandleTypeDef hadc3;
 /* USER CODE BEGIN Private defines */
 
 //wall threshhold
-#define threshhold_0 800
-#define threshhold_1 800
-#define threshhold_2 800
-#define threshhold_3 800
+#define threshhold_0  3420
+#define threshhold_1  3400
+#define threshhold_2  3320
+#define threshhold_3  3400
 
 /* USER CODE END Private defines */
 

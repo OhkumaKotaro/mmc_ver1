@@ -208,7 +208,7 @@ float get_gyro(void){
   float degree;
   gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
   degree = (float)gyro_z/GYRO_FACTOR;
-  //degree -= gyro.offset;
+  degree -= gyro.offset;
   return degree;
 }
 

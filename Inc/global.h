@@ -23,6 +23,7 @@
 #define KT  1.98//toluku[mNm/A]
 #define KE  0.207//return vatt[mV/min^-1]
 #define Resistance 1.07//[S^-1]
+#define TORQUE 0.2
 
 
 //encoder
@@ -66,6 +67,8 @@ typedef struct{
   int rpms_right;
   int32_t sum_l;
   int32_t sum_r;
+  int16_t rpm_l;
+  int16_t rpm_r;
 }enc_t;
 extern enc_t enc;
 
