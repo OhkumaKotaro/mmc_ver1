@@ -44,6 +44,7 @@
 
 /* USER CODE BEGIN 0 */
 #include "global.h"
+#include "arm_math.h"
 
 TIM_MasterConfigTypeDef sMasterConfig;
 TIM_OC_InitTypeDef sConfigOC;
@@ -626,8 +627,12 @@ void update_encoder(void){
   TIM3->CNT = 0;
   TIM4->CNT = 0;
   
-  enc.rpms_left = l_buff;
-  enc.rpms_right = r_buff;
+  enc.old_l = enc.velocity_l;
+  enc.old_r = enc.velocity_r;
+  enc.velocity_l = l_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
+  enc.velocity_r = r_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
+  enc.distance_l += enc.velocity_l;
+  enc.distance_r += enc.velocity_r;
 }
 
 

@@ -129,16 +129,21 @@ int main(void)
 
   Batt_Check();
   
-  flag.ir_led = ON;
+  flag.ir_led = OFF;
+  calc.velocity_l = 0;
+  calc.velocity_r = 0;
+  calc.distance_l = 0;
+  calc.distance_r = 0;
+  straight_fb(0,0,4000,180,300);
   flag.accel = ON;
+  //printf("\n%f,%f,%f\r\n",accel_L,constant_L,decrease_L);
   /* USER CODE END 2 */
   
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    Sensor_Check();
-    printf("%d,%d,%d,%d\t\r",sensor.adc[3],sensor.adc[2],sensor.adc[1],sensor.adc[0]);
+    
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -221,8 +226,8 @@ void Batt_Check(void)
   }
   batt /= 50.0;
   batt = batt/4095.0*133.0/33.0*3.3;
-  sit.batt = batt;
-  printf("\nbatt:%lf\r\n",sit.batt);
+  batt_Vcc = batt;
+  printf("\nbatt:%lf\r\n",batt_Vcc);
 }
 
 /* USER CODE END 4 */

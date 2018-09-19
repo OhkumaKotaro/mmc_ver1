@@ -185,7 +185,7 @@ void write_byte( uint8_t reg,uint8_t val){
 void set_mpu6500(void){
   uint8_t val;
   val = read_byte(WHO_AM_I);
-  printf("\nI am 0x%x\r\n",val );
+  printf("\r\nI am 0x%x\r\n",val );
   if(val != Certain){
     All_LED_ON();
     HAL_Delay(1000);
@@ -238,11 +238,11 @@ void gyro_offset_calc(void){
   gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
   degree = (float)gyro_z/GYRO_FACTOR;
 
-  if(gyro.offset_cnt<1024){
+  if(gyro.offset_cnt<1000){
     gyro.offset += degree;
     gyro.offset_cnt++;
   }else{
-    gyro.offset/=1024.0;
+    gyro.offset/=1000.0f;
     flag.gyro_calc = true;
   }
 }

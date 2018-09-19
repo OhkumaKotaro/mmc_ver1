@@ -195,41 +195,30 @@ void SysTick_Handler(void)
   }
 
   update_encoder();
-  enc.rpm_l = enc.rpms_left * 60000 / IE_1024 / GEAR_RATE;
-  enc.rpm_r = enc.rpms_right * 60000 / IE_1024 / GEAR_RATE;
 
-  enc.sum_l += enc.rpms_left;
-  enc.sum_r += enc.rpms_right;
-  sit.distance_l = enc.sum_l / IE_1024 / GEAR_RATE;//hoeal rot
-  sit.distance_r = enc.sum_r / IE_1024 / GEAR_RATE;//hoeal rot
-
-
-   if(flag.accel == OFF){
-        motor.pwm_l = 0;
-        motor.pwm_r = 0;
-        speed_count = 0;
-    }else if(flag.accel == ON){
-        if(speed_count < 300){
-            motor.pwm_l = 999*(Resistance*TORQUE/KT+KE*0.001*enc.rpm_l)/sit.batt;
-            motor.pwm_r = motor.pwm_l;
-        }
-
-        if(speed_count >= 300 && speed_count < 600){
-            motor.pwm_l = 0;
-            motor.pwm_r = 0;
-        }
-
-        if(speed_count >= 600 && speed_count < 900){
-            motor.pwm_l = 999*(-Resistance*TORQUE/KT+KE*0.001*enc.rpm_l)/sit.batt;
-            motor.pwm_r = motor.pwm_l;
-        }
-        if(speed_count >= 900){
-            flag.accel = OFF;
-        }
-        speed_count ++;
+  if(flag.accel == ON){
+    if(calc.distance_l < accel_L){
+      motor.accel_l = 4000;
+      motor.accel_r = 4000;
+    }
+    if(calc.distance_l >= accel_L && calc.distance_r < constant_L + accel_L){
+      motor.accel_l = 0;
+      motor.accel_r = 0;
+    }
+    if(calc.distance_l >= constant_L + accel_L && calc.distance_l < decrease_L +  constant_L + accel_L){
+      motor.accel_l = -4000;
+      motor.accel_r = -4000;
+    }
+    if(calc.distance_l >= decrease_L +  constant_L + accel_L){
+      motor.accel_l = 0;
+      motor.accel_r = 0;
+      calc.velocity_l = 0;
+      calc.velocity_r = 0;
     }
 
-    //motor.pwm_l = 999*(Resistance*TORQUE/KT+KE*0.001*enc.rpm_l)/sit.batt;
+    Calculate_Parameter(motor.accel_l,motor.accel_r);
+    Motor_pwm(PID_value(calc.velocity_l,enc.velocity_l,&enc.distance_l,&enc.old_l,0.1f,0,0,800),PID_value(calc.velocity_r,enc.velocity_r,&enc.distance_r,&enc.old_r,0.1f,0,0,800));
+  }
     
   /* USER CODE END SysTick_IRQn 1 */
 }

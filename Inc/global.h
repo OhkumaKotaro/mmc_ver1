@@ -20,9 +20,9 @@
 
 
 //motor 003SR
-#define KT  1.98//toluku[mNm/A]
-#define KE  0.207//return vatt[mV/min^-1]
-#define Resistance 1.07//[S^-1]
+#define KT  1.98f//toluku[mNm/A]
+#define KE  0.207f//return vatt[mV/min^-1]
+#define Resistance 1.07f//[S^-1]
 #define TORQUE 0.2
 
 
@@ -33,9 +33,12 @@
 //mouse
 #define WEIGHT 100 //[g]
 #define TIRE_RADIUS 12  //[mm]
-#define INERTIA 
+#define INERTIA     23
 #define TREAD 73  //[mm]
-#define GEAR_RATE 5.25
+#define GEAR_RATE 5.25f
+
+//calc
+#define dt 0.001f
 
 
 /***typedef**************************************************************************/
@@ -63,12 +66,14 @@ extern gyro_t gyro;
 
 //encoder
 typedef struct{
-  int rpms_left;
-  int rpms_right;
-  int32_t sum_l;
-  int32_t sum_r;
-  int16_t rpm_l;
-  int16_t rpm_r;
+  float rpms_left;
+  float rpms_right;
+  float velocity_l;
+  float velocity_r;
+  float distance_l;
+  float distance_r;
+  float old_l;
+  float old_r;
 }enc_t;
 extern enc_t enc;
 
@@ -78,36 +83,45 @@ typedef struct{
   uint16_t adc_on[4];
   uint16_t adc_off[4];
   uint16_t adc[4];
-  uint16_t wall[4];
+  uint8_t wall[4];
   uint16_t count[4];
 }sensor_t;
 extern sensor_t sensor;
+
 //batt
 extern uint16_t batt_analog;
-
-
-//standard unit
-typedef struct{
-  float distance_l;
-  float distance_r; 
-  float batt;
-}sit_t;
-extern sit_t sit;
-
+extern float batt_Vcc;
 
 //motor parameters
 typedef struct{
   int16_t pwm_l;
   int16_t pwm_r;
+  int16_t accel_l;
+  int16_t accel_r;
 }motor_t;
 extern motor_t motor;
 
+//calc
+typedef struct{
+  int16_t distance_l;
+  int16_t distance_r;
+  int16_t velocity_l;
+  int16_t velocity_r;
+  int16_t accel_l;
+  int16_t accel_r;
+}calc_t;
+extern calc_t calc;
 
 //count
 extern uint16_t count_tim5;
 extern uint16_t ms_count;
 extern uint16_t s_count;
 extern uint16_t speed_count;
+
+//control
+extern float accel_L;
+extern float constant_L;
+extern float decrease_L;
 
 
 #ifdef __cplusplus
