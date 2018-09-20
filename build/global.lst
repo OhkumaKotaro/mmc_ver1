@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccBCzpVp.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccOpoTZE.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -33,20 +33,21 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccBCzpVp.s 			page 1
   30              		.comm	batt_analog,2,2
   31              		.comm	count_tim5,2,2
   32              		.comm	sensor,36,4
-  33              		.comm	calc,12,4
-  34              		.comm	enc,32,4
-  35              		.comm	gyro,24,4
-  36              		.comm	flag,6,4
-  37              	.Letext0:
-  38              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  39              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  40              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  41              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  42              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
-  43              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  44              		.file 7 "Inc/global.h"
-  45              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccBCzpVp.s 			page 2
+  33              		.comm	position,12,4
+  34              		.comm	calc,12,4
+  35              		.comm	enc,32,4
+  36              		.comm	gyro,24,4
+  37              		.comm	flag,6,4
+  38              	.Letext0:
+  39              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  40              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  41              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  42              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  43              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+  44              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  45              		.file 7 "Inc/global.h"
+  46              		.file 8 "Src/global.c"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccOpoTZE.s 			page 2
 
 
 DEFINED SYMBOLS
@@ -67,6 +68,7 @@ DEFINED SYMBOLS
                             *COM*:00000002 batt_analog
                             *COM*:00000002 count_tim5
                             *COM*:00000024 sensor
+                            *COM*:0000000c position
                             *COM*:0000000c calc
                             *COM*:00000020 enc
                             *COM*:00000018 gyro

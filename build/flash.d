@@ -1,4 +1,4 @@
-build/main.d: Src/main.c Inc/main.h \
+build/flash.d: Src/flash.c Inc/flash.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  Inc/stm32f4xx_hal_conf.h Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -26,12 +26,9 @@ build/main.d: Src/main.c Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/adc.h \
- Inc/spi.h Inc/tim.h Inc/usart.h Inc/gpio.h \
- Drivers/CMSIS/Include/arm_math.h Drivers/CMSIS/Include/core_cm4.h \
- Inc/global.h Inc/control.h Inc/flash.h
+ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
-Inc/main.h:
+Inc/flash.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -94,23 +91,3 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-
-Inc/adc.h:
-
-Inc/spi.h:
-
-Inc/tim.h:
-
-Inc/usart.h:
-
-Inc/gpio.h:
-
-Drivers/CMSIS/Include/arm_math.h:
-
-Drivers/CMSIS/Include/core_cm4.h:
-
-Inc/global.h:
-
-Inc/control.h:
-
-Inc/flash.h:

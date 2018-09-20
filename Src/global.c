@@ -4,6 +4,7 @@ flag_t flag;
 gyro_t gyro;
 enc_t enc;
 calc_t calc;
+position_t position;
 
 sensor_t sensor;
 uint16_t count_tim5 ;

@@ -48,6 +48,7 @@
 #include "arm_math.h"
 #include "global.h"
 #include "control.h"
+#include "flash.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -135,10 +136,17 @@ int main(void)
   calc.distance_l = 0;
   calc.distance_r = 0;
   straight_fb(0,0,4000,180,300);
-  flag.accel = ON;
-  //printf("\n%f,%f,%f\r\n",accel_L,constant_L,decrease_L);
-  /* USER CODE END 2 */
+  flag.accel = OFF;
   
+  loadFlash(start_address,(uint8_t*)&position,sizeof(position_t));
+  printf("%d,%d,%f,%f\r\n",position.x,position.y,position.angle,position.distance);
+  position.x = 100;
+  position.y = 150;
+  position.angle = 1.52;
+  position.distance = 0.18;
+  writeFlash(start_address,(uint8_t*)&position,sizeof(position_t));
+  /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)

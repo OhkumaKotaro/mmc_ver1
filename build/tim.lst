@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
   29:Src/tim.c     ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   30:Src/tim.c     ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   31:Src/tim.c     ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 2
 
 
   32:Src/tim.c     ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
   86:Src/tim.c     ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   87:Src/tim.c     ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   88:Src/tim.c     ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 3
 
 
   89:Src/tim.c     ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  143:Src/tim.c     ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  144:Src/tim.c     ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
  145:Src/tim.c     ****   {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 4
 
 
  146:Src/tim.c     ****     _Error_Handler(__FILE__, __LINE__);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
   55 001a 0392     		str	r2, [sp, #12]
  173:Src/tim.c     ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   56              		.loc 1 173 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 5
 
 
   57 001c 0493     		str	r3, [sp, #16]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
   91 0044 0DB0     		add	sp, sp, #52
   92              	.LCFI2:
   93              		.cfi_remember_state
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 6
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 6
 
 
   94              		.cfi_def_cfa_offset 4
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  198:Src/tim.c     ****   TIM_MasterConfigTypeDef sMasterConfig;
  199:Src/tim.c     **** 
  200:Src/tim.c     ****   htim4.Instance = TIM4;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 7
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 7
 
 
  144              		.loc 1 200 0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  216:Src/tim.c     ****     _Error_Handler(__FILE__, __LINE__);
  217:Src/tim.c     ****   }
  218:Src/tim.c     **** 
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 8
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 8
 
 
  219:Src/tim.c     ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  228              		.section	.text.MX_TIM5_Init,"ax",%progbits
  229              		.align	1
  230              		.global	MX_TIM5_Init
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 9
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 9
 
 
  231              		.syntax unified
@@ -509,9 +509,9 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  250 0004 1848     		ldr	r0, .L25
  251 0006 194B     		ldr	r3, .L25+4
  252 0008 0360     		str	r3, [r0]
- 234:Src/tim.c     ****   htim5.Init.Prescaler = 19;
+ 234:Src/tim.c     ****   htim5.Init.Prescaler = 9;
  253              		.loc 1 234 0
- 254 000a 1323     		movs	r3, #19
+ 254 000a 0923     		movs	r3, #9
  255 000c 4360     		str	r3, [r0, #4]
  235:Src/tim.c     ****   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
  256              		.loc 1 235 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  269              		.loc 1 243 0
  270 0020 06A9     		add	r1, sp, #24
  271 0022 4FF48053 		mov	r3, #4096
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 10
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 10
 
 
  272 0026 41F8103D 		str	r3, [r1, #-16]!
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  311 0056 FFF7FEFF 		bl	_Error_Handler
  312              	.LVL12:
  313 005a EAE7     		b	.L19
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 11
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 11
 
 
  314              	.L24:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  271:Src/tim.c     ****   }
  272:Src/tim.c     ****   else if(tim_pwmHandle->Instance==TIM2)
  355              		.loc 1 272 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 12
 
 
  356 000a B3F1804F 		cmp	r3, #1073741824
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  397              		.loc 1 283 0
  398 0046 E3E7     		b	.L27
  399              	.L34:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 13
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 13
 
 
  400              		.align	2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  306:Src/tim.c     ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  307:Src/tim.c     **** 
  308:Src/tim.c     ****   /* USER CODE BEGIN TIM3_MspInit 1 */
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 14
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 14
 
 
  309:Src/tim.c     **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  460 002a 02F00202 		and	r2, r2, #2
  461 002e 0192     		str	r2, [sp, #4]
  462 0030 019A     		ldr	r2, [sp, #4]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 15
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 15
 
 
  463              	.LBE4:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  506              		.loc 1 327 0
  507 006e 0693     		str	r3, [sp, #24]
  328:Src/tim.c     ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 16
 
 
  508              		.loc 1 328 0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  557              		.cfi_def_cfa_offset 16
  558              	.LBB6:
  341:Src/tim.c     ****   {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 17
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 17
 
 
  342:Src/tim.c     ****   /* USER CODE BEGIN TIM5_MspInit 0 */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  600              		.fpu fpv4-sp-d16
  602              	HAL_TIM_MspPostInit:
  603              	.LFB167:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 18
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 18
 
 
  356:Src/tim.c     **** void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  388:Src/tim.c     ****     /**TIM2 GPIO Configuration    
  389:Src/tim.c     ****     PA5     ------> TIM2_CH1 
  390:Src/tim.c     ****     */
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 19
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 19
 
 
  391:Src/tim.c     ****     GPIO_InitStruct.Pin = GPIO_PIN_5;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  660              		.loc 1 391 0
  661 0036 2023     		movs	r3, #32
  662 0038 0193     		str	r3, [sp, #4]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 20
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 20
 
 
  392:Src/tim.c     ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  712 0004 3948     		ldr	r0, .L76
  713 0006 3A4B     		ldr	r3, .L76+4
  714 0008 0360     		str	r3, [r0]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 21
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 21
 
 
   67:Src/tim.c     ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  756 0040 0A92     		str	r2, [sp, #40]
   88:Src/tim.c     ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
  757              		.loc 1 88 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 22
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 22
 
 
  758 0042 0B92     		str	r2, [sp, #44]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  114:Src/tim.c     ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
  803              		.loc 1 114 0
  804 0082 0393     		str	r3, [sp, #12]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 23
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 23
 
 
  115:Src/tim.c     ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  850 00bc FFF7FEFF 		bl	_Error_Handler
  851              	.LVL45:
  852 00c0 C8E7     		b	.L63
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 24
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 24
 
 
  853              	.L72:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  904 0000 00B5     		push	{lr}
  905              	.LCFI30:
  906              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 25
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 25
 
 
  907              		.cfi_offset 14, -4
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  949              		.loc 1 151 0
  950 003a 0392     		str	r2, [sp, #12]
  152:Src/tim.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 26
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 26
 
 
  951              		.loc 1 152 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  999              		.cfi_endproc
  1000              	.LFE160:
  1002              		.section	.text.HAL_TIM_PWM_MspDeInit,"ax",%progbits
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 27
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 27
 
 
  1003              		.align	1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1030              		.loc 1 414 0
  1031 0010 02F59C32 		add	r2, r2, #79872
  1032 0014 536C     		ldr	r3, [r2, #68]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 28
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 28
 
 
  1033 0016 23F00103 		bic	r3, r3, #1
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  442:Src/tim.c     ****   
  443:Src/tim.c     ****     /**TIM3 GPIO Configuration    
  444:Src/tim.c     ****     PA6     ------> TIM3_CH1
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 29
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 29
 
 
  445:Src/tim.c     ****     PA7     ------> TIM3_CH2 
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1101              		.loc 1 459 0
  1102 0028 02F50C32 		add	r2, r2, #143360
  1103 002c 136C     		ldr	r3, [r2, #64]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 30
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 30
 
 
  1104 002e 23F00403 		bic	r3, r3, #4
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  480:Src/tim.c     ****   /* USER CODE END TIM5_MspDeInit 0 */
  481:Src/tim.c     ****     /* Peripheral clock disable */
  482:Src/tim.c     ****     __HAL_RCC_TIM5_CLK_DISABLE();
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 31
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 31
 
 
  483:Src/tim.c     **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1187              		@ args = 0, pretend = 0, frame = 0
  1188              		@ frame_needed = 0, uses_anonymous_args = 0
  1189              	.LVL71:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 32
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 32
 
 
  1190 0000 10B5     		push	{r4, lr}
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1229              		.loc 1 515 0
  1230 0030 CA60     		str	r2, [r1, #12]
  516:Src/tim.c     ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 33
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 33
 
 
  1231              		.loc 1 516 0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1271 006a FFF7FEFF 		bl	_Error_Handler
  1272              	.LVL80:
  1273              		.loc 1 527 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 34
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 34
 
 
  1274 006e ECE7     		b	.L109
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1318              		.loc 1 539 0
  1319 0012 5A61     		str	r2, [r3, #20]
  540:Src/tim.c     ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 35
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 35
 
 
  1320              		.loc 1 540 0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  559:Src/tim.c     ****     sConfigOC.Pulse = -1 * left_pwm;
  560:Src/tim.c     ****     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
  561:Src/tim.c     ****     {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 36
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 36
 
 
  562:Src/tim.c     ****       _Error_Handler(__FILE__, __LINE__);
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  590:Src/tim.c     ****     sConfigOC.Pulse = 0;
  591:Src/tim.c     ****     if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
  592:Src/tim.c     ****     {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 37
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 37
 
 
  593:Src/tim.c     ****       _Error_Handler(__FILE__, __LINE__);
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1413 0096 0421     		movs	r1, #4
  1414 0098 3F48     		ldr	r0, .L151+8
  1415 009a FFF7FEFF 		bl	HAL_TIM_PWM_Start
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 38
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 38
 
 
  1416              	.LVL91:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1457 00d2 0422     		movs	r2, #4
  1458 00d4 3048     		ldr	r0, .L151+8
  1459 00d6 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 39
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 39
 
 
  1460              	.LVL97:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1507 0120 0023     		movs	r3, #0
  1508 0122 4B60     		str	r3, [r1, #4]
  591:Src/tim.c     ****     {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 40
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 40
 
 
  1509              		.loc 1 591 0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1557              	.LVL114:
  1558 0176 94E7     		b	.L131
  1559              	.L147:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 41
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 41
 
 
  617:Src/tim.c     **** 	}
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1610 000a 5A6A     		ldr	r2, [r3, #36]
  1611 000c 12B2     		sxth	r2, r2
  1612              	.LVL118:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 42
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 42
 
 
  627:Src/tim.c     ****   TIM3->CNT = 0;
@@ -2472,12 +2472,12 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  630:Src/tim.c     ****   enc.old_l = enc.velocity_l;
  1618              		.loc 1 630 0
  1619 0014 274B     		ldr	r3, .L159+8
- 1620 0016 1868     		ldr	r0, [r3]	@ float
- 1621 0018 1861     		str	r0, [r3, #16]	@ float
+ 1620 0016 9868     		ldr	r0, [r3, #8]	@ float
+ 1621 0018 9861     		str	r0, [r3, #24]	@ float
  631:Src/tim.c     ****   enc.old_r = enc.velocity_r;
  1622              		.loc 1 631 0
- 1623 001a 5868     		ldr	r0, [r3, #4]	@ float
- 1624 001c 5861     		str	r0, [r3, #20]	@ float
+ 1623 001a D868     		ldr	r0, [r3, #12]	@ float
+ 1624 001c D861     		str	r0, [r3, #28]	@ float
  632:Src/tim.c     ****   enc.velocity_l = l_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
  1625              		.loc 1 632 0
  1626 001e 0B46     		mov	r3, r1
@@ -2495,7 +2495,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1638 0042 F2EE087A 		vmov.f32	s15, #1.2e+1
  1639 0046 27EE277A 		vmul.f32	s14, s14, s15
  1640 004a 1A4B     		ldr	r3, .L159+8
- 1641 004c 83ED007A 		vstr.32	s14, [r3]
+ 1641 004c 83ED027A 		vstr.32	s14, [r3, #8]
  633:Src/tim.c     ****   enc.velocity_r = r_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
  1642              		.loc 1 633 0
  1643 0050 1346     		mov	r3, r2
@@ -2513,20 +2513,20 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1655 0074 F2EE086A 		vmov.f32	s13, #1.2e+1
  1656 0078 67EEA67A 		vmul.f32	s15, s15, s13
  1657 007c 0D4B     		ldr	r3, .L159+8
- 1658 007e C3ED017A 		vstr.32	s15, [r3, #4]
+ 1658 007e C3ED037A 		vstr.32	s15, [r3, #12]
  634:Src/tim.c     ****   enc.distance_l += enc.velocity_l;
  1659              		.loc 1 634 0
- 1660 0082 D3ED026A 		vldr.32	s13, [r3, #8]
+ 1660 0082 D3ED046A 		vldr.32	s13, [r3, #16]
  1661 0086 36EE877A 		vadd.f32	s14, s13, s14
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 43
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 43
 
 
- 1662 008a 83ED027A 		vstr.32	s14, [r3, #8]
+ 1662 008a 83ED047A 		vstr.32	s14, [r3, #16]
  635:Src/tim.c     ****   enc.distance_r += enc.velocity_r;
  1663              		.loc 1 635 0
- 1664 008e 93ED037A 		vldr.32	s14, [r3, #12]
+ 1664 008e 93ED057A 		vldr.32	s14, [r3, #20]
  1665 0092 77EE277A 		vadd.f32	s15, s14, s15
- 1666 0096 C3ED037A 		vstr.32	s15, [r3, #12]
+ 1666 0096 C3ED057A 		vstr.32	s15, [r3, #20]
  636:Src/tim.c     **** }
  1667              		.loc 1 636 0
  1668 009a 5DF8044B 		ldr	r4, [sp], #4
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1711              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
  1712              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
  1713              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 44
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 44
 
 
  1714              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
@@ -2592,67 +2592,67 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 1
  1722              		.file 17 "Inc/global.h"
  1723              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
  1724              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 45
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 45
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 tim.c
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:18     .text.MX_TIM3_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:25     .text.MX_TIM3_Init:00000000 MX_TIM3_Init
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:117    .text.MX_TIM3_Init:00000060 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:18     .text.MX_TIM3_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:25     .text.MX_TIM3_Init:00000000 MX_TIM3_Init
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:117    .text.MX_TIM3_Init:00000060 $d
                             *COM*:0000003c htim3
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:124    .text.MX_TIM4_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:131    .text.MX_TIM4_Init:00000000 MX_TIM4_Init
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:222    .text.MX_TIM4_Init:00000060 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:124    .text.MX_TIM4_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:131    .text.MX_TIM4_Init:00000000 MX_TIM4_Init
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:222    .text.MX_TIM4_Init:00000060 $d
                             *COM*:0000003c htim4
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:229    .text.MX_TIM5_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:236    .text.MX_TIM5_Init:00000000 MX_TIM5_Init
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:325    .text.MX_TIM5_Init:00000068 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:229    .text.MX_TIM5_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:236    .text.MX_TIM5_Init:00000000 MX_TIM5_Init
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:325    .text.MX_TIM5_Init:00000068 $d
                             *COM*:0000003c htim5
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:332    .text.HAL_TIM_PWM_MspInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:339    .text.HAL_TIM_PWM_MspInit:00000000 HAL_TIM_PWM_MspInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:402    .text.HAL_TIM_PWM_MspInit:00000048 $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:408    .text.HAL_TIM_Encoder_MspInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:415    .text.HAL_TIM_Encoder_MspInit:00000000 HAL_TIM_Encoder_MspInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:521    .text.HAL_TIM_Encoder_MspInit:0000007c $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:529    .text.HAL_TIM_Base_MspInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:536    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:590    .text.HAL_TIM_Base_MspInit:0000003c $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:595    .text.HAL_TIM_MspPostInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:602    .text.HAL_TIM_MspPostInit:00000000 HAL_TIM_MspPostInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:685    .text.HAL_TIM_MspPostInit:00000054 $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:691    .text.MX_TIM1_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:698    .text.MX_TIM1_Init:00000000 MX_TIM1_Init
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:884    .text.MX_TIM1_Init:000000ec $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:332    .text.HAL_TIM_PWM_MspInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:339    .text.HAL_TIM_PWM_MspInit:00000000 HAL_TIM_PWM_MspInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:402    .text.HAL_TIM_PWM_MspInit:00000048 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:408    .text.HAL_TIM_Encoder_MspInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:415    .text.HAL_TIM_Encoder_MspInit:00000000 HAL_TIM_Encoder_MspInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:521    .text.HAL_TIM_Encoder_MspInit:0000007c $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:529    .text.HAL_TIM_Base_MspInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:536    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:590    .text.HAL_TIM_Base_MspInit:0000003c $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:595    .text.HAL_TIM_MspPostInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:602    .text.HAL_TIM_MspPostInit:00000000 HAL_TIM_MspPostInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:685    .text.HAL_TIM_MspPostInit:00000054 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:691    .text.MX_TIM1_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:698    .text.MX_TIM1_Init:00000000 MX_TIM1_Init
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:884    .text.MX_TIM1_Init:000000ec $d
                             *COM*:0000003c htim1
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:891    .text.MX_TIM2_Init:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:898    .text.MX_TIM2_Init:00000000 MX_TIM2_Init
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:997    .text.MX_TIM2_Init:00000074 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:891    .text.MX_TIM2_Init:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:898    .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:997    .text.MX_TIM2_Init:00000074 $d
                             *COM*:0000003c htim2
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1003   .text.HAL_TIM_PWM_MspDeInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1010   .text.HAL_TIM_PWM_MspDeInit:00000000 HAL_TIM_PWM_MspDeInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1047   .text.HAL_TIM_PWM_MspDeInit:0000002c $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1053   .text.HAL_TIM_Encoder_MspDeInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1060   .text.HAL_TIM_Encoder_MspDeInit:00000000 HAL_TIM_Encoder_MspDeInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1117   .text.HAL_TIM_Encoder_MspDeInit:00000040 $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1125   .text.HAL_TIM_Base_MspDeInit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1132   .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1170   .text.HAL_TIM_Base_MspDeInit:00000020 $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1176   .text.Buzzer_pwm:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1183   .text.Buzzer_pwm:00000000 Buzzer_pwm
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1278   .text.Buzzer_pwm:00000070 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1003   .text.HAL_TIM_PWM_MspDeInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1010   .text.HAL_TIM_PWM_MspDeInit:00000000 HAL_TIM_PWM_MspDeInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1047   .text.HAL_TIM_PWM_MspDeInit:0000002c $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1053   .text.HAL_TIM_Encoder_MspDeInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1060   .text.HAL_TIM_Encoder_MspDeInit:00000000 HAL_TIM_Encoder_MspDeInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1117   .text.HAL_TIM_Encoder_MspDeInit:00000040 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1125   .text.HAL_TIM_Base_MspDeInit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1132   .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1170   .text.HAL_TIM_Base_MspDeInit:00000020 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1176   .text.Buzzer_pwm:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1183   .text.Buzzer_pwm:00000000 Buzzer_pwm
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1278   .text.Buzzer_pwm:00000070 $d
                             *COM*:0000001c sConfigOC
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1285   .text.Motor_pwm:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1292   .text.Motor_pwm:00000000 Motor_pwm
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1577   .text.Motor_pwm:00000190 $d
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1585   .text.update_encoder:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1592   .text.update_encoder:00000000 update_encoder
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1687   .text.update_encoder:000000ac $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1285   .text.Motor_pwm:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1292   .text.Motor_pwm:00000000 Motor_pwm
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1577   .text.Motor_pwm:00000190 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1585   .text.update_encoder:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1592   .text.update_encoder:00000000 update_encoder
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1687   .text.update_encoder:000000ac $d
                             *COM*:00000008 sMasterConfig
-C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s:1702   .rodata.MX_TIM3_Init.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s:1702   .rodata.MX_TIM3_Init.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccHKnsCG.s 			page 46
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccXkbGng.s 			page 46
 
 
 HAL_TIM_Encoder_Init

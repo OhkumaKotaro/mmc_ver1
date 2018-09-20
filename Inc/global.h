@@ -112,6 +112,15 @@ typedef struct{
 }calc_t;
 extern calc_t calc;
 
+typedef struct{
+  uint8_t x;
+  uint8_t y;
+  uint8_t dir;
+  float angle;
+  float distance;
+}position_t;
+extern position_t position;
+
 //count
 extern uint16_t count_tim5;
 extern uint16_t ms_count;
