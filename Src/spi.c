@@ -203,13 +203,11 @@ void set_mpu6500(void){
  * argument : void
  * Return   : degree (2000 deg/sec)
  ****************************************************************/
-float get_gyro(void){
+int16_t get_gyro(void){
   int16_t gyro_z;
-  float degree;
   gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
-  degree = (float)gyro_z/GYRO_FACTOR;
-  degree -= gyro.offset;
-  return degree;
+  gyro_z -= gyro.offset;
+  return gyro_z;
 }
 
 /*****************************************************************
@@ -218,11 +216,11 @@ float get_gyro(void){
  * Return   : void
  ****************************************************************/
 void gyro_offset_calc_reset(void){
-  gyro.offset = 0.0f;
+  gyro.offset = 0;
   gyro.offset_cnt = 0;
   flag.gyro_calc = false;
 
-  gyro.degree_sum = 0;
+  gyro.degree = 0;
   gyro.befor = 0;
 }
 
@@ -233,16 +231,14 @@ void gyro_offset_calc_reset(void){
  ****************************************************************/
 void gyro_offset_calc(void){
   int16_t gyro_z;
-  float degree;
 
   gyro_z = (int16_t)(read_shift_byte(GYRO_OUT_Z_H) | read_byte(GYRO_OUT_Z_L));
-  degree = (float)gyro_z/GYRO_FACTOR;
 
-  if(gyro.offset_cnt<1000){
-    gyro.offset += degree;
+  if(gyro.offset_cnt<1023){
+    gyro.offset += gyro_z;
     gyro.offset_cnt++;
   }else{
-    gyro.offset/=1000.0f;
+    gyro.offset /= 1023;
     flag.gyro_calc = true;
   }
 }

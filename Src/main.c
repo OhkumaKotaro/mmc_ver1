@@ -123,35 +123,27 @@ int main(void)
   HAL_TIM_Base_Start_IT( &htim5 );
   set_mpu6500();
   gyro_offset_calc_reset();
-
+  Batt_Check();
+  
+  HAL_Delay(1000);
   Buzzer_pwm(HZ_C,250);
   HAL_Delay(400);
   Buzzer_pwm(HZ_NORMAL,0);
 
-  Batt_Check();
-  
   flag.ir_led = OFF;
-  calc.velocity_l = 0;
-  calc.velocity_r = 0;
-  calc.distance_l = 0;
-  calc.distance_r = 0;
-  straight_fb(0,0,4000,180,300);
   flag.accel = OFF;
+  Yawrate_Calc_fb(0,0,0);
+  flag.accel = ON;
   
-  loadFlash(start_address,(uint8_t*)&position,sizeof(position_t));
-  printf("%d,%d,%f,%f\r\n",position.x,position.y,position.angle,position.distance);
-  position.x = 100;
-  position.y = 150;
-  position.angle = 1.52;
-  position.distance = 0.18;
-  writeFlash(start_address,(uint8_t*)&position,sizeof(position_t));
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    
+    if(Push()==ON){
+      flag.accel = OFF;
+    }
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */

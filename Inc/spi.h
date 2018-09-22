@@ -65,7 +65,7 @@ extern SPI_HandleTypeDef hspi2;
 #define GYRO_OUT_Z_H  0x47
 #define SETTING       0x80  //0b1000 0000 8bitの上位bitを立てると
 
-#define GYRO_FACTOR  16.4
+#define GYRO_FACTOR  16.4f
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
@@ -78,7 +78,7 @@ int16_t read_shift_byte(uint8_t reg);
 
 void write_byte( uint8_t reg,uint8_t val);
 void set_mpu6500(void);
-float get_gyro(void);
+int16_t get_gyro(void);
 void gyro_offset_calc_reset(void);
 void gyro_offset_calc(void);
 /* USER CODE END Prototypes */

@@ -26,3 +26,7 @@ motor_t motor;
 float accel_L;
 float constant_L;
 float decrease_L;
+
+float y_accel_L;
+float y_constant_L;
+float y_decrease_L;

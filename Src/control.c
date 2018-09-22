@@ -11,7 +11,7 @@
  * argument : 
  * return   : control value
 ********************************************************************************************/
-int16_t PID_value(float target,float measured,float *sum,float*old,float Kp,float Ki,float Kd,int16_t maximum){
+float PID_value(float target,float measured,float *sum,float*old,float Kp,float Ki,float Kd,int16_t maximum){
     float error = 0.00f ;
     float p,i,d;
 
@@ -32,7 +32,7 @@ int16_t PID_value(float target,float measured,float *sum,float*old,float Kp,floa
         i = d = 0;
     }
 
-    return (p + i + d);
+    return (p + i + d)/batt_Vcc;
 }
 
 /****************************************************************************************
@@ -40,12 +40,72 @@ int16_t PID_value(float target,float measured,float *sum,float*old,float Kp,floa
  * argument : accel_light,accel_right
  * return   : control value
 ********************************************************************************************/
-void Calculate_Parameter(int accel_l,int accel_r){
-    calc.distance_l += calc.velocity_l * dt; 
-    calc.distance_r += calc.velocity_r * dt;
-    calc.velocity_l += accel_l * dt;
-    calc.velocity_r += accel_r * dt;
+void Calc_Palam(int16_t accel,int16_t *velocity,int16_t *distance){
+    *distance =+ *velocity * dt;
+    *velocity =+ accel * dt;
 }
+
+
+void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
+    float t1,t2;
+    calc.distance = 0;
+    calc.velocity = v_start;
+    t1 = (float)(MAX_VELOCITY - v_start) / ACCEL;
+    t2 = (float)(MAX_VELOCITY - v_end) / ACCEL;
+
+    accel_L = 0.50f * (MAX_VELOCITY + v_start) * t1;
+    constant_L = distant - 0.50f * (MAX_VELOCITY + v_start) * t2;
+    decrease_L = distant;
+}
+
+void Straight_SysTic_fb(void){
+    int16_t straight_pid_l,straight_pid_r;
+    if(calc.distance < accel_L){
+        Calc_Palam(ACCEL,&calc.velocity,&calc.distance);
+    }else if(calc.distance < constant_L){
+        Calc_Palam(0,&calc.velocity,&calc.distance);
+    }else if(calc.distance < decrease_L){
+        Calc_Palam(-ACCEL,&calc.velocity,&calc.distance);
+    }
+    
+    straight_pid_l = (int16_t)PID_value((float)calc.velocity,enc.velocity_l,&enc.distance_l,&enc.old_l,0.1f,0,0,800);
+    straight_pid_r = (int16_t)PID_value((float)calc.velocity,enc.velocity_r,&enc.distance_r,&enc.old_r,0.1f,0,0,800);
+    Motor_pwm(straight_pid_l,straight_pid_r);
+}
+
+void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
+    calc.yawrate_degree = 0;
+    calc.yawrate_velocity = v_start;
+    if(degree == 0){
+        y_accel_L = 0;
+        y_constant_L = 0;
+        y_decrease_L = 0;
+    }
+    else{
+        float t1,t2;
+
+        t1 = (Y_MAX_VELOCITY - v_start) / Y_ACCEL;
+        t2 = (Y_MAX_VELOCITY - v_end) / Y_ACCEL;
+
+        y_accel_L = 0.5f * (v_start + Y_MAX_VELOCITY) * t1;
+        y_constant_L = degree - 0.5f * (v_end + Y_MAX_VELOCITY) * t2; 
+        y_decrease_L = degree;
+    }
+}
+
+void Yawrate_SysTic_fb(void){
+    int16_t yawrate_pid;
+    if(calc.yawrate_degree < y_accel_L){
+        Calc_Palam(Y_ACCEL,&calc.yawrate_velocity,&calc.yawrate_degree);
+    }else if(calc.yawrate_degree < y_constant_L){
+        Calc_Palam(0,&calc.yawrate_velocity,&calc.yawrate_degree);
+    }else if(calc.yawrate_degree < y_decrease_L){
+        Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&calc.yawrate_degree);
+    }
+    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,8.0f,0,0,800);
+    Motor_pwm(-yawrate_pid,yawrate_pid);
+}
+
 //argument : accel[mm/s^2]
 void control_accel(int16_t accel_l,int16_t accel_r){
   float pwm_l,pwm_r;
@@ -93,20 +153,6 @@ void straight_one_ff(void){
     }
 }
 
-
-void straight_fb(int v_start,int v_end,int accel,int distance,int v_max){
-    float t1,t3;
-    calc.distance_l = 0;
-    calc.distance_r = 0;
-    calc.velocity_l = v_start;
-    calc.velocity_r = v_start;
-    t1 = (float)(v_max - v_start) / accel;
-    accel_L = v_start * t1 + 0.50f * accel * t1 * t1;
-    t3 = (float)(v_max - v_end) / accel;
-    decrease_L = v_end * t3 + 0.50f * accel * t3 * t3;
-    constant_L = (float)distance - accel_L - decrease_L;
-}
-
 void Sensor_Check(void){
     if(sensor.wall[0]==true){
         HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
@@ -127,7 +173,7 @@ void Sensor_Check(void){
         HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
     }else{
         HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
-    }
-    
+    } 
 }
+
 

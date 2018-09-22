@@ -85,7 +85,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN Prototypes */
 void Buzzer_pwm(int hz,int vol);
-void Motor_pwm(int left_pwm,int right_pwm);
+void Motor_pwm(int16_t left_pwm,int16_t right_pwm);
 void update_encoder(void);
 
 /* USER CODE END Prototypes */

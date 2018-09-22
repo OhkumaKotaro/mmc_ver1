@@ -40,6 +40,14 @@
 //calc
 #define dt 0.001f
 
+//straight
+#define ACCEL 4000
+#define MAX_VELOCITY 300
+
+//yawrate
+#define Y_ACCEL 300
+#define Y_MAX_VELOCITY 90
+
 
 /***typedef**************************************************************************/
 
@@ -55,11 +63,11 @@ extern flag_t flag;
 //gyro
 typedef struct{
   short offset_cnt;
-  float offset;
+  int32_t offset;
   float befor;
-  float radian;
   float degree;
-  float degree_sum;
+  float velocity;
+  float accel;
 }gyro_t;
 extern gyro_t gyro;
 
@@ -103,12 +111,13 @@ extern motor_t motor;
 
 //calc
 typedef struct{
-  int16_t distance_l;
-  int16_t distance_r;
-  int16_t velocity_l;
-  int16_t velocity_r;
-  int16_t accel_l;
-  int16_t accel_r;
+  int16_t distance;
+  int16_t velocity;
+  int16_t accel;
+
+  int16_t yawrate_degree;
+  int16_t yawrate_velocity;
+  int16_t yawrate_accel;
 }calc_t;
 extern calc_t calc;
 
@@ -121,6 +130,12 @@ typedef struct{
 }position_t;
 extern position_t position;
 
+typedef struct{
+  float target_accel;
+  float accel;
+}loger_t;
+extern loger_t loger[1000];
+
 //count
 extern uint16_t count_tim5;
 extern uint16_t ms_count;
@@ -131,6 +146,10 @@ extern uint16_t speed_count;
 extern float accel_L;
 extern float constant_L;
 extern float decrease_L;
+
+extern float y_accel_L;
+extern float y_constant_L;
+extern float y_decrease_L;
 
 
 #ifdef __cplusplus

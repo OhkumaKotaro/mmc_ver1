@@ -531,7 +531,7 @@ void Buzzer_pwm(int hz,int vol)
  * argument : left pwm , reft pwm (-Period~Period,max 800)
  * return   : void
 ********************************************************************************************/
-void Motor_pwm(int left_pwm,int right_pwm){
+void Motor_pwm(int16_t left_pwm,int16_t right_pwm){
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
@@ -631,8 +631,8 @@ void update_encoder(void){
   enc.old_r = enc.velocity_r;
   enc.velocity_l = l_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
   enc.velocity_r = r_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
-  enc.distance_l += enc.velocity_l;
-  enc.distance_r += enc.velocity_r;
+  enc.distance_l += enc.velocity_l * dt;
+  enc.distance_r += enc.velocity_r * dt;
 }
 
 

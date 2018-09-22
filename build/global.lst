@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccOpoTZE.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccTslLfj.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,41 +17,47 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccOpoTZE.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.comm	decrease_L,4,4
-  18              		.comm	constant_L,4,4
-  19              		.comm	accel_L,4,4
-  20              		.comm	motor,8,4
-  21              		.comm	speed_count,2,2
-  22              		.comm	s_count,2,2
-  23              		.comm	ms_count,2,2
-  24              		.comm	sensor_count,8,4
-  25              		.comm	sensor_wall,8,4
-  26              		.comm	sensor_adc,8,4
-  27              		.comm	sensor_adc_off,8,4
-  28              		.comm	sensor_adc_on,8,4
-  29              		.comm	batt_Vcc,4,4
-  30              		.comm	batt_analog,2,2
-  31              		.comm	count_tim5,2,2
-  32              		.comm	sensor,36,4
-  33              		.comm	position,12,4
-  34              		.comm	calc,12,4
-  35              		.comm	enc,32,4
-  36              		.comm	gyro,24,4
-  37              		.comm	flag,6,4
-  38              	.Letext0:
-  39              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  40              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  41              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  42              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  43              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
-  44              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  45              		.file 7 "Inc/global.h"
-  46              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccOpoTZE.s 			page 2
+  17              		.comm	y_decrease_L,4,4
+  18              		.comm	y_constant_L,4,4
+  19              		.comm	y_accel_L,4,4
+  20              		.comm	decrease_L,4,4
+  21              		.comm	constant_L,4,4
+  22              		.comm	accel_L,4,4
+  23              		.comm	motor,8,4
+  24              		.comm	speed_count,2,2
+  25              		.comm	s_count,2,2
+  26              		.comm	ms_count,2,2
+  27              		.comm	sensor_count,8,4
+  28              		.comm	sensor_wall,8,4
+  29              		.comm	sensor_adc,8,4
+  30              		.comm	sensor_adc_off,8,4
+  31              		.comm	sensor_adc_on,8,4
+  32              		.comm	batt_Vcc,4,4
+  33              		.comm	batt_analog,2,2
+  34              		.comm	count_tim5,2,2
+  35              		.comm	sensor,36,4
+  36              		.comm	position,12,4
+  37              		.comm	calc,18,4
+  38              		.comm	enc,32,4
+  39              		.comm	gyro,24,4
+  40              		.comm	flag,6,4
+  41              	.Letext0:
+  42              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  43              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  44              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  45              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  46              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+  47              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  48              		.file 7 "Inc/global.h"
+  49              		.file 8 "Src/global.c"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccTslLfj.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 global.c
+                            *COM*:00000004 y_decrease_L
+                            *COM*:00000004 y_constant_L
+                            *COM*:00000004 y_accel_L
                             *COM*:00000004 decrease_L
                             *COM*:00000004 constant_L
                             *COM*:00000004 accel_L
@@ -69,7 +75,7 @@ DEFINED SYMBOLS
                             *COM*:00000002 count_tim5
                             *COM*:00000024 sensor
                             *COM*:0000000c position
-                            *COM*:0000000c calc
+                            *COM*:00000012 calc
                             *COM*:00000020 enc
                             *COM*:00000018 gyro
                             *COM*:00000006 flag
