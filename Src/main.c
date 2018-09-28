@@ -49,6 +49,7 @@
 #include "global.h"
 #include "control.h"
 #include "flash.h"
+#include "mode.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -72,6 +73,7 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 void Batt_Check(void);
+void Init_Main(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -118,22 +120,7 @@ int main(void)
   MX_ADC2_Init();
   MX_ADC3_Init();
   /* USER CODE BEGIN 2 */
-  flag.ir_led = OFF;
-  setbuf(stdout, NULL);
-  HAL_TIM_Base_Start_IT( &htim5 );
-  set_mpu6500();
-  gyro_offset_calc_reset();
-  Batt_Check();
-  
-  HAL_Delay(1000);
-  Buzzer_pwm(HZ_C,250);
-  HAL_Delay(400);
-  Buzzer_pwm(HZ_NORMAL,0);
-
-  flag.ir_led = OFF;
-  flag.accel = OFF;
-  Yawrate_Calc_fb(0,0,0);
-  flag.accel = ON;
+  Init_Main();
   
   /* USER CODE END 2 */
 
@@ -141,9 +128,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    if(Push()==ON){
-      flag.accel = OFF;
-    }
+    Mode_mouse(Mode_select());
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -225,9 +210,27 @@ void Batt_Check(void)
     batt += batt_analog;
   }
   batt /= 50.0;
-  batt = batt/4095.0*133.0/33.0*3.3;
+  batt = batt/4095.0f*133.0f/33.0f*3.3f;
   batt_Vcc = batt;
   printf("\nbatt:%lf\r\n",batt_Vcc);
+}
+
+/****************************************************************************************
+ * outline  : init main(setbuf,tim5,3,4,gyro,battery,flag,ms_count)
+ * argument : void
+ * return   : void
+********************************************************************************************/
+void Init_Main(void){
+  setbuf(stdout, NULL);
+  HAL_TIM_Base_Start_IT( &htim5 );
+  HAL_TIM_Encoder_Start( &htim3, TIM_CHANNEL_ALL );
+  HAL_TIM_Encoder_Start( &htim4, TIM_CHANNEL_ALL );
+  set_mpu6500();
+  Batt_Check();
+  flag.ir_led = OFF;
+  flag.straight = OFF;
+  flag.yawrate = OFF;
+  ms_count = 0;
 }
 
 /* USER CODE END 4 */

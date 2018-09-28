@@ -77,7 +77,8 @@ Src/spi.c \
 Src/syscalls.c \
 Src/global.c \
 Src/control.c \
-Src/flash.c 
+Src/flash.c \
+Src/mode.c 
 
 # ASM sources
 ASM_SOURCES =  \

@@ -109,9 +109,15 @@ void MX_GPIO_Init(void)
  * argument : void
  * return   : ON or OFF
 ********************************************************************************************/
-short Push(void){
-  if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET) return 1;
-  else                                                              return 0;
+uint8_t Push(void){
+  uint8_t push;
+  if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_RESET){
+    push=1;
+  }
+  if(HAL_GPIO_ReadPin(push0_GPIO_Port,push0_Pin) == GPIO_PIN_SET){
+    push = 0;
+  }
+  return push;
 }
 
 /****************************************************************************************

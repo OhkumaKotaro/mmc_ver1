@@ -59,7 +59,7 @@
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-short Push(void);
+uint8_t Push(void);
 void All_LED_ON(void);
 void All_LED_OFF(void);
 void All_IR_ON(void);

@@ -6,107 +6,150 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 
+
+
+
 /****************************************************************************************
  * outline  : PID control
  * argument : 
  * return   : control value
 ********************************************************************************************/
-float PID_value(float target,float measured,float *sum,float*old,float Kp,float Ki,float Kd,int16_t maximum){
-    float error = 0.00f ;
+float PID_value(float target,float measured,float *sum,float*old,float Kp,float Ki,float Kd){
+    float error;
     float p,i,d;
 
     error = target - measured;
-    *sum = error * dt;
-    p = error * Kp;
-    i = *sum * Ki;
-    d = (measured - *old) * Kp;
+    p = Kp*error;
+
+    *sum += error * dt;
+    i = Ki * *sum;
 
     *old = measured;
+    d = Kd * (measured - *old);
 
-    if((p + i + d) > maximum){
-        p = maximum;
-        i = d = 0;
-    }
-    if((p+i+d) < -maximum){
-        p = -maximum;
-        i = d = 0;
-    }
-
-    return (p + i + d)/batt_Vcc;
+    return (p+i+d)/batt_Vcc;
 }
 
 /****************************************************************************************
  * outline  : calculate parameter
- * argument : accel_light,accel_right
- * return   : control value
+ * argument : accel,*velocity,*distance
+ * return   : void
 ********************************************************************************************/
-void Calc_Palam(int16_t accel,int16_t *velocity,int16_t *distance){
-    *distance =+ *velocity * dt;
-    *velocity =+ accel * dt;
+void Calc_Palam(int16_t accel,int16_t *velocity,uint16_t *calc_tim){
+    *calc_tim += 1;
+    *velocity += accel * dt;
 }
 
 
+/****************************************************************************************
+ * outline  : calcurate accele distance
+ * argument : distance[mm],v_start[mm/s],v_end[mm/s]
+ * return   : void
+********************************************************************************************/
 void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
-    float t1,t2;
-    calc.distance = 0;
+    float t1,t2,t3;
+    float constant_L;
     calc.velocity = v_start;
     t1 = (float)(MAX_VELOCITY - v_start) / ACCEL;
-    t2 = (float)(MAX_VELOCITY - v_end) / ACCEL;
+    t3 = (float)(MAX_VELOCITY - v_end) / ACCEL;
 
-    accel_L = 0.50f * (MAX_VELOCITY + v_start) * t1;
-    constant_L = distant - 0.50f * (MAX_VELOCITY + v_start) * t2;
-    decrease_L = distant;
+    constant_L = (float)distant - (MAX_VELOCITY + v_start) * t1 / 2 - (MAX_VELOCITY + v_start) * t3 / 2;
+
+    t2 = constant_L / MAX_VELOCITY;
+    printf("\nt1:%f,t2:%f,t3%f\r\n",t1,t2,t3);
+
+    t1 *= 1000;
+    t2 *= 1000;
+    t3 *= 1000;
+
+    accel_T = t1;
+    constant_T = t2;
+    decrease_T = t3;
 }
 
+
+/****************************************************************************************
+ * outline  : output pwm for trapezoid accele straight by feadbuck control
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void Straight_SysTic_fb(void){
     int16_t straight_pid_l,straight_pid_r;
-    if(calc.distance < accel_L){
-        Calc_Palam(ACCEL,&calc.velocity,&calc.distance);
-    }else if(calc.distance < constant_L){
-        Calc_Palam(0,&calc.velocity,&calc.distance);
-    }else if(calc.distance < decrease_L){
-        Calc_Palam(-ACCEL,&calc.velocity,&calc.distance);
+    if(ms_count < accel_T){
+        Calc_Palam(ACCEL,&calc.velocity,&ms_count);
+    }
+    else if(ms_count < constant_T + accel_T){
+        Calc_Palam(0,&calc.velocity,&ms_count);
+    }
+    else if(ms_count < decrease_T + constant_T + accel_T){
+        Calc_Palam(-ACCEL,&calc.velocity,&ms_count);
+    }else{
+        calc.velocity = 0;
+        flag.straight = OFF;
     }
     
-    straight_pid_l = (int16_t)PID_value((float)calc.velocity,enc.velocity_l,&enc.distance_l,&enc.old_l,0.1f,0,0,800);
-    straight_pid_r = (int16_t)PID_value((float)calc.velocity,enc.velocity_r,&enc.distance_r,&enc.old_r,0.1f,0,0,800);
+    
+    straight_pid_l = (int16_t)PID_value(calc.velocity,enc.velocity_l,&s_sum_l,&enc.old_l,20.0f,90.0f,0);
+    straight_pid_r = (int16_t)PID_value(calc.velocity,enc.velocity_r,&s_sum_r,&enc.old_r,20.0f,90.0f,0);
     Motor_pwm(straight_pid_l,straight_pid_r);
 }
 
+
+/****************************************************************************************
+ * outline  : calcurate trapezoid accel
+ * argument : degree[degree],v_start[degree/s],v_end[degree/s]
+ * return   : void
+********************************************************************************************/
 void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
     calc.yawrate_degree = 0;
     calc.yawrate_velocity = v_start;
     if(degree == 0){
-        y_accel_L = 0;
-        y_constant_L = 0;
-        y_decrease_L = 0;
+        y_accel_T = 0;
+        y_constant_T = 0;
+        y_decrease_T = 0;
     }
     else{
-        float t1,t2;
 
-        t1 = (Y_MAX_VELOCITY - v_start) / Y_ACCEL;
-        t2 = (Y_MAX_VELOCITY - v_end) / Y_ACCEL;
-
-        y_accel_L = 0.5f * (v_start + Y_MAX_VELOCITY) * t1;
-        y_constant_L = degree - 0.5f * (v_end + Y_MAX_VELOCITY) * t2; 
-        y_decrease_L = degree;
     }
 }
 
+
+/****************************************************************************************
+ * outline  : call 1ms (roll by feadbuck control)
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void Yawrate_SysTic_fb(void){
     int16_t yawrate_pid;
-    if(calc.yawrate_degree < y_accel_L){
-        Calc_Palam(Y_ACCEL,&calc.yawrate_velocity,&calc.yawrate_degree);
-    }else if(calc.yawrate_degree < y_constant_L){
-        Calc_Palam(0,&calc.yawrate_velocity,&calc.yawrate_degree);
-    }else if(calc.yawrate_degree < y_decrease_L){
-        Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&calc.yawrate_degree);
+    if(calc.yawrate_degree <= y_accel_T){
+        Calc_Palam(Y_ACCEL,&calc.yawrate_velocity,&ms_count);
+    }else if(calc.yawrate_degree <= y_constant_T){
+        Calc_Palam(0,&calc.yawrate_velocity,&ms_count);
+    }else if(calc.yawrate_degree <= y_decrease_T){
+        Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&ms_count);
     }
-    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,8.0f,0,0,800);
+    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,12.0f,0.0f,20.0f);
     Motor_pwm(-yawrate_pid,yawrate_pid);
 }
 
-//argument : accel[mm/s^2]
+
+/****************************************************************************************
+ * outline  : turn on buzzer 0.3sec
+ * argument : Hz
+ * return   : void
+********************************************************************************************/
+void Output_Buzzer(uint8_t Hz){
+    Buzzer_pwm(Hz,300);
+    HAL_Delay(300);
+    Buzzer_pwm(HZ_NORMAL,0);
+}
+
+
+/****************************************************************************************
+ * outline  : straight run one block
+ * argument : accel[mm/s^2]
+ * return   : void
+********************************************************************************************/
 void control_accel(int16_t accel_l,int16_t accel_r){
   float pwm_l,pwm_r;
   //torque[mNm] = weight[g] * 0.001 * accel[mm/s^2] * 0.001 * tire_radius[mm] / 2 / gear_rate
@@ -153,6 +196,12 @@ void straight_one_ff(void){
     }
 }
 
+
+/****************************************************************************************
+ * outline  : sensor check
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void Sensor_Check(void){
     if(sensor.wall[0]==true){
         HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);

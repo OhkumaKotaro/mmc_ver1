@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 1
   29:Src/main.c    ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   30:Src/main.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   31:Src/main.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 2
 
 
   32:Src/main.c    ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
@@ -81,18 +81,19 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 1
   49:Src/main.c    **** #include "global.h"
   50:Src/main.c    **** #include "control.h"
   51:Src/main.c    **** #include "flash.h"
-  52:Src/main.c    **** /* USER CODE END Includes */
-  53:Src/main.c    **** 
-  54:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
-  55:Src/main.c    **** 
-  56:Src/main.c    **** /* USER CODE BEGIN PV */
-  57:Src/main.c    **** #ifdef __GNUC__
-  58:Src/main.c    **** #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-  59:Src/main.c    **** #else
-  60:Src/main.c    **** #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-  61:Src/main.c    **** #endif /* __GNUC__ */
-  62:Src/main.c    **** void __io_putchar(uint8_t ch) {
-  28              		.loc 1 62 0
+  52:Src/main.c    **** #include "mode.h"
+  53:Src/main.c    **** /* USER CODE END Includes */
+  54:Src/main.c    **** 
+  55:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  56:Src/main.c    **** 
+  57:Src/main.c    **** /* USER CODE BEGIN PV */
+  58:Src/main.c    **** #ifdef __GNUC__
+  59:Src/main.c    **** #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+  60:Src/main.c    **** #else
+  61:Src/main.c    **** #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+  62:Src/main.c    **** #endif /* __GNUC__ */
+  63:Src/main.c    **** void __io_putchar(uint8_t ch) {
+  28              		.loc 1 63 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 8
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -106,21 +107,21 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 1
   39              		.cfi_def_cfa_offset 16
   40 0004 02A9     		add	r1, sp, #8
   41 0006 01F8010D 		strb	r0, [r1, #-1]!
-  63:Src/main.c    ****   HAL_UART_Transmit(&huart3, &ch, 1, 1);
-  42              		.loc 1 63 0
+  64:Src/main.c    ****   HAL_UART_Transmit(&huart3, &ch, 1, 1);
+  42              		.loc 1 64 0
   43 000a 0123     		movs	r3, #1
   44 000c 1A46     		mov	r2, r3
   45 000e 0348     		ldr	r0, .L3
   46              	.LVL1:
   47 0010 FFF7FEFF 		bl	HAL_UART_Transmit
   48              	.LVL2:
-  64:Src/main.c    **** }
-  49              		.loc 1 64 0
+  65:Src/main.c    **** }
+  49              		.loc 1 65 0
   50 0014 03B0     		add	sp, sp, #12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 3
+
+
   51              	.LCFI2:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 3
-
-
   52              		.cfi_def_cfa_offset 4
   53              		@ sp needed
   54 0016 5DF804FB 		ldr	pc, [sp], #4
@@ -131,754 +132,747 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 1
   59              		.cfi_endproc
   60              	.LFE159:
   62              		.global	__aeabi_f2d
-  63              		.global	__aeabi_ddiv
-  64              		.global	__aeabi_dmul
-  65              		.global	__aeabi_d2f
-  66              		.section	.text.Batt_Check,"ax",%progbits
-  67              		.align	1
-  68              		.global	Batt_Check
-  69              		.syntax unified
-  70              		.thumb
-  71              		.thumb_func
-  72              		.fpu fpv4-sp-d16
-  74              	Batt_Check:
-  75              	.LFB162:
-  65:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
-  66:Src/main.c    **** 
-  67:Src/main.c    **** /* USER CODE END PV */
-  68:Src/main.c    **** 
-  69:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
-  70:Src/main.c    **** void SystemClock_Config(void);
-  71:Src/main.c    **** 
-  72:Src/main.c    **** /* USER CODE BEGIN PFP */
-  73:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
-  74:Src/main.c    **** void Batt_Check(void);
-  75:Src/main.c    **** /* USER CODE END PFP */
-  76:Src/main.c    **** 
-  77:Src/main.c    **** /* USER CODE BEGIN 0 */
+  63              		.section	.text.Batt_Check,"ax",%progbits
+  64              		.align	1
+  65              		.global	Batt_Check
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  69              		.fpu fpv4-sp-d16
+  71              	Batt_Check:
+  72              	.LFB162:
+  66:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  67:Src/main.c    **** 
+  68:Src/main.c    **** /* USER CODE END PV */
+  69:Src/main.c    **** 
+  70:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  71:Src/main.c    **** void SystemClock_Config(void);
+  72:Src/main.c    **** 
+  73:Src/main.c    **** /* USER CODE BEGIN PFP */
+  74:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  75:Src/main.c    **** void Batt_Check(void);
+  76:Src/main.c    **** void Init_Main(void);
+  77:Src/main.c    **** /* USER CODE END PFP */
   78:Src/main.c    **** 
-  79:Src/main.c    **** /* USER CODE END 0 */
+  79:Src/main.c    **** /* USER CODE BEGIN 0 */
   80:Src/main.c    **** 
-  81:Src/main.c    **** /**
-  82:Src/main.c    ****   * @brief  The application entry point.
-  83:Src/main.c    ****   *
-  84:Src/main.c    ****   * @retval None
-  85:Src/main.c    ****   */
-  86:Src/main.c    **** int main(void)
-  87:Src/main.c    **** {
-  88:Src/main.c    ****   /* USER CODE BEGIN 1 */
-  89:Src/main.c    **** 
-  90:Src/main.c    ****   /* USER CODE END 1 */
+  81:Src/main.c    **** /* USER CODE END 0 */
+  82:Src/main.c    **** 
+  83:Src/main.c    **** /**
+  84:Src/main.c    ****   * @brief  The application entry point.
+  85:Src/main.c    ****   *
+  86:Src/main.c    ****   * @retval None
+  87:Src/main.c    ****   */
+  88:Src/main.c    **** int main(void)
+  89:Src/main.c    **** {
+  90:Src/main.c    ****   /* USER CODE BEGIN 1 */
   91:Src/main.c    **** 
-  92:Src/main.c    ****   /* MCU Configuration----------------------------------------------------------*/
+  92:Src/main.c    ****   /* USER CODE END 1 */
   93:Src/main.c    **** 
-  94:Src/main.c    ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  95:Src/main.c    ****   HAL_Init();
-  96:Src/main.c    **** 
-  97:Src/main.c    ****   /* USER CODE BEGIN Init */
-  98:Src/main.c    **** 
-  99:Src/main.c    ****   /* USER CODE END Init */
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 4
-
-
- 100:Src/main.c    **** 
- 101:Src/main.c    ****   /* Configure the system clock */
- 102:Src/main.c    ****   SystemClock_Config();
- 103:Src/main.c    **** 
- 104:Src/main.c    ****   /* USER CODE BEGIN SysInit */
- 105:Src/main.c    **** 
- 106:Src/main.c    ****   /* USER CODE END SysInit */
- 107:Src/main.c    **** 
- 108:Src/main.c    ****   /* Initialize all configured peripherals */
- 109:Src/main.c    ****   MX_GPIO_Init();
- 110:Src/main.c    ****   MX_USART3_UART_Init();
- 111:Src/main.c    ****   MX_TIM4_Init();
- 112:Src/main.c    ****   MX_SPI2_Init();
- 113:Src/main.c    ****   MX_TIM3_Init();
- 114:Src/main.c    ****   MX_TIM2_Init();
- 115:Src/main.c    ****   MX_TIM1_Init();
- 116:Src/main.c    ****   MX_TIM5_Init();
- 117:Src/main.c    ****   MX_ADC1_Init();
- 118:Src/main.c    ****   MX_ADC2_Init();
- 119:Src/main.c    ****   MX_ADC3_Init();
- 120:Src/main.c    ****   /* USER CODE BEGIN 2 */
- 121:Src/main.c    ****   flag.ir_led = OFF;
- 122:Src/main.c    ****   setbuf(stdout, NULL);
- 123:Src/main.c    ****   HAL_TIM_Base_Start_IT( &htim5 );
- 124:Src/main.c    ****   set_mpu6500();
- 125:Src/main.c    ****   gyro_offset_calc_reset();
- 126:Src/main.c    ****   Batt_Check();
- 127:Src/main.c    ****   
- 128:Src/main.c    ****   HAL_Delay(1000);
- 129:Src/main.c    ****   Buzzer_pwm(HZ_C,250);
- 130:Src/main.c    ****   HAL_Delay(400);
- 131:Src/main.c    ****   Buzzer_pwm(HZ_NORMAL,0);
- 132:Src/main.c    **** 
- 133:Src/main.c    ****   flag.ir_led = OFF;
- 134:Src/main.c    ****   flag.accel = OFF;
- 135:Src/main.c    ****   Yawrate_Calc_fb(0,0,0);
- 136:Src/main.c    ****   flag.accel = ON;
- 137:Src/main.c    ****   
- 138:Src/main.c    ****   /* USER CODE END 2 */
- 139:Src/main.c    **** 
- 140:Src/main.c    ****   /* Infinite loop */
- 141:Src/main.c    ****   /* USER CODE BEGIN WHILE */
- 142:Src/main.c    ****   while (1)
- 143:Src/main.c    ****   {
- 144:Src/main.c    ****     if(Push()==ON){
- 145:Src/main.c    ****       flag.accel = OFF;
- 146:Src/main.c    ****     }
- 147:Src/main.c    ****   /* USER CODE END WHILE */
- 148:Src/main.c    **** 
- 149:Src/main.c    ****   /* USER CODE BEGIN 3 */
- 150:Src/main.c    **** 
- 151:Src/main.c    ****   }
- 152:Src/main.c    ****   /* USER CODE END 3 */
- 153:Src/main.c    **** 
- 154:Src/main.c    **** }
- 155:Src/main.c    **** 
- 156:Src/main.c    **** /**
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 5
-
-
- 157:Src/main.c    ****   * @brief System Clock Configuration
- 158:Src/main.c    ****   * @retval None
- 159:Src/main.c    ****   */
- 160:Src/main.c    **** void SystemClock_Config(void)
- 161:Src/main.c    **** {
- 162:Src/main.c    **** 
- 163:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct;
- 164:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
- 165:Src/main.c    **** 
- 166:Src/main.c    ****     /**Configure the main internal regulator output voltage 
- 167:Src/main.c    ****     */
- 168:Src/main.c    ****   __HAL_RCC_PWR_CLK_ENABLE();
- 169:Src/main.c    **** 
- 170:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
- 171:Src/main.c    **** 
- 172:Src/main.c    ****     /**Initializes the CPU, AHB and APB busses clocks 
- 173:Src/main.c    ****     */
- 174:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
- 175:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 176:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
- 177:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 178:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
- 179:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 8;
- 180:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 80;
- 181:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 182:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 183:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 184:Src/main.c    ****   {
- 185:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 186:Src/main.c    ****   }
- 187:Src/main.c    **** 
- 188:Src/main.c    ****     /**Initializes the CPU, AHB and APB busses clocks 
- 189:Src/main.c    ****     */
- 190:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 191:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 192:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 193:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
- 194:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
- 195:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 196:Src/main.c    **** 
- 197:Src/main.c    ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
- 198:Src/main.c    ****   {
- 199:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
- 200:Src/main.c    ****   }
- 201:Src/main.c    **** 
- 202:Src/main.c    ****     /**Configure the Systick interrupt time 
- 203:Src/main.c    ****     */
- 204:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
- 205:Src/main.c    **** 
- 206:Src/main.c    ****     /**Configure the Systick 
- 207:Src/main.c    ****     */
- 208:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
- 209:Src/main.c    **** 
- 210:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
- 211:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
- 212:Src/main.c    **** }
- 213:Src/main.c    **** 
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 6
-
-
- 214:Src/main.c    **** /* USER CODE BEGIN 4 */
- 215:Src/main.c    **** 
- 216:Src/main.c    **** /****************************************************************************************
- 217:Src/main.c    ****  * outline  : normalize battery (12bit -> dec)
- 218:Src/main.c    ****  * argument : void
- 219:Src/main.c    ****  * return   : void
- 220:Src/main.c    **** ********************************************************************************************/
- 221:Src/main.c    **** void Batt_Check(void)
- 222:Src/main.c    **** {
-  76              		.loc 1 222 0
-  77              		.cfi_startproc
-  78              		@ args = 0, pretend = 0, frame = 0
-  79              		@ frame_needed = 0, uses_anonymous_args = 0
-  80 0000 08B5     		push	{r3, lr}
-  81              	.LCFI3:
-  82              		.cfi_def_cfa_offset 8
-  83              		.cfi_offset 3, -8
-  84              		.cfi_offset 14, -4
-  85              	.LVL3:
-  86              	.LBB2:
- 223:Src/main.c    ****   float batt=0;
- 224:Src/main.c    ****   for(int i=0;i<50;i++){
-  87              		.loc 1 224 0
-  88 0002 0023     		movs	r3, #0
-  89              	.LBE2:
- 223:Src/main.c    ****   float batt=0;
-  90              		.loc 1 223 0
-  91 0004 9FED207A 		vldr.32	s14, .L9+24
-  92              	.LBB3:
-  93              		.loc 1 224 0
-  94 0008 08E0     		b	.L6
-  95              	.LVL4:
-  96              	.L7:
- 225:Src/main.c    ****     batt += batt_analog;
-  97              		.loc 1 225 0 discriminator 3
-  98 000a 204A     		ldr	r2, .L9+28
-  99 000c 1288     		ldrh	r2, [r2]
- 100 000e 07EE902A 		vmov	s15, r2	@ int
- 101 0012 F8EEE77A 		vcvt.f32.s32	s15, s15
- 102 0016 37EE277A 		vadd.f32	s14, s14, s15
- 103              	.LVL5:
- 224:Src/main.c    ****     batt += batt_analog;
- 104              		.loc 1 224 0 discriminator 3
- 105 001a 0133     		adds	r3, r3, #1
- 106              	.LVL6:
- 107              	.L6:
- 224:Src/main.c    ****     batt += batt_analog;
- 108              		.loc 1 224 0 is_stmt 0 discriminator 1
- 109 001c 312B     		cmp	r3, #49
- 110 001e F4DD     		ble	.L7
- 111              	.LVL7:
- 112              	.LBE3:
- 226:Src/main.c    ****   }
- 227:Src/main.c    ****   batt /= 50.0;
- 228:Src/main.c    ****   batt = batt/4095.0*133.0/33.0*3.3;
- 113              		.loc 1 228 0 is_stmt 1
- 114 0020 DFED1B7A 		vldr.32	s15, .L9+32
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 7
-
-
- 115 0024 C7EE277A 		vdiv.f32	s15, s14, s15
- 116              	.LVL8:
- 117 0028 17EE900A 		vmov	r0, s15
- 118 002c FFF7FEFF 		bl	__aeabi_f2d
- 119              	.LVL9:
- 120 0030 0FA3     		adr	r3, .L9
- 121 0032 D3E90023 		ldrd	r2, [r3]
- 122 0036 FFF7FEFF 		bl	__aeabi_ddiv
- 123              	.LVL10:
- 124 003a 0FA3     		adr	r3, .L9+8
- 125 003c D3E90023 		ldrd	r2, [r3]
- 126 0040 FFF7FEFF 		bl	__aeabi_dmul
- 127              	.LVL11:
- 128 0044 0022     		movs	r2, #0
- 129 0046 134B     		ldr	r3, .L9+36
- 130 0048 FFF7FEFF 		bl	__aeabi_ddiv
- 131              	.LVL12:
- 132 004c 0CA3     		adr	r3, .L9+16
- 133 004e D3E90023 		ldrd	r2, [r3]
- 134 0052 FFF7FEFF 		bl	__aeabi_dmul
- 135              	.LVL13:
- 136 0056 FFF7FEFF 		bl	__aeabi_d2f
- 137              	.LVL14:
- 229:Src/main.c    ****   batt_Vcc = batt;
- 138              		.loc 1 229 0
- 139 005a 0F4B     		ldr	r3, .L9+40
- 140 005c 1860     		str	r0, [r3]	@ float
- 230:Src/main.c    ****   printf("\nbatt:%lf\r\n",batt_Vcc);
- 141              		.loc 1 230 0
- 142 005e FFF7FEFF 		bl	__aeabi_f2d
- 143              	.LVL15:
- 144 0062 0246     		mov	r2, r0
- 145 0064 0B46     		mov	r3, r1
- 146 0066 0D48     		ldr	r0, .L9+44
- 147 0068 FFF7FEFF 		bl	printf
- 148              	.LVL16:
- 231:Src/main.c    **** }
- 149              		.loc 1 231 0
- 150 006c 08BD     		pop	{r3, pc}
- 151              	.L10:
- 152 006e 00BF     		.align	3
- 153              	.L9:
- 154 0070 00000000 		.word	0
- 155 0074 00FEAF40 		.word	1085275648
- 156 0078 00000000 		.word	0
- 157 007c 00A06040 		.word	1080074240
- 158 0080 66666666 		.word	1717986918
- 159 0084 66660A40 		.word	1074423398
- 160 0088 00000000 		.word	0
- 161 008c 00000000 		.word	batt_analog
- 162 0090 00004842 		.word	1112014848
- 163 0094 00804040 		.word	1077968896
- 164 0098 00000000 		.word	batt_Vcc
- 165 009c 00000000 		.word	.LC0
- 166              		.cfi_endproc
- 167              	.LFE162:
- 169              		.section	.text._Error_Handler,"ax",%progbits
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 8
-
-
- 170              		.align	1
- 171              		.global	_Error_Handler
- 172              		.syntax unified
- 173              		.thumb
- 174              		.thumb_func
- 175              		.fpu fpv4-sp-d16
- 177              	_Error_Handler:
- 178              	.LFB163:
- 232:Src/main.c    **** 
- 233:Src/main.c    **** /* USER CODE END 4 */
- 234:Src/main.c    **** 
- 235:Src/main.c    **** /**
- 236:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
- 237:Src/main.c    ****   * @param  file: The file name as string.
- 238:Src/main.c    ****   * @param  line: The line in file as a number.
- 239:Src/main.c    ****   * @retval None
- 240:Src/main.c    ****   */
- 241:Src/main.c    **** void _Error_Handler(char *file, int line)
- 242:Src/main.c    **** {
- 179              		.loc 1 242 0
- 180              		.cfi_startproc
- 181              		@ Volatile: function does not return.
- 182              		@ args = 0, pretend = 0, frame = 0
- 183              		@ frame_needed = 0, uses_anonymous_args = 0
- 184              		@ link register save eliminated.
- 185              	.LVL17:
- 186              	.L12:
- 187 0000 FEE7     		b	.L12
- 188              		.cfi_endproc
- 189              	.LFE163:
- 191              		.section	.text.SystemClock_Config,"ax",%progbits
- 192              		.align	1
- 193              		.global	SystemClock_Config
- 194              		.syntax unified
- 195              		.thumb
- 196              		.thumb_func
- 197              		.fpu fpv4-sp-d16
- 199              	SystemClock_Config:
- 200              	.LFB161:
- 161:Src/main.c    **** 
- 201              		.loc 1 161 0
- 202              		.cfi_startproc
- 203              		@ args = 0, pretend = 0, frame = 80
- 204              		@ frame_needed = 0, uses_anonymous_args = 0
- 161:Src/main.c    **** 
- 205              		.loc 1 161 0
- 206 0000 00B5     		push	{lr}
- 207              	.LCFI4:
- 208              		.cfi_def_cfa_offset 4
- 209              		.cfi_offset 14, -4
- 210 0002 95B0     		sub	sp, sp, #84
- 211              	.LCFI5:
- 212              		.cfi_def_cfa_offset 88
- 213              	.LBB4:
- 168:Src/main.c    **** 
- 214              		.loc 1 168 0
- 215 0004 0022     		movs	r2, #0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 9
-
-
- 216 0006 0192     		str	r2, [sp, #4]
- 217 0008 294B     		ldr	r3, .L19
- 218 000a 196C     		ldr	r1, [r3, #64]
- 219 000c 41F08051 		orr	r1, r1, #268435456
- 220 0010 1964     		str	r1, [r3, #64]
- 221 0012 1B6C     		ldr	r3, [r3, #64]
- 222 0014 03F08053 		and	r3, r3, #268435456
- 223 0018 0193     		str	r3, [sp, #4]
- 224 001a 019B     		ldr	r3, [sp, #4]
- 225              	.LBE4:
- 226              	.LBB5:
- 170:Src/main.c    **** 
- 227              		.loc 1 170 0
- 228 001c 0292     		str	r2, [sp, #8]
- 229 001e 254B     		ldr	r3, .L19+4
- 230 0020 1968     		ldr	r1, [r3]
- 231 0022 41F48041 		orr	r1, r1, #16384
- 232 0026 1960     		str	r1, [r3]
- 233 0028 1B68     		ldr	r3, [r3]
- 234 002a 03F48043 		and	r3, r3, #16384
- 235 002e 0293     		str	r3, [sp, #8]
- 236 0030 029B     		ldr	r3, [sp, #8]
- 237              	.LBE5:
- 174:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 238              		.loc 1 174 0
- 239 0032 0223     		movs	r3, #2
- 240 0034 0893     		str	r3, [sp, #32]
- 175:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
- 241              		.loc 1 175 0
- 242 0036 0121     		movs	r1, #1
- 243 0038 0B91     		str	r1, [sp, #44]
- 176:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 244              		.loc 1 176 0
- 245 003a 1021     		movs	r1, #16
- 246 003c 0C91     		str	r1, [sp, #48]
- 177:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
- 247              		.loc 1 177 0
- 248 003e 0E93     		str	r3, [sp, #56]
- 178:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 8;
- 249              		.loc 1 178 0
- 250 0040 0F92     		str	r2, [sp, #60]
- 179:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 80;
- 251              		.loc 1 179 0
- 252 0042 0822     		movs	r2, #8
- 253 0044 1092     		str	r2, [sp, #64]
- 180:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
- 254              		.loc 1 180 0
- 255 0046 5022     		movs	r2, #80
- 256 0048 1192     		str	r2, [sp, #68]
- 181:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 4;
- 257              		.loc 1 181 0
- 258 004a 1293     		str	r3, [sp, #72]
- 182:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 259              		.loc 1 182 0
- 260 004c 0423     		movs	r3, #4
- 261 004e 1393     		str	r3, [sp, #76]
- 183:Src/main.c    ****   {
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 10
-
-
- 262              		.loc 1 183 0
- 263 0050 08A8     		add	r0, sp, #32
- 264 0052 FFF7FEFF 		bl	HAL_RCC_OscConfig
- 265              	.LVL18:
- 266 0056 18BB     		cbnz	r0, .L17
- 190:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 267              		.loc 1 190 0
- 268 0058 0F23     		movs	r3, #15
- 269 005a 0393     		str	r3, [sp, #12]
- 192:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
- 270              		.loc 1 192 0
- 271 005c 0223     		movs	r3, #2
- 272 005e 0493     		str	r3, [sp, #16]
- 193:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
- 273              		.loc 1 193 0
- 274 0060 8023     		movs	r3, #128
- 275 0062 0593     		str	r3, [sp, #20]
- 194:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 276              		.loc 1 194 0
- 277 0064 4FF48053 		mov	r3, #4096
- 278 0068 0693     		str	r3, [sp, #24]
- 195:Src/main.c    **** 
- 279              		.loc 1 195 0
- 280 006a 0023     		movs	r3, #0
- 281 006c 0793     		str	r3, [sp, #28]
- 197:Src/main.c    ****   {
- 282              		.loc 1 197 0
- 283 006e 0121     		movs	r1, #1
- 284 0070 03A8     		add	r0, sp, #12
- 285 0072 FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 286              	.LVL19:
- 287 0076 B8B9     		cbnz	r0, .L18
- 204:Src/main.c    **** 
- 288              		.loc 1 204 0
- 289 0078 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
- 290              	.LVL20:
- 291 007c 0E4B     		ldr	r3, .L19+8
- 292 007e A3FB0030 		umull	r3, r0, r3, r0
- 293 0082 8009     		lsrs	r0, r0, #6
- 294 0084 FFF7FEFF 		bl	HAL_SYSTICK_Config
- 295              	.LVL21:
- 208:Src/main.c    **** 
- 296              		.loc 1 208 0
- 297 0088 0420     		movs	r0, #4
- 298 008a FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
- 299              	.LVL22:
- 211:Src/main.c    **** }
- 300              		.loc 1 211 0
- 301 008e 0022     		movs	r2, #0
- 302 0090 1146     		mov	r1, r2
- 303 0092 4FF0FF30 		mov	r0, #-1
- 304 0096 FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 305              	.LVL23:
- 212:Src/main.c    **** 
- 306              		.loc 1 212 0
- 307 009a 15B0     		add	sp, sp, #84
- 308              	.LCFI6:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 11
-
-
- 309              		.cfi_remember_state
- 310              		.cfi_def_cfa_offset 4
- 311              		@ sp needed
- 312 009c 5DF804FB 		ldr	pc, [sp], #4
- 313              	.L17:
- 314              	.LCFI7:
- 315              		.cfi_restore_state
- 185:Src/main.c    ****   }
- 316              		.loc 1 185 0
- 317 00a0 B921     		movs	r1, #185
- 318 00a2 0648     		ldr	r0, .L19+12
- 319 00a4 FFF7FEFF 		bl	_Error_Handler
- 320              	.LVL24:
- 321              	.L18:
- 199:Src/main.c    ****   }
- 322              		.loc 1 199 0
- 323 00a8 C721     		movs	r1, #199
- 324 00aa 0448     		ldr	r0, .L19+12
- 325 00ac FFF7FEFF 		bl	_Error_Handler
- 326              	.LVL25:
- 327              	.L20:
- 328              		.align	2
- 329              	.L19:
- 330 00b0 00380240 		.word	1073887232
- 331 00b4 00700040 		.word	1073770496
- 332 00b8 D34D6210 		.word	274877907
- 333 00bc 00000000 		.word	.LC1
- 334              		.cfi_endproc
- 335              	.LFE161:
- 337              		.section	.text.main,"ax",%progbits
- 338              		.align	1
- 339              		.global	main
- 340              		.syntax unified
- 341              		.thumb
- 342              		.thumb_func
- 343              		.fpu fpv4-sp-d16
- 345              	main:
- 346              	.LFB160:
-  87:Src/main.c    ****   /* USER CODE BEGIN 1 */
- 347              		.loc 1 87 0
- 348              		.cfi_startproc
- 349              		@ Volatile: function does not return.
- 350              		@ args = 0, pretend = 0, frame = 0
- 351              		@ frame_needed = 0, uses_anonymous_args = 0
- 352 0000 08B5     		push	{r3, lr}
- 353              	.LCFI8:
- 354              		.cfi_def_cfa_offset 8
- 355              		.cfi_offset 3, -8
- 356              		.cfi_offset 14, -4
+  94:Src/main.c    ****   /* MCU Configuration----------------------------------------------------------*/
   95:Src/main.c    **** 
- 357              		.loc 1 95 0
- 358 0002 FFF7FEFF 		bl	HAL_Init
- 359              	.LVL26:
+  96:Src/main.c    ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  97:Src/main.c    ****   HAL_Init();
+  98:Src/main.c    **** 
+  99:Src/main.c    ****   /* USER CODE BEGIN Init */
+ 100:Src/main.c    **** 
+ 101:Src/main.c    ****   /* USER CODE END Init */
  102:Src/main.c    **** 
- 360              		.loc 1 102 0
- 361 0006 FFF7FEFF 		bl	SystemClock_Config
- 362              	.LVL27:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 4
 
 
- 109:Src/main.c    ****   MX_USART3_UART_Init();
- 363              		.loc 1 109 0
- 364 000a FFF7FEFF 		bl	MX_GPIO_Init
- 365              	.LVL28:
- 110:Src/main.c    ****   MX_TIM4_Init();
- 366              		.loc 1 110 0
- 367 000e FFF7FEFF 		bl	MX_USART3_UART_Init
- 368              	.LVL29:
- 111:Src/main.c    ****   MX_SPI2_Init();
- 369              		.loc 1 111 0
- 370 0012 FFF7FEFF 		bl	MX_TIM4_Init
- 371              	.LVL30:
- 112:Src/main.c    ****   MX_TIM3_Init();
- 372              		.loc 1 112 0
- 373 0016 FFF7FEFF 		bl	MX_SPI2_Init
- 374              	.LVL31:
- 113:Src/main.c    ****   MX_TIM2_Init();
- 375              		.loc 1 113 0
- 376 001a FFF7FEFF 		bl	MX_TIM3_Init
- 377              	.LVL32:
- 114:Src/main.c    ****   MX_TIM1_Init();
- 378              		.loc 1 114 0
- 379 001e FFF7FEFF 		bl	MX_TIM2_Init
- 380              	.LVL33:
- 115:Src/main.c    ****   MX_TIM5_Init();
- 381              		.loc 1 115 0
- 382 0022 FFF7FEFF 		bl	MX_TIM1_Init
- 383              	.LVL34:
- 116:Src/main.c    ****   MX_ADC1_Init();
- 384              		.loc 1 116 0
- 385 0026 FFF7FEFF 		bl	MX_TIM5_Init
- 386              	.LVL35:
- 117:Src/main.c    ****   MX_ADC2_Init();
- 387              		.loc 1 117 0
- 388 002a FFF7FEFF 		bl	MX_ADC1_Init
- 389              	.LVL36:
- 118:Src/main.c    ****   MX_ADC3_Init();
- 390              		.loc 1 118 0
- 391 002e FFF7FEFF 		bl	MX_ADC2_Init
- 392              	.LVL37:
- 119:Src/main.c    ****   /* USER CODE BEGIN 2 */
- 393              		.loc 1 119 0
- 394 0032 FFF7FEFF 		bl	MX_ADC3_Init
- 395              	.LVL38:
- 121:Src/main.c    ****   setbuf(stdout, NULL);
- 396              		.loc 1 121 0
- 397 0036 194D     		ldr	r5, .L25
- 398 0038 0024     		movs	r4, #0
- 399 003a AC80     		strh	r4, [r5, #4]	@ movhi
- 122:Src/main.c    ****   HAL_TIM_Base_Start_IT( &htim5 );
- 400              		.loc 1 122 0
- 401 003c 184B     		ldr	r3, .L25+4
- 402 003e 1B68     		ldr	r3, [r3]
- 403 0040 2146     		mov	r1, r4
- 404 0042 9868     		ldr	r0, [r3, #8]
- 405 0044 FFF7FEFF 		bl	setbuf
- 406              	.LVL39:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 13
+ 103:Src/main.c    ****   /* Configure the system clock */
+ 104:Src/main.c    ****   SystemClock_Config();
+ 105:Src/main.c    **** 
+ 106:Src/main.c    ****   /* USER CODE BEGIN SysInit */
+ 107:Src/main.c    **** 
+ 108:Src/main.c    ****   /* USER CODE END SysInit */
+ 109:Src/main.c    **** 
+ 110:Src/main.c    ****   /* Initialize all configured peripherals */
+ 111:Src/main.c    ****   MX_GPIO_Init();
+ 112:Src/main.c    ****   MX_USART3_UART_Init();
+ 113:Src/main.c    ****   MX_TIM4_Init();
+ 114:Src/main.c    ****   MX_SPI2_Init();
+ 115:Src/main.c    ****   MX_TIM3_Init();
+ 116:Src/main.c    ****   MX_TIM2_Init();
+ 117:Src/main.c    ****   MX_TIM1_Init();
+ 118:Src/main.c    ****   MX_TIM5_Init();
+ 119:Src/main.c    ****   MX_ADC1_Init();
+ 120:Src/main.c    ****   MX_ADC2_Init();
+ 121:Src/main.c    ****   MX_ADC3_Init();
+ 122:Src/main.c    ****   /* USER CODE BEGIN 2 */
+ 123:Src/main.c    ****   Init_Main();
+ 124:Src/main.c    ****   
+ 125:Src/main.c    ****   /* USER CODE END 2 */
+ 126:Src/main.c    **** 
+ 127:Src/main.c    ****   /* Infinite loop */
+ 128:Src/main.c    ****   /* USER CODE BEGIN WHILE */
+ 129:Src/main.c    ****   while (1)
+ 130:Src/main.c    ****   {
+ 131:Src/main.c    ****     Mode_mouse(Mode_select());
+ 132:Src/main.c    ****   /* USER CODE END WHILE */
+ 133:Src/main.c    **** 
+ 134:Src/main.c    ****   /* USER CODE BEGIN 3 */
+ 135:Src/main.c    **** 
+ 136:Src/main.c    ****   }
+ 137:Src/main.c    ****   /* USER CODE END 3 */
+ 138:Src/main.c    **** 
+ 139:Src/main.c    **** }
+ 140:Src/main.c    **** 
+ 141:Src/main.c    **** /**
+ 142:Src/main.c    ****   * @brief System Clock Configuration
+ 143:Src/main.c    ****   * @retval None
+ 144:Src/main.c    ****   */
+ 145:Src/main.c    **** void SystemClock_Config(void)
+ 146:Src/main.c    **** {
+ 147:Src/main.c    **** 
+ 148:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct;
+ 149:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
+ 150:Src/main.c    **** 
+ 151:Src/main.c    ****     /**Configure the main internal regulator output voltage 
+ 152:Src/main.c    ****     */
+ 153:Src/main.c    ****   __HAL_RCC_PWR_CLK_ENABLE();
+ 154:Src/main.c    **** 
+ 155:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 156:Src/main.c    **** 
+ 157:Src/main.c    ****     /**Initializes the CPU, AHB and APB busses clocks 
+ 158:Src/main.c    ****     */
+ 159:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 5
 
 
- 123:Src/main.c    ****   set_mpu6500();
- 407              		.loc 1 123 0
- 408 0048 1648     		ldr	r0, .L25+8
- 409 004a FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
- 410              	.LVL40:
- 124:Src/main.c    ****   gyro_offset_calc_reset();
- 411              		.loc 1 124 0
- 412 004e FFF7FEFF 		bl	set_mpu6500
- 413              	.LVL41:
- 125:Src/main.c    ****   Batt_Check();
- 414              		.loc 1 125 0
- 415 0052 FFF7FEFF 		bl	gyro_offset_calc_reset
- 416              	.LVL42:
- 126:Src/main.c    ****   
- 417              		.loc 1 126 0
- 418 0056 FFF7FEFF 		bl	Batt_Check
- 419              	.LVL43:
- 128:Src/main.c    ****   Buzzer_pwm(HZ_C,250);
- 420              		.loc 1 128 0
- 421 005a 4FF47A70 		mov	r0, #1000
- 422 005e FFF7FEFF 		bl	HAL_Delay
- 423              	.LVL44:
- 129:Src/main.c    ****   HAL_Delay(400);
- 424              		.loc 1 129 0
- 425 0062 FA21     		movs	r1, #250
- 426 0064 9920     		movs	r0, #153
- 427 0066 FFF7FEFF 		bl	Buzzer_pwm
- 428              	.LVL45:
- 130:Src/main.c    ****   Buzzer_pwm(HZ_NORMAL,0);
- 429              		.loc 1 130 0
- 430 006a 4FF4C870 		mov	r0, #400
- 431 006e FFF7FEFF 		bl	HAL_Delay
- 432              	.LVL46:
- 131:Src/main.c    **** 
- 433              		.loc 1 131 0
- 434 0072 2146     		mov	r1, r4
- 435 0074 0A20     		movs	r0, #10
- 436 0076 FFF7FEFF 		bl	Buzzer_pwm
- 437              	.LVL47:
- 133:Src/main.c    ****   flag.accel = OFF;
- 438              		.loc 1 133 0
- 439 007a AC80     		strh	r4, [r5, #4]	@ movhi
- 134:Src/main.c    ****   Yawrate_Calc_fb(0,0,0);
- 440              		.loc 1 134 0
- 441 007c 6C80     		strh	r4, [r5, #2]	@ movhi
- 135:Src/main.c    ****   flag.accel = ON;
- 442              		.loc 1 135 0
- 443 007e 2246     		mov	r2, r4
- 444 0080 2146     		mov	r1, r4
- 445 0082 2046     		mov	r0, r4
- 446 0084 FFF7FEFF 		bl	Yawrate_Calc_fb
- 447              	.LVL48:
- 136:Src/main.c    ****   
- 448              		.loc 1 136 0
- 449 0088 0123     		movs	r3, #1
- 450 008a 6B80     		strh	r3, [r5, #2]	@ movhi
- 451              	.L22:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 14
+ 160:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 161:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
+ 162:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 163:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 164:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 8;
+ 165:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 80;
+ 166:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 167:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 168:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 169:Src/main.c    ****   {
+ 170:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 171:Src/main.c    ****   }
+ 172:Src/main.c    **** 
+ 173:Src/main.c    ****     /**Initializes the CPU, AHB and APB busses clocks 
+ 174:Src/main.c    ****     */
+ 175:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 176:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 177:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 178:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+ 179:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 180:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 181:Src/main.c    **** 
+ 182:Src/main.c    ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+ 183:Src/main.c    ****   {
+ 184:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
+ 185:Src/main.c    ****   }
+ 186:Src/main.c    **** 
+ 187:Src/main.c    ****     /**Configure the Systick interrupt time 
+ 188:Src/main.c    ****     */
+ 189:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+ 190:Src/main.c    **** 
+ 191:Src/main.c    ****     /**Configure the Systick 
+ 192:Src/main.c    ****     */
+ 193:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+ 194:Src/main.c    **** 
+ 195:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
+ 196:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+ 197:Src/main.c    **** }
+ 198:Src/main.c    **** 
+ 199:Src/main.c    **** /* USER CODE BEGIN 4 */
+ 200:Src/main.c    **** 
+ 201:Src/main.c    **** /****************************************************************************************
+ 202:Src/main.c    ****  * outline  : normalize battery (12bit -> dec)
+ 203:Src/main.c    ****  * argument : void
+ 204:Src/main.c    ****  * return   : void
+ 205:Src/main.c    **** ********************************************************************************************/
+ 206:Src/main.c    **** void Batt_Check(void)
+ 207:Src/main.c    **** {
+  73              		.loc 1 207 0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77 0000 08B5     		push	{r3, lr}
+  78              	.LCFI3:
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 3, -8
+  81              		.cfi_offset 14, -4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 6
 
 
- 144:Src/main.c    ****       flag.accel = OFF;
- 452              		.loc 1 144 0
- 453 008c FFF7FEFF 		bl	Push
- 454              	.LVL49:
- 455 0090 0128     		cmp	r0, #1
- 456 0092 FBD1     		bne	.L22
- 145:Src/main.c    ****     }
- 457              		.loc 1 145 0
- 458 0094 014B     		ldr	r3, .L25
- 459 0096 0022     		movs	r2, #0
- 460 0098 5A80     		strh	r2, [r3, #2]	@ movhi
- 461 009a F7E7     		b	.L22
- 462              	.L26:
- 463              		.align	2
- 464              	.L25:
- 465 009c 00000000 		.word	flag
- 466 00a0 00000000 		.word	_impure_ptr
- 467 00a4 00000000 		.word	htim5
- 468              		.cfi_endproc
- 469              	.LFE160:
- 471              		.section	.rodata.Batt_Check.str1.4,"aMS",%progbits,1
- 472              		.align	2
- 473              	.LC0:
- 474 0000 0A626174 		.ascii	"\012batt:%lf\015\012\000"
- 474      743A256C 
- 474      660D0A00 
- 475              		.section	.rodata.SystemClock_Config.str1.4,"aMS",%progbits,1
- 476              		.align	2
- 477              	.LC1:
- 478 0000 5372632F 		.ascii	"Src/main.c\000"
- 478      6D61696E 
- 478      2E6300
- 479              		.text
- 480              	.Letext0:
- 481              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 482              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 483              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 484              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 485              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 486              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 487              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 488              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
- 489              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 490              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 491              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 492              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 493              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 494              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 495              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 496              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 497              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 498              		.file 19 "Inc/adc.h"
- 499              		.file 20 "Inc/spi.h"
- 500              		.file 21 "Inc/tim.h"
- 501              		.file 22 "Inc/usart.h"
- 502              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 503              		.file 24 "Inc/global.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 15
+  82              	.LVL3:
+  83              	.LBB2:
+ 208:Src/main.c    ****   float batt=0;
+ 209:Src/main.c    ****   for(int i=0;i<50;i++){
+  84              		.loc 1 209 0
+  85 0002 0023     		movs	r3, #0
+  86              	.LBE2:
+ 208:Src/main.c    ****   float batt=0;
+  87              		.loc 1 208 0
+  88 0004 9FED177A 		vldr.32	s14, .L9
+  89              	.LBB3:
+  90              		.loc 1 209 0
+  91 0008 08E0     		b	.L6
+  92              	.LVL4:
+  93              	.L7:
+ 210:Src/main.c    ****     batt += batt_analog;
+  94              		.loc 1 210 0 discriminator 3
+  95 000a 174A     		ldr	r2, .L9+4
+  96 000c 1288     		ldrh	r2, [r2]
+  97 000e 07EE902A 		vmov	s15, r2	@ int
+  98 0012 F8EEE77A 		vcvt.f32.s32	s15, s15
+  99 0016 37EE277A 		vadd.f32	s14, s14, s15
+ 100              	.LVL5:
+ 209:Src/main.c    ****     batt += batt_analog;
+ 101              		.loc 1 209 0 discriminator 3
+ 102 001a 0133     		adds	r3, r3, #1
+ 103              	.LVL6:
+ 104              	.L6:
+ 209:Src/main.c    ****     batt += batt_analog;
+ 105              		.loc 1 209 0 is_stmt 0 discriminator 1
+ 106 001c 312B     		cmp	r3, #49
+ 107 001e F4DD     		ble	.L7
+ 108              	.LBE3:
+ 211:Src/main.c    ****   }
+ 212:Src/main.c    ****   batt /= 50.0;
+ 109              		.loc 1 212 0 is_stmt 1
+ 110 0020 DFED127A 		vldr.32	s15, .L9+8
+ 111 0024 C7EE276A 		vdiv.f32	s13, s14, s15
+ 112              	.LVL7:
+ 213:Src/main.c    ****   batt = batt/4095.0f*133.0f/33.0f*3.3f;
+ 113              		.loc 1 213 0
+ 114 0028 DFED117A 		vldr.32	s15, .L9+12
+ 115 002c 86EEA77A 		vdiv.f32	s14, s13, s15
+ 116 0030 DFED107A 		vldr.32	s15, .L9+16
+ 117 0034 27EE277A 		vmul.f32	s14, s14, s15
+ 118 0038 DFED0F6A 		vldr.32	s13, .L9+20
+ 119              	.LVL8:
+ 120 003c C7EE267A 		vdiv.f32	s15, s14, s13
+ 121 0040 9FED0E7A 		vldr.32	s14, .L9+24
+ 122 0044 67EE877A 		vmul.f32	s15, s15, s14
+ 123              	.LVL9:
+ 214:Src/main.c    ****   batt_Vcc = batt;
+ 124              		.loc 1 214 0
+ 125 0048 0D4B     		ldr	r3, .L9+28
+ 126              	.LVL10:
+ 127 004a C3ED007A 		vstr.32	s15, [r3]
+ 215:Src/main.c    ****   printf("\nbatt:%lf\r\n",batt_Vcc);
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 7
 
 
- 504              		.file 25 "Inc/flash.h"
- 505              		.file 26 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 506              		.file 27 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
- 507              		.file 28 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 508              		.file 29 "Inc/gpio.h"
- 509              		.file 30 "Inc/control.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 16
+ 128              		.loc 1 215 0
+ 129 004e 17EE900A 		vmov	r0, s15
+ 130 0052 FFF7FEFF 		bl	__aeabi_f2d
+ 131              	.LVL11:
+ 132 0056 0246     		mov	r2, r0
+ 133 0058 0B46     		mov	r3, r1
+ 134 005a 0A48     		ldr	r0, .L9+32
+ 135 005c FFF7FEFF 		bl	printf
+ 136              	.LVL12:
+ 216:Src/main.c    **** }
+ 137              		.loc 1 216 0
+ 138 0060 08BD     		pop	{r3, pc}
+ 139              	.L10:
+ 140 0062 00BF     		.align	2
+ 141              	.L9:
+ 142 0064 00000000 		.word	0
+ 143 0068 00000000 		.word	batt_analog
+ 144 006c 00004842 		.word	1112014848
+ 145 0070 00F07F45 		.word	1166012416
+ 146 0074 00000543 		.word	1124401152
+ 147 0078 00000442 		.word	1107558400
+ 148 007c 33335340 		.word	1079194419
+ 149 0080 00000000 		.word	batt_Vcc
+ 150 0084 00000000 		.word	.LC0
+ 151              		.cfi_endproc
+ 152              	.LFE162:
+ 154              		.section	.text.Init_Main,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	Init_Main
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 160              		.fpu fpv4-sp-d16
+ 162              	Init_Main:
+ 163              	.LFB163:
+ 217:Src/main.c    **** 
+ 218:Src/main.c    **** /****************************************************************************************
+ 219:Src/main.c    ****  * outline  : init main(setbuf,tim5,3,4,gyro,battery,flag,ms_count)
+ 220:Src/main.c    ****  * argument : void
+ 221:Src/main.c    ****  * return   : void
+ 222:Src/main.c    **** ********************************************************************************************/
+ 223:Src/main.c    **** void Init_Main(void){
+ 164              		.loc 1 223 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168 0000 08B5     		push	{r3, lr}
+ 169              	.LCFI4:
+ 170              		.cfi_def_cfa_offset 8
+ 171              		.cfi_offset 3, -8
+ 172              		.cfi_offset 14, -4
+ 224:Src/main.c    ****   setbuf(stdout, NULL);
+ 173              		.loc 1 224 0
+ 174 0002 0E4B     		ldr	r3, .L13
+ 175 0004 1B68     		ldr	r3, [r3]
+ 176 0006 0021     		movs	r1, #0
+ 177 0008 9868     		ldr	r0, [r3, #8]
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 8
+
+
+ 178 000a FFF7FEFF 		bl	setbuf
+ 179              	.LVL13:
+ 225:Src/main.c    ****   HAL_TIM_Base_Start_IT( &htim5 );
+ 180              		.loc 1 225 0
+ 181 000e 0C48     		ldr	r0, .L13+4
+ 182 0010 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 183              	.LVL14:
+ 226:Src/main.c    ****   HAL_TIM_Encoder_Start( &htim3, TIM_CHANNEL_ALL );
+ 184              		.loc 1 226 0
+ 185 0014 1821     		movs	r1, #24
+ 186 0016 0B48     		ldr	r0, .L13+8
+ 187 0018 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 188              	.LVL15:
+ 227:Src/main.c    ****   HAL_TIM_Encoder_Start( &htim4, TIM_CHANNEL_ALL );
+ 189              		.loc 1 227 0
+ 190 001c 1821     		movs	r1, #24
+ 191 001e 0A48     		ldr	r0, .L13+12
+ 192 0020 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 193              	.LVL16:
+ 228:Src/main.c    ****   set_mpu6500();
+ 194              		.loc 1 228 0
+ 195 0024 FFF7FEFF 		bl	set_mpu6500
+ 196              	.LVL17:
+ 229:Src/main.c    ****   Batt_Check();
+ 197              		.loc 1 229 0
+ 198 0028 FFF7FEFF 		bl	Batt_Check
+ 199              	.LVL18:
+ 230:Src/main.c    ****   flag.ir_led = OFF;
+ 200              		.loc 1 230 0
+ 201 002c 074A     		ldr	r2, .L13+16
+ 202 002e 0023     		movs	r3, #0
+ 203 0030 D380     		strh	r3, [r2, #6]	@ movhi
+ 231:Src/main.c    ****   flag.straight = OFF;
+ 204              		.loc 1 231 0
+ 205 0032 5380     		strh	r3, [r2, #2]	@ movhi
+ 232:Src/main.c    ****   flag.yawrate = OFF;
+ 206              		.loc 1 232 0
+ 207 0034 9380     		strh	r3, [r2, #4]	@ movhi
+ 233:Src/main.c    ****   ms_count = 0;
+ 208              		.loc 1 233 0
+ 209 0036 064A     		ldr	r2, .L13+20
+ 210 0038 1380     		strh	r3, [r2]	@ movhi
+ 234:Src/main.c    **** }
+ 211              		.loc 1 234 0
+ 212 003a 08BD     		pop	{r3, pc}
+ 213              	.L14:
+ 214              		.align	2
+ 215              	.L13:
+ 216 003c 00000000 		.word	_impure_ptr
+ 217 0040 00000000 		.word	htim5
+ 218 0044 00000000 		.word	htim3
+ 219 0048 00000000 		.word	htim4
+ 220 004c 00000000 		.word	flag
+ 221 0050 00000000 		.word	ms_count
+ 222              		.cfi_endproc
+ 223              	.LFE163:
+ 225              		.section	.text._Error_Handler,"ax",%progbits
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 9
+
+
+ 226              		.align	1
+ 227              		.global	_Error_Handler
+ 228              		.syntax unified
+ 229              		.thumb
+ 230              		.thumb_func
+ 231              		.fpu fpv4-sp-d16
+ 233              	_Error_Handler:
+ 234              	.LFB164:
+ 235:Src/main.c    **** 
+ 236:Src/main.c    **** /* USER CODE END 4 */
+ 237:Src/main.c    **** 
+ 238:Src/main.c    **** /**
+ 239:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 240:Src/main.c    ****   * @param  file: The file name as string.
+ 241:Src/main.c    ****   * @param  line: The line in file as a number.
+ 242:Src/main.c    ****   * @retval None
+ 243:Src/main.c    ****   */
+ 244:Src/main.c    **** void _Error_Handler(char *file, int line)
+ 245:Src/main.c    **** {
+ 235              		.loc 1 245 0
+ 236              		.cfi_startproc
+ 237              		@ Volatile: function does not return.
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241              	.LVL19:
+ 242              	.L16:
+ 243 0000 FEE7     		b	.L16
+ 244              		.cfi_endproc
+ 245              	.LFE164:
+ 247              		.section	.text.SystemClock_Config,"ax",%progbits
+ 248              		.align	1
+ 249              		.global	SystemClock_Config
+ 250              		.syntax unified
+ 251              		.thumb
+ 252              		.thumb_func
+ 253              		.fpu fpv4-sp-d16
+ 255              	SystemClock_Config:
+ 256              	.LFB161:
+ 146:Src/main.c    **** 
+ 257              		.loc 1 146 0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 80
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146:Src/main.c    **** 
+ 261              		.loc 1 146 0
+ 262 0000 00B5     		push	{lr}
+ 263              	.LCFI5:
+ 264              		.cfi_def_cfa_offset 4
+ 265              		.cfi_offset 14, -4
+ 266 0002 95B0     		sub	sp, sp, #84
+ 267              	.LCFI6:
+ 268              		.cfi_def_cfa_offset 88
+ 269              	.LBB4:
+ 153:Src/main.c    **** 
+ 270              		.loc 1 153 0
+ 271 0004 0022     		movs	r2, #0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 10
+
+
+ 272 0006 0192     		str	r2, [sp, #4]
+ 273 0008 294B     		ldr	r3, .L23
+ 274 000a 196C     		ldr	r1, [r3, #64]
+ 275 000c 41F08051 		orr	r1, r1, #268435456
+ 276 0010 1964     		str	r1, [r3, #64]
+ 277 0012 1B6C     		ldr	r3, [r3, #64]
+ 278 0014 03F08053 		and	r3, r3, #268435456
+ 279 0018 0193     		str	r3, [sp, #4]
+ 280 001a 019B     		ldr	r3, [sp, #4]
+ 281              	.LBE4:
+ 282              	.LBB5:
+ 155:Src/main.c    **** 
+ 283              		.loc 1 155 0
+ 284 001c 0292     		str	r2, [sp, #8]
+ 285 001e 254B     		ldr	r3, .L23+4
+ 286 0020 1968     		ldr	r1, [r3]
+ 287 0022 41F48041 		orr	r1, r1, #16384
+ 288 0026 1960     		str	r1, [r3]
+ 289 0028 1B68     		ldr	r3, [r3]
+ 290 002a 03F48043 		and	r3, r3, #16384
+ 291 002e 0293     		str	r3, [sp, #8]
+ 292 0030 029B     		ldr	r3, [sp, #8]
+ 293              	.LBE5:
+ 159:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 294              		.loc 1 159 0
+ 295 0032 0223     		movs	r3, #2
+ 296 0034 0893     		str	r3, [sp, #32]
+ 160:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
+ 297              		.loc 1 160 0
+ 298 0036 0121     		movs	r1, #1
+ 299 0038 0B91     		str	r1, [sp, #44]
+ 161:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 300              		.loc 1 161 0
+ 301 003a 1021     		movs	r1, #16
+ 302 003c 0C91     		str	r1, [sp, #48]
+ 162:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 303              		.loc 1 162 0
+ 304 003e 0E93     		str	r3, [sp, #56]
+ 163:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 8;
+ 305              		.loc 1 163 0
+ 306 0040 0F92     		str	r2, [sp, #60]
+ 164:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 80;
+ 307              		.loc 1 164 0
+ 308 0042 0822     		movs	r2, #8
+ 309 0044 1092     		str	r2, [sp, #64]
+ 165:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 310              		.loc 1 165 0
+ 311 0046 5022     		movs	r2, #80
+ 312 0048 1192     		str	r2, [sp, #68]
+ 166:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 4;
+ 313              		.loc 1 166 0
+ 314 004a 1293     		str	r3, [sp, #72]
+ 167:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 315              		.loc 1 167 0
+ 316 004c 0423     		movs	r3, #4
+ 317 004e 1393     		str	r3, [sp, #76]
+ 168:Src/main.c    ****   {
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 11
+
+
+ 318              		.loc 1 168 0
+ 319 0050 08A8     		add	r0, sp, #32
+ 320 0052 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 321              	.LVL20:
+ 322 0056 18BB     		cbnz	r0, .L21
+ 175:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 323              		.loc 1 175 0
+ 324 0058 0F23     		movs	r3, #15
+ 325 005a 0393     		str	r3, [sp, #12]
+ 177:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+ 326              		.loc 1 177 0
+ 327 005c 0223     		movs	r3, #2
+ 328 005e 0493     		str	r3, [sp, #16]
+ 178:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 329              		.loc 1 178 0
+ 330 0060 8023     		movs	r3, #128
+ 331 0062 0593     		str	r3, [sp, #20]
+ 179:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 332              		.loc 1 179 0
+ 333 0064 4FF48053 		mov	r3, #4096
+ 334 0068 0693     		str	r3, [sp, #24]
+ 180:Src/main.c    **** 
+ 335              		.loc 1 180 0
+ 336 006a 0023     		movs	r3, #0
+ 337 006c 0793     		str	r3, [sp, #28]
+ 182:Src/main.c    ****   {
+ 338              		.loc 1 182 0
+ 339 006e 0121     		movs	r1, #1
+ 340 0070 03A8     		add	r0, sp, #12
+ 341 0072 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 342              	.LVL21:
+ 343 0076 B8B9     		cbnz	r0, .L22
+ 189:Src/main.c    **** 
+ 344              		.loc 1 189 0
+ 345 0078 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 346              	.LVL22:
+ 347 007c 0E4B     		ldr	r3, .L23+8
+ 348 007e A3FB0030 		umull	r3, r0, r3, r0
+ 349 0082 8009     		lsrs	r0, r0, #6
+ 350 0084 FFF7FEFF 		bl	HAL_SYSTICK_Config
+ 351              	.LVL23:
+ 193:Src/main.c    **** 
+ 352              		.loc 1 193 0
+ 353 0088 0420     		movs	r0, #4
+ 354 008a FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
+ 355              	.LVL24:
+ 196:Src/main.c    **** }
+ 356              		.loc 1 196 0
+ 357 008e 0022     		movs	r2, #0
+ 358 0090 1146     		mov	r1, r2
+ 359 0092 4FF0FF30 		mov	r0, #-1
+ 360 0096 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 361              	.LVL25:
+ 197:Src/main.c    **** 
+ 362              		.loc 1 197 0
+ 363 009a 15B0     		add	sp, sp, #84
+ 364              	.LCFI7:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 12
+
+
+ 365              		.cfi_remember_state
+ 366              		.cfi_def_cfa_offset 4
+ 367              		@ sp needed
+ 368 009c 5DF804FB 		ldr	pc, [sp], #4
+ 369              	.L21:
+ 370              	.LCFI8:
+ 371              		.cfi_restore_state
+ 170:Src/main.c    ****   }
+ 372              		.loc 1 170 0
+ 373 00a0 AA21     		movs	r1, #170
+ 374 00a2 0648     		ldr	r0, .L23+12
+ 375 00a4 FFF7FEFF 		bl	_Error_Handler
+ 376              	.LVL26:
+ 377              	.L22:
+ 184:Src/main.c    ****   }
+ 378              		.loc 1 184 0
+ 379 00a8 B821     		movs	r1, #184
+ 380 00aa 0448     		ldr	r0, .L23+12
+ 381 00ac FFF7FEFF 		bl	_Error_Handler
+ 382              	.LVL27:
+ 383              	.L24:
+ 384              		.align	2
+ 385              	.L23:
+ 386 00b0 00380240 		.word	1073887232
+ 387 00b4 00700040 		.word	1073770496
+ 388 00b8 D34D6210 		.word	274877907
+ 389 00bc 00000000 		.word	.LC1
+ 390              		.cfi_endproc
+ 391              	.LFE161:
+ 393              		.section	.text.main,"ax",%progbits
+ 394              		.align	1
+ 395              		.global	main
+ 396              		.syntax unified
+ 397              		.thumb
+ 398              		.thumb_func
+ 399              		.fpu fpv4-sp-d16
+ 401              	main:
+ 402              	.LFB160:
+  89:Src/main.c    ****   /* USER CODE BEGIN 1 */
+ 403              		.loc 1 89 0
+ 404              		.cfi_startproc
+ 405              		@ Volatile: function does not return.
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408 0000 08B5     		push	{r3, lr}
+ 409              	.LCFI9:
+ 410              		.cfi_def_cfa_offset 8
+ 411              		.cfi_offset 3, -8
+ 412              		.cfi_offset 14, -4
+  97:Src/main.c    **** 
+ 413              		.loc 1 97 0
+ 414 0002 FFF7FEFF 		bl	HAL_Init
+ 415              	.LVL28:
+ 104:Src/main.c    **** 
+ 416              		.loc 1 104 0
+ 417 0006 FFF7FEFF 		bl	SystemClock_Config
+ 418              	.LVL29:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 13
+
+
+ 111:Src/main.c    ****   MX_USART3_UART_Init();
+ 419              		.loc 1 111 0
+ 420 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 421              	.LVL30:
+ 112:Src/main.c    ****   MX_TIM4_Init();
+ 422              		.loc 1 112 0
+ 423 000e FFF7FEFF 		bl	MX_USART3_UART_Init
+ 424              	.LVL31:
+ 113:Src/main.c    ****   MX_SPI2_Init();
+ 425              		.loc 1 113 0
+ 426 0012 FFF7FEFF 		bl	MX_TIM4_Init
+ 427              	.LVL32:
+ 114:Src/main.c    ****   MX_TIM3_Init();
+ 428              		.loc 1 114 0
+ 429 0016 FFF7FEFF 		bl	MX_SPI2_Init
+ 430              	.LVL33:
+ 115:Src/main.c    ****   MX_TIM2_Init();
+ 431              		.loc 1 115 0
+ 432 001a FFF7FEFF 		bl	MX_TIM3_Init
+ 433              	.LVL34:
+ 116:Src/main.c    ****   MX_TIM1_Init();
+ 434              		.loc 1 116 0
+ 435 001e FFF7FEFF 		bl	MX_TIM2_Init
+ 436              	.LVL35:
+ 117:Src/main.c    ****   MX_TIM5_Init();
+ 437              		.loc 1 117 0
+ 438 0022 FFF7FEFF 		bl	MX_TIM1_Init
+ 439              	.LVL36:
+ 118:Src/main.c    ****   MX_ADC1_Init();
+ 440              		.loc 1 118 0
+ 441 0026 FFF7FEFF 		bl	MX_TIM5_Init
+ 442              	.LVL37:
+ 119:Src/main.c    ****   MX_ADC2_Init();
+ 443              		.loc 1 119 0
+ 444 002a FFF7FEFF 		bl	MX_ADC1_Init
+ 445              	.LVL38:
+ 120:Src/main.c    ****   MX_ADC3_Init();
+ 446              		.loc 1 120 0
+ 447 002e FFF7FEFF 		bl	MX_ADC2_Init
+ 448              	.LVL39:
+ 121:Src/main.c    ****   /* USER CODE BEGIN 2 */
+ 449              		.loc 1 121 0
+ 450 0032 FFF7FEFF 		bl	MX_ADC3_Init
+ 451              	.LVL40:
+ 123:Src/main.c    ****   
+ 452              		.loc 1 123 0
+ 453 0036 FFF7FEFF 		bl	Init_Main
+ 454              	.LVL41:
+ 455              	.L26:
+ 131:Src/main.c    ****   /* USER CODE END WHILE */
+ 456              		.loc 1 131 0 discriminator 1
+ 457 003a FFF7FEFF 		bl	Mode_select
+ 458              	.LVL42:
+ 459 003e FFF7FEFF 		bl	Mode_mouse
+ 460              	.LVL43:
+ 461 0042 FAE7     		b	.L26
+ 462              		.cfi_endproc
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 14
+
+
+ 463              	.LFE160:
+ 465              		.comm	y_sum,4,4
+ 466              		.comm	s_sum_r,4,4
+ 467              		.comm	s_sum_l,4,4
+ 468              		.section	.rodata.Batt_Check.str1.4,"aMS",%progbits,1
+ 469              		.align	2
+ 470              	.LC0:
+ 471 0000 0A626174 		.ascii	"\012batt:%lf\015\012\000"
+ 471      743A256C 
+ 471      660D0A00 
+ 472              		.section	.rodata.SystemClock_Config.str1.4,"aMS",%progbits,1
+ 473              		.align	2
+ 474              	.LC1:
+ 475 0000 5372632F 		.ascii	"Src/main.c\000"
+ 475      6D61696E 
+ 475      2E6300
+ 476              		.text
+ 477              	.Letext0:
+ 478              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 479              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 480              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 481              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 482              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 483              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 484              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 485              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+ 486              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 487              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 488              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 489              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 490              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 491              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 492              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 493              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 494              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 495              		.file 19 "Inc/adc.h"
+ 496              		.file 20 "Inc/spi.h"
+ 497              		.file 21 "Inc/tim.h"
+ 498              		.file 22 "Inc/usart.h"
+ 499              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 500              		.file 24 "Inc/global.h"
+ 501              		.file 25 "Inc/control.h"
+ 502              		.file 26 "Inc/flash.h"
+ 503              		.file 27 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 504              		.file 28 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ 505              		.file 29 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 506              		.file 30 "Inc/gpio.h"
+ 507              		.file 31 "Inc/mode.h"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:18     .text.__io_putchar:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:25     .text.__io_putchar:00000000 __io_putchar
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:58     .text.__io_putchar:0000001c $d
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:67     .text.Batt_Check:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:74     .text.Batt_Check:00000000 Batt_Check
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:154    .text.Batt_Check:00000070 $d
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:170    .text._Error_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:177    .text._Error_Handler:00000000 _Error_Handler
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:192    .text.SystemClock_Config:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:199    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:330    .text.SystemClock_Config:000000b0 $d
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:338    .text.main:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:345    .text.main:00000000 main
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:465    .text.main:0000009c $d
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:472    .rodata.Batt_Check.str1.4:00000000 $d
-C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s:476    .rodata.SystemClock_Config.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:18     .text.__io_putchar:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:25     .text.__io_putchar:00000000 __io_putchar
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:58     .text.__io_putchar:0000001c $d
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:64     .text.Batt_Check:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:71     .text.Batt_Check:00000000 Batt_Check
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:142    .text.Batt_Check:00000064 $d
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:155    .text.Init_Main:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:162    .text.Init_Main:00000000 Init_Main
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:216    .text.Init_Main:0000003c $d
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:226    .text._Error_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:233    .text._Error_Handler:00000000 _Error_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:248    .text.SystemClock_Config:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:255    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:386    .text.SystemClock_Config:000000b0 $d
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:394    .text.main:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:401    .text.main:00000000 main
+                            *COM*:00000004 y_sum
+                            *COM*:00000004 s_sum_r
+                            *COM*:00000004 s_sum_l
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:469    .rodata.Batt_Check.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s:473    .rodata.SystemClock_Config.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Transmit
 huart3
 __aeabi_f2d
-__aeabi_ddiv
-__aeabi_dmul
-__aeabi_d2f
 printf
 batt_analog
 batt_Vcc
+setbuf
+HAL_TIM_Base_Start_IT
+HAL_TIM_Encoder_Start
+set_mpu6500
+_impure_ptr
+htim5
+htim3
+htim4
+flag
+ms_count
 HAL_RCC_OscConfig
 HAL_RCC_ClockConfig
 HAL_RCC_GetHCLKFreq
@@ -895,19 +889,10 @@ MX_TIM2_Init
 MX_TIM1_Init
 MX_TIM5_Init
 MX_ADC1_Init
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5L2p0P.s 			page 16
+
+
 MX_ADC2_Init
 MX_ADC3_Init
-setbuf
-HAL_TIM_Base_Start_IT
-set_mpu6500
-gyro_offset_calc_reset
-HAL_Delay
-Buzzer_pwm
-Yawrate_Calc_fb
-Push
-flag
-_impure_ptr
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc4Auhh9.s 			page 17
-
-
-htim5
+Mode_select
+Mode_mouse

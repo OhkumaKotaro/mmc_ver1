@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccTslLfj.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccZ8daz1.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,50 +17,57 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccTslLfj.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.comm	y_decrease_L,4,4
-  18              		.comm	y_constant_L,4,4
-  19              		.comm	y_accel_L,4,4
-  20              		.comm	decrease_L,4,4
-  21              		.comm	constant_L,4,4
-  22              		.comm	accel_L,4,4
-  23              		.comm	motor,8,4
-  24              		.comm	speed_count,2,2
-  25              		.comm	s_count,2,2
-  26              		.comm	ms_count,2,2
-  27              		.comm	sensor_count,8,4
-  28              		.comm	sensor_wall,8,4
-  29              		.comm	sensor_adc,8,4
-  30              		.comm	sensor_adc_off,8,4
-  31              		.comm	sensor_adc_on,8,4
-  32              		.comm	batt_Vcc,4,4
-  33              		.comm	batt_analog,2,2
-  34              		.comm	count_tim5,2,2
-  35              		.comm	sensor,36,4
-  36              		.comm	position,12,4
-  37              		.comm	calc,18,4
-  38              		.comm	enc,32,4
-  39              		.comm	gyro,24,4
-  40              		.comm	flag,6,4
-  41              	.Letext0:
-  42              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  43              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  44              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  45              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  46              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
-  47              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  48              		.file 7 "Inc/global.h"
-  49              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccTslLfj.s 			page 2
+  17              		.comm	log_enc,24000,4
+  18              		.comm	log_distance,12000,4
+  19              		.comm	log_calc,12000,4
+  20              		.comm	y_decrease_T,4,4
+  21              		.comm	y_constant_T,4,4
+  22              		.comm	y_accel_T,4,4
+  23              		.comm	decrease_T,2,2
+  24              		.comm	constant_T,2,2
+  25              		.comm	accel_T,2,2
+  26              		.comm	motor,8,4
+  27              		.comm	speed_count,2,2
+  28              		.comm	s_count,2,2
+  29              		.comm	ms_count,2,2
+  30              		.comm	sensor_count,8,4
+  31              		.comm	sensor_wall,8,4
+  32              		.comm	sensor_adc,8,4
+  33              		.comm	sensor_adc_off,8,4
+  34              		.comm	sensor_adc_on,8,4
+  35              		.comm	batt_Vcc,4,4
+  36              		.comm	batt_analog,2,2
+  37              		.comm	count_tim5,2,2
+  38              		.comm	sensor,36,4
+  39              		.comm	position,12,4
+  40              		.comm	s_accel,4,4
+  41              		.comm	calc,16,4
+  42              		.comm	enc,40,4
+  43              		.comm	gyro,24,4
+  44              		.comm	flag,10,4
+  45              	.Letext0:
+  46              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  47              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  48              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  49              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  50              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+  51              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  52              		.file 7 "Inc/global.h"
+  53              		.file 8 "Src/global.c"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccZ8daz1.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 global.c
-                            *COM*:00000004 y_decrease_L
-                            *COM*:00000004 y_constant_L
-                            *COM*:00000004 y_accel_L
-                            *COM*:00000004 decrease_L
-                            *COM*:00000004 constant_L
-                            *COM*:00000004 accel_L
+                            *COM*:00005dc0 log_enc
+                            *COM*:00002ee0 log_distance
+                            *COM*:00002ee0 log_calc
+                            *COM*:00000004 y_decrease_T
+                            *COM*:00000004 y_constant_T
+                            *COM*:00000004 y_accel_T
+                            *COM*:00000002 decrease_T
+                            *COM*:00000002 constant_T
+                            *COM*:00000002 accel_T
                             *COM*:00000008 motor
                             *COM*:00000002 speed_count
                             *COM*:00000002 s_count
@@ -75,9 +82,10 @@ DEFINED SYMBOLS
                             *COM*:00000002 count_tim5
                             *COM*:00000024 sensor
                             *COM*:0000000c position
-                            *COM*:00000012 calc
-                            *COM*:00000020 enc
+                            *COM*:00000004 s_accel
+                            *COM*:00000010 calc
+                            *COM*:00000028 enc
                             *COM*:00000018 gyro
-                            *COM*:00000006 flag
+                            *COM*:0000000a flag
 
 NO UNDEFINED SYMBOLS

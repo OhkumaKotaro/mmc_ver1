@@ -42,6 +42,7 @@
 #include "tim.h"
 #include "global.h"
 #include "control.h"
+
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -193,13 +194,21 @@ void SysTick_Handler(void)
     gyro_offset_calc();
   }
 
-  if(flag.accel == ON){
-    Yawrate_SysTic_fb();
-  }
-
   update_encoder();
 
-    
+  if(flag.straight == ON){
+    Straight_SysTic_fb();
+    log_calc[ms_count] = calc.velocity;
+    log_enc[0][ms_count] = enc.velocity_l;
+    log_enc[1][ms_count] = enc.velocity_r;
+  }else if(flag.straight == OFF){
+    Motor_pwm(0,0);
+    ms_count = 0;
+  }
+
+  if(flag.yawrate == ON){
+    Yawrate_SysTic_fb();
+  } 
   /* USER CODE END SysTick_IRQn 1 */
 }
 

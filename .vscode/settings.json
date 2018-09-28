@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdint.h": "c",
-        "stm32f4xx_hal_flash.h": "c"
+        "stm32f4xx_hal_flash.h": "c",
+        "control.h": "c"
     }
 }

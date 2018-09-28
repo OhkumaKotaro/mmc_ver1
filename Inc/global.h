@@ -27,26 +27,26 @@
 
 
 //encoder
-#define IE_1024 1024
+#define ENC_CUL_ROT 5376.0f//512 * 2 * 5.25
 
 
 //mouse
-#define WEIGHT 100 //[g]
-#define TIRE_RADIUS 12  //[mm]
-#define INERTIA     23
-#define TREAD 73  //[mm]
+#define WEIGHT 100.0f //[g]
+#define TIRE_RADIUS 12.5f  //[mm]
+#define INERTIA     23.0f 
+#define TREAD 73.0f  //[mm]
 #define GEAR_RATE 5.25f
 
 //calc
 #define dt 0.001f
 
 //straight
-#define ACCEL 4000
-#define MAX_VELOCITY 300
+#define ACCEL 4000 //[mm/s^2]
+#define MAX_VELOCITY 300 //[mm/s]
 
 //yawrate
-#define Y_ACCEL 300
-#define Y_MAX_VELOCITY 90
+#define Y_ACCEL 300 //[degree/s^2]
+#define Y_MAX_VELOCITY 90//[degree/s]
 
 
 /***typedef**************************************************************************/
@@ -54,8 +54,10 @@
 //flag
 typedef struct{
   short gyro_calc;
-  short accel;
+  short straight;
+  short yawrate;
   short ir_led;
+  unsigned char accel;
 }flag_t;
 extern flag_t flag;
 
@@ -76,6 +78,8 @@ extern gyro_t gyro;
 typedef struct{
   float rpms_left;
   float rpms_right;
+  int left;
+  int right;
   float velocity_l;
   float velocity_r;
   float distance_l;
@@ -111,16 +115,20 @@ extern motor_t motor;
 
 //calc
 typedef struct{
-  int16_t distance;
+  float distance;
   int16_t velocity;
   int16_t accel;
 
-  int16_t yawrate_degree;
+  float yawrate_degree;
   int16_t yawrate_velocity;
   int16_t yawrate_accel;
 }calc_t;
 extern calc_t calc;
 
+extern float s_accel;
+
+
+//mouse position
 typedef struct{
   uint8_t x;
   uint8_t y;
@@ -130,11 +138,18 @@ typedef struct{
 }position_t;
 extern position_t position;
 
+
+//log
 typedef struct{
   float target_accel;
   float accel;
 }loger_t;
 extern loger_t loger[1000];
+
+extern float log_calc[3000];
+extern float log_distance[3000];
+extern float log_enc[2][3000];
+
 
 //count
 extern uint16_t count_tim5;
@@ -142,14 +157,15 @@ extern uint16_t ms_count;
 extern uint16_t s_count;
 extern uint16_t speed_count;
 
-//control
-extern float accel_L;
-extern float constant_L;
-extern float decrease_L;
+//straight
+extern uint16_t accel_T;
+extern uint16_t constant_T;
+extern uint16_t decrease_T;
 
-extern float y_accel_L;
-extern float y_constant_L;
-extern float y_decrease_L;
+//yawrate
+extern float y_accel_T;
+extern float y_constant_T;
+extern float y_decrease_T;
 
 
 #ifdef __cplusplus

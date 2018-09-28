@@ -64,7 +64,7 @@ void MX_TIM1_Init(void)
   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig;
 
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 4;
+  htim1.Init.Prescaler = 1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim1.Init.Period = 999;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -540,18 +540,18 @@ void Motor_pwm(int16_t left_pwm,int16_t right_pwm){
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
 
   //max and min
-  if(left_pwm > 800){
-    left_pwm = 800;
+  if(left_pwm > 950){
+    left_pwm = 950;
   }
-  if(left_pwm < -800){
-    left_pwm = -800;
+  if(left_pwm < -950){
+    left_pwm = -950;
   }
 
-  if(right_pwm > 800){
-    right_pwm = 800;
+  if(right_pwm > 950){
+    right_pwm = 950;
   }
-  if(right_pwm < -800){
-    right_pwm = -800;
+  if(right_pwm < -950){
+    right_pwm = -950;
   }
 
   //set left_pwm
@@ -621,18 +621,39 @@ void Motor_pwm(int16_t left_pwm,int16_t right_pwm){
 	}
 }
 
+
+/****************************************************************************************
+ * outline  : update encoder value
+ * argument : void
+ * return   : void
+********************************************************************************************/
 void update_encoder(void){
-  int16_t l_buff = TIM3 -> CNT;
-  int16_t r_buff = TIM4 -> CNT;
+  int16_t l_buff = TIM3->CNT;
+  int16_t r_buff = TIM4->CNT;
+  //float enc_left_omega = 0.0f;
+  //float enc_right_omega = 0.0f;
   TIM3->CNT = 0;
   TIM4->CNT = 0;
+
+  if ( l_buff > 32767 ){
+    enc.left = (int16_t)l_buff;
+  } else {
+    enc.left = l_buff;
+  }
+
+  if ( r_buff > 32767 ){
+    enc.right = -1 * (int16_t)r_buff;
+  } else {
+    enc.right = -1 * r_buff;
+  }
   
-  enc.old_l = enc.velocity_l;
-  enc.old_r = enc.velocity_r;
-  enc.velocity_l = l_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
-  enc.velocity_r = r_buff / IE_1024 / GEAR_RATE * 2.0f * PI * TIRE_RADIUS;
-  enc.distance_l += enc.velocity_l * dt;
-  enc.distance_r += enc.velocity_r * dt;
+  //enc_left_omega = (float)enc.left / ENC_CUL_ROT * 2.0f * PI/dt;
+  //enc_right_omega = (float)enc.right / ENC_CUL_ROT * 2.0f * PI/dt;
+  enc.velocity_l = (float)enc.left / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS / dt;
+  enc.velocity_r = (float)enc.right / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS / dt;
+  enc.distance_l += (float)enc.left / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS;
+  enc.distance_r += (float)enc.right / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS;
+  
 }
 
 

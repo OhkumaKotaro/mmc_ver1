@@ -187,9 +187,11 @@ void set_mpu6500(void){
   val = read_byte(WHO_AM_I);
   printf("\r\nI am 0x%x\r\n",val );
   if(val != Certain){
+    while(1){
     All_LED_ON();
     HAL_Delay(1000);
     All_LED_OFF();
+    }
   }
   
   write_byte(PWR_MGMT_1,0x00);
