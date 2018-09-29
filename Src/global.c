@@ -19,9 +19,8 @@ uint16_t sensor_adc[4];
 uint16_t sensor_wall[4];
 uint16_t sensor_count[4];
 
-uint16_t ms_count;
-uint16_t s_count;
-uint16_t speed_count;
+uint16_t straight_cnt;
+uint16_t yawrate_cnt;
 
 motor_t motor;
 
@@ -29,9 +28,9 @@ uint16_t accel_T;
 uint16_t constant_T;
 uint16_t decrease_T;
 
-float y_accel_T;
-float y_constant_T;
-float y_decrease_T;
+uint16_t y_accel_T;
+uint16_t y_constant_T;
+uint16_t y_decrease_T;
 
 float log_calc[3000];
 float log_distance[3000];

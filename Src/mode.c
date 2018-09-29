@@ -39,13 +39,13 @@ void Mode_mouse(uint8_t mode){
             Normal_Straight();
             break;
         case 2:
-            Show_log();
+            Turn_Half();
             break;
         case 3:
-            Ennkai();
+            Show_log();
             break;
         case 4:
-            Hallow();
+    
             break;
         default:
             break;
@@ -72,18 +72,14 @@ void L_chica(void){
     }
 }
 
-
-/****************************************************************************************
- * outline  : printf "Hallow"
- * argument : void
- * return   : void
-********************************************************************************************/
-void Hallow(void){
-    enc.distance_l = 0;
-    enc.distance_r = 0;
+void Turn_Half(void){
+    HAL_Delay(500);
+    gyro_offset_calc_reset();
+    Yawrate_Calc_fb(180,0,0);
+    HAL_Delay(1000);
     Output_Buzzer(HZ_C_H);
+    flag.yawrate = ON;
     while(1){
-        printf("%f\r",enc.distance_l);
         if(Push()==ON){
             Output_Buzzer(HZ_A);
             break;

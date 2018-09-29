@@ -230,7 +230,8 @@ void Init_Main(void){
   flag.ir_led = OFF;
   flag.straight = OFF;
   flag.yawrate = OFF;
-  ms_count = 0;
+  straight_cnt = 0;
+  yawrate_cnt = 0;
 }
 
 /* USER CODE END 4 */

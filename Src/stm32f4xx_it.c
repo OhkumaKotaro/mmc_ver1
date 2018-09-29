@@ -198,17 +198,20 @@ void SysTick_Handler(void)
 
   if(flag.straight == ON){
     Straight_SysTic_fb();
-    log_calc[ms_count] = calc.velocity;
-    log_enc[0][ms_count] = enc.velocity_l;
-    log_enc[1][ms_count] = enc.velocity_r;
-  }else if(flag.straight == OFF){
-    Motor_pwm(0,0);
-    ms_count = 0;
+  }else{
+    straight_cnt = 0;
   }
 
   if(flag.yawrate == ON){
     Yawrate_SysTic_fb();
-  } 
+    log_calc[yawrate_cnt] = calc.yawrate_velocity;
+    log_enc[0][yawrate_cnt] = gyro.velocity;
+    log_enc[1][yawrate_cnt] = gyro.velocity;
+  }else{
+    yawrate_cnt = 0;
+  }
+
+  Control_pwm();
   /* USER CODE END SysTick_IRQn 1 */
 }
 

@@ -45,8 +45,8 @@
 #define MAX_VELOCITY 300 //[mm/s]
 
 //yawrate
-#define Y_ACCEL 300 //[degree/s^2]
-#define Y_MAX_VELOCITY 90//[degree/s]
+#define Y_ACCEL 2000 //[degree/s^2]
+#define Y_MAX_VELOCITY 300//[degree/s]
 
 
 /***typedef**************************************************************************/
@@ -153,9 +153,8 @@ extern float log_enc[2][3000];
 
 //count
 extern uint16_t count_tim5;
-extern uint16_t ms_count;
-extern uint16_t s_count;
-extern uint16_t speed_count;
+extern uint16_t straight_cnt;
+extern uint16_t yawrate_cnt;
 
 //straight
 extern uint16_t accel_T;
@@ -163,9 +162,9 @@ extern uint16_t constant_T;
 extern uint16_t decrease_T;
 
 //yawrate
-extern float y_accel_T;
-extern float y_constant_T;
-extern float y_decrease_T;
+extern uint16_t y_accel_T;
+extern uint16_t y_constant_T;
+extern uint16_t y_decrease_T;
 
 
 #ifdef __cplusplus

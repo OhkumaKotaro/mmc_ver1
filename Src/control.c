@@ -74,24 +74,21 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
  * return   : void
 ********************************************************************************************/
 void Straight_SysTic_fb(void){
-    int16_t straight_pid_l,straight_pid_r;
-    if(ms_count < accel_T){
-        Calc_Palam(ACCEL,&calc.velocity,&ms_count);
+    if(straight_cnt < accel_T){
+        Calc_Palam(ACCEL,&calc.velocity,&straight_cnt);
     }
-    else if(ms_count < constant_T + accel_T){
-        Calc_Palam(0,&calc.velocity,&ms_count);
+    else if(straight_cnt < constant_T + accel_T){
+        Calc_Palam(0,&calc.velocity,&straight_cnt);
     }
-    else if(ms_count < decrease_T + constant_T + accel_T){
-        Calc_Palam(-ACCEL,&calc.velocity,&ms_count);
+    else if(straight_cnt < decrease_T + constant_T + accel_T){
+        Calc_Palam(-ACCEL,&calc.velocity,&straight_cnt);
     }else{
         calc.velocity = 0;
         flag.straight = OFF;
     }
     
-    
     straight_pid_l = (int16_t)PID_value(calc.velocity,enc.velocity_l,&s_sum_l,&enc.old_l,20.0f,90.0f,0);
     straight_pid_r = (int16_t)PID_value(calc.velocity,enc.velocity_r,&s_sum_r,&enc.old_r,20.0f,90.0f,0);
-    Motor_pwm(straight_pid_l,straight_pid_r);
 }
 
 
@@ -101,16 +98,26 @@ void Straight_SysTic_fb(void){
  * return   : void
 ********************************************************************************************/
 void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
-    calc.yawrate_degree = 0;
     calc.yawrate_velocity = v_start;
-    if(degree == 0){
-        y_accel_T = 0;
-        y_constant_T = 0;
-        y_decrease_T = 0;
-    }
-    else{
 
-    }
+    float t1=0,t2=0,t3=0;
+    float constant_L;
+
+    t1 = (float)(Y_MAX_VELOCITY - v_start) / Y_ACCEL;
+    t3 = (float)(Y_MAX_VELOCITY - v_end) / Y_ACCEL;
+
+    constant_L = (float)degree - (Y_MAX_VELOCITY + v_start) * t1 / 2 - (Y_MAX_VELOCITY + v_end) * t3 / 2;
+    
+    t2 = constant_L / Y_MAX_VELOCITY;
+    printf("\nt1:%f,t2:%f,t3%f\r\n",t1,t2,t3);
+
+    t1 *= 1000;
+    t2 *= 1000;
+    t3 *= 1000;
+
+    y_accel_T = t1;
+    y_constant_T = t2;
+    y_decrease_T = t3;
 }
 
 
@@ -120,19 +127,32 @@ void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
  * return   : void
 ********************************************************************************************/
 void Yawrate_SysTic_fb(void){
-    int16_t yawrate_pid;
-    if(calc.yawrate_degree <= y_accel_T){
-        Calc_Palam(Y_ACCEL,&calc.yawrate_velocity,&ms_count);
-    }else if(calc.yawrate_degree <= y_constant_T){
-        Calc_Palam(0,&calc.yawrate_velocity,&ms_count);
-    }else if(calc.yawrate_degree <= y_decrease_T){
-        Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&ms_count);
+    if(yawrate_cnt < y_accel_T){
+        Calc_Palam(Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
+    }else if(yawrate_cnt < y_constant_T + y_accel_T){
+        Calc_Palam(0,&calc.yawrate_velocity,&yawrate_cnt);
+    }else if(yawrate_cnt < y_decrease_T + y_constant_T + y_accel_T){
+        Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
+    }else{
+        calc.yawrate_velocity = 0;
+        flag.yawrate = OFF;
     }
-    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,12.0f,0.0f,20.0f);
-    Motor_pwm(-yawrate_pid,yawrate_pid);
+    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,14.0f,3.0f,0);
 }
 
+void Control_pwm(void){
+    int16_t pwm_l=0,pwm_r=0;
 
+    if(flag.straight==ON){
+        pwm_l += straight_pid_l;
+        pwm_r += straight_pid_r;
+    }
+    if(flag.yawrate==ON){
+        pwm_l -= yawrate_pid;
+        pwm_r += yawrate_pid;
+    }
+    Motor_pwm(pwm_l,pwm_r);
+}
 /****************************************************************************************
  * outline  : turn on buzzer 0.3sec
  * argument : Hz
@@ -142,58 +162,6 @@ void Output_Buzzer(uint8_t Hz){
     Buzzer_pwm(Hz,300);
     HAL_Delay(300);
     Buzzer_pwm(HZ_NORMAL,0);
-}
-
-
-/****************************************************************************************
- * outline  : straight run one block
- * argument : accel[mm/s^2]
- * return   : void
-********************************************************************************************/
-void control_accel(int16_t accel_l,int16_t accel_r){
-  float pwm_l,pwm_r;
-  //torque[mNm] = weight[g] * 0.001 * accel[mm/s^2] * 0.001 * tire_radius[mm] / 2 / gear_rate
-  //pwm =( R * torque[mNM] / KT[mNm/A] + KE[mV/rpm] * rpms * 60) / Vcc
-  pwm_l = (Resistance * WEIGHT * accel_l * TIRE_RADIUS / 2 / GEAR_RATE / KT + KE * enc.rpms_left * 60)* 999 /batt_Vcc;
-  pwm_r = (Resistance * WEIGHT * accel_r * TIRE_RADIUS / 2 / GEAR_RATE / KT + KE * enc.rpms_right * 60)* 999 /batt_Vcc;
-
-  motor.pwm_l = (int16_t)pwm_l;
-  motor.pwm_r = (int16_t)pwm_r;
-
-  //Motor_pwm(pwm_l,pwm_r);
-
-}
-
-/****************************************************************************************
- * outline  : straight run one block
- * argument : void
- * return   : void
-********************************************************************************************/
-void straight_one_ff(void){
-    if(flag.accel == OFF){
-        motor.pwm_l = 0;
-        motor.pwm_r = 0;
-    }
-    else if(flag.accel == ON){
-        speed_count = 0;
-        flag.accel = 2;
-    }else if(flag.accel == 2){
-        if(speed_count < 300){
-            control_accel(1000,1000);
-        }
-
-        if(speed_count >= 300 && speed_count < 600){
-            motor.pwm_l = 0;
-            motor.pwm_r = 0;
-        }
-
-        if(speed_count >= 600 && speed_count < 900){
-            control_accel(-1000,-1000);
-        }
-        if(speed_count >= 900){
-            flag.accel = OFF;
-        }
-    }
 }
 
 

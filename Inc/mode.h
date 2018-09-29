@@ -9,7 +9,7 @@
 uint8_t Mode_select(void);
 void Mode_mouse(uint8_t mode);
 void L_chica(void);
-void Hallow(void);
+void Turn_Half(void);
 void Ennkai(void);
 void Normal_Straight(void);
 void Straight_one_fb(void);
