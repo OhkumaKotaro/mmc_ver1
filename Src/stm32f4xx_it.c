@@ -200,6 +200,8 @@ void SysTick_Handler(void)
     Straight_SysTic_fb();
   }else{
     straight_cnt = 0;
+    straight_pid_l = 0;
+    straight_pid_r = 0;
   }
 
   if(flag.yawrate == ON){
@@ -209,6 +211,7 @@ void SysTick_Handler(void)
     log_enc[1][yawrate_cnt] = gyro.velocity;
   }else{
     yawrate_cnt = 0;
+    yawrate_pid = 0;
   }
 
   Control_pwm();

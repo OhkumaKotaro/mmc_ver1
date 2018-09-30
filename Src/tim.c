@@ -651,6 +651,7 @@ void update_encoder(void){
   //enc_right_omega = (float)enc.right / ENC_CUL_ROT * 2.0f * PI/dt;
   enc.velocity_l = (float)enc.left / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS / dt;
   enc.velocity_r = (float)enc.right / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS / dt;
+  enc.velocity_c = (float)(enc.left + enc.right) / ENC_CUL_ROT * PI * TIRE_RADIUS / dt;
   enc.distance_l += (float)enc.left / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS;
   enc.distance_r += (float)enc.right / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS;
   

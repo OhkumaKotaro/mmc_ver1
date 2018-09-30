@@ -27,7 +27,7 @@ build/mode.d: Src/mode.c Inc/mode.h Inc/global.h Inc/gpio.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/tim.h \
- Inc/control.h Inc/spi.h
+ Inc/motion.h Inc/control.h
 
 Inc/mode.h:
 
@@ -99,6 +99,6 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 Inc/tim.h:
 
-Inc/control.h:
+Inc/motion.h:
 
-Inc/spi.h:
+Inc/control.h:

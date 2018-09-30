@@ -67,6 +67,11 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     decrease_T = t3;
 }
 
+void Straight_Calc_Zero(void){
+    accel_T = 0;
+    constant_T = 0;
+    decrease_T = 0;
+}
 
 /****************************************************************************************
  * outline  : output pwm for trapezoid accele straight by feadbuck control
@@ -74,21 +79,30 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
  * return   : void
 ********************************************************************************************/
 void Straight_SysTic_fb(void){
+    float encoder_l,encoder_r;
+
     if(straight_cnt < accel_T){
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         Calc_Palam(ACCEL,&calc.velocity,&straight_cnt);
     }
     else if(straight_cnt < constant_T + accel_T){
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         Calc_Palam(0,&calc.velocity,&straight_cnt);
     }
     else if(straight_cnt < decrease_T + constant_T + accel_T){
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         Calc_Palam(-ACCEL,&calc.velocity,&straight_cnt);
     }else{
+        encoder_l = enc.velocity_c;
+        encoder_r = enc.velocity_c;
         calc.velocity = 0;
-        flag.straight = OFF;
     }
     
-    straight_pid_l = (int16_t)PID_value(calc.velocity,enc.velocity_l,&s_sum_l,&enc.old_l,20.0f,90.0f,0);
-    straight_pid_r = (int16_t)PID_value(calc.velocity,enc.velocity_r,&s_sum_r,&enc.old_r,20.0f,90.0f,0);
+    straight_pid_l = (int16_t)PID_value(calc.velocity,encoder_l,&s_sum_l,&enc.old_l,20.0f,90.0f,0);
+    straight_pid_r = (int16_t)PID_value(calc.velocity,encoder_r,&s_sum_r,&enc.old_r,20.0f,90.0f,0);
 }
 
 
@@ -120,6 +134,11 @@ void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
     y_decrease_T = t3;
 }
 
+void Yawrate_Calc_Zero(void){
+    y_accel_T = 0;
+    y_constant_T = 0;
+    y_decrease_T = 0;
+}
 
 /****************************************************************************************
  * outline  : call 1ms (roll by feadbuck control)
@@ -135,9 +154,8 @@ void Yawrate_SysTic_fb(void){
         Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
     }else{
         calc.yawrate_velocity = 0;
-        flag.yawrate = OFF;
     }
-    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,14.0f,3.0f,0);
+    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,15.5f,1.0f,22.0f);
 }
 
 void Control_pwm(void){

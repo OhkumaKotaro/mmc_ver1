@@ -50,10 +50,11 @@
 #include "control.h"
 #include "flash.h"
 #include "mode.h"
+#include "motion.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-
+void Init_Main(void);
 /* USER CODE BEGIN PV */
 #ifdef __GNUC__
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
@@ -72,8 +73,7 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-void Batt_Check(void);
-void Init_Main(void);
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -198,22 +198,7 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
-/****************************************************************************************
- * outline  : normalize battery (12bit -> dec)
- * argument : void
- * return   : void
-********************************************************************************************/
-void Batt_Check(void)
-{
-  float batt=0;
-  for(int i=0;i<50;i++){
-    batt += batt_analog;
-  }
-  batt /= 50.0;
-  batt = batt/4095.0f*133.0f/33.0f*3.3f;
-  batt_Vcc = batt;
-  printf("\nbatt:%lf\r\n",batt_Vcc);
-}
+
 
 /****************************************************************************************
  * outline  : init main(setbuf,tim5,3,4,gyro,battery,flag,ms_count)

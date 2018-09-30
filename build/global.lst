@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccM1ABdi.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccV42UMu.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -41,7 +41,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccM1ABdi.s 			page 1
   38              		.comm	position,12,4
   39              		.comm	s_accel,4,4
   40              		.comm	calc,16,4
-  41              		.comm	enc,40,4
+  41              		.comm	enc,36,4
   42              		.comm	gyro,24,4
   43              		.comm	flag,10,4
   44              	.Letext0:
@@ -53,7 +53,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccM1ABdi.s 			page 1
   50              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
   51              		.file 7 "Inc/global.h"
   52              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccM1ABdi.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccV42UMu.s 			page 2
 
 
 DEFINED SYMBOLS
@@ -82,7 +82,7 @@ DEFINED SYMBOLS
                             *COM*:0000000c position
                             *COM*:00000004 s_accel
                             *COM*:00000010 calc
-                            *COM*:00000028 enc
+                            *COM*:00000024 enc
                             *COM*:00000018 gyro
                             *COM*:0000000a flag
 

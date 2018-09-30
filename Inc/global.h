@@ -76,12 +76,11 @@ extern gyro_t gyro;
 
 //encoder
 typedef struct{
-  float rpms_left;
-  float rpms_right;
   int left;
   int right;
   float velocity_l;
   float velocity_r;
+  float velocity_c;
   float distance_l;
   float distance_r;
   float old_l;
