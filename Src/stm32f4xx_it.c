@@ -208,7 +208,7 @@ void SysTick_Handler(void)
     Yawrate_SysTic_fb();
     log_calc[yawrate_cnt] = calc.yawrate_velocity;
     log_enc[0][yawrate_cnt] = gyro.velocity;
-    log_enc[1][yawrate_cnt] = gyro.velocity;
+    log_enc[1][yawrate_cnt] = gyro.degree;
   }else{
     yawrate_cnt = 0;
     yawrate_pid = 0;

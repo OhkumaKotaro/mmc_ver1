@@ -13,6 +13,7 @@ void Normal_Straight(void);
 void Straight(void);
 void Show_log(void);
 void Sensor_Mode(void);
+void Test_Create_Map(void);
 void Batt_Check(void);
 
 

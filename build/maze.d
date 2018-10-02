@@ -1,4 +1,4 @@
-build/motion.d: Src/motion.c Inc/motion.h Inc/tim.h \
+build/maze.d: Src/maze.c Inc/maze.h Inc/gpio.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  Inc/stm32f4xx_hal_conf.h Inc/main.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -26,12 +26,11 @@ build/motion.d: Src/motion.c Inc/motion.h Inc/tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h Inc/global.h \
- Inc/control.h Inc/gpio.h Inc/spi.h Inc/maze.h
+ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
-Inc/motion.h:
+Inc/maze.h:
 
-Inc/tim.h:
+Inc/gpio.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -94,13 +93,3 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-
-Inc/global.h:
-
-Inc/control.h:
-
-Inc/gpio.h:
-
-Inc/spi.h:
-
-Inc/maze.h:

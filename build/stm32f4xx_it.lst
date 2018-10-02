@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
   29:Src/stm32f4xx_it.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   30:Src/stm32f4xx_it.c ****   *
   31:Src/stm32f4xx_it.c ****   ******************************************************************************
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 2
 
 
   32:Src/stm32f4xx_it.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
   68:Src/stm32f4xx_it.c **** /**
   69:Src/stm32f4xx_it.c **** * @brief This function handles Hard fault interrupt.
   70:Src/stm32f4xx_it.c **** */
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 3
 
 
   71:Src/stm32f4xx_it.c **** void HardFault_Handler(void)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
   85              		.thumb_func
   86              		.fpu fpv4-sp-d16
   88              	BusFault_Handler:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 4
 
 
   89              	.LFB129:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  125:Src/stm32f4xx_it.c **** void UsageFault_Handler(void)
  126:Src/stm32f4xx_it.c **** {
  111              		.loc 1 126 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 5
 
 
  112              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  144              		.global	DebugMon_Handler
  145              		.syntax unified
  146              		.thumb
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 6
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 6
 
 
  147              		.thumb_func
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  178 0000 7047     		bx	lr
  179              		.cfi_endproc
  180              	.LFE133:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 7
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 7
 
 
  182              		.section	.text.SysTick_Handler,"ax",%progbits
@@ -380,10 +380,10 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  193              		.cfi_startproc
  194              		@ args = 0, pretend = 0, frame = 0
  195              		@ frame_needed = 0, uses_anonymous_args = 0
- 196 0000 08B5     		push	{r3, lr}
+ 196 0000 10B5     		push	{r4, lr}
  197              	.LCFI0:
  198              		.cfi_def_cfa_offset 8
- 199              		.cfi_offset 3, -8
+ 199              		.cfi_offset 4, -8
  200              		.cfi_offset 14, -4
  184:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
  185:Src/stm32f4xx_it.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  217 0018 FFF7FEFF 		bl	update_encoder
  218              	.LVL3:
  198:Src/stm32f4xx_it.c **** 
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 8
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 8
 
 
  199:Src/stm32f4xx_it.c ****   if(flag.straight == ON){
@@ -454,7 +454,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  208:Src/stm32f4xx_it.c ****     Yawrate_SysTic_fb();
  209:Src/stm32f4xx_it.c ****     log_calc[yawrate_cnt] = calc.yawrate_velocity;
  210:Src/stm32f4xx_it.c ****     log_enc[0][yawrate_cnt] = gyro.velocity;
- 211:Src/stm32f4xx_it.c ****     log_enc[1][yawrate_cnt] = gyro.velocity;
+ 211:Src/stm32f4xx_it.c ****     log_enc[1][yawrate_cnt] = gyro.degree;
  212:Src/stm32f4xx_it.c ****   }else{
  213:Src/stm32f4xx_it.c ****     yawrate_cnt = 0;
  240              		.loc 1 213 0
@@ -475,10 +475,10 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  218:Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
  219:Src/stm32f4xx_it.c **** }
  251              		.loc 1 219 0
- 252 004c 08BD     		pop	{r3, pc}
+ 252 004c 10BD     		pop	{r4, pc}
  253              	.L21:
  191:Src/stm32f4xx_it.c ****     gyro.degree += gyro.velocity * dt;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 9
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 9
 
 
  254              		.loc 1 191 0
@@ -521,48 +521,49 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  287 009a 0B44     		add	r3, r3, r1
  288 009c F8EEE77A 		vcvt.f32.s32	s15, s15
  289 00a0 C3ED007A 		vstr.32	s15, [r3]
- 210:Src/stm32f4xx_it.c ****     log_enc[1][yawrate_cnt] = gyro.velocity;
+ 210:Src/stm32f4xx_it.c ****     log_enc[1][yawrate_cnt] = gyro.degree;
  290              		.loc 1 210 0
- 291 00a4 0C4B     		ldr	r3, .L24+28
- 292 00a6 1869     		ldr	r0, [r3, #16]	@ float
+ 291 00a4 0C48     		ldr	r0, .L24+28
+ 292 00a6 0469     		ldr	r4, [r0, #16]	@ float
  293 00a8 0F4B     		ldr	r3, .L24+44
  294 00aa 1944     		add	r1, r1, r3
- 295 00ac 0860     		str	r0, [r1]	@ float
+ 295 00ac 0C60     		str	r4, [r1]	@ float
  211:Src/stm32f4xx_it.c ****   }else{
  296              		.loc 1 211 0
- 297 00ae 02F6B832 		addw	r2, r2, #3000
- 298 00b2 03EB8203 		add	r3, r3, r2, lsl #2
- 299 00b6 1860     		str	r0, [r3]	@ float
- 300 00b8 C6E7     		b	.L19
- 301              	.L25:
- 302 00ba 00BF     		.align	2
- 303              	.L24:
- 304 00bc 00000000 		.word	flag
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 10
+ 297 00ae C168     		ldr	r1, [r0, #12]	@ float
+ 298 00b0 02F6B832 		addw	r2, r2, #3000
+ 299 00b4 03EB8203 		add	r3, r3, r2, lsl #2
+ 300 00b8 1960     		str	r1, [r3]	@ float
+ 301 00ba C5E7     		b	.L19
+ 302              	.L25:
+ 303              		.align	2
+ 304              	.L24:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 10
 
 
- 305 00c0 00000000 		.word	straight_cnt
- 306 00c4 00000000 		.word	straight_pid_l
- 307 00c8 00000000 		.word	straight_pid_r
- 308 00cc 00000000 		.word	yawrate_cnt
- 309 00d0 00000000 		.word	yawrate_pid
- 310 00d4 33338341 		.word	1099117363
- 311 00d8 00000000 		.word	gyro
- 312 00dc 6F12833A 		.word	981668463
- 313 00e0 00000000 		.word	calc
- 314 00e4 00000000 		.word	log_calc
- 315 00e8 00000000 		.word	log_enc
- 316              		.cfi_endproc
- 317              	.LFE134:
- 319              		.section	.text.TIM5_IRQHandler,"ax",%progbits
- 320              		.align	1
- 321              		.global	TIM5_IRQHandler
- 322              		.syntax unified
- 323              		.thumb
- 324              		.thumb_func
- 325              		.fpu fpv4-sp-d16
- 327              	TIM5_IRQHandler:
- 328              	.LFB135:
+ 305 00bc 00000000 		.word	flag
+ 306 00c0 00000000 		.word	straight_cnt
+ 307 00c4 00000000 		.word	straight_pid_l
+ 308 00c8 00000000 		.word	straight_pid_r
+ 309 00cc 00000000 		.word	yawrate_cnt
+ 310 00d0 00000000 		.word	yawrate_pid
+ 311 00d4 33338341 		.word	1099117363
+ 312 00d8 00000000 		.word	gyro
+ 313 00dc 6F12833A 		.word	981668463
+ 314 00e0 00000000 		.word	calc
+ 315 00e4 00000000 		.word	log_calc
+ 316 00e8 00000000 		.word	log_enc
+ 317              		.cfi_endproc
+ 318              	.LFE134:
+ 320              		.section	.text.TIM5_IRQHandler,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	TIM5_IRQHandler
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	TIM5_IRQHandler:
+ 329              	.LFB135:
  220:Src/stm32f4xx_it.c **** 
  221:Src/stm32f4xx_it.c **** /******************************************************************************/
  222:Src/stm32f4xx_it.c **** /* STM32F4xx Peripheral Interrupt Handlers                                    */
@@ -576,58 +577,58 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  230:Src/stm32f4xx_it.c **** */
  231:Src/stm32f4xx_it.c **** void TIM5_IRQHandler(void)
  232:Src/stm32f4xx_it.c **** {
- 329              		.loc 1 232 0
- 330              		.cfi_startproc
- 331              		@ args = 0, pretend = 0, frame = 0
- 332              		@ frame_needed = 0, uses_anonymous_args = 0
- 333 0000 08B5     		push	{r3, lr}
- 334              	.LCFI1:
- 335              		.cfi_def_cfa_offset 8
- 336              		.cfi_offset 3, -8
- 337              		.cfi_offset 14, -4
+ 330              		.loc 1 232 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334 0000 08B5     		push	{r3, lr}
+ 335              	.LCFI1:
+ 336              		.cfi_def_cfa_offset 8
+ 337              		.cfi_offset 3, -8
+ 338              		.cfi_offset 14, -4
  233:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM5_IRQn 0 */
  234:Src/stm32f4xx_it.c **** 
  235:Src/stm32f4xx_it.c ****   /* USER CODE END TIM5_IRQn 0 */
  236:Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim5);
- 338              		.loc 1 236 0
- 339 0002 1B48     		ldr	r0, .L39
- 340 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 341              	.LVL8:
+ 339              		.loc 1 236 0
+ 340 0002 1B48     		ldr	r0, .L39
+ 341 0004 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 342              	.LVL8:
  237:Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM5_IRQn 1 */
  238:Src/stm32f4xx_it.c ****   count_tim5++;
- 342              		.loc 1 238 0
- 343 0008 1A4A     		ldr	r2, .L39+4
- 344 000a 1388     		ldrh	r3, [r2]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 11
+ 343              		.loc 1 238 0
+ 344 0008 1A4A     		ldr	r2, .L39+4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 11
 
 
- 345 000c 0133     		adds	r3, r3, #1
- 346 000e 9BB2     		uxth	r3, r3
- 347 0010 1380     		strh	r3, [r2]	@ movhi
+ 345 000a 1388     		ldrh	r3, [r2]
+ 346 000c 0133     		adds	r3, r3, #1
+ 347 000e 9BB2     		uxth	r3, r3
+ 348 0010 1380     		strh	r3, [r2]	@ movhi
  239:Src/stm32f4xx_it.c **** 
  240:Src/stm32f4xx_it.c ****   switch(count_tim5){
- 348              		.loc 1 240 0
- 349 0012 013B     		subs	r3, r3, #1
- 350 0014 072B     		cmp	r3, #7
- 351 0016 26D8     		bhi	.L27
- 352 0018 DFE803F0 		tbb	[pc, r3]
- 353              	.L29:
- 354 001c 04       		.byte	(.L28-.L29)/2
- 355 001d 07       		.byte	(.L30-.L29)/2
- 356 001e 0B       		.byte	(.L31-.L29)/2
- 357 001f 10       		.byte	(.L32-.L29)/2
- 358 0020 13       		.byte	(.L33-.L29)/2
- 359 0021 17       		.byte	(.L34-.L29)/2
- 360 0022 1A       		.byte	(.L35-.L29)/2
- 361 0023 1F       		.byte	(.L36-.L29)/2
- 362              		.p2align 1
- 363              	.L28:
+ 349              		.loc 1 240 0
+ 350 0012 013B     		subs	r3, r3, #1
+ 351 0014 072B     		cmp	r3, #7
+ 352 0016 26D8     		bhi	.L27
+ 353 0018 DFE803F0 		tbb	[pc, r3]
+ 354              	.L29:
+ 355 001c 04       		.byte	(.L28-.L29)/2
+ 356 001d 07       		.byte	(.L30-.L29)/2
+ 357 001e 0B       		.byte	(.L31-.L29)/2
+ 358 001f 10       		.byte	(.L32-.L29)/2
+ 359 0020 13       		.byte	(.L33-.L29)/2
+ 360 0021 17       		.byte	(.L34-.L29)/2
+ 361 0022 1A       		.byte	(.L35-.L29)/2
+ 362 0023 1F       		.byte	(.L36-.L29)/2
+ 363              		.p2align 1
+ 364              	.L28:
  241:Src/stm32f4xx_it.c ****     case 1:
  242:Src/stm32f4xx_it.c ****       update_side_sen_off();
- 364              		.loc 1 242 0
- 365 0024 FFF7FEFF 		bl	update_side_sen_off
- 366              	.LVL9:
- 367              	.L26:
+ 365              		.loc 1 242 0
+ 366 0024 FFF7FEFF 		bl	update_side_sen_off
+ 367              	.LVL9:
+ 368              	.L26:
  243:Src/stm32f4xx_it.c ****       break;
  244:Src/stm32f4xx_it.c ****     case 2:
  245:Src/stm32f4xx_it.c ****       IR_Contoroll(0b0110);
@@ -657,167 +658,167 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 1
  269:Src/stm32f4xx_it.c ****       count_tim5 = 0;
  270:Src/stm32f4xx_it.c ****       break;
  271:Src/stm32f4xx_it.c ****   }
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 12
+
+
  272:Src/stm32f4xx_it.c ****   /* USER CODE END TIM5_IRQn 1 */
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 12
-
-
  273:Src/stm32f4xx_it.c **** }
- 368              		.loc 1 273 0
- 369 0028 08BD     		pop	{r3, pc}
- 370              	.L30:
+ 369              		.loc 1 273 0
+ 370 0028 08BD     		pop	{r3, pc}
+ 371              	.L30:
  245:Src/stm32f4xx_it.c ****       break;
- 371              		.loc 1 245 0
- 372 002a 0620     		movs	r0, #6
- 373 002c FFF7FEFF 		bl	IR_Contoroll
- 374              	.LVL10:
+ 372              		.loc 1 245 0
+ 373 002a 0620     		movs	r0, #6
+ 374 002c FFF7FEFF 		bl	IR_Contoroll
+ 375              	.LVL10:
  246:Src/stm32f4xx_it.c ****     case 3:
- 375              		.loc 1 246 0
- 376 0030 FAE7     		b	.L26
- 377              	.L31:
+ 376              		.loc 1 246 0
+ 377 0030 FAE7     		b	.L26
+ 378              	.L31:
  248:Src/stm32f4xx_it.c ****       All_IR_OFF();
- 378              		.loc 1 248 0
- 379 0032 FFF7FEFF 		bl	update_side_sen_on
- 380              	.LVL11:
+ 379              		.loc 1 248 0
+ 380 0032 FFF7FEFF 		bl	update_side_sen_on
+ 381              	.LVL11:
  249:Src/stm32f4xx_it.c ****       break;
- 381              		.loc 1 249 0
- 382 0036 FFF7FEFF 		bl	All_IR_OFF
- 383              	.LVL12:
+ 382              		.loc 1 249 0
+ 383 0036 FFF7FEFF 		bl	All_IR_OFF
+ 384              	.LVL12:
  250:Src/stm32f4xx_it.c ****     case 4:
- 384              		.loc 1 250 0
- 385 003a F5E7     		b	.L26
- 386              	.L32:
+ 385              		.loc 1 250 0
+ 386 003a F5E7     		b	.L26
+ 387              	.L32:
  252:Src/stm32f4xx_it.c ****       break;
- 387              		.loc 1 252 0
- 388 003c FFF7FEFF 		bl	update_fr_sen_off
- 389              	.LVL13:
+ 388              		.loc 1 252 0
+ 389 003c FFF7FEFF 		bl	update_fr_sen_off
+ 390              	.LVL13:
  253:Src/stm32f4xx_it.c ****     case 5:
- 390              		.loc 1 253 0
- 391 0040 F2E7     		b	.L26
- 392              	.L33:
+ 391              		.loc 1 253 0
+ 392 0040 F2E7     		b	.L26
+ 393              	.L33:
  255:Src/stm32f4xx_it.c ****       break;
- 393              		.loc 1 255 0
- 394 0042 0920     		movs	r0, #9
- 395 0044 FFF7FEFF 		bl	IR_Contoroll
- 396              	.LVL14:
+ 394              		.loc 1 255 0
+ 395 0042 0920     		movs	r0, #9
+ 396 0044 FFF7FEFF 		bl	IR_Contoroll
+ 397              	.LVL14:
  256:Src/stm32f4xx_it.c ****     case 6:
- 397              		.loc 1 256 0
- 398 0048 EEE7     		b	.L26
- 399              	.L34:
+ 398              		.loc 1 256 0
+ 399 0048 EEE7     		b	.L26
+ 400              	.L34:
  258:Src/stm32f4xx_it.c ****       break;
- 400              		.loc 1 258 0
- 401 004a FFF7FEFF 		bl	update_fr_sen_on
- 402              	.LVL15:
+ 401              		.loc 1 258 0
+ 402 004a FFF7FEFF 		bl	update_fr_sen_on
+ 403              	.LVL15:
  259:Src/stm32f4xx_it.c ****     case 7:
- 403              		.loc 1 259 0
- 404 004e EBE7     		b	.L26
- 405              	.L35:
+ 404              		.loc 1 259 0
+ 405 004e EBE7     		b	.L26
+ 406              	.L35:
  261:Src/stm32f4xx_it.c ****       update_batt_date();
- 406              		.loc 1 261 0
- 407 0050 FFF7FEFF 		bl	All_IR_OFF
- 408              	.LVL16:
+ 407              		.loc 1 261 0
+ 408 0050 FFF7FEFF 		bl	All_IR_OFF
+ 409              	.LVL16:
  262:Src/stm32f4xx_it.c ****       break;
- 409              		.loc 1 262 0
- 410 0054 FFF7FEFF 		bl	update_batt_date
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 13
+ 410              		.loc 1 262 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 13
 
 
- 411              	.LVL17:
+ 411 0054 FFF7FEFF 		bl	update_batt_date
+ 412              	.LVL17:
  263:Src/stm32f4xx_it.c ****     case 8:
- 412              		.loc 1 263 0
- 413 0058 E6E7     		b	.L26
- 414              	.L36:
+ 413              		.loc 1 263 0
+ 414 0058 E6E7     		b	.L26
+ 415              	.L36:
  265:Src/stm32f4xx_it.c ****       count_tim5 = 0;
- 415              		.loc 1 265 0
- 416 005a FFF7FEFF 		bl	update_wall
- 417              	.LVL18:
+ 416              		.loc 1 265 0
+ 417 005a FFF7FEFF 		bl	update_wall
+ 418              	.LVL18:
  266:Src/stm32f4xx_it.c ****       break;
- 418              		.loc 1 266 0
- 419 005e 054B     		ldr	r3, .L39+4
- 420 0060 0022     		movs	r2, #0
- 421 0062 1A80     		strh	r2, [r3]	@ movhi
+ 419              		.loc 1 266 0
+ 420 005e 054B     		ldr	r3, .L39+4
+ 421 0060 0022     		movs	r2, #0
+ 422 0062 1A80     		strh	r2, [r3]	@ movhi
  267:Src/stm32f4xx_it.c ****     default:
- 422              		.loc 1 267 0
- 423 0064 E0E7     		b	.L26
- 424              	.L27:
+ 423              		.loc 1 267 0
+ 424 0064 E0E7     		b	.L26
+ 425              	.L27:
  269:Src/stm32f4xx_it.c ****       break;
- 425              		.loc 1 269 0
- 426 0066 034B     		ldr	r3, .L39+4
- 427 0068 0022     		movs	r2, #0
- 428 006a 1A80     		strh	r2, [r3]	@ movhi
- 429              		.loc 1 273 0
- 430 006c DCE7     		b	.L26
- 431              	.L40:
- 432 006e 00BF     		.align	2
- 433              	.L39:
- 434 0070 00000000 		.word	htim5
- 435 0074 00000000 		.word	count_tim5
- 436              		.cfi_endproc
- 437              	.LFE135:
- 439              		.comm	yawrate_pid,2,2
- 440              		.comm	straight_pid_r,2,2
- 441              		.comm	straight_pid_l,2,2
- 442              		.comm	y_sum,4,4
- 443              		.comm	s_sum_r,4,4
- 444              		.comm	s_sum_l,4,4
- 445              		.text
- 446              	.Letext0:
- 447              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 448              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 449              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 450              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 451              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 452              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 453              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 454              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
- 455              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 456              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 457              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 458              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 459              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 460              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 461              		.file 16 "Inc/adc.h"
- 462              		.file 17 "Inc/spi.h"
- 463              		.file 18 "Inc/tim.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 14
+ 426              		.loc 1 269 0
+ 427 0066 034B     		ldr	r3, .L39+4
+ 428 0068 0022     		movs	r2, #0
+ 429 006a 1A80     		strh	r2, [r3]	@ movhi
+ 430              		.loc 1 273 0
+ 431 006c DCE7     		b	.L26
+ 432              	.L40:
+ 433 006e 00BF     		.align	2
+ 434              	.L39:
+ 435 0070 00000000 		.word	htim5
+ 436 0074 00000000 		.word	count_tim5
+ 437              		.cfi_endproc
+ 438              	.LFE135:
+ 440              		.comm	yawrate_pid,2,2
+ 441              		.comm	straight_pid_r,2,2
+ 442              		.comm	straight_pid_l,2,2
+ 443              		.comm	y_sum,4,4
+ 444              		.comm	s_sum_r,4,4
+ 445              		.comm	s_sum_l,4,4
+ 446              		.text
+ 447              	.Letext0:
+ 448              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 449              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 450              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 451              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 452              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 453              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 454              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 455              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+ 456              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 457              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 458              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 459              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 460              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 461              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 462              		.file 16 "Inc/adc.h"
+ 463              		.file 17 "Inc/spi.h"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 14
 
 
- 464              		.file 19 "Inc/global.h"
- 465              		.file 20 "Inc/control.h"
- 466              		.file 21 "Inc/gpio.h"
- 467              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 468              		.file 23 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 15
+ 464              		.file 18 "Inc/tim.h"
+ 465              		.file 19 "Inc/global.h"
+ 466              		.file 20 "Inc/control.h"
+ 467              		.file 21 "Inc/gpio.h"
+ 468              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 469              		.file 23 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_it.c
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:18     .text.NMI_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:25     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:39     .text.HardFault_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:46     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:60     .text.MemManage_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:67     .text.MemManage_Handler:00000000 MemManage_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:81     .text.BusFault_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:88     .text.BusFault_Handler:00000000 BusFault_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:102    .text.UsageFault_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:109    .text.UsageFault_Handler:00000000 UsageFault_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:123    .text.SVC_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:130    .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:143    .text.DebugMon_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:150    .text.DebugMon_Handler:00000000 DebugMon_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:163    .text.PendSV_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:170    .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:183    .text.SysTick_Handler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:190    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:304    .text.SysTick_Handler:000000bc $d
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:18     .text.NMI_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:25     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:39     .text.HardFault_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:46     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:60     .text.MemManage_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:67     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:81     .text.BusFault_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:88     .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:102    .text.UsageFault_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:109    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:123    .text.SVC_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:130    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:143    .text.DebugMon_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:150    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:163    .text.PendSV_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:170    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:183    .text.SysTick_Handler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:190    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:305    .text.SysTick_Handler:000000bc $d
                             *COM*:00000002 straight_pid_l
                             *COM*:00000002 straight_pid_r
                             *COM*:00000002 yawrate_pid
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:320    .text.TIM5_IRQHandler:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:327    .text.TIM5_IRQHandler:00000000 TIM5_IRQHandler
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:354    .text.TIM5_IRQHandler:0000001c $d
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:362    .text.TIM5_IRQHandler:00000024 $t
-C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s:434    .text.TIM5_IRQHandler:00000070 $d
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:321    .text.TIM5_IRQHandler:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:328    .text.TIM5_IRQHandler:00000000 TIM5_IRQHandler
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:355    .text.TIM5_IRQHandler:0000001c $d
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:363    .text.TIM5_IRQHandler:00000024 $t
+C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s:435    .text.TIM5_IRQHandler:00000070 $d
                             *COM*:00000004 y_sum
                             *COM*:00000004 s_sum_r
                             *COM*:00000004 s_sum_l
@@ -846,7 +847,7 @@ All_IR_OFF
 update_fr_sen_off
 update_fr_sen_on
 update_batt_date
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccVxeGc4.s 			page 16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc5wc2uK.s 			page 16
 
 
 update_wall

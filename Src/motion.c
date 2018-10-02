@@ -4,6 +4,7 @@
 #include "control.h"
 #include "gpio.h"
 #include "spi.h"
+#include "maze.h"
 
 
 void Normal_Turn_Half(void){
@@ -169,6 +170,7 @@ void Straight(void){
  * return   : void
 ********************************************************************************************/
 void Show_log(void){
+    flag.ir_led = OFF;
     printf("\na:%d,c:%d,d:%d\r\n",accel_T,constant_T,decrease_T);
     for(uint16_t i=0;i<3000;i++){
         printf("%f\t%f\t%f\r\n",log_calc[i],log_enc[0][i],log_enc[1][i]);
@@ -189,6 +191,15 @@ void Sensor_Mode(void){
             break;
         }
     }
+}
+
+void Test_Create_Map(void){
+    flag.ir_led = OFF;
+
+    Maze_Set();
+    Init_maze();
+    MAZE_Create_Step();
+    MAZE_Out_Step();
 }
 
 /****************************************************************************************

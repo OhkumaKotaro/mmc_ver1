@@ -79,7 +79,8 @@ Src/global.c \
 Src/control.c \
 Src/flash.c \
 Src/mode.c \
-Src/motion.c
+Src/motion.c \
+Src/maze.c
 
 # ASM sources
 ASM_SOURCES =  \

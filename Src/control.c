@@ -6,7 +6,9 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 
-
+float encoder_Kp = 0;
+float encoder_Ki = 0;
+float encoder_Kd = 0;
 
 
 /****************************************************************************************
@@ -65,12 +67,19 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     accel_T = t1;
     constant_T = t2;
     decrease_T = t3;
+
+    encoder_Kp = 20;
+    encoder_Ki = 90;
+    encoder_Kd = 0;
 }
 
 void Straight_Calc_Zero(void){
     accel_T = 0;
     constant_T = 0;
     decrease_T = 0;
+    encoder_Kp = 20;
+    encoder_Ki = 0;
+    encoder_Kd = 10;
 }
 
 /****************************************************************************************
@@ -101,8 +110,8 @@ void Straight_SysTic_fb(void){
         calc.velocity = 0;
     }
     
-    straight_pid_l = (int16_t)PID_value(calc.velocity,encoder_l,&s_sum_l,&enc.old_l,20.0f,90.0f,0);
-    straight_pid_r = (int16_t)PID_value(calc.velocity,encoder_r,&s_sum_r,&enc.old_r,20.0f,90.0f,0);
+    straight_pid_l = (int16_t)PID_value(calc.velocity,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_r = (int16_t)PID_value(calc.velocity,encoder_r,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
 }
 
 
@@ -155,7 +164,7 @@ void Yawrate_SysTic_fb(void){
     }else{
         calc.yawrate_velocity = 0;
     }
-    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,15.5f,1.0f,22.0f);
+    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,13.0f,1.0f,30.0f);
 }
 
 void Control_pwm(void){

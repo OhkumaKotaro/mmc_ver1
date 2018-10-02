@@ -37,12 +37,14 @@ uint8_t Mode_select(void){
  * return   : void
 ********************************************************************************************/
 void Mode_mouse(uint8_t mode){
+    flag.ir_led = ON;
     switch(mode){
         case 1:
             Show_log();
             break;
         case 2:
-            Normal_Straight();
+            //Normal_Straight();
+            Test_Create_Map();
             break;
         case 3:
             Normal_Turn_Half();
@@ -62,9 +64,12 @@ void Mode_mouse(uint8_t mode){
         case 8:
             Sensor_Mode();
             break;
+        case 9:
+            Test_Create_Map();
         default:
             break;
     }
+    flag.ir_led = OFF;
 }
 
 
