@@ -8,13 +8,14 @@
 
 
 void Normal_Turn_Half(void){
+    flag.ir_led = ON;
     while(1){
         if(sensor.wall[0]==true && sensor.wall[3]==true){
             Output_Buzzer(HZ_C_H);
             break;
         }
     }
-    HAL_Delay(500);
+    flag.ir_led = OFF;
     gyro_offset_calc_reset();
     Yawrate_Calc_fb(180,0,0);
     HAL_Delay(1500);
@@ -31,27 +32,15 @@ void Normal_Turn_Half(void){
 
 
 void Turn_Half(void){
-    while(1){
-        if(sensor.wall[0]==true && sensor.wall[3]==true){
-            Output_Buzzer(HZ_C_H);
-            break;
-        }
-    }
-    gyro_offset_calc_reset();
+    flag.ir_led = OFF;
     Yawrate_Calc_fb(180,0,0);
     Straight_Calc_Zero();
-    HAL_Delay(1500);
-    Output_Buzzer(HZ_C_H);
     flag.yawrate = ON;
     flag.straight = ON;
-    while(1){
-        if(Push()==ON){
-            flag.yawrate = OFF;
-            flag.straight = OFF;
-            Output_Buzzer(HZ_A);
-            break;
-        }
-    }
+}
+
+void Turn_Quarter(int dir){
+
 }
 
 /****************************************************************************************
@@ -60,12 +49,14 @@ void Turn_Half(void){
  * return   : void
 ********************************************************************************************/
 void Normal_Ennkai(void){
+    flag.ir_led = ON;
     while(1){
         if(sensor.wall[0]==true && sensor.wall[3]==true){
             Output_Buzzer(HZ_C_H);
             break;
         }
     }
+    flag.ir_led = OFF;
     HAL_Delay(500);
     gyro_offset_calc_reset();
     Yawrate_Calc_Zero();
@@ -82,12 +73,14 @@ void Normal_Ennkai(void){
 }
 
 void Ennkai(void){
+    flag.ir_led = ON;
     while(1){
         if(sensor.wall[0]==true && sensor.wall[3]==true){
             Output_Buzzer(HZ_C_H);
             break;
         }
     }
+    flag.ir_led = OFF;
     HAL_Delay(500);
     gyro_offset_calc_reset();
     Yawrate_Calc_Zero();
@@ -113,12 +106,14 @@ void Ennkai(void){
  * return   : void
 ********************************************************************************************/
 void Normal_Straight(void){
+    flag.ir_led = ON;
     while(1){
         if(sensor.wall[0]==true && sensor.wall[3]==true){
             Output_Buzzer(HZ_C_H);
             break;
         }
     }
+    flag.ir_led = OFF;
     HAL_Delay(500);
     Straight_Calc_fb(180,0,0);
     HAL_Delay(1000);
@@ -140,27 +135,22 @@ void Normal_Straight(void){
  * return   : void
 ********************************************************************************************/
 void Straight(void){
-    while(1){
-        if(sensor.wall[0]==true && sensor.wall[3]==true){
-            Output_Buzzer(HZ_C_H);
-            break;
-        }
-    }
-    gyro_offset_calc_reset();
+    flag.ir_led = OFF;
     Straight_Calc_fb(180.0f,0.0f,0.0f);
-    Yawrate_Calc_Zero();
-    HAL_Delay(1000);
+    HAL_Delay(10);
     Output_Buzzer(HZ_C_H);
     flag.straight = ON;
     flag.yawrate = ON;
-    while(1){
-        if(Push()==ON){
-            flag.straight = OFF;
-            flag.yawrate = OFF;
-            Output_Buzzer(HZ_A);
-            break;
-        }
-    }
+}
+
+void Straight_HalF(void){
+    flag.ir_led = OFF;
+    gyro_offset_calc_reset();
+    Straight_Calc_fb(90.0f,0.0f,0.0f);
+    HAL_Delay(1023);
+    Output_Buzzer(HZ_C_H);
+    flag.straight = ON;
+    flag.yawrate = ON;
 }
 
 
@@ -170,10 +160,9 @@ void Straight(void){
  * return   : void
 ********************************************************************************************/
 void Show_log(void){
-    flag.ir_led = OFF;
-    printf("\na:%d,c:%d,d:%d\r\n",accel_T,constant_T,decrease_T);
-    for(uint16_t i=0;i<3000;i++){
-        printf("%f\t%f\t%f\r\n",log_calc[i],log_enc[0][i],log_enc[1][i]);
+    printf("\na:%d,c:%d,d:%d\r\n",y_accel_T,y_constant_T,y_decrease_T);
+    for(uint16_t i=0;i<2000;i++){
+        printf("%f\t%f\t%f\r\n",loger.target_y_velocity[i],loger.y_velocity[i],loger.velocity_c[i]);
         if(Push()==ON){
             Output_Buzzer(HZ_A);
             break;
@@ -182,9 +171,13 @@ void Show_log(void){
 }
 
 void Sensor_Mode(void){
+    flag.ir_led = ON;
     while(1){
-        flag.ir_led = ON;
         Sensor_Check();
+        for(int i=0;i<4;i++){
+            printf("%d\t",sensor.adc[i]);
+        }
+        printf("\r");
         if(Push()==ON){
             Output_Buzzer(HZ_A);
             flag.ir_led = OFF;
@@ -213,7 +206,7 @@ void Batt_Check(void)
   for(int i=0;i<50;i++){
     batt += batt_analog;
   }
-  batt /= 50.0;
+  batt /= 50.0f;
   batt = batt/4095.0f*133.0f/33.0f*3.3f;
   batt_Vcc = batt;
   printf("\nbatt:%lf\r\n",batt_Vcc);

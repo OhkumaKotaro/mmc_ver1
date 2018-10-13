@@ -7,12 +7,13 @@
 #include "stdint.h"
 
 float s_sum_l,s_sum_r;
-float y_sum;
+float y_sum,y_sumsum;
 int16_t straight_pid_l,straight_pid_r;
 int16_t yawrate_pid;
 
 
 float PID_value(float target,float measured,float *sum,float *old,float Kp,float Ki,float Kd);
+float Integral_value(float error,float *sum,float Kii);
 void Calc_Palam(int16_t accel,int16_t *velocity,uint16_t *calc_tim);
 void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end);
 void Straight_Calc_Zero(void);

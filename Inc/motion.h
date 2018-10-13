@@ -7,10 +7,12 @@
 
 void Normal_Turn_Half(void);
 void Turn_Half(void);
+void Turn_Quarter(int dir);
 void Normal_Ennkai(void);
 void Ennkai(void);
 void Normal_Straight(void);
 void Straight(void);
+void Straight_HalF(void);
 void Show_log(void);
 void Sensor_Mode(void);
 void Test_Create_Map(void);

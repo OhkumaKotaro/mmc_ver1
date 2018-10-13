@@ -182,18 +182,14 @@ void All_IR_OFF(void){
  * return   : void
 ********************************************************************************************/
 void IR_Contoroll(int pattern){
-  if(flag.ir_led == ON){
-    if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
-    else                             HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
-    if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
-    else                             HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
-    if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
-    else                             HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
-    if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
-    else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
-  }else{
-    All_IR_OFF();
-  }
+  if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse0_GPIO_Port,paluse0_Pin,GPIO_PIN_RESET);
+  if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse1_GPIO_Port,paluse1_Pin,GPIO_PIN_RESET);
+  if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse2_GPIO_Port,paluse2_Pin,GPIO_PIN_RESET);
+  if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_SET);
+  else                             HAL_GPIO_WritePin(paluse3_GPIO_Port,paluse3_Pin,GPIO_PIN_RESET);
 }
 /* USER CODE END 2 */
 

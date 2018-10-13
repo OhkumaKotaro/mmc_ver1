@@ -79,6 +79,7 @@ int16_t read_shift_byte(uint8_t reg);
 void write_byte( uint8_t reg,uint8_t val);
 void set_mpu6500(void);
 int16_t get_gyro(void);
+void Update_gyro(int flag);
 void gyro_offset_calc_reset(void);
 void gyro_offset_calc(void);
 /* USER CODE END Prototypes */

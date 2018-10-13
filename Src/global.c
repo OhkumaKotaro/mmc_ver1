@@ -1,6 +1,6 @@
 #include "global.h"
 
-flag_t flag;
+volatile flag_t flag;
 
 gyro_t gyro;
 enc_t enc;
@@ -24,6 +24,8 @@ uint16_t yawrate_cnt;
 
 motor_t motor;
 
+loger_t loger;
+
 uint16_t accel_T;
 uint16_t constant_T;
 uint16_t decrease_T;
@@ -31,7 +33,3 @@ uint16_t decrease_T;
 uint16_t y_accel_T;
 uint16_t y_constant_T;
 uint16_t y_decrease_T;
-
-float log_calc[3000];
-float log_distance[3000];
-float log_enc[2][3000];

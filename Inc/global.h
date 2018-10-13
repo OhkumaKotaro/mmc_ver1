@@ -27,7 +27,7 @@
 
 
 //encoder
-#define ENC_CUL_ROT 5376.0f//512 * 2 * 5.25
+#define ENC_CUL_ROT 1024.0f//512 * 2
 
 
 //mouse
@@ -46,20 +46,22 @@
 
 //yawrate
 #define Y_ACCEL 2000 //[degree/s^2]
-#define Y_MAX_VELOCITY 300//[degree/s]
+#define Y_MAX_VELOCITY 380//[degree/s]
 
 
 /***typedef**************************************************************************/
 
 //flag
 typedef struct{
-  short gyro_calc;
-  short straight;
-  short yawrate;
-  short ir_led;
-  unsigned char accel;
+  uint8_t gyro_calc;
+  uint8_t straight;
+  uint8_t yawrate;
+  uint8_t straight_zero;
+  uint8_t yawrate_zero;
+  uint8_t ir_led;
+  uint8_t accel;
 }flag_t;
-extern flag_t flag;
+extern volatile flag_t flag;
 
 
 //gyro
@@ -78,6 +80,8 @@ extern gyro_t gyro;
 typedef struct{
   int left;
   int right;
+  float rpm_l;
+  float rpm_r;
   float velocity_l;
   float velocity_r;
   float velocity_c;
@@ -98,6 +102,18 @@ typedef struct{
   uint16_t count[4];
 }sensor_t;
 extern sensor_t sensor;
+
+typedef struct{
+  float target_velocity[2000];
+  float target_y_velocity[2000];
+  float velocity_c[2000];
+  float y_velocity[2000];
+  float p[2000];
+  float i[2000];
+  float d[2000];
+  int16_t pwm[2000];
+}loger_t;
+extern loger_t loger;
 
 //batt
 extern uint16_t batt_analog;
@@ -136,18 +152,6 @@ typedef struct{
   float distance;
 }position_t;
 extern position_t position;
-
-
-//log
-typedef struct{
-  float target_accel;
-  float accel;
-}loger_t;
-extern loger_t loger[1000];
-
-extern float log_calc[3000];
-extern float log_distance[3000];
-extern float log_enc[2][3000];
 
 
 //count

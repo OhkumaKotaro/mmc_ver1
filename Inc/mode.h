@@ -15,10 +15,11 @@ typedef struct{
 }maze_t;
 
 
-uint8_t Mode_select(void);
-void Mode_mouse(uint8_t mode);
+int8_t Mode_select(void);
+void Mode_mouse(int8_t mode);
 void LeftHand(void);
-void Control_Motion(short dir);
+void Mode_Straight(void);
+void Mode_Turn_Half(void);
 
 
 #ifdef __cplusplus

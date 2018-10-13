@@ -187,17 +187,13 @@ void SysTick_Handler(void)
   HAL_IncTick();
   HAL_SYSTICK_IRQHandler();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-  if(flag.gyro_calc == true){
-    gyro.velocity = (float)get_gyro()/GYRO_FACTOR;
-    gyro.degree += gyro.velocity * dt;
-  }else{
-    gyro_offset_calc();
-  }
-
+  Update_gyro(flag.gyro_calc);
   update_encoder();
 
   if(flag.straight == ON){
     Straight_SysTic_fb();
+    //loger.target_velocity[straight_cnt]=calc.velocity;
+    //loger.velocity_c[straight_cnt] = enc.velocity_c;
   }else{
     straight_cnt = 0;
     straight_pid_l = 0;
@@ -206,9 +202,8 @@ void SysTick_Handler(void)
 
   if(flag.yawrate == ON){
     Yawrate_SysTic_fb();
-    log_calc[yawrate_cnt] = calc.yawrate_velocity;
-    log_enc[0][yawrate_cnt] = gyro.velocity;
-    log_enc[1][yawrate_cnt] = gyro.degree;
+    loger.target_y_velocity[yawrate_cnt] = calc.yawrate_velocity;
+    loger.y_velocity[yawrate_cnt] = gyro.velocity;
   }else{
     yawrate_cnt = 0;
     yawrate_pid = 0;
@@ -235,39 +230,42 @@ void TIM5_IRQHandler(void)
   /* USER CODE END TIM5_IRQn 0 */
   HAL_TIM_IRQHandler(&htim5);
   /* USER CODE BEGIN TIM5_IRQn 1 */
-  count_tim5++;
-
-  switch(count_tim5){
-    case 1:
-      update_side_sen_off();
-      break;
-    case 2:
-      IR_Contoroll(0b0110);
-      break;
-    case 3:
-      update_side_sen_on();
-      All_IR_OFF();
-      break;
-    case 4:
-      update_fr_sen_off();
-      break;
-    case 5:
-      IR_Contoroll(0b1001);
-      break;
-    case 6:
-      update_fr_sen_on();
-      break;
-    case 7:
-      All_IR_OFF();
-      update_batt_date();
-      break;
-    case 8:
-      update_wall();
-      count_tim5 = 0;
-      break;
-    default:
-      count_tim5 = 0;
-      break;
+  if(flag.ir_led==ON){
+    count_tim5++;
+    switch(count_tim5){
+      case 1:
+        update_side_sen_off();
+        break;
+      case 2:
+        IR_Contoroll(0b0110);
+        break;
+      case 3:
+        update_side_sen_on();
+        All_IR_OFF();
+        break;
+      case 4:
+        update_fr_sen_off();
+        break;
+      case 5:
+        IR_Contoroll(0b1001);
+        break;
+      case 6:
+        update_fr_sen_on();
+        break;
+      case 7:
+        All_IR_OFF();
+        update_batt_date();
+        break;
+      case 8:
+        update_wall();
+        count_tim5 = 0;
+        break;
+      default:
+        count_tim5 = 0;
+        break;
+    }
+  }else{
+    All_IR_OFF();
   }
   /* USER CODE END TIM5_IRQn 1 */
 }

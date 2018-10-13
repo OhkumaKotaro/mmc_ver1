@@ -16,7 +16,7 @@ float encoder_Kd = 0;
  * argument : 
  * return   : control value
 ********************************************************************************************/
-float PID_value(float target,float measured,float *sum,float*old,float Kp,float Ki,float Kd){
+float PID_value(float target,float measured,float *sum,float *old,float Kp,float Ki,float Kd){
     float error;
     float p,i,d;
 
@@ -24,12 +24,19 @@ float PID_value(float target,float measured,float *sum,float*old,float Kp,float 
     p = Kp*error;
 
     *sum += error * dt;
-    i = Ki * *sum;
+    i = *sum * Ki;
 
-    *old = measured;
-    d = Kd * (measured - *old);
+    d = Kd * (error - *old) / dt;
+    *old = error;
 
-    return (p+i+d)/batt_Vcc;
+    return (p+i+d);
+}
+
+float Integral_value(float error,float *sum,float Kii){
+    float ii;
+    *sum += error * dt;
+    ii = *sum * Kii;
+    return ii;
 }
 
 /****************************************************************************************
@@ -51,14 +58,16 @@ void Calc_Palam(int16_t accel,int16_t *velocity,uint16_t *calc_tim){
 void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     float t1,t2,t3;
     float constant_L;
+
     calc.velocity = v_start;
+    flag.straight_zero = OFF;
+
     t1 = (float)(MAX_VELOCITY - v_start) / ACCEL;
     t3 = (float)(MAX_VELOCITY - v_end) / ACCEL;
 
     constant_L = (float)distant - (MAX_VELOCITY + v_start) * t1 / 2 - (MAX_VELOCITY + v_start) * t3 / 2;
 
     t2 = constant_L / MAX_VELOCITY;
-    printf("\nt1:%f,t2:%f,t3%f\r\n",t1,t2,t3);
 
     t1 *= 1000;
     t2 *= 1000;
@@ -68,18 +77,16 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     constant_T = t2;
     decrease_T = t3;
 
-    encoder_Kp = 20;
-    encoder_Ki = 90;
+    encoder_Kp = 3.0f;
+    encoder_Ki = 12.0f;
     encoder_Kd = 0;
 }
 
 void Straight_Calc_Zero(void){
-    accel_T = 0;
-    constant_T = 0;
-    decrease_T = 0;
-    encoder_Kp = 20;
+    flag.straight_zero=ON;
+    encoder_Kp = 4.0f;
     encoder_Ki = 0;
-    encoder_Kd = 10;
+    encoder_Kd = 0;
 }
 
 /****************************************************************************************
@@ -89,8 +96,12 @@ void Straight_Calc_Zero(void){
 ********************************************************************************************/
 void Straight_SysTic_fb(void){
     float encoder_l,encoder_r;
-
-    if(straight_cnt < accel_T){
+    if(flag.straight_zero == ON){
+        encoder_l = enc.velocity_c;
+        encoder_r = enc.velocity_c;
+        calc.velocity = 0;
+    }
+    else if(straight_cnt < accel_T){
         encoder_l = enc.velocity_l;
         encoder_r = enc.velocity_r;
         Calc_Palam(ACCEL,&calc.velocity,&straight_cnt);
@@ -105,9 +116,10 @@ void Straight_SysTic_fb(void){
         encoder_r = enc.velocity_r;
         Calc_Palam(-ACCEL,&calc.velocity,&straight_cnt);
     }else{
-        encoder_l = enc.velocity_c;
-        encoder_r = enc.velocity_c;
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         calc.velocity = 0;
+        flag.straight = OFF;
     }
     
     straight_pid_l = (int16_t)PID_value(calc.velocity,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
@@ -122,6 +134,7 @@ void Straight_SysTic_fb(void){
 ********************************************************************************************/
 void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
     calc.yawrate_velocity = v_start;
+    flag.yawrate_zero = OFF;
 
     float t1=0,t2=0,t3=0;
     float constant_L;
@@ -132,7 +145,6 @@ void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
     constant_L = (float)degree - (Y_MAX_VELOCITY + v_start) * t1 / 2 - (Y_MAX_VELOCITY + v_end) * t3 / 2;
     
     t2 = constant_L / Y_MAX_VELOCITY;
-    printf("\nt1:%f,t2:%f,t3%f\r\n",t1,t2,t3);
 
     t1 *= 1000;
     t2 *= 1000;
@@ -144,9 +156,7 @@ void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
 }
 
 void Yawrate_Calc_Zero(void){
-    y_accel_T = 0;
-    y_constant_T = 0;
-    y_decrease_T = 0;
+    flag.yawrate_zero=ON;
 }
 
 /****************************************************************************************
@@ -155,16 +165,20 @@ void Yawrate_Calc_Zero(void){
  * return   : void
 ********************************************************************************************/
 void Yawrate_SysTic_fb(void){
-    if(yawrate_cnt < y_accel_T){
+    if(flag.yawrate_zero==ON){
+        calc.yawrate_velocity = 0;
+    }
+    else if(yawrate_cnt < y_accel_T){
         Calc_Palam(Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
     }else if(yawrate_cnt < y_constant_T + y_accel_T){
         Calc_Palam(0,&calc.yawrate_velocity,&yawrate_cnt);
     }else if(yawrate_cnt < y_decrease_T + y_constant_T + y_accel_T){
         Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
     }else{
+        flag.yawrate = OFF;
         calc.yawrate_velocity = 0;
     }
-    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&gyro.degree,&gyro.befor,13.0f,1.0f,30.0f);
+    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,1.4f,11.5f,0.004f);
 }
 
 void Control_pwm(void){

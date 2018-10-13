@@ -66,7 +66,7 @@ void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 999;
+  htim1.Init.Period = 799;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
@@ -231,7 +231,7 @@ void MX_TIM5_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig;
 
   htim5.Instance = TIM5;
-  htim5.Init.Prescaler = 9;
+  htim5.Init.Prescaler = 19;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim5.Init.Period = 999;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -501,7 +501,7 @@ void Buzzer_pwm(int hz,int vol)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = hz;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 999;
+  htim2.Init.Period = 1999;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.RepetitionCounter = 0;
   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
@@ -540,18 +540,18 @@ void Motor_pwm(int16_t left_pwm,int16_t right_pwm){
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
 
   //max and min
-  if(left_pwm > 950){
-    left_pwm = 950;
+  if(left_pwm > 799){
+    left_pwm = 799;
   }
-  if(left_pwm < -950){
-    left_pwm = -950;
+  if(left_pwm < -799){
+    left_pwm = -799;
   }
 
-  if(right_pwm > 950){
-    right_pwm = 950;
+  if(right_pwm > 799){
+    right_pwm = 799;
   }
-  if(right_pwm < -950){
-    right_pwm = -950;
+  if(right_pwm < -799){
+    right_pwm = -799;
   }
 
   //set left_pwm
@@ -647,13 +647,13 @@ void update_encoder(void){
     enc.right = -1 * r_buff;
   }
   
-  //enc_left_omega = (float)enc.left / ENC_CUL_ROT * 2.0f * PI/dt;
-  //enc_right_omega = (float)enc.right / ENC_CUL_ROT * 2.0f * PI/dt;
-  enc.velocity_l = (float)enc.left / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS / dt;
-  enc.velocity_r = (float)enc.right / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS / dt;
-  enc.velocity_c = (float)(enc.left + enc.right) / ENC_CUL_ROT * PI * TIRE_RADIUS / dt;
-  enc.distance_l += (float)enc.left / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS;
-  enc.distance_r += (float)enc.right / ENC_CUL_ROT * 2 * PI * TIRE_RADIUS;
+  enc.velocity_l = (float)enc.left / ENC_CUL_ROT /GEAR_RATE* 2 * PI * TIRE_RADIUS / dt;
+  enc.velocity_r = (float)enc.right / ENC_CUL_ROT /GEAR_RATE * 2 * PI * TIRE_RADIUS / dt;
+  enc.velocity_c = (float)(enc.left + enc.right) / ENC_CUL_ROT / GEAR_RATE * PI * TIRE_RADIUS / dt;
+  enc.distance_l += (float)enc.left / ENC_CUL_ROT /GEAR_RATE * 2 * PI * TIRE_RADIUS;
+  enc.distance_r += (float)enc.right / ENC_CUL_ROT /GEAR_RATE * 2 * PI * TIRE_RADIUS;
+  enc.rpm_l = (float)enc.left / ENC_CUL_ROT * 1000.0f * 60.0f; 
+  enc.rpm_r = (float)enc.right / ENC_CUL_ROT * 1000.0f * 60.0f; 
   
 }
 

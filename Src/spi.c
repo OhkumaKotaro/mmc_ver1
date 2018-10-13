@@ -44,6 +44,7 @@
 
 /* USER CODE BEGIN 0 */
 #include "global.h"
+#include "stdint.h"
 /* USER CODE END 0 */
 
 SPI_HandleTypeDef hspi2;
@@ -212,6 +213,14 @@ int16_t get_gyro(void){
   return gyro_z;
 }
 
+void Update_gyro(int flag){
+  if(flag == true){
+    gyro.velocity = (float)get_gyro()/GYRO_FACTOR;
+    gyro.degree += gyro.velocity * dt;
+  }else{
+    gyro_offset_calc();
+  }
+}
 /*****************************************************************
  * Overview : reset gyro offset variable
  * argument : void
