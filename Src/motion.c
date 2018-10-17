@@ -32,7 +32,7 @@ void Normal_Turn_Half(void){
 
 
 void Turn_Half(void){
-    flag.dir = RIGHT;
+    flag.dir = LEFT;
     flag.ir_led = OFF;
     Yawrate_Calc_fb(180,0,0);
     Straight_Calc_Zero();
@@ -45,7 +45,6 @@ void Turn_Quarter_Left(void){
     flag.dir = LEFT;
     Yawrate_Calc_fb(90,0,0);
     Straight_Calc_Zero();
-    flag.motion_end = true;
     flag.yawrate = ON;
     flag.straight = ON;
 }
@@ -161,9 +160,9 @@ void Straight(void){
 
 void Straight_HalF(void){
     flag.ir_led = OFF;
-    gyro_offset_calc_reset();
     Straight_Calc_fb(90.0f,0.0f,0.0f);
-    HAL_Delay(1023);
+    Yawrate_Calc_Zero();
+    HAL_Delay(10);
     Output_Buzzer(HZ_C_H);
     flag.straight = ON;
     flag.yawrate = ON;

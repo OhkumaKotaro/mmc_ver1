@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
   38              		.loc 1 18 0
   39 0002 0024     		movs	r4, #0
   40 0004 1FE0     		b	.L7
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 2
 
 
   41              	.LVL1:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
   38:Src/mode.c    ****         LED_Control(mode);
   76              		.loc 1 38 0
   77 0038 E0B2     		uxtb	r0, r4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 3
 
 
   78 003a FFF7FEFF 		bl	LED_Control
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  121              		.loc 1 42 0
  122 007a 2046     		mov	r0, r4
  123 007c 10BD     		pop	{r4, pc}
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 4
 
 
  124              	.LVL14:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  143              		.loc 1 79 0
  144              		.cfi_startproc
  145              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 5
 
 
  146              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  186 002e FFF7FEFF 		bl	Turn_Half
  187              	.LVL18:
  188 0032 EBE7     		b	.L22
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 6
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 6
 
 
  189              	.L25:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
   98:Src/mode.c    ****     while(1){
   99:Src/mode.c    ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
  236              		.loc 1 99 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 7
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 7
 
 
  237 0008 114B     		ldr	r3, .L34+4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  278 0046 FFF7FEFF 		bl	Output_Buzzer
  279              	.LVL26:
  113:Src/mode.c    ****             break;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 8
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 8
 
 
  114:Src/mode.c    ****         }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  327              	.LVL27:
  123:Src/mode.c    ****             break;
  124:Src/mode.c    ****         }
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 9
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 9
 
 
  125:Src/mode.c    ****     }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  369              		.align	1
  370              		.global	Mode_Turn_Quarter_Left
  371              		.syntax unified
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 10
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 10
 
 
  372              		.thumb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  415 002c FFF7FEFF 		bl	Output_Buzzer
  416              	.LVL37:
  151:Src/mode.c    ****     Turn_Quarter_Left();
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 11
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 11
 
 
  417              		.loc 1 151 0
@@ -658,221 +658,253 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 1
  462              		.cfi_def_cfa_offset 8
  463              		.cfi_offset 3, -8
  464              		.cfi_offset 14, -4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 12
 
 
- 163:Src/mode.c    ****     Straight();
+ 163:Src/mode.c    ****     flag.ir_led = ON;
  465              		.loc 1 163 0
- 466 0002 FFF7FEFF 		bl	Straight
- 467              	.LVL41:
- 468              	.L51:
- 164:Src/mode.c    ****     while(flag.motion_end==false);
- 469              		.loc 1 164 0 discriminator 1
- 470 0006 084B     		ldr	r3, .L55
- 471 0008 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
- 472 000a 002B     		cmp	r3, #0
- 473 000c FBD0     		beq	.L51
- 165:Src/mode.c    ****     Turn_Quarter_Left();
- 474              		.loc 1 165 0
- 475 000e FFF7FEFF 		bl	Turn_Quarter_Left
- 476              	.LVL42:
- 477              	.L52:
- 166:Src/mode.c    ****     while(flag.motion_end==false);
- 478              		.loc 1 166 0 discriminator 1
- 479 0012 054B     		ldr	r3, .L55
- 480 0014 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
- 481 0016 002B     		cmp	r3, #0
- 482 0018 FBD0     		beq	.L52
- 167:Src/mode.c    ****     Straight();
- 483              		.loc 1 167 0
- 484 001a FFF7FEFF 		bl	Straight
- 485              	.LVL43:
- 486              	.L53:
- 168:Src/mode.c    ****     while(flag.motion_end==false);
- 487              		.loc 1 168 0 discriminator 1
- 488 001e 024B     		ldr	r3, .L55
- 489 0020 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
- 490 0022 002B     		cmp	r3, #0
- 491 0024 FBD0     		beq	.L53
- 169:Src/mode.c    **** }...
- 492              		.loc 1 169 0
- 493 0026 08BD     		pop	{r3, pc}
- 494              	.L56:
- 495              		.align	2
- 496              	.L55:
- 497 0028 00000000 		.word	flag
- 498              		.cfi_endproc
- 499              	.LFE132:
- 501              		.section	.text.Mode_mouse,"ax",%progbits
- 502              		.align	1
- 503              		.global	Mode_mouse
- 504              		.syntax unified
- 505              		.thumb
- 506              		.thumb_func
- 507              		.fpu fpv4-sp-d16
- 509              	Mode_mouse:
- 510              	.LFB127:
+ 466 0002 124B     		ldr	r3, .L57
+ 467 0004 0122     		movs	r2, #1
+ 468 0006 5A71     		strb	r2, [r3, #5]
+ 469              	.L51:
+ 164:Src/mode.c    ****     while(1){
+ 165:Src/mode.c    ****         if(sensor.wall[0]==ON && sensor.wall[3]==ON){
+ 470              		.loc 1 165 0
+ 471 0008 114B     		ldr	r3, .L57+4
+ 472 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+ 473 000c 012B     		cmp	r3, #1
+ 474 000e FBD1     		bne	.L51
+ 475              		.loc 1 165 0 is_stmt 0 discriminator 1
+ 476 0010 0F4B     		ldr	r3, .L57+4
+ 477 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
+ 478 0014 012B     		cmp	r3, #1
+ 479 0016 F7D1     		bne	.L51
+ 166:Src/mode.c    ****             Output_Buzzer(HZ_C_H);
+ 480              		.loc 1 166 0 is_stmt 1
+ 481 0018 4C20     		movs	r0, #76
+ 482 001a FFF7FEFF 		bl	Output_Buzzer
+ 483              	.LVL41:
+ 167:Src/mode.c    ****             break;
+ 168:Src/mode.c    ****         }
+ 169:Src/mode.c    ****     }
+ 170:Src/mode.c    ****     flag.ir_led = OFF;
+ 484              		.loc 1 170 0
+ 485 001e 0B4B     		ldr	r3, .L57
+ 486 0020 0022     		movs	r2, #0
+ 487 0022 5A71     		strb	r2, [r3, #5]
+ 171:Src/mode.c    ****     Straight();
+ 488              		.loc 1 171 0
+ 489 0024 FFF7FEFF 		bl	Straight
+ 490              	.LVL42:
+ 491              	.L53:
+ 172:Src/mode.c    ****     while(flag.motion_end==false){};
+ 492              		.loc 1 172 0 discriminator 1
+ 493 0028 084B     		ldr	r3, .L57
+ 494 002a 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 495 002c 002B     		cmp	r3, #0
+ 496 002e FBD0     		beq	.L53
+ 173:Src/mode.c    ****     Turn_Half();
+ 497              		.loc 1 173 0
+ 498 0030 FFF7FEFF 		bl	Turn_Half
+ 499              	.LVL43:
+ 500              	.L54:
+ 174:Src/mode.c    ****     while(flag.motion_end==false){};
+ 501              		.loc 1 174 0 discriminator 1
+ 502 0034 054B     		ldr	r3, .L57
+ 503 0036 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 504 0038 002B     		cmp	r3, #0
+ 505 003a FBD0     		beq	.L54
+ 175:Src/mode.c    ****     Straight();
+ 506              		.loc 1 175 0
+ 507 003c FFF7FEFF 		bl	Straight
+ 508              	.LVL44:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 13
+
+
+ 509              	.L55:
+ 176:Src/mode.c    ****     while(flag.motion_end==false){};
+ 510              		.loc 1 176 0 discriminator 1
+ 511 0040 024B     		ldr	r3, .L57
+ 512 0042 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 513 0044 002B     		cmp	r3, #0
+ 514 0046 FBD0     		beq	.L55
+ 177:Src/mode.c    **** }...
+ 515              		.loc 1 177 0
+ 516 0048 08BD     		pop	{r3, pc}
+ 517              	.L58:
+ 518 004a 00BF     		.align	2
+ 519              	.L57:
+ 520 004c 00000000 		.word	flag
+ 521 0050 00000000 		.word	sensor
+ 522              		.cfi_endproc
+ 523              	.LFE132:
+ 525              		.section	.text.Mode_mouse,"ax",%progbits
+ 526              		.align	1
+ 527              		.global	Mode_mouse
+ 528              		.syntax unified
+ 529              		.thumb
+ 530              		.thumb_func
+ 531              		.fpu fpv4-sp-d16
+ 533              	Mode_mouse:
+ 534              	.LFB127:
   50:Src/mode.c    **** void Mode_mouse(int8_t mode){
- 511              		.loc 1 50 0
- 512              		.cfi_startproc
- 513              		@ args = 0, pretend = 0, frame = 0
- 514              		@ frame_needed = 0, uses_anonymous_args = 0
- 515              	.LVL44:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 13
-
-
- 516 0000 08B5     		push	{r3, lr}
- 517              	.LCFI6:
- 518              		.cfi_def_cfa_offset 8
- 519              		.cfi_offset 3, -8
- 520              		.cfi_offset 14, -4
+ 535              		.loc 1 50 0
+ 536              		.cfi_startproc
+ 537              		@ args = 0, pretend = 0, frame = 0
+ 538              		@ frame_needed = 0, uses_anonymous_args = 0
+ 539              	.LVL45:
+ 540 0000 08B5     		push	{r3, lr}
+ 541              	.LCFI6:
+ 542              		.cfi_def_cfa_offset 8
+ 543              		.cfi_offset 3, -8
+ 544              		.cfi_offset 14, -4
   51:Src/mode.c    ****     switch(mode){
- 521              		.loc 1 51 0
- 522 0002 0628     		cmp	r0, #6
- 523 0004 07D8     		bhi	.L57
- 524 0006 DFE800F0 		tbb	[pc, r0]
- 525              	.L60:
- 526 000a 04       		.byte	(.L59-.L60)/2
- 527 000b 07       		.byte	(.L61-.L60)/2
- 528 000c 0A       		.byte	(.L62-.L60)/2
- 529 000d 0D       		.byte	(.L63-.L60)/2
- 530 000e 10       		.byte	(.L64-.L60)/2
- 531 000f 13       		.byte	(.L65-.L60)/2
- 532 0010 16       		.byte	(.L66-.L60)/2
- 533 0011 00       		.p2align 1
- 534              	.L59:
-  53:Src/mode.c    ****             Mode_Circuit();
- 535              		.loc 1 53 0
- 536 0012 FFF7FEFF 		bl	Mode_Circuit
- 537              	.LVL45:
- 538              	.L57:
-  76:Src/mode.c    **** }
- 539              		.loc 1 76 0
- 540 0016 08BD     		pop	{r3, pc}
- 541              	.LVL46:
- 542              	.L61:
-  56:Src/mode.c    ****             Mode_Straight();
- 543              		.loc 1 56 0
- 544 0018 FFF7FEFF 		bl	Mode_Straight
- 545              	.LVL47:
-  57:Src/mode.c    ****             break;
- 546              		.loc 1 57 0
- 547 001c FBE7     		b	.L57
- 548              	.LVL48:
+ 545              		.loc 1 51 0
+ 546 0002 0628     		cmp	r0, #6
+ 547 0004 07D8     		bhi	.L59
+ 548 0006 DFE800F0 		tbb	[pc, r0]
  549              	.L62:
-  59:Src/mode.c    ****             Mode_Turn_Half();
- 550              		.loc 1 59 0
- 551 001e FFF7FEFF 		bl	Mode_Turn_Half
- 552              	.LVL49:
-  60:Src/mode.c    ****             break;
- 553              		.loc 1 60 0
- 554 0022 F8E7     		b	.L57
- 555              	.LVL50:
- 556              	.L63:
-  62:Src/mode.c    ****             Mode_Turn_Quarter_Left();
- 557              		.loc 1 62 0
- 558 0024 FFF7FEFF 		bl	Mode_Turn_Quarter_Left
- 559              	.LVL51:
-  63:Src/mode.c    ****             break;
- 560              		.loc 1 63 0
- 561 0028 F5E7     		b	.L57
- 562              	.LVL52:
- 563              	.L64:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 14
+ 550 000a 04       		.byte	(.L61-.L62)/2
+ 551 000b 07       		.byte	(.L63-.L62)/2
+ 552 000c 0A       		.byte	(.L64-.L62)/2
+ 553 000d 0D       		.byte	(.L65-.L62)/2
+ 554 000e 10       		.byte	(.L66-.L62)/2
+ 555 000f 13       		.byte	(.L67-.L62)/2
+ 556 0010 16       		.byte	(.L68-.L62)/2
+ 557 0011 00       		.p2align 1
+ 558              	.L61:
+  53:Src/mode.c    ****             Mode_Circuit();
+ 559              		.loc 1 53 0
+ 560 0012 FFF7FEFF 		bl	Mode_Circuit
+ 561              	.LVL46:
+ 562              	.L59:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 14
 
 
-  65:Src/mode.c    ****             Normal_Straight();
- 564              		.loc 1 65 0
- 565 002a FFF7FEFF 		bl	Normal_Straight
- 566              	.LVL53:
-  66:Src/mode.c    ****             break;
- 567              		.loc 1 66 0
- 568 002e F2E7     		b	.L57
- 569              	.LVL54:
- 570              	.L65:
-  68:Src/mode.c    ****             Sensor_Mode();
- 571              		.loc 1 68 0
- 572 0030 FFF7FEFF 		bl	Sensor_Mode
- 573              	.LVL55:
-  69:Src/mode.c    ****             break;
- 574              		.loc 1 69 0
- 575 0034 EFE7     		b	.L57
- 576              	.LVL56:
- 577              	.L66:
-  71:Src/mode.c    ****             Test_Create_Map();
- 578              		.loc 1 71 0
- 579 0036 FFF7FEFF 		bl	Test_Create_Map
- 580              	.LVL57:
   76:Src/mode.c    **** }
- 581              		.loc 1 76 0
- 582 003a ECE7     		b	.L57
- 583              		.cfi_endproc
- 584              	.LFE127:
- 586              		.comm	maze,128,4
- 587              		.comm	yawrate_pid,2,2
- 588              		.comm	straight_pid_r,2,2
- 589              		.comm	straight_pid_l,2,2
- 590              		.comm	y_sumsum,4,4
- 591              		.comm	y_sum,4,4
- 592              		.comm	s_sum_r,4,4
- 593              		.comm	s_sum_l,4,4
- 594              		.section	.rodata.Mode_select.str1.4,"aMS",%progbits,1
- 595              		.align	2
- 596              	.LC0:
- 597 0000 25640D00 		.ascii	"%d\015\000"
- 598              		.text
- 599              	.Letext0:
- 600              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 601              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 602              		.file 4 "Inc/mode.h"
- 603              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 604              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 605              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
- 606              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 607              		.file 9 "Inc/global.h"
- 608              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
- 609              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 610              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 611              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 612              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 613              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 614              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 615              		.file 17 "Inc/tim.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 15
+ 563              		.loc 1 76 0
+ 564 0016 08BD     		pop	{r3, pc}
+ 565              	.LVL47:
+ 566              	.L63:
+  56:Src/mode.c    ****             Mode_Straight();
+ 567              		.loc 1 56 0
+ 568 0018 FFF7FEFF 		bl	Mode_Straight
+ 569              	.LVL48:
+  57:Src/mode.c    ****             break;
+ 570              		.loc 1 57 0
+ 571 001c FBE7     		b	.L59
+ 572              	.LVL49:
+ 573              	.L64:
+  59:Src/mode.c    ****             Mode_Turn_Half();
+ 574              		.loc 1 59 0
+ 575 001e FFF7FEFF 		bl	Mode_Turn_Half
+ 576              	.LVL50:
+  60:Src/mode.c    ****             break;
+ 577              		.loc 1 60 0
+ 578 0022 F8E7     		b	.L59
+ 579              	.LVL51:
+ 580              	.L65:
+  62:Src/mode.c    ****             Mode_Turn_Quarter_Left();
+ 581              		.loc 1 62 0
+ 582 0024 FFF7FEFF 		bl	Mode_Turn_Quarter_Left
+ 583              	.LVL52:
+  63:Src/mode.c    ****             break;
+ 584              		.loc 1 63 0
+ 585 0028 F5E7     		b	.L59
+ 586              	.LVL53:
+ 587              	.L66:
+  65:Src/mode.c    ****             Normal_Straight();
+ 588              		.loc 1 65 0
+ 589 002a FFF7FEFF 		bl	Normal_Straight
+ 590              	.LVL54:
+  66:Src/mode.c    ****             break;
+ 591              		.loc 1 66 0
+ 592 002e F2E7     		b	.L59
+ 593              	.LVL55:
+ 594              	.L67:
+  68:Src/mode.c    ****             Sensor_Mode();
+ 595              		.loc 1 68 0
+ 596 0030 FFF7FEFF 		bl	Sensor_Mode
+ 597              	.LVL56:
+  69:Src/mode.c    ****             break;
+ 598              		.loc 1 69 0
+ 599 0034 EFE7     		b	.L59
+ 600              	.LVL57:
+ 601              	.L68:
+  71:Src/mode.c    ****             Test_Create_Map();
+ 602              		.loc 1 71 0
+ 603 0036 FFF7FEFF 		bl	Test_Create_Map
+ 604              	.LVL58:
+  76:Src/mode.c    **** }
+ 605              		.loc 1 76 0
+ 606 003a ECE7     		b	.L59
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 15
 
 
- 616              		.file 18 "Inc/control.h"
- 617              		.file 19 "Inc/spi.h"
- 618              		.file 20 "Inc/motion.h"
- 619              		.file 21 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 620              		.file 22 "Inc/gpio.h"
- 621              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s 			page 16
+ 607              		.cfi_endproc
+ 608              	.LFE127:
+ 610              		.comm	maze,128,4
+ 611              		.comm	yawrate_pid,2,2
+ 612              		.comm	straight_pid_r,2,2
+ 613              		.comm	straight_pid_l,2,2
+ 614              		.comm	y_sumsum,4,4
+ 615              		.comm	y_sum,4,4
+ 616              		.comm	s_sum_r,4,4
+ 617              		.comm	s_sum_l,4,4
+ 618              		.section	.rodata.Mode_select.str1.4,"aMS",%progbits,1
+ 619              		.align	2
+ 620              	.LC0:
+ 621 0000 25640D00 		.ascii	"%d\015\000"
+ 622              		.text
+ 623              	.Letext0:
+ 624              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 625              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 626              		.file 4 "Inc/mode.h"
+ 627              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 628              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 629              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+ 630              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 631              		.file 9 "Inc/global.h"
+ 632              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
+ 633              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 634              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 635              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 636              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 637              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 638              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 639              		.file 17 "Inc/tim.h"
+ 640              		.file 18 "Inc/control.h"
+ 641              		.file 19 "Inc/spi.h"
+ 642              		.file 20 "Inc/motion.h"
+ 643              		.file 21 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 644              		.file 22 "Inc/gpio.h"
+ 645              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 mode.c
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:18     .text.Mode_select:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:25     .text.Mode_select:00000000 Mode_select
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:128    .text.Mode_select:00000080 $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:134    .text.LeftHand:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:141    .text.LeftHand:00000000 LeftHand
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:207    .text.LeftHand:00000048 $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:213    .text.Mode_Straight:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:220    .text.Mode_Straight:00000000 Mode_Straight
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:285    .text.Mode_Straight:0000004c $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:291    .text.Mode_Turn_Half:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:298    .text.Mode_Turn_Half:00000000 Mode_Turn_Half
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:363    .text.Mode_Turn_Half:0000004c $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:369    .text.Mode_Turn_Quarter_Left:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:376    .text.Mode_Turn_Quarter_Left:00000000 Mode_Turn_Quarter_Left
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:441    .text.Mode_Turn_Quarter_Left:0000004c $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:447    .text.Mode_Circuit:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:454    .text.Mode_Circuit:00000000 Mode_Circuit
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:497    .text.Mode_Circuit:00000028 $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:502    .text.Mode_mouse:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:509    .text.Mode_mouse:00000000 Mode_mouse
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:526    .text.Mode_mouse:0000000a $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:18     .text.Mode_select:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:25     .text.Mode_select:00000000 Mode_select
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:128    .text.Mode_select:00000080 $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:134    .text.LeftHand:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:141    .text.LeftHand:00000000 LeftHand
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:207    .text.LeftHand:00000048 $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:213    .text.Mode_Straight:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:220    .text.Mode_Straight:00000000 Mode_Straight
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:285    .text.Mode_Straight:0000004c $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:291    .text.Mode_Turn_Half:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:298    .text.Mode_Turn_Half:00000000 Mode_Turn_Half
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:363    .text.Mode_Turn_Half:0000004c $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:369    .text.Mode_Turn_Quarter_Left:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:376    .text.Mode_Turn_Quarter_Left:00000000 Mode_Turn_Quarter_Left
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:441    .text.Mode_Turn_Quarter_Left:0000004c $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:447    .text.Mode_Circuit:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:454    .text.Mode_Circuit:00000000 Mode_Circuit
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:520    .text.Mode_Circuit:0000004c $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:526    .text.Mode_mouse:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:533    .text.Mode_mouse:00000000 Mode_mouse
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:550    .text.Mode_mouse:0000000a $d
                             *COM*:00000080 maze
                             *COM*:00000002 yawrate_pid
                             *COM*:00000002 straight_pid_r
@@ -881,9 +913,9 @@ C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:526    .text.Mode_mouse:0000000a $
                             *COM*:00000004 y_sum
                             *COM*:00000004 s_sum_r
                             *COM*:00000004 s_sum_l
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:595    .rodata.Mode_select.str1.4:00000000 $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:533    .text.Mode_mouse:00000011 $d
-C:\Users\kotaro\AppData\Local\Temp\ccfagPYC.s:533    .text.Mode_mouse:00000012 $t
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:619    .rodata.Mode_select.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:557    .text.Mode_mouse:00000011 $d
+C:\Users\kotaro\AppData\Local\Temp\ccl7muPj.s:557    .text.Mode_mouse:00000012 $t
 
 UNDEFINED SYMBOLS
 Output_Buzzer

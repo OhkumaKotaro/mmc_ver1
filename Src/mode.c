@@ -160,10 +160,18 @@ void Mode_Turn_Quarter_Left(void){
 }
 
 void Mode_Circuit(void){
+    flag.ir_led = ON;
+    while(1){
+        if(sensor.wall[0]==ON && sensor.wall[3]==ON){
+            Output_Buzzer(HZ_C_H);
+            break;
+        }
+    }
+    flag.ir_led = OFF;
     Straight();
-    while(flag.motion_end==false);
-    Turn_Quarter_Left();
-    while(flag.motion_end==false);
+    while(flag.motion_end==false){};
+    Turn_Half();
+    while(flag.motion_end==false){};
     Straight();
-    while(flag.motion_end==false);
+    while(flag.motion_end==false){};
 }

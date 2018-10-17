@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 1
   13:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
   44              		.loc 1 13 0
   45 0008 154B     		ldr	r3, .L6+4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 2
 
 
   46 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 1
   26:Src/motion.c  ****             flag.yawrate = OFF;
   88              		.loc 1 26 0
   89 004c 034B     		ldr	r3, .L6
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 3
 
 
   90 004e 0022     		movs	r2, #0
@@ -157,1181 +157,1176 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 1
  117              		.cfi_startproc
  118              		@ args = 0, pretend = 0, frame = 0
  119              		@ frame_needed = 0, uses_anonymous_args = 0
- 120 0000 10B5     		push	{r4, lr}
+ 120 0000 38B5     		push	{r3, r4, r5, lr}
  121              	.LCFI1:
- 122              		.cfi_def_cfa_offset 8
- 123              		.cfi_offset 4, -8
- 124              		.cfi_offset 14, -4
-  35:Src/motion.c  ****     flag.dir = RIGHT;
- 125              		.loc 1 35 0
- 126 0002 084C     		ldr	r4, .L10
- 127 0004 4FF6FF73 		movw	r3, #65535
- 128 0008 2381     		strh	r3, [r4, #8]	@ movhi
+ 122              		.cfi_def_cfa_offset 16
+ 123              		.cfi_offset 3, -16
+ 124              		.cfi_offset 4, -12
+ 125              		.cfi_offset 5, -8
+ 126              		.cfi_offset 14, -4
+  35:Src/motion.c  ****     flag.dir = LEFT;
+ 127              		.loc 1 35 0
+ 128 0002 074C     		ldr	r4, .L10
+ 129 0004 0125     		movs	r5, #1
+ 130 0006 2581     		strh	r5, [r4, #8]	@ movhi
   36:Src/motion.c  ****     flag.ir_led = OFF;
- 129              		.loc 1 36 0
- 130 000a 0021     		movs	r1, #0
- 131 000c 6171     		strb	r1, [r4, #5]
+ 131              		.loc 1 36 0
+ 132 0008 0021     		movs	r1, #0
+ 133 000a 6171     		strb	r1, [r4, #5]
   37:Src/motion.c  ****     Yawrate_Calc_fb(180,0,0);
- 132              		.loc 1 37 0
- 133 000e 0A46     		mov	r2, r1
- 134 0010 B420     		movs	r0, #180
- 135 0012 FFF7FEFF 		bl	Yawrate_Calc_fb
- 136              	.LVL7:
+ 134              		.loc 1 37 0
+ 135 000c 0A46     		mov	r2, r1
+ 136 000e B420     		movs	r0, #180
+ 137 0010 FFF7FEFF 		bl	Yawrate_Calc_fb
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 4
+
+
+ 138              	.LVL7:
   38:Src/motion.c  ****     Straight_Calc_Zero();
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 4
-
-
- 137              		.loc 1 38 0
- 138 0016 FFF7FEFF 		bl	Straight_Calc_Zero
- 139              	.LVL8:
+ 139              		.loc 1 38 0
+ 140 0014 FFF7FEFF 		bl	Straight_Calc_Zero
+ 141              	.LVL8:
   39:Src/motion.c  ****     flag.yawrate = ON;
- 140              		.loc 1 39 0
- 141 001a 0123     		movs	r3, #1
- 142 001c A370     		strb	r3, [r4, #2]
+ 142              		.loc 1 39 0
+ 143 0018 A570     		strb	r5, [r4, #2]
   40:Src/motion.c  ****     flag.straight = ON;
- 143              		.loc 1 40 0
- 144 001e 6370     		strb	r3, [r4, #1]
+ 144              		.loc 1 40 0
+ 145 001a 6570     		strb	r5, [r4, #1]
   41:Src/motion.c  **** }
- 145              		.loc 1 41 0
- 146 0020 10BD     		pop	{r4, pc}
- 147              	.L11:
- 148 0022 00BF     		.align	2
- 149              	.L10:
- 150 0024 00000000 		.word	flag
- 151              		.cfi_endproc
- 152              	.LFE127:
- 154              		.section	.text.Turn_Quarter_Left,"ax",%progbits
- 155              		.align	1
- 156              		.global	Turn_Quarter_Left
- 157              		.syntax unified
- 158              		.thumb
- 159              		.thumb_func
- 160              		.fpu fpv4-sp-d16
- 162              	Turn_Quarter_Left:
- 163              	.LFB128:
+ 146              		.loc 1 41 0
+ 147 001c 38BD     		pop	{r3, r4, r5, pc}
+ 148              	.L11:
+ 149 001e 00BF     		.align	2
+ 150              	.L10:
+ 151 0020 00000000 		.word	flag
+ 152              		.cfi_endproc
+ 153              	.LFE127:
+ 155              		.section	.text.Turn_Quarter_Left,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	Turn_Quarter_Left
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.fpu fpv4-sp-d16
+ 163              	Turn_Quarter_Left:
+ 164              	.LFB128:
   42:Src/motion.c  **** 
   43:Src/motion.c  **** void Turn_Quarter_Left(void){
- 164              		.loc 1 43 0
- 165              		.cfi_startproc
- 166              		@ args = 0, pretend = 0, frame = 0
- 167              		@ frame_needed = 0, uses_anonymous_args = 0
- 168 0000 38B5     		push	{r3, r4, r5, lr}
- 169              	.LCFI2:
- 170              		.cfi_def_cfa_offset 16
- 171              		.cfi_offset 3, -16
- 172              		.cfi_offset 4, -12
- 173              		.cfi_offset 5, -8
- 174              		.cfi_offset 14, -4
+ 165              		.loc 1 43 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169 0000 38B5     		push	{r3, r4, r5, lr}
+ 170              	.LCFI2:
+ 171              		.cfi_def_cfa_offset 16
+ 172              		.cfi_offset 3, -16
+ 173              		.cfi_offset 4, -12
+ 174              		.cfi_offset 5, -8
+ 175              		.cfi_offset 14, -4
   44:Src/motion.c  ****     flag.ir_led = OFF;
- 175              		.loc 1 44 0
- 176 0002 074C     		ldr	r4, .L14
- 177 0004 0021     		movs	r1, #0
- 178 0006 6171     		strb	r1, [r4, #5]
+ 176              		.loc 1 44 0
+ 177 0002 074C     		ldr	r4, .L14
+ 178 0004 0021     		movs	r1, #0
+ 179 0006 6171     		strb	r1, [r4, #5]
   45:Src/motion.c  ****     flag.dir = LEFT;
- 179              		.loc 1 45 0
- 180 0008 0125     		movs	r5, #1
- 181 000a 2581     		strh	r5, [r4, #8]	@ movhi
+ 180              		.loc 1 45 0
+ 181 0008 0125     		movs	r5, #1
+ 182 000a 2581     		strh	r5, [r4, #8]	@ movhi
   46:Src/motion.c  ****     Yawrate_Calc_fb(90,0,0);
- 182              		.loc 1 46 0
- 183 000c 0A46     		mov	r2, r1
- 184 000e 5A20     		movs	r0, #90
- 185 0010 FFF7FEFF 		bl	Yawrate_Calc_fb
- 186              	.LVL9:
+ 183              		.loc 1 46 0
+ 184 000c 0A46     		mov	r2, r1
+ 185 000e 5A20     		movs	r0, #90
+ 186 0010 FFF7FEFF 		bl	Yawrate_Calc_fb
+ 187              	.LVL9:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 5
+
+
   47:Src/motion.c  ****     Straight_Calc_Zero();
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 5
+ 188              		.loc 1 47 0
+ 189 0014 FFF7FEFF 		bl	Straight_Calc_Zero
+ 190              	.LVL10:
+  48:Src/motion.c  ****     flag.yawrate = ON;
+ 191              		.loc 1 48 0
+ 192 0018 A570     		strb	r5, [r4, #2]
+  49:Src/motion.c  ****     flag.straight = ON;
+ 193              		.loc 1 49 0
+ 194 001a 6570     		strb	r5, [r4, #1]
+  50:Src/motion.c  **** }
+ 195              		.loc 1 50 0
+ 196 001c 38BD     		pop	{r3, r4, r5, pc}
+ 197              	.L15:
+ 198 001e 00BF     		.align	2
+ 199              	.L14:
+ 200 0020 00000000 		.word	flag
+ 201              		.cfi_endproc
+ 202              	.LFE128:
+ 204              		.section	.text.Turn_Quarter_Right,"ax",%progbits
+ 205              		.align	1
+ 206              		.global	Turn_Quarter_Right
+ 207              		.syntax unified
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.fpu fpv4-sp-d16
+ 212              	Turn_Quarter_Right:
+ 213              	.LFB129:
+  51:Src/motion.c  **** 
+  52:Src/motion.c  **** void Turn_Quarter_Right(void){
+ 214              		.loc 1 52 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218 0000 10B5     		push	{r4, lr}
+ 219              	.LCFI3:
+ 220              		.cfi_def_cfa_offset 8
+ 221              		.cfi_offset 4, -8
+ 222              		.cfi_offset 14, -4
+  53:Src/motion.c  ****     flag.ir_led = OFF;
+ 223              		.loc 1 53 0
+ 224 0002 084C     		ldr	r4, .L18
+ 225 0004 0021     		movs	r1, #0
+ 226 0006 6171     		strb	r1, [r4, #5]
+  54:Src/motion.c  ****     flag.dir = RIGHT;
+ 227              		.loc 1 54 0
+ 228 0008 4FF6FF73 		movw	r3, #65535
+ 229 000c 2381     		strh	r3, [r4, #8]	@ movhi
+  55:Src/motion.c  ****     Yawrate_Calc_fb(90,0,0);
+ 230              		.loc 1 55 0
+ 231 000e 0A46     		mov	r2, r1
+ 232 0010 5A20     		movs	r0, #90
+ 233 0012 FFF7FEFF 		bl	Yawrate_Calc_fb
+ 234              	.LVL11:
+  56:Src/motion.c  ****     Straight_Calc_Zero();
+ 235              		.loc 1 56 0
+ 236 0016 FFF7FEFF 		bl	Straight_Calc_Zero
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 6
 
 
- 187              		.loc 1 47 0
- 188 0014 FFF7FEFF 		bl	Straight_Calc_Zero
- 189              	.LVL10:
-  48:Src/motion.c  ****     flag.motion_end = true;
- 190              		.loc 1 48 0
- 191 0018 A572     		strb	r5, [r4, #10]
-  49:Src/motion.c  ****     flag.yawrate = ON;
- 192              		.loc 1 49 0
- 193 001a A570     		strb	r5, [r4, #2]
-  50:Src/motion.c  ****     flag.straight = ON;
- 194              		.loc 1 50 0
- 195 001c 6570     		strb	r5, [r4, #1]
-  51:Src/motion.c  **** }
- 196              		.loc 1 51 0
- 197 001e 38BD     		pop	{r3, r4, r5, pc}
- 198              	.L15:
- 199              		.align	2
- 200              	.L14:
- 201 0020 00000000 		.word	flag
- 202              		.cfi_endproc
- 203              	.LFE128:
- 205              		.section	.text.Turn_Quarter_Right,"ax",%progbits
- 206              		.align	1
- 207              		.global	Turn_Quarter_Right
- 208              		.syntax unified
- 209              		.thumb
- 210              		.thumb_func
- 211              		.fpu fpv4-sp-d16
- 213              	Turn_Quarter_Right:
- 214              	.LFB129:
-  52:Src/motion.c  **** 
-  53:Src/motion.c  **** void Turn_Quarter_Right(void){
- 215              		.loc 1 53 0
- 216              		.cfi_startproc
- 217              		@ args = 0, pretend = 0, frame = 0
- 218              		@ frame_needed = 0, uses_anonymous_args = 0
- 219 0000 10B5     		push	{r4, lr}
- 220              	.LCFI3:
- 221              		.cfi_def_cfa_offset 8
- 222              		.cfi_offset 4, -8
- 223              		.cfi_offset 14, -4
-  54:Src/motion.c  ****     flag.ir_led = OFF;
- 224              		.loc 1 54 0
- 225 0002 084C     		ldr	r4, .L18
- 226 0004 0021     		movs	r1, #0
- 227 0006 6171     		strb	r1, [r4, #5]
-  55:Src/motion.c  ****     flag.dir = RIGHT;
- 228              		.loc 1 55 0
- 229 0008 4FF6FF73 		movw	r3, #65535
- 230 000c 2381     		strh	r3, [r4, #8]	@ movhi
-  56:Src/motion.c  ****     Yawrate_Calc_fb(90,0,0);
- 231              		.loc 1 56 0
- 232 000e 0A46     		mov	r2, r1
- 233 0010 5A20     		movs	r0, #90
- 234 0012 FFF7FEFF 		bl	Yawrate_Calc_fb
- 235              	.LVL11:
-  57:Src/motion.c  ****     Straight_Calc_Zero();
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 6
+ 237              	.LVL12:
+  57:Src/motion.c  ****     flag.yawrate = ON;
+ 238              		.loc 1 57 0
+ 239 001a 0123     		movs	r3, #1
+ 240 001c A370     		strb	r3, [r4, #2]
+  58:Src/motion.c  ****     flag.straight = ON;
+ 241              		.loc 1 58 0
+ 242 001e 6370     		strb	r3, [r4, #1]
+  59:Src/motion.c  **** }
+ 243              		.loc 1 59 0
+ 244 0020 10BD     		pop	{r4, pc}
+ 245              	.L19:
+ 246 0022 00BF     		.align	2
+ 247              	.L18:
+ 248 0024 00000000 		.word	flag
+ 249              		.cfi_endproc
+ 250              	.LFE129:
+ 252              		.section	.text.Normal_Ennkai,"ax",%progbits
+ 253              		.align	1
+ 254              		.global	Normal_Ennkai
+ 255              		.syntax unified
+ 256              		.thumb
+ 257              		.thumb_func
+ 258              		.fpu fpv4-sp-d16
+ 260              	Normal_Ennkai:
+ 261              	.LFB130:
+  60:Src/motion.c  **** /****************************************************************************************
+  61:Src/motion.c  ****  * outline  : "ennkaigei"
+  62:Src/motion.c  ****  * argument : void
+  63:Src/motion.c  ****  * return   : void
+  64:Src/motion.c  **** ********************************************************************************************/
+  65:Src/motion.c  **** void Normal_Ennkai(void){
+ 262              		.loc 1 65 0
+ 263              		.cfi_startproc
+ 264              		@ args = 0, pretend = 0, frame = 0
+ 265              		@ frame_needed = 0, uses_anonymous_args = 0
+ 266 0000 10B5     		push	{r4, lr}
+ 267              	.LCFI4:
+ 268              		.cfi_def_cfa_offset 8
+ 269              		.cfi_offset 4, -8
+ 270              		.cfi_offset 14, -4
+  66:Src/motion.c  ****     flag.ir_led = ON;
+ 271              		.loc 1 66 0
+ 272 0002 164B     		ldr	r3, .L25
+ 273 0004 0122     		movs	r2, #1
+ 274 0006 5A71     		strb	r2, [r3, #5]
+ 275              	.L21:
+  67:Src/motion.c  ****     while(1){
+  68:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
+ 276              		.loc 1 68 0
+ 277 0008 154B     		ldr	r3, .L25+4
+ 278 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+ 279 000c 012B     		cmp	r3, #1
+ 280 000e FBD1     		bne	.L21
+ 281              		.loc 1 68 0 is_stmt 0 discriminator 1
+ 282 0010 134B     		ldr	r3, .L25+4
+ 283 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 7
 
 
- 236              		.loc 1 57 0
- 237 0016 FFF7FEFF 		bl	Straight_Calc_Zero
- 238              	.LVL12:
-  58:Src/motion.c  ****     flag.yawrate = ON;
- 239              		.loc 1 58 0
- 240 001a 0123     		movs	r3, #1
- 241 001c A370     		strb	r3, [r4, #2]
-  59:Src/motion.c  ****     flag.straight = ON;
- 242              		.loc 1 59 0
- 243 001e 6370     		strb	r3, [r4, #1]
-  60:Src/motion.c  **** }
- 244              		.loc 1 60 0
- 245 0020 10BD     		pop	{r4, pc}
- 246              	.L19:
- 247 0022 00BF     		.align	2
- 248              	.L18:
- 249 0024 00000000 		.word	flag
- 250              		.cfi_endproc
- 251              	.LFE129:
- 253              		.section	.text.Normal_Ennkai,"ax",%progbits
- 254              		.align	1
- 255              		.global	Normal_Ennkai
- 256              		.syntax unified
- 257              		.thumb
- 258              		.thumb_func
- 259              		.fpu fpv4-sp-d16
- 261              	Normal_Ennkai:
- 262              	.LFB130:
-  61:Src/motion.c  **** /****************************************************************************************
-  62:Src/motion.c  ****  * outline  : "ennkaigei"
-  63:Src/motion.c  ****  * argument : void
-  64:Src/motion.c  ****  * return   : void
-  65:Src/motion.c  **** ********************************************************************************************/
-  66:Src/motion.c  **** void Normal_Ennkai(void){
- 263              		.loc 1 66 0
- 264              		.cfi_startproc
- 265              		@ args = 0, pretend = 0, frame = 0
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
- 267 0000 10B5     		push	{r4, lr}
- 268              	.LCFI4:
- 269              		.cfi_def_cfa_offset 8
- 270              		.cfi_offset 4, -8
- 271              		.cfi_offset 14, -4
-  67:Src/motion.c  ****     flag.ir_led = ON;
- 272              		.loc 1 67 0
- 273 0002 164B     		ldr	r3, .L25
- 274 0004 0122     		movs	r2, #1
- 275 0006 5A71     		strb	r2, [r3, #5]
- 276              	.L21:
-  68:Src/motion.c  ****     while(1){
-  69:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
- 277              		.loc 1 69 0
- 278 0008 154B     		ldr	r3, .L25+4
- 279 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
- 280 000c 012B     		cmp	r3, #1
- 281 000e FBD1     		bne	.L21
- 282              		.loc 1 69 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 7
+ 284 0014 012B     		cmp	r3, #1
+ 285 0016 F7D1     		bne	.L21
+  69:Src/motion.c  ****             Output_Buzzer(HZ_C_H);
+ 286              		.loc 1 69 0 is_stmt 1
+ 287 0018 4C20     		movs	r0, #76
+ 288 001a FFF7FEFF 		bl	Output_Buzzer
+ 289              	.LVL13:
+  70:Src/motion.c  ****             break;
+  71:Src/motion.c  ****         }
+  72:Src/motion.c  ****     }
+  73:Src/motion.c  ****     flag.ir_led = OFF;
+ 290              		.loc 1 73 0
+ 291 001e 0F4C     		ldr	r4, .L25
+ 292 0020 0023     		movs	r3, #0
+ 293 0022 6371     		strb	r3, [r4, #5]
+  74:Src/motion.c  ****     HAL_Delay(500);
+ 294              		.loc 1 74 0
+ 295 0024 4FF4FA70 		mov	r0, #500
+ 296 0028 FFF7FEFF 		bl	HAL_Delay
+ 297              	.LVL14:
+  75:Src/motion.c  ****     gyro_offset_calc_reset();
+ 298              		.loc 1 75 0
+ 299 002c FFF7FEFF 		bl	gyro_offset_calc_reset
+ 300              	.LVL15:
+  76:Src/motion.c  ****     Yawrate_Calc_Zero();
+ 301              		.loc 1 76 0
+ 302 0030 FFF7FEFF 		bl	Yawrate_Calc_Zero
+ 303              	.LVL16:
+  77:Src/motion.c  ****     HAL_Delay(1500);
+ 304              		.loc 1 77 0
+ 305 0034 40F2DC50 		movw	r0, #1500
+ 306 0038 FFF7FEFF 		bl	HAL_Delay
+ 307              	.LVL17:
+  78:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
+ 308              		.loc 1 78 0
+ 309 003c 4C20     		movs	r0, #76
+ 310 003e FFF7FEFF 		bl	Output_Buzzer
+ 311              	.LVL18:
+  79:Src/motion.c  ****     flag.yawrate = ON;
+ 312              		.loc 1 79 0
+ 313 0042 0123     		movs	r3, #1
+ 314 0044 A370     		strb	r3, [r4, #2]
+ 315              	.L23:
+  80:Src/motion.c  ****     while(1){
+  81:Src/motion.c  ****         if(Push()==ON){
+ 316              		.loc 1 81 0
+ 317 0046 FFF7FEFF 		bl	Push
+ 318              	.LVL19:
+ 319 004a 0128     		cmp	r0, #1
+ 320 004c FBD1     		bne	.L23
+  82:Src/motion.c  ****             flag.yawrate = OFF;
+ 321              		.loc 1 82 0
+ 322 004e 034B     		ldr	r3, .L25
+ 323 0050 0022     		movs	r2, #0
+ 324 0052 9A70     		strb	r2, [r3, #2]
+  83:Src/motion.c  ****             Output_Buzzer(HZ_A);
+ 325              		.loc 1 83 0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 8
 
 
- 283 0010 134B     		ldr	r3, .L25+4
- 284 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
- 285 0014 012B     		cmp	r3, #1
- 286 0016 F7D1     		bne	.L21
-  70:Src/motion.c  ****             Output_Buzzer(HZ_C_H);
- 287              		.loc 1 70 0 is_stmt 1
- 288 0018 4C20     		movs	r0, #76
- 289 001a FFF7FEFF 		bl	Output_Buzzer
- 290              	.LVL13:
-  71:Src/motion.c  ****             break;
-  72:Src/motion.c  ****         }
-  73:Src/motion.c  ****     }
-  74:Src/motion.c  ****     flag.ir_led = OFF;
- 291              		.loc 1 74 0
- 292 001e 0F4C     		ldr	r4, .L25
- 293 0020 0023     		movs	r3, #0
- 294 0022 6371     		strb	r3, [r4, #5]
-  75:Src/motion.c  ****     HAL_Delay(500);
- 295              		.loc 1 75 0
- 296 0024 4FF4FA70 		mov	r0, #500
- 297 0028 FFF7FEFF 		bl	HAL_Delay
- 298              	.LVL14:
-  76:Src/motion.c  ****     gyro_offset_calc_reset();
- 299              		.loc 1 76 0
- 300 002c FFF7FEFF 		bl	gyro_offset_calc_reset
- 301              	.LVL15:
-  77:Src/motion.c  ****     Yawrate_Calc_Zero();
- 302              		.loc 1 77 0
- 303 0030 FFF7FEFF 		bl	Yawrate_Calc_Zero
- 304              	.LVL16:
-  78:Src/motion.c  ****     HAL_Delay(1500);
- 305              		.loc 1 78 0
- 306 0034 40F2DC50 		movw	r0, #1500
- 307 0038 FFF7FEFF 		bl	HAL_Delay
- 308              	.LVL17:
-  79:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
- 309              		.loc 1 79 0
- 310 003c 4C20     		movs	r0, #76
- 311 003e FFF7FEFF 		bl	Output_Buzzer
- 312              	.LVL18:
-  80:Src/motion.c  ****     flag.yawrate = ON;
- 313              		.loc 1 80 0
- 314 0042 0123     		movs	r3, #1
- 315 0044 A370     		strb	r3, [r4, #2]
- 316              	.L23:
-  81:Src/motion.c  ****     while(1){
-  82:Src/motion.c  ****         if(Push()==ON){
- 317              		.loc 1 82 0
- 318 0046 FFF7FEFF 		bl	Push
- 319              	.LVL19:
- 320 004a 0128     		cmp	r0, #1
- 321 004c FBD1     		bne	.L23
-  83:Src/motion.c  ****             flag.yawrate = OFF;
- 322              		.loc 1 83 0
- 323 004e 034B     		ldr	r3, .L25
- 324 0050 0022     		movs	r2, #0
- 325 0052 9A70     		strb	r2, [r3, #2]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 8
+ 326 0054 5B20     		movs	r0, #91
+ 327 0056 FFF7FEFF 		bl	Output_Buzzer
+ 328              	.LVL20:
+  84:Src/motion.c  ****             break;
+  85:Src/motion.c  ****         }
+  86:Src/motion.c  ****     }
+  87:Src/motion.c  **** }
+ 329              		.loc 1 87 0
+ 330 005a 10BD     		pop	{r4, pc}
+ 331              	.L26:
+ 332              		.align	2
+ 333              	.L25:
+ 334 005c 00000000 		.word	flag
+ 335 0060 00000000 		.word	sensor
+ 336              		.cfi_endproc
+ 337              	.LFE130:
+ 339              		.section	.text.Ennkai,"ax",%progbits
+ 340              		.align	1
+ 341              		.global	Ennkai
+ 342              		.syntax unified
+ 343              		.thumb
+ 344              		.thumb_func
+ 345              		.fpu fpv4-sp-d16
+ 347              	Ennkai:
+ 348              	.LFB131:
+  88:Src/motion.c  **** 
+  89:Src/motion.c  **** void Ennkai(void){
+ 349              		.loc 1 89 0
+ 350              		.cfi_startproc
+ 351              		@ args = 0, pretend = 0, frame = 0
+ 352              		@ frame_needed = 0, uses_anonymous_args = 0
+ 353 0000 10B5     		push	{r4, lr}
+ 354              	.LCFI5:
+ 355              		.cfi_def_cfa_offset 8
+ 356              		.cfi_offset 4, -8
+ 357              		.cfi_offset 14, -4
+  90:Src/motion.c  ****     flag.ir_led = ON;
+ 358              		.loc 1 90 0
+ 359 0002 184B     		ldr	r3, .L32
+ 360 0004 0122     		movs	r2, #1
+ 361 0006 5A71     		strb	r2, [r3, #5]
+ 362              	.L28:
+  91:Src/motion.c  ****     while(1){
+  92:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
+ 363              		.loc 1 92 0
+ 364 0008 174B     		ldr	r3, .L32+4
+ 365 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+ 366 000c 012B     		cmp	r3, #1
+ 367 000e FBD1     		bne	.L28
+ 368              		.loc 1 92 0 is_stmt 0 discriminator 1
+ 369 0010 154B     		ldr	r3, .L32+4
+ 370 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
+ 371 0014 012B     		cmp	r3, #1
+ 372 0016 F7D1     		bne	.L28
+  93:Src/motion.c  ****             Output_Buzzer(HZ_C_H);
+ 373              		.loc 1 93 0 is_stmt 1
+ 374 0018 4C20     		movs	r0, #76
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 9
 
 
-  84:Src/motion.c  ****             Output_Buzzer(HZ_A);
- 326              		.loc 1 84 0
- 327 0054 5B20     		movs	r0, #91
- 328 0056 FFF7FEFF 		bl	Output_Buzzer
- 329              	.LVL20:
-  85:Src/motion.c  ****             break;
-  86:Src/motion.c  ****         }
-  87:Src/motion.c  ****     }
-  88:Src/motion.c  **** }
- 330              		.loc 1 88 0
- 331 005a 10BD     		pop	{r4, pc}
- 332              	.L26:
- 333              		.align	2
- 334              	.L25:
- 335 005c 00000000 		.word	flag
- 336 0060 00000000 		.word	sensor
- 337              		.cfi_endproc
- 338              	.LFE130:
- 340              		.section	.text.Ennkai,"ax",%progbits
- 341              		.align	1
- 342              		.global	Ennkai
- 343              		.syntax unified
- 344              		.thumb
- 345              		.thumb_func
- 346              		.fpu fpv4-sp-d16
- 348              	Ennkai:
- 349              	.LFB131:
-  89:Src/motion.c  **** 
-  90:Src/motion.c  **** void Ennkai(void){
- 350              		.loc 1 90 0
- 351              		.cfi_startproc
- 352              		@ args = 0, pretend = 0, frame = 0
- 353              		@ frame_needed = 0, uses_anonymous_args = 0
- 354 0000 10B5     		push	{r4, lr}
- 355              	.LCFI5:
- 356              		.cfi_def_cfa_offset 8
- 357              		.cfi_offset 4, -8
- 358              		.cfi_offset 14, -4
-  91:Src/motion.c  ****     flag.ir_led = ON;
- 359              		.loc 1 91 0
- 360 0002 184B     		ldr	r3, .L32
- 361 0004 0122     		movs	r2, #1
- 362 0006 5A71     		strb	r2, [r3, #5]
- 363              	.L28:
-  92:Src/motion.c  ****     while(1){
-  93:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
- 364              		.loc 1 93 0
- 365 0008 174B     		ldr	r3, .L32+4
- 366 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
- 367 000c 012B     		cmp	r3, #1
- 368 000e FBD1     		bne	.L28
- 369              		.loc 1 93 0 is_stmt 0 discriminator 1
- 370 0010 154B     		ldr	r3, .L32+4
- 371 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
- 372 0014 012B     		cmp	r3, #1
- 373 0016 F7D1     		bne	.L28
-  94:Src/motion.c  ****             Output_Buzzer(HZ_C_H);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 9
+ 375 001a FFF7FEFF 		bl	Output_Buzzer
+ 376              	.LVL21:
+  94:Src/motion.c  ****             break;
+  95:Src/motion.c  ****         }
+  96:Src/motion.c  ****     }
+  97:Src/motion.c  ****     flag.ir_led = OFF;
+ 377              		.loc 1 97 0
+ 378 001e 114C     		ldr	r4, .L32
+ 379 0020 0023     		movs	r3, #0
+ 380 0022 6371     		strb	r3, [r4, #5]
+  98:Src/motion.c  ****     HAL_Delay(500);
+ 381              		.loc 1 98 0
+ 382 0024 4FF4FA70 		mov	r0, #500
+ 383 0028 FFF7FEFF 		bl	HAL_Delay
+ 384              	.LVL22:
+  99:Src/motion.c  ****     gyro_offset_calc_reset();
+ 385              		.loc 1 99 0
+ 386 002c FFF7FEFF 		bl	gyro_offset_calc_reset
+ 387              	.LVL23:
+ 100:Src/motion.c  ****     Yawrate_Calc_Zero();
+ 388              		.loc 1 100 0
+ 389 0030 FFF7FEFF 		bl	Yawrate_Calc_Zero
+ 390              	.LVL24:
+ 101:Src/motion.c  ****     Straight_Calc_Zero();
+ 391              		.loc 1 101 0
+ 392 0034 FFF7FEFF 		bl	Straight_Calc_Zero
+ 393              	.LVL25:
+ 102:Src/motion.c  ****     HAL_Delay(1500);
+ 394              		.loc 1 102 0
+ 395 0038 40F2DC50 		movw	r0, #1500
+ 396 003c FFF7FEFF 		bl	HAL_Delay
+ 397              	.LVL26:
+ 103:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
+ 398              		.loc 1 103 0
+ 399 0040 4C20     		movs	r0, #76
+ 400 0042 FFF7FEFF 		bl	Output_Buzzer
+ 401              	.LVL27:
+ 104:Src/motion.c  ****     flag.yawrate = ON;
+ 402              		.loc 1 104 0
+ 403 0046 0123     		movs	r3, #1
+ 404 0048 A370     		strb	r3, [r4, #2]
+ 105:Src/motion.c  ****     flag.straight = ON;
+ 405              		.loc 1 105 0
+ 406 004a 6370     		strb	r3, [r4, #1]
+ 407              	.L30:
+ 106:Src/motion.c  ****     while(1){
+ 107:Src/motion.c  ****         if(Push()==ON){
+ 408              		.loc 1 107 0
+ 409 004c FFF7FEFF 		bl	Push
+ 410              	.LVL28:
+ 411 0050 0128     		cmp	r0, #1
+ 412 0052 FBD1     		bne	.L30
+ 108:Src/motion.c  ****             flag.yawrate = OFF;
+ 413              		.loc 1 108 0
+ 414 0054 034B     		ldr	r3, .L32
+ 415 0056 0022     		movs	r2, #0
+ 416 0058 9A70     		strb	r2, [r3, #2]
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 10
 
 
- 374              		.loc 1 94 0 is_stmt 1
- 375 0018 4C20     		movs	r0, #76
- 376 001a FFF7FEFF 		bl	Output_Buzzer
- 377              	.LVL21:
-  95:Src/motion.c  ****             break;
-  96:Src/motion.c  ****         }
-  97:Src/motion.c  ****     }
-  98:Src/motion.c  ****     flag.ir_led = OFF;
- 378              		.loc 1 98 0
- 379 001e 114C     		ldr	r4, .L32
- 380 0020 0023     		movs	r3, #0
- 381 0022 6371     		strb	r3, [r4, #5]
-  99:Src/motion.c  ****     HAL_Delay(500);
- 382              		.loc 1 99 0
- 383 0024 4FF4FA70 		mov	r0, #500
- 384 0028 FFF7FEFF 		bl	HAL_Delay
- 385              	.LVL22:
- 100:Src/motion.c  ****     gyro_offset_calc_reset();
- 386              		.loc 1 100 0
- 387 002c FFF7FEFF 		bl	gyro_offset_calc_reset
- 388              	.LVL23:
- 101:Src/motion.c  ****     Yawrate_Calc_Zero();
- 389              		.loc 1 101 0
- 390 0030 FFF7FEFF 		bl	Yawrate_Calc_Zero
- 391              	.LVL24:
- 102:Src/motion.c  ****     Straight_Calc_Zero();
- 392              		.loc 1 102 0
- 393 0034 FFF7FEFF 		bl	Straight_Calc_Zero
- 394              	.LVL25:
- 103:Src/motion.c  ****     HAL_Delay(1500);
- 395              		.loc 1 103 0
- 396 0038 40F2DC50 		movw	r0, #1500
- 397 003c FFF7FEFF 		bl	HAL_Delay
- 398              	.LVL26:
- 104:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
- 399              		.loc 1 104 0
- 400 0040 4C20     		movs	r0, #76
- 401 0042 FFF7FEFF 		bl	Output_Buzzer
- 402              	.LVL27:
- 105:Src/motion.c  ****     flag.yawrate = ON;
- 403              		.loc 1 105 0
- 404 0046 0123     		movs	r3, #1
- 405 0048 A370     		strb	r3, [r4, #2]
- 106:Src/motion.c  ****     flag.straight = ON;
- 406              		.loc 1 106 0
- 407 004a 6370     		strb	r3, [r4, #1]
- 408              	.L30:
- 107:Src/motion.c  ****     while(1){
- 108:Src/motion.c  ****         if(Push()==ON){
- 409              		.loc 1 108 0
- 410 004c FFF7FEFF 		bl	Push
- 411              	.LVL28:
- 412 0050 0128     		cmp	r0, #1
- 413 0052 FBD1     		bne	.L30
- 109:Src/motion.c  ****             flag.yawrate = OFF;
- 414              		.loc 1 109 0
- 415 0054 034B     		ldr	r3, .L32
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 10
-
-
- 416 0056 0022     		movs	r2, #0
- 417 0058 9A70     		strb	r2, [r3, #2]
- 110:Src/motion.c  ****             flag.straight = OFF;
- 418              		.loc 1 110 0
- 419 005a 5A70     		strb	r2, [r3, #1]
- 111:Src/motion.c  ****             Output_Buzzer(HZ_A);
- 420              		.loc 1 111 0
- 421 005c 5B20     		movs	r0, #91
- 422 005e FFF7FEFF 		bl	Output_Buzzer
- 423              	.LVL29:
- 112:Src/motion.c  ****             break;
- 113:Src/motion.c  ****         }
- 114:Src/motion.c  ****     }
- 115:Src/motion.c  **** }
- 424              		.loc 1 115 0
- 425 0062 10BD     		pop	{r4, pc}
- 426              	.L33:
- 427              		.align	2
- 428              	.L32:
- 429 0064 00000000 		.word	flag
- 430 0068 00000000 		.word	sensor
- 431              		.cfi_endproc
- 432              	.LFE131:
- 434              		.section	.text.Normal_Straight,"ax",%progbits
- 435              		.align	1
- 436              		.global	Normal_Straight
- 437              		.syntax unified
- 438              		.thumb
- 439              		.thumb_func
- 440              		.fpu fpv4-sp-d16
- 442              	Normal_Straight:
- 443              	.LFB132:
+ 109:Src/motion.c  ****             flag.straight = OFF;
+ 417              		.loc 1 109 0
+ 418 005a 5A70     		strb	r2, [r3, #1]
+ 110:Src/motion.c  ****             Output_Buzzer(HZ_A);
+ 419              		.loc 1 110 0
+ 420 005c 5B20     		movs	r0, #91
+ 421 005e FFF7FEFF 		bl	Output_Buzzer
+ 422              	.LVL29:
+ 111:Src/motion.c  ****             break;
+ 112:Src/motion.c  ****         }
+ 113:Src/motion.c  ****     }
+ 114:Src/motion.c  **** }
+ 423              		.loc 1 114 0
+ 424 0062 10BD     		pop	{r4, pc}
+ 425              	.L33:
+ 426              		.align	2
+ 427              	.L32:
+ 428 0064 00000000 		.word	flag
+ 429 0068 00000000 		.word	sensor
+ 430              		.cfi_endproc
+ 431              	.LFE131:
+ 433              		.section	.text.Normal_Straight,"ax",%progbits
+ 434              		.align	1
+ 435              		.global	Normal_Straight
+ 436              		.syntax unified
+ 437              		.thumb
+ 438              		.thumb_func
+ 439              		.fpu fpv4-sp-d16
+ 441              	Normal_Straight:
+ 442              	.LFB132:
+ 115:Src/motion.c  **** 
  116:Src/motion.c  **** 
- 117:Src/motion.c  **** 
- 118:Src/motion.c  **** /****************************************************************************************
- 119:Src/motion.c  ****  * outline  : straight run one block by feadbuck control
- 120:Src/motion.c  ****  * argument : void
- 121:Src/motion.c  ****  * return   : void
- 122:Src/motion.c  **** ********************************************************************************************/
- 123:Src/motion.c  **** void Normal_Straight(void){
- 444              		.loc 1 123 0
- 445              		.cfi_startproc
- 446              		@ args = 0, pretend = 0, frame = 0
- 447              		@ frame_needed = 0, uses_anonymous_args = 0
- 448 0000 38B5     		push	{r3, r4, r5, lr}
- 449              	.LCFI6:
- 450              		.cfi_def_cfa_offset 16
- 451              		.cfi_offset 3, -16
- 452              		.cfi_offset 4, -12
- 453              		.cfi_offset 5, -8
- 454              		.cfi_offset 14, -4
- 124:Src/motion.c  ****     flag.ir_led = ON;
- 455              		.loc 1 124 0
- 456 0002 174B     		ldr	r3, .L39
- 457 0004 0122     		movs	r2, #1
- 458 0006 5A71     		strb	r2, [r3, #5]
- 459              	.L35:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 11
+ 117:Src/motion.c  **** /****************************************************************************************
+ 118:Src/motion.c  ****  * outline  : straight run one block by feadbuck control
+ 119:Src/motion.c  ****  * argument : void
+ 120:Src/motion.c  ****  * return   : void
+ 121:Src/motion.c  **** ********************************************************************************************/
+ 122:Src/motion.c  **** void Normal_Straight(void){
+ 443              		.loc 1 122 0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447 0000 38B5     		push	{r3, r4, r5, lr}
+ 448              	.LCFI6:
+ 449              		.cfi_def_cfa_offset 16
+ 450              		.cfi_offset 3, -16
+ 451              		.cfi_offset 4, -12
+ 452              		.cfi_offset 5, -8
+ 453              		.cfi_offset 14, -4
+ 123:Src/motion.c  ****     flag.ir_led = ON;
+ 454              		.loc 1 123 0
+ 455 0002 174B     		ldr	r3, .L39
+ 456 0004 0122     		movs	r2, #1
+ 457 0006 5A71     		strb	r2, [r3, #5]
+ 458              	.L35:
+ 124:Src/motion.c  ****     while(1){
+ 125:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 11
 
 
- 125:Src/motion.c  ****     while(1){
- 126:Src/motion.c  ****         if(sensor.wall[0]==true && sensor.wall[3]==true){
- 460              		.loc 1 126 0
- 461 0008 164B     		ldr	r3, .L39+4
- 462 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
- 463 000c 012B     		cmp	r3, #1
- 464 000e FBD1     		bne	.L35
- 465              		.loc 1 126 0 is_stmt 0 discriminator 1
- 466 0010 144B     		ldr	r3, .L39+4
- 467 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
- 468 0014 012B     		cmp	r3, #1
- 469 0016 F7D1     		bne	.L35
- 127:Src/motion.c  ****             Output_Buzzer(HZ_C_H);
- 470              		.loc 1 127 0 is_stmt 1
- 471 0018 4C20     		movs	r0, #76
- 472 001a FFF7FEFF 		bl	Output_Buzzer
- 473              	.LVL30:
- 128:Src/motion.c  ****             break;
- 129:Src/motion.c  ****         }
- 130:Src/motion.c  ****     }
- 131:Src/motion.c  ****     flag.ir_led = OFF;
- 474              		.loc 1 131 0
- 475 001e 104D     		ldr	r5, .L39
- 476 0020 0024     		movs	r4, #0
- 477 0022 6C71     		strb	r4, [r5, #5]
- 132:Src/motion.c  ****     HAL_Delay(500);
- 478              		.loc 1 132 0
- 479 0024 4FF4FA70 		mov	r0, #500
- 480 0028 FFF7FEFF 		bl	HAL_Delay
- 481              	.LVL31:
- 133:Src/motion.c  ****     Straight_Calc_fb(180,0,0);
- 482              		.loc 1 133 0
- 483 002c 2246     		mov	r2, r4
- 484 002e 2146     		mov	r1, r4
- 485 0030 B420     		movs	r0, #180
- 486 0032 FFF7FEFF 		bl	Straight_Calc_fb
- 487              	.LVL32:
- 134:Src/motion.c  ****     HAL_Delay(1000);
- 488              		.loc 1 134 0
- 489 0036 4FF47A70 		mov	r0, #1000
- 490 003a FFF7FEFF 		bl	HAL_Delay
- 491              	.LVL33:
- 135:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
- 492              		.loc 1 135 0
- 493 003e 4C20     		movs	r0, #76
- 494 0040 FFF7FEFF 		bl	Output_Buzzer
- 495              	.LVL34:
- 136:Src/motion.c  ****     flag.straight = ON;
- 496              		.loc 1 136 0
- 497 0044 0123     		movs	r3, #1
- 498 0046 6B70     		strb	r3, [r5, #1]
- 499              	.L37:
- 137:Src/motion.c  ****     while(1){
- 138:Src/motion.c  ****         if(Push()==ON){
- 500              		.loc 1 138 0
- 501 0048 FFF7FEFF 		bl	Push
- 502              	.LVL35:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 12
+ 459              		.loc 1 125 0
+ 460 0008 164B     		ldr	r3, .L39+4
+ 461 000a 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+ 462 000c 012B     		cmp	r3, #1
+ 463 000e FBD1     		bne	.L35
+ 464              		.loc 1 125 0 is_stmt 0 discriminator 1
+ 465 0010 144B     		ldr	r3, .L39+4
+ 466 0012 DB7E     		ldrb	r3, [r3, #27]	@ zero_extendqisi2
+ 467 0014 012B     		cmp	r3, #1
+ 468 0016 F7D1     		bne	.L35
+ 126:Src/motion.c  ****             Output_Buzzer(HZ_C_H);
+ 469              		.loc 1 126 0 is_stmt 1
+ 470 0018 4C20     		movs	r0, #76
+ 471 001a FFF7FEFF 		bl	Output_Buzzer
+ 472              	.LVL30:
+ 127:Src/motion.c  ****             break;
+ 128:Src/motion.c  ****         }
+ 129:Src/motion.c  ****     }
+ 130:Src/motion.c  ****     flag.ir_led = OFF;
+ 473              		.loc 1 130 0
+ 474 001e 104D     		ldr	r5, .L39
+ 475 0020 0024     		movs	r4, #0
+ 476 0022 6C71     		strb	r4, [r5, #5]
+ 131:Src/motion.c  ****     HAL_Delay(500);
+ 477              		.loc 1 131 0
+ 478 0024 4FF4FA70 		mov	r0, #500
+ 479 0028 FFF7FEFF 		bl	HAL_Delay
+ 480              	.LVL31:
+ 132:Src/motion.c  ****     Straight_Calc_fb(180,0,0);
+ 481              		.loc 1 132 0
+ 482 002c 2246     		mov	r2, r4
+ 483 002e 2146     		mov	r1, r4
+ 484 0030 B420     		movs	r0, #180
+ 485 0032 FFF7FEFF 		bl	Straight_Calc_fb
+ 486              	.LVL32:
+ 133:Src/motion.c  ****     HAL_Delay(1000);
+ 487              		.loc 1 133 0
+ 488 0036 4FF47A70 		mov	r0, #1000
+ 489 003a FFF7FEFF 		bl	HAL_Delay
+ 490              	.LVL33:
+ 134:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
+ 491              		.loc 1 134 0
+ 492 003e 4C20     		movs	r0, #76
+ 493 0040 FFF7FEFF 		bl	Output_Buzzer
+ 494              	.LVL34:
+ 135:Src/motion.c  ****     flag.straight = ON;
+ 495              		.loc 1 135 0
+ 496 0044 0123     		movs	r3, #1
+ 497 0046 6B70     		strb	r3, [r5, #1]
+ 498              	.L37:
+ 136:Src/motion.c  ****     while(1){
+ 137:Src/motion.c  ****         if(Push()==ON){
+ 499              		.loc 1 137 0
+ 500 0048 FFF7FEFF 		bl	Push
+ 501              	.LVL35:
+ 502 004c 0128     		cmp	r0, #1
+ 503 004e FBD1     		bne	.L37
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 12
 
 
- 503 004c 0128     		cmp	r0, #1
- 504 004e FBD1     		bne	.L37
- 139:Src/motion.c  ****             flag.straight = OFF;
- 505              		.loc 1 139 0
- 506 0050 034B     		ldr	r3, .L39
- 507 0052 0022     		movs	r2, #0
- 508 0054 5A70     		strb	r2, [r3, #1]
- 140:Src/motion.c  ****             Output_Buzzer(HZ_A);
- 509              		.loc 1 140 0
- 510 0056 5B20     		movs	r0, #91
- 511 0058 FFF7FEFF 		bl	Output_Buzzer
- 512              	.LVL36:
- 141:Src/motion.c  ****             break;
- 142:Src/motion.c  ****         }
- 143:Src/motion.c  ****     }
- 144:Src/motion.c  **** }
- 513              		.loc 1 144 0
- 514 005c 38BD     		pop	{r3, r4, r5, pc}
- 515              	.L40:
- 516 005e 00BF     		.align	2
- 517              	.L39:
- 518 0060 00000000 		.word	flag
- 519 0064 00000000 		.word	sensor
- 520              		.cfi_endproc
- 521              	.LFE132:
- 523              		.section	.text.Straight,"ax",%progbits
- 524              		.align	1
- 525              		.global	Straight
- 526              		.syntax unified
- 527              		.thumb
- 528              		.thumb_func
- 529              		.fpu fpv4-sp-d16
- 531              	Straight:
- 532              	.LFB133:
+ 138:Src/motion.c  ****             flag.straight = OFF;
+ 504              		.loc 1 138 0
+ 505 0050 034B     		ldr	r3, .L39
+ 506 0052 0022     		movs	r2, #0
+ 507 0054 5A70     		strb	r2, [r3, #1]
+ 139:Src/motion.c  ****             Output_Buzzer(HZ_A);
+ 508              		.loc 1 139 0
+ 509 0056 5B20     		movs	r0, #91
+ 510 0058 FFF7FEFF 		bl	Output_Buzzer
+ 511              	.LVL36:
+ 140:Src/motion.c  ****             break;
+ 141:Src/motion.c  ****         }
+ 142:Src/motion.c  ****     }
+ 143:Src/motion.c  **** }
+ 512              		.loc 1 143 0
+ 513 005c 38BD     		pop	{r3, r4, r5, pc}
+ 514              	.L40:
+ 515 005e 00BF     		.align	2
+ 516              	.L39:
+ 517 0060 00000000 		.word	flag
+ 518 0064 00000000 		.word	sensor
+ 519              		.cfi_endproc
+ 520              	.LFE132:
+ 522              		.section	.text.Straight,"ax",%progbits
+ 523              		.align	1
+ 524              		.global	Straight
+ 525              		.syntax unified
+ 526              		.thumb
+ 527              		.thumb_func
+ 528              		.fpu fpv4-sp-d16
+ 530              	Straight:
+ 531              	.LFB133:
+ 144:Src/motion.c  **** 
  145:Src/motion.c  **** 
- 146:Src/motion.c  **** 
- 147:Src/motion.c  **** /****************************************************************************************
- 148:Src/motion.c  ****  * outline  : straight one block by encoder and gyro
- 149:Src/motion.c  ****  * argument : void
- 150:Src/motion.c  ****  * return   : void
- 151:Src/motion.c  **** ********************************************************************************************/
- 152:Src/motion.c  **** void Straight(void){
- 533              		.loc 1 152 0
- 534              		.cfi_startproc
- 535              		@ args = 0, pretend = 0, frame = 0
- 536              		@ frame_needed = 0, uses_anonymous_args = 0
- 537 0000 10B5     		push	{r4, lr}
- 538              	.LCFI7:
- 539              		.cfi_def_cfa_offset 8
- 540              		.cfi_offset 4, -8
- 541              		.cfi_offset 14, -4
- 153:Src/motion.c  ****     flag.ir_led = OFF;
- 542              		.loc 1 153 0
- 543 0002 094C     		ldr	r4, .L43
- 544 0004 0021     		movs	r1, #0
- 545 0006 6171     		strb	r1, [r4, #5]
- 154:Src/motion.c  ****     Straight_Calc_fb(180.0f,0.0f,0.0f);
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 13
+ 146:Src/motion.c  **** /****************************************************************************************
+ 147:Src/motion.c  ****  * outline  : straight one block by encoder and gyro
+ 148:Src/motion.c  ****  * argument : void
+ 149:Src/motion.c  ****  * return   : void
+ 150:Src/motion.c  **** ********************************************************************************************/
+ 151:Src/motion.c  **** void Straight(void){
+ 532              		.loc 1 151 0
+ 533              		.cfi_startproc
+ 534              		@ args = 0, pretend = 0, frame = 0
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536 0000 10B5     		push	{r4, lr}
+ 537              	.LCFI7:
+ 538              		.cfi_def_cfa_offset 8
+ 539              		.cfi_offset 4, -8
+ 540              		.cfi_offset 14, -4
+ 152:Src/motion.c  ****     flag.ir_led = OFF;
+ 541              		.loc 1 152 0
+ 542 0002 094C     		ldr	r4, .L43
+ 543 0004 0021     		movs	r1, #0
+ 544 0006 6171     		strb	r1, [r4, #5]
+ 153:Src/motion.c  ****     Straight_Calc_fb(180.0f,0.0f,0.0f);
+ 545              		.loc 1 153 0
+ 546 0008 0A46     		mov	r2, r1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 13
 
 
- 546              		.loc 1 154 0
- 547 0008 0A46     		mov	r2, r1
- 548 000a B420     		movs	r0, #180
- 549 000c FFF7FEFF 		bl	Straight_Calc_fb
- 550              	.LVL37:
- 155:Src/motion.c  ****     Yawrate_Calc_Zero();
- 551              		.loc 1 155 0
- 552 0010 FFF7FEFF 		bl	Yawrate_Calc_Zero
- 553              	.LVL38:
- 156:Src/motion.c  ****     HAL_Delay(10);
- 554              		.loc 1 156 0
- 555 0014 0A20     		movs	r0, #10
- 556 0016 FFF7FEFF 		bl	HAL_Delay
- 557              	.LVL39:
- 157:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
- 558              		.loc 1 157 0
- 559 001a 4C20     		movs	r0, #76
- 560 001c FFF7FEFF 		bl	Output_Buzzer
- 561              	.LVL40:
- 158:Src/motion.c  ****     flag.straight = ON;
- 562              		.loc 1 158 0
- 563 0020 0123     		movs	r3, #1
- 564 0022 6370     		strb	r3, [r4, #1]
- 159:Src/motion.c  ****     flag.yawrate = ON;
- 565              		.loc 1 159 0
- 566 0024 A370     		strb	r3, [r4, #2]
- 160:Src/motion.c  **** }
- 567              		.loc 1 160 0
- 568 0026 10BD     		pop	{r4, pc}
- 569              	.L44:
- 570              		.align	2
- 571              	.L43:
- 572 0028 00000000 		.word	flag
- 573              		.cfi_endproc
- 574              	.LFE133:
- 576              		.section	.text.Straight_HalF,"ax",%progbits
- 577              		.align	1
- 578              		.global	Straight_HalF
- 579              		.syntax unified
- 580              		.thumb
- 581              		.thumb_func
- 582              		.fpu fpv4-sp-d16
- 584              	Straight_HalF:
- 585              	.LFB134:
- 161:Src/motion.c  **** 
- 162:Src/motion.c  **** void Straight_HalF(void){
- 586              		.loc 1 162 0
- 587              		.cfi_startproc
- 588              		@ args = 0, pretend = 0, frame = 0
- 589              		@ frame_needed = 0, uses_anonymous_args = 0
- 590 0000 38B5     		push	{r3, r4, r5, lr}
- 591              	.LCFI8:
- 592              		.cfi_def_cfa_offset 16
- 593              		.cfi_offset 3, -16
- 594              		.cfi_offset 4, -12
- 595              		.cfi_offset 5, -8
- 596              		.cfi_offset 14, -4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 14
+ 547 000a B420     		movs	r0, #180
+ 548 000c FFF7FEFF 		bl	Straight_Calc_fb
+ 549              	.LVL37:
+ 154:Src/motion.c  ****     Yawrate_Calc_Zero();
+ 550              		.loc 1 154 0
+ 551 0010 FFF7FEFF 		bl	Yawrate_Calc_Zero
+ 552              	.LVL38:
+ 155:Src/motion.c  ****     HAL_Delay(10);
+ 553              		.loc 1 155 0
+ 554 0014 0A20     		movs	r0, #10
+ 555 0016 FFF7FEFF 		bl	HAL_Delay
+ 556              	.LVL39:
+ 156:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
+ 557              		.loc 1 156 0
+ 558 001a 4C20     		movs	r0, #76
+ 559 001c FFF7FEFF 		bl	Output_Buzzer
+ 560              	.LVL40:
+ 157:Src/motion.c  ****     flag.straight = ON;
+ 561              		.loc 1 157 0
+ 562 0020 0123     		movs	r3, #1
+ 563 0022 6370     		strb	r3, [r4, #1]
+ 158:Src/motion.c  ****     flag.yawrate = ON;
+ 564              		.loc 1 158 0
+ 565 0024 A370     		strb	r3, [r4, #2]
+ 159:Src/motion.c  **** }
+ 566              		.loc 1 159 0
+ 567 0026 10BD     		pop	{r4, pc}
+ 568              	.L44:
+ 569              		.align	2
+ 570              	.L43:
+ 571 0028 00000000 		.word	flag
+ 572              		.cfi_endproc
+ 573              	.LFE133:
+ 575              		.section	.text.Straight_HalF,"ax",%progbits
+ 576              		.align	1
+ 577              		.global	Straight_HalF
+ 578              		.syntax unified
+ 579              		.thumb
+ 580              		.thumb_func
+ 581              		.fpu fpv4-sp-d16
+ 583              	Straight_HalF:
+ 584              	.LFB134:
+ 160:Src/motion.c  **** 
+ 161:Src/motion.c  **** void Straight_HalF(void){
+ 585              		.loc 1 161 0
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 0
+ 588              		@ frame_needed = 0, uses_anonymous_args = 0
+ 589 0000 10B5     		push	{r4, lr}
+ 590              	.LCFI8:
+ 591              		.cfi_def_cfa_offset 8
+ 592              		.cfi_offset 4, -8
+ 593              		.cfi_offset 14, -4
+ 162:Src/motion.c  ****     flag.ir_led = OFF;
+ 594              		.loc 1 162 0
+ 595 0002 094C     		ldr	r4, .L47
+ 596 0004 0021     		movs	r1, #0
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 14
 
 
- 163:Src/motion.c  ****     flag.ir_led = OFF;
- 597              		.loc 1 163 0
- 598 0002 0A4C     		ldr	r4, .L47
- 599 0004 0025     		movs	r5, #0
- 600 0006 6571     		strb	r5, [r4, #5]
- 164:Src/motion.c  ****     gyro_offset_calc_reset();
- 601              		.loc 1 164 0
- 602 0008 FFF7FEFF 		bl	gyro_offset_calc_reset
- 603              	.LVL41:
- 165:Src/motion.c  ****     Straight_Calc_fb(90.0f,0.0f,0.0f);
- 604              		.loc 1 165 0
- 605 000c 2A46     		mov	r2, r5
- 606 000e 2946     		mov	r1, r5
- 607 0010 5A20     		movs	r0, #90
- 608 0012 FFF7FEFF 		bl	Straight_Calc_fb
- 609              	.LVL42:
- 166:Src/motion.c  ****     HAL_Delay(1023);
+ 597 0006 6171     		strb	r1, [r4, #5]
+ 163:Src/motion.c  ****     Straight_Calc_fb(90.0f,0.0f,0.0f);
+ 598              		.loc 1 163 0
+ 599 0008 0A46     		mov	r2, r1
+ 600 000a 5A20     		movs	r0, #90
+ 601 000c FFF7FEFF 		bl	Straight_Calc_fb
+ 602              	.LVL41:
+ 164:Src/motion.c  ****     Yawrate_Calc_Zero();
+ 603              		.loc 1 164 0
+ 604 0010 FFF7FEFF 		bl	Yawrate_Calc_Zero
+ 605              	.LVL42:
+ 165:Src/motion.c  ****     HAL_Delay(10);
+ 606              		.loc 1 165 0
+ 607 0014 0A20     		movs	r0, #10
+ 608 0016 FFF7FEFF 		bl	HAL_Delay
+ 609              	.LVL43:
+ 166:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
  610              		.loc 1 166 0
- 611 0016 40F2FF30 		movw	r0, #1023
- 612 001a FFF7FEFF 		bl	HAL_Delay
- 613              	.LVL43:
- 167:Src/motion.c  ****     Output_Buzzer(HZ_C_H);
+ 611 001a 4C20     		movs	r0, #76
+ 612 001c FFF7FEFF 		bl	Output_Buzzer
+ 613              	.LVL44:
+ 167:Src/motion.c  ****     flag.straight = ON;
  614              		.loc 1 167 0
- 615 001e 4C20     		movs	r0, #76
- 616 0020 FFF7FEFF 		bl	Output_Buzzer
- 617              	.LVL44:
- 168:Src/motion.c  ****     flag.straight = ON;
- 618              		.loc 1 168 0
- 619 0024 0123     		movs	r3, #1
- 620 0026 6370     		strb	r3, [r4, #1]
- 169:Src/motion.c  ****     flag.yawrate = ON;
- 621              		.loc 1 169 0
- 622 0028 A370     		strb	r3, [r4, #2]
- 170:Src/motion.c  **** }
- 623              		.loc 1 170 0
- 624 002a 38BD     		pop	{r3, r4, r5, pc}
- 625              	.L48:
- 626              		.align	2
- 627              	.L47:
- 628 002c 00000000 		.word	flag
- 629              		.cfi_endproc
- 630              	.LFE134:
- 632              		.global	__aeabi_f2d
- 633              		.section	.text.Show_log,"ax",%progbits
- 634              		.align	1
- 635              		.global	Show_log
- 636              		.syntax unified
- 637              		.thumb
- 638              		.thumb_func
- 639              		.fpu fpv4-sp-d16
- 641              	Show_log:
- 642              	.LFB135:
+ 615 0020 0123     		movs	r3, #1
+ 616 0022 6370     		strb	r3, [r4, #1]
+ 168:Src/motion.c  ****     flag.yawrate = ON;
+ 617              		.loc 1 168 0
+ 618 0024 A370     		strb	r3, [r4, #2]
+ 169:Src/motion.c  **** }
+ 619              		.loc 1 169 0
+ 620 0026 10BD     		pop	{r4, pc}
+ 621              	.L48:
+ 622              		.align	2
+ 623              	.L47:
+ 624 0028 00000000 		.word	flag
+ 625              		.cfi_endproc
+ 626              	.LFE134:
+ 628              		.global	__aeabi_f2d
+ 629              		.section	.text.Show_log,"ax",%progbits
+ 630              		.align	1
+ 631              		.global	Show_log
+ 632              		.syntax unified
+ 633              		.thumb
+ 634              		.thumb_func
+ 635              		.fpu fpv4-sp-d16
+ 637              	Show_log:
+ 638              	.LFB135:
+ 170:Src/motion.c  **** 
  171:Src/motion.c  **** 
- 172:Src/motion.c  **** 
- 173:Src/motion.c  **** /****************************************************************************************
- 174:Src/motion.c  ****  * outline  : show log
- 175:Src/motion.c  ****  * argument : void
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 15
+ 172:Src/motion.c  **** /****************************************************************************************
+ 173:Src/motion.c  ****  * outline  : show log
+ 174:Src/motion.c  ****  * argument : void
+ 175:Src/motion.c  ****  * return   : void
+ 176:Src/motion.c  **** ********************************************************************************************/
+ 177:Src/motion.c  **** void Show_log(void){
+ 639              		.loc 1 177 0
+ 640              		.cfi_startproc
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 15
 
 
- 176:Src/motion.c  ****  * return   : void
- 177:Src/motion.c  **** ********************************************************************************************/
- 178:Src/motion.c  **** void Show_log(void){
- 643              		.loc 1 178 0
- 644              		.cfi_startproc
- 645              		@ args = 0, pretend = 0, frame = 0
- 646              		@ frame_needed = 0, uses_anonymous_args = 0
- 647 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 648              	.LCFI9:
- 649              		.cfi_def_cfa_offset 24
- 650              		.cfi_offset 4, -24
- 651              		.cfi_offset 5, -20
- 652              		.cfi_offset 6, -16
- 653              		.cfi_offset 7, -12
- 654              		.cfi_offset 8, -8
- 655              		.cfi_offset 14, -4
- 656 0004 84B0     		sub	sp, sp, #16
- 657              	.LCFI10:
- 658              		.cfi_def_cfa_offset 40
- 179:Src/motion.c  ****     printf("\na:%d,c:%d,d:%d\r\n",y_accel_T,y_constant_T,y_decrease_T);
- 659              		.loc 1 179 0
- 660 0006 1F4B     		ldr	r3, .L56
- 661 0008 1B88     		ldrh	r3, [r3]
- 662 000a 1F4A     		ldr	r2, .L56+4
- 663 000c 1288     		ldrh	r2, [r2]
- 664 000e 1F49     		ldr	r1, .L56+8
- 665 0010 0988     		ldrh	r1, [r1]
- 666 0012 1F48     		ldr	r0, .L56+12
- 667 0014 FFF7FEFF 		bl	printf
- 668              	.LVL45:
- 669              	.LBB2:
- 180:Src/motion.c  ****     for(uint16_t i=0;i<2000;i++){
- 670              		.loc 1 180 0
- 671 0018 0024     		movs	r4, #0
- 672              	.LVL46:
- 673              	.L50:
- 674              		.loc 1 180 0 is_stmt 0 discriminator 1
- 675 001a B4F5FA6F 		cmp	r4, #2000
- 676 001e 2ED2     		bcs	.L49
- 181:Src/motion.c  ****         printf("%f\t%f\t%f\r\n",loger.target_y_velocity[i],loger.y_velocity[i],loger.velocity_c[i])
- 677              		.loc 1 181 0 is_stmt 1
- 678 0020 1C4B     		ldr	r3, .L56+16
- 679 0022 04F5FA61 		add	r1, r4, #2000
- 680 0026 03EB8101 		add	r1, r3, r1, lsl #2
- 681 002a 04F5BB52 		add	r2, r4, #5984
- 682 002e 1032     		adds	r2, r2, #16
- 683 0030 03EB8202 		add	r2, r3, r2, lsl #2
- 684 0034 1568     		ldr	r5, [r2]	@ float
- 685 0036 04F57A62 		add	r2, r4, #4000
- 686 003a 03EB8203 		add	r3, r3, r2, lsl #2
- 687 003e D3F80080 		ldr	r8, [r3]	@ float
- 688 0042 0868     		ldr	r0, [r1]	@ float
- 689 0044 FFF7FEFF 		bl	__aeabi_f2d
- 690              	.LVL47:
- 691 0048 0646     		mov	r6, r0
- 692 004a 0F46     		mov	r7, r1
- 693 004c 4046     		mov	r0, r8	@ float
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 16
+ 641              		@ args = 0, pretend = 0, frame = 0
+ 642              		@ frame_needed = 0, uses_anonymous_args = 0
+ 643 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 644              	.LCFI9:
+ 645              		.cfi_def_cfa_offset 24
+ 646              		.cfi_offset 4, -24
+ 647              		.cfi_offset 5, -20
+ 648              		.cfi_offset 6, -16
+ 649              		.cfi_offset 7, -12
+ 650              		.cfi_offset 8, -8
+ 651              		.cfi_offset 14, -4
+ 652 0004 84B0     		sub	sp, sp, #16
+ 653              	.LCFI10:
+ 654              		.cfi_def_cfa_offset 40
+ 178:Src/motion.c  ****     printf("\na:%d,c:%d,d:%d\r\n",y_accel_T,y_constant_T,y_decrease_T);
+ 655              		.loc 1 178 0
+ 656 0006 1F4B     		ldr	r3, .L56
+ 657 0008 1B88     		ldrh	r3, [r3]
+ 658 000a 1F4A     		ldr	r2, .L56+4
+ 659 000c 1288     		ldrh	r2, [r2]
+ 660 000e 1F49     		ldr	r1, .L56+8
+ 661 0010 0988     		ldrh	r1, [r1]
+ 662 0012 1F48     		ldr	r0, .L56+12
+ 663 0014 FFF7FEFF 		bl	printf
+ 664              	.LVL45:
+ 665              	.LBB2:
+ 179:Src/motion.c  ****     for(uint16_t i=0;i<2000;i++){
+ 666              		.loc 1 179 0
+ 667 0018 0024     		movs	r4, #0
+ 668              	.LVL46:
+ 669              	.L50:
+ 670              		.loc 1 179 0 is_stmt 0 discriminator 1
+ 671 001a B4F5FA6F 		cmp	r4, #2000
+ 672 001e 2ED2     		bcs	.L49
+ 180:Src/motion.c  ****         printf("%f\t%f\t%f\r\n",loger.target_y_velocity[i],loger.y_velocity[i],loger.velocity_c[i])
+ 673              		.loc 1 180 0 is_stmt 1
+ 674 0020 1C4B     		ldr	r3, .L56+16
+ 675 0022 04F5FA61 		add	r1, r4, #2000
+ 676 0026 03EB8101 		add	r1, r3, r1, lsl #2
+ 677 002a 04F5BB52 		add	r2, r4, #5984
+ 678 002e 1032     		adds	r2, r2, #16
+ 679 0030 03EB8202 		add	r2, r3, r2, lsl #2
+ 680 0034 1568     		ldr	r5, [r2]	@ float
+ 681 0036 04F57A62 		add	r2, r4, #4000
+ 682 003a 03EB8203 		add	r3, r3, r2, lsl #2
+ 683 003e D3F80080 		ldr	r8, [r3]	@ float
+ 684 0042 0868     		ldr	r0, [r1]	@ float
+ 685 0044 FFF7FEFF 		bl	__aeabi_f2d
+ 686              	.LVL47:
+ 687 0048 0646     		mov	r6, r0
+ 688 004a 0F46     		mov	r7, r1
+ 689 004c 4046     		mov	r0, r8	@ float
+ 690 004e FFF7FEFF 		bl	__aeabi_f2d
+ 691              	.LVL48:
+ 692 0052 CDE90201 		strd	r0, [sp, #8]
+ 693 0056 2846     		mov	r0, r5	@ float
+ 694 0058 FFF7FEFF 		bl	__aeabi_f2d
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 16
 
 
- 694 004e FFF7FEFF 		bl	__aeabi_f2d
- 695              	.LVL48:
- 696 0052 CDE90201 		strd	r0, [sp, #8]
- 697 0056 2846     		mov	r0, r5	@ float
- 698 0058 FFF7FEFF 		bl	__aeabi_f2d
- 699              	.LVL49:
- 700 005c CDE90001 		strd	r0, [sp]
- 701 0060 3246     		mov	r2, r6
- 702 0062 3B46     		mov	r3, r7
- 703 0064 0C48     		ldr	r0, .L56+20
- 704 0066 FFF7FEFF 		bl	printf
- 705              	.LVL50:
- 182:Src/motion.c  ****         if(Push()==ON){
- 706              		.loc 1 182 0
- 707 006a FFF7FEFF 		bl	Push
- 708              	.LVL51:
- 709 006e 0128     		cmp	r0, #1
- 710 0070 02D0     		beq	.L55
- 180:Src/motion.c  ****     for(uint16_t i=0;i<2000;i++){
- 711              		.loc 1 180 0 discriminator 2
- 712 0072 0134     		adds	r4, r4, #1
- 713              	.LVL52:
- 714 0074 A4B2     		uxth	r4, r4
- 715              	.LVL53:
- 716 0076 D0E7     		b	.L50
- 717              	.L55:
- 183:Src/motion.c  ****             Output_Buzzer(HZ_A);
- 718              		.loc 1 183 0
- 719 0078 5B20     		movs	r0, #91
- 720 007a FFF7FEFF 		bl	Output_Buzzer
- 721              	.LVL54:
- 722              	.L49:
- 723              	.LBE2:
- 184:Src/motion.c  ****             break;
- 185:Src/motion.c  ****         }
- 186:Src/motion.c  ****     }
- 187:Src/motion.c  **** }
- 724              		.loc 1 187 0
- 725 007e 04B0     		add	sp, sp, #16
- 726              	.LCFI11:
- 727              		.cfi_def_cfa_offset 24
- 728              		@ sp needed
- 729 0080 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 730              	.LVL55:
- 731              	.L57:
- 732              		.align	2
- 733              	.L56:
- 734 0084 00000000 		.word	y_decrease_T
- 735 0088 00000000 		.word	y_constant_T
- 736 008c 00000000 		.word	y_accel_T
- 737 0090 00000000 		.word	.LC0
- 738 0094 00000000 		.word	loger
- 739 0098 14000000 		.word	.LC1
- 740              		.cfi_endproc
- 741              	.LFE135:
- 743              		.section	.text.Sensor_Mode,"ax",%progbits
- 744              		.align	1
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 17
+ 695              	.LVL49:
+ 696 005c CDE90001 		strd	r0, [sp]
+ 697 0060 3246     		mov	r2, r6
+ 698 0062 3B46     		mov	r3, r7
+ 699 0064 0C48     		ldr	r0, .L56+20
+ 700 0066 FFF7FEFF 		bl	printf
+ 701              	.LVL50:
+ 181:Src/motion.c  ****         if(Push()==ON){
+ 702              		.loc 1 181 0
+ 703 006a FFF7FEFF 		bl	Push
+ 704              	.LVL51:
+ 705 006e 0128     		cmp	r0, #1
+ 706 0070 02D0     		beq	.L55
+ 179:Src/motion.c  ****     for(uint16_t i=0;i<2000;i++){
+ 707              		.loc 1 179 0 discriminator 2
+ 708 0072 0134     		adds	r4, r4, #1
+ 709              	.LVL52:
+ 710 0074 A4B2     		uxth	r4, r4
+ 711              	.LVL53:
+ 712 0076 D0E7     		b	.L50
+ 713              	.L55:
+ 182:Src/motion.c  ****             Output_Buzzer(HZ_A);
+ 714              		.loc 1 182 0
+ 715 0078 5B20     		movs	r0, #91
+ 716 007a FFF7FEFF 		bl	Output_Buzzer
+ 717              	.LVL54:
+ 718              	.L49:
+ 719              	.LBE2:
+ 183:Src/motion.c  ****             break;
+ 184:Src/motion.c  ****         }
+ 185:Src/motion.c  ****     }
+ 186:Src/motion.c  **** }
+ 720              		.loc 1 186 0
+ 721 007e 04B0     		add	sp, sp, #16
+ 722              	.LCFI11:
+ 723              		.cfi_def_cfa_offset 24
+ 724              		@ sp needed
+ 725 0080 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 726              	.LVL55:
+ 727              	.L57:
+ 728              		.align	2
+ 729              	.L56:
+ 730 0084 00000000 		.word	y_decrease_T
+ 731 0088 00000000 		.word	y_constant_T
+ 732 008c 00000000 		.word	y_accel_T
+ 733 0090 00000000 		.word	.LC0
+ 734 0094 00000000 		.word	loger
+ 735 0098 14000000 		.word	.LC1
+ 736              		.cfi_endproc
+ 737              	.LFE135:
+ 739              		.section	.text.Sensor_Mode,"ax",%progbits
+ 740              		.align	1
+ 741              		.global	Sensor_Mode
+ 742              		.syntax unified
+ 743              		.thumb
+ 744              		.thumb_func
+ 745              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 17
 
 
- 745              		.global	Sensor_Mode
- 746              		.syntax unified
- 747              		.thumb
- 748              		.thumb_func
- 749              		.fpu fpv4-sp-d16
- 751              	Sensor_Mode:
- 752              	.LFB136:
- 188:Src/motion.c  **** 
- 189:Src/motion.c  **** void Sensor_Mode(void){
- 753              		.loc 1 189 0
- 754              		.cfi_startproc
- 755              		@ args = 0, pretend = 0, frame = 0
- 756              		@ frame_needed = 0, uses_anonymous_args = 0
- 757 0000 10B5     		push	{r4, lr}
- 758              	.LCFI12:
- 759              		.cfi_def_cfa_offset 8
- 760              		.cfi_offset 4, -8
- 761              		.cfi_offset 14, -4
- 190:Src/motion.c  ****     flag.ir_led = ON;
- 762              		.loc 1 190 0
- 763 0002 104B     		ldr	r3, .L64
- 764 0004 0122     		movs	r2, #1
- 765 0006 5A71     		strb	r2, [r3, #5]
- 766 0008 11E0     		b	.L61
- 767              	.LVL56:
- 768              	.L60:
- 769              	.LBB3:
- 191:Src/motion.c  ****     while(1){
- 192:Src/motion.c  ****         Sensor_Check();
- 193:Src/motion.c  ****         for(int i=0;i<4;i++){
- 194:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
- 770              		.loc 1 194 0 discriminator 3
- 771 000a 04F10802 		add	r2, r4, #8
- 772 000e 0E4B     		ldr	r3, .L64+4
- 773 0010 33F81210 		ldrh	r1, [r3, r2, lsl #1]
- 774 0014 0D48     		ldr	r0, .L64+8
- 775 0016 FFF7FEFF 		bl	printf
- 776              	.LVL57:
- 193:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
- 777              		.loc 1 193 0 discriminator 3
- 778 001a 0134     		adds	r4, r4, #1
- 779              	.LVL58:
- 780              	.L59:
- 193:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
- 781              		.loc 1 193 0 is_stmt 0 discriminator 1
- 782 001c 032C     		cmp	r4, #3
- 783 001e F4DD     		ble	.L60
- 784              	.LBE3:
- 195:Src/motion.c  ****         }
- 196:Src/motion.c  ****         printf("\r");
- 785              		.loc 1 196 0 is_stmt 1
- 786 0020 0D20     		movs	r0, #13
- 787 0022 FFF7FEFF 		bl	putchar
- 788              	.LVL59:
- 197:Src/motion.c  ****         if(Push()==ON){
- 789              		.loc 1 197 0
- 790 0026 FFF7FEFF 		bl	Push
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 18
-
-
- 791              	.LVL60:
- 792 002a 0128     		cmp	r0, #1
- 793 002c 03D0     		beq	.L63
- 794              	.LVL61:
- 795              	.L61:
+ 747              	Sensor_Mode:
+ 748              	.LFB136:
+ 187:Src/motion.c  **** 
+ 188:Src/motion.c  **** void Sensor_Mode(void){
+ 749              		.loc 1 188 0
+ 750              		.cfi_startproc
+ 751              		@ args = 0, pretend = 0, frame = 0
+ 752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 753 0000 10B5     		push	{r4, lr}
+ 754              	.LCFI12:
+ 755              		.cfi_def_cfa_offset 8
+ 756              		.cfi_offset 4, -8
+ 757              		.cfi_offset 14, -4
+ 189:Src/motion.c  ****     flag.ir_led = ON;
+ 758              		.loc 1 189 0
+ 759 0002 104B     		ldr	r3, .L64
+ 760 0004 0122     		movs	r2, #1
+ 761 0006 5A71     		strb	r2, [r3, #5]
+ 762 0008 11E0     		b	.L61
+ 763              	.LVL56:
+ 764              	.L60:
+ 765              	.LBB3:
+ 190:Src/motion.c  ****     while(1){
+ 191:Src/motion.c  ****         Sensor_Check();
  192:Src/motion.c  ****         for(int i=0;i<4;i++){
- 796              		.loc 1 192 0
- 797 002e FFF7FEFF 		bl	Sensor_Check
- 798              	.LVL62:
- 799              	.LBB4:
  193:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
- 800              		.loc 1 193 0
- 801 0032 0024     		movs	r4, #0
- 802 0034 F2E7     		b	.L59
- 803              	.LVL63:
- 804              	.L63:
- 805              	.LBE4:
- 198:Src/motion.c  ****             Output_Buzzer(HZ_A);
+ 766              		.loc 1 193 0 discriminator 3
+ 767 000a 04F10802 		add	r2, r4, #8
+ 768 000e 0E4B     		ldr	r3, .L64+4
+ 769 0010 33F81210 		ldrh	r1, [r3, r2, lsl #1]
+ 770 0014 0D48     		ldr	r0, .L64+8
+ 771 0016 FFF7FEFF 		bl	printf
+ 772              	.LVL57:
+ 192:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
+ 773              		.loc 1 192 0 discriminator 3
+ 774 001a 0134     		adds	r4, r4, #1
+ 775              	.LVL58:
+ 776              	.L59:
+ 192:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
+ 777              		.loc 1 192 0 is_stmt 0 discriminator 1
+ 778 001c 032C     		cmp	r4, #3
+ 779 001e F4DD     		ble	.L60
+ 780              	.LBE3:
+ 194:Src/motion.c  ****         }
+ 195:Src/motion.c  ****         printf("\r");
+ 781              		.loc 1 195 0 is_stmt 1
+ 782 0020 0D20     		movs	r0, #13
+ 783 0022 FFF7FEFF 		bl	putchar
+ 784              	.LVL59:
+ 196:Src/motion.c  ****         if(Push()==ON){
+ 785              		.loc 1 196 0
+ 786 0026 FFF7FEFF 		bl	Push
+ 787              	.LVL60:
+ 788 002a 0128     		cmp	r0, #1
+ 789 002c 03D0     		beq	.L63
+ 790              	.LVL61:
+ 791              	.L61:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 18
+
+
+ 191:Src/motion.c  ****         for(int i=0;i<4;i++){
+ 792              		.loc 1 191 0
+ 793 002e FFF7FEFF 		bl	Sensor_Check
+ 794              	.LVL62:
+ 795              	.LBB4:
+ 192:Src/motion.c  ****             printf("%d\t",sensor.adc[i]);
+ 796              		.loc 1 192 0
+ 797 0032 0024     		movs	r4, #0
+ 798 0034 F2E7     		b	.L59
+ 799              	.LVL63:
+ 800              	.L63:
+ 801              	.LBE4:
+ 197:Src/motion.c  ****             Output_Buzzer(HZ_A);
+ 802              		.loc 1 197 0
+ 803 0036 5B20     		movs	r0, #91
+ 804 0038 FFF7FEFF 		bl	Output_Buzzer
+ 805              	.LVL64:
+ 198:Src/motion.c  ****             flag.ir_led = OFF;
  806              		.loc 1 198 0
- 807 0036 5B20     		movs	r0, #91
- 808 0038 FFF7FEFF 		bl	Output_Buzzer
- 809              	.LVL64:
- 199:Src/motion.c  ****             flag.ir_led = OFF;
- 810              		.loc 1 199 0
- 811 003c 014B     		ldr	r3, .L64
- 812 003e 0022     		movs	r2, #0
- 813 0040 5A71     		strb	r2, [r3, #5]
- 200:Src/motion.c  ****             break;
- 201:Src/motion.c  ****         }
- 202:Src/motion.c  ****     }
- 203:Src/motion.c  **** }
- 814              		.loc 1 203 0
- 815 0042 10BD     		pop	{r4, pc}
- 816              	.LVL65:
- 817              	.L65:
- 818              		.align	2
- 819              	.L64:
- 820 0044 00000000 		.word	flag
- 821 0048 00000000 		.word	sensor
- 822 004c 00000000 		.word	.LC2
- 823              		.cfi_endproc
- 824              	.LFE136:
- 826              		.section	.text.Test_Create_Map,"ax",%progbits
- 827              		.align	1
- 828              		.global	Test_Create_Map
- 829              		.syntax unified
- 830              		.thumb
- 831              		.thumb_func
- 832              		.fpu fpv4-sp-d16
- 834              	Test_Create_Map:
- 835              	.LFB137:
- 204:Src/motion.c  **** 
- 205:Src/motion.c  **** void Test_Create_Map(void){
- 836              		.loc 1 205 0
- 837              		.cfi_startproc
- 838              		@ args = 0, pretend = 0, frame = 0
- 839              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 19
+ 807 003c 014B     		ldr	r3, .L64
+ 808 003e 0022     		movs	r2, #0
+ 809 0040 5A71     		strb	r2, [r3, #5]
+ 199:Src/motion.c  ****             break;
+ 200:Src/motion.c  ****         }
+ 201:Src/motion.c  ****     }
+ 202:Src/motion.c  **** }
+ 810              		.loc 1 202 0
+ 811 0042 10BD     		pop	{r4, pc}
+ 812              	.LVL65:
+ 813              	.L65:
+ 814              		.align	2
+ 815              	.L64:
+ 816 0044 00000000 		.word	flag
+ 817 0048 00000000 		.word	sensor
+ 818 004c 00000000 		.word	.LC2
+ 819              		.cfi_endproc
+ 820              	.LFE136:
+ 822              		.section	.text.Test_Create_Map,"ax",%progbits
+ 823              		.align	1
+ 824              		.global	Test_Create_Map
+ 825              		.syntax unified
+ 826              		.thumb
+ 827              		.thumb_func
+ 828              		.fpu fpv4-sp-d16
+ 830              	Test_Create_Map:
+ 831              	.LFB137:
+ 203:Src/motion.c  **** 
+ 204:Src/motion.c  **** void Test_Create_Map(void){
+ 832              		.loc 1 204 0
+ 833              		.cfi_startproc
+ 834              		@ args = 0, pretend = 0, frame = 0
+ 835              		@ frame_needed = 0, uses_anonymous_args = 0
+ 836 0000 08B5     		push	{r3, lr}
+ 837              	.LCFI13:
+ 838              		.cfi_def_cfa_offset 8
+ 839              		.cfi_offset 3, -8
+ 840              		.cfi_offset 14, -4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 19
 
 
- 840 0000 08B5     		push	{r3, lr}
- 841              	.LCFI13:
- 842              		.cfi_def_cfa_offset 8
- 843              		.cfi_offset 3, -8
- 844              		.cfi_offset 14, -4
- 206:Src/motion.c  ****     flag.ir_led = OFF;
- 845              		.loc 1 206 0
- 846 0002 064B     		ldr	r3, .L68
- 847 0004 0022     		movs	r2, #0
- 848 0006 5A71     		strb	r2, [r3, #5]
- 207:Src/motion.c  **** 
- 208:Src/motion.c  ****     Maze_Set();
- 849              		.loc 1 208 0
- 850 0008 FFF7FEFF 		bl	Maze_Set
- 851              	.LVL66:
- 209:Src/motion.c  ****     Init_maze();
- 852              		.loc 1 209 0
- 853 000c FFF7FEFF 		bl	Init_maze
- 854              	.LVL67:
- 210:Src/motion.c  ****     MAZE_Create_Step();
- 855              		.loc 1 210 0
- 856 0010 FFF7FEFF 		bl	MAZE_Create_Step
- 857              	.LVL68:
- 211:Src/motion.c  ****     MAZE_Out_Step();
- 858              		.loc 1 211 0
- 859 0014 FFF7FEFF 		bl	MAZE_Out_Step
- 860              	.LVL69:
- 212:Src/motion.c  **** }
- 861              		.loc 1 212 0
- 862 0018 08BD     		pop	{r3, pc}
- 863              	.L69:
- 864 001a 00BF     		.align	2
- 865              	.L68:
- 866 001c 00000000 		.word	flag
- 867              		.cfi_endproc
- 868              	.LFE137:
- 870              		.section	.text.Batt_Check,"ax",%progbits
- 871              		.align	1
- 872              		.global	Batt_Check
- 873              		.syntax unified
- 874              		.thumb
- 875              		.thumb_func
- 876              		.fpu fpv4-sp-d16
- 878              	Batt_Check:
- 879              	.LFB138:
- 213:Src/motion.c  **** 
- 214:Src/motion.c  **** /****************************************************************************************
- 215:Src/motion.c  ****  * outline  : normalize battery (12bit -> dec)
- 216:Src/motion.c  ****  * argument : void
- 217:Src/motion.c  ****  * return   : void
- 218:Src/motion.c  **** ********************************************************************************************/
- 219:Src/motion.c  **** void Batt_Check(void)
- 220:Src/motion.c  **** {
- 880              		.loc 1 220 0
- 881              		.cfi_startproc
- 882              		@ args = 0, pretend = 0, frame = 0
- 883              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 20
+ 205:Src/motion.c  ****     flag.ir_led = OFF;
+ 841              		.loc 1 205 0
+ 842 0002 064B     		ldr	r3, .L68
+ 843 0004 0022     		movs	r2, #0
+ 844 0006 5A71     		strb	r2, [r3, #5]
+ 206:Src/motion.c  **** 
+ 207:Src/motion.c  ****     Maze_Set();
+ 845              		.loc 1 207 0
+ 846 0008 FFF7FEFF 		bl	Maze_Set
+ 847              	.LVL66:
+ 208:Src/motion.c  ****     Init_maze();
+ 848              		.loc 1 208 0
+ 849 000c FFF7FEFF 		bl	Init_maze
+ 850              	.LVL67:
+ 209:Src/motion.c  ****     MAZE_Create_Step();
+ 851              		.loc 1 209 0
+ 852 0010 FFF7FEFF 		bl	MAZE_Create_Step
+ 853              	.LVL68:
+ 210:Src/motion.c  ****     MAZE_Out_Step();
+ 854              		.loc 1 210 0
+ 855 0014 FFF7FEFF 		bl	MAZE_Out_Step
+ 856              	.LVL69:
+ 211:Src/motion.c  **** }
+ 857              		.loc 1 211 0
+ 858 0018 08BD     		pop	{r3, pc}
+ 859              	.L69:
+ 860 001a 00BF     		.align	2
+ 861              	.L68:
+ 862 001c 00000000 		.word	flag
+ 863              		.cfi_endproc
+ 864              	.LFE137:
+ 866              		.section	.text.Batt_Check,"ax",%progbits
+ 867              		.align	1
+ 868              		.global	Batt_Check
+ 869              		.syntax unified
+ 870              		.thumb
+ 871              		.thumb_func
+ 872              		.fpu fpv4-sp-d16
+ 874              	Batt_Check:
+ 875              	.LFB138:
+ 212:Src/motion.c  **** 
+ 213:Src/motion.c  **** /****************************************************************************************
+ 214:Src/motion.c  ****  * outline  : normalize battery (12bit -> dec)
+ 215:Src/motion.c  ****  * argument : void
+ 216:Src/motion.c  ****  * return   : void
+ 217:Src/motion.c  **** ********************************************************************************************/
+ 218:Src/motion.c  **** void Batt_Check(void)
+ 219:Src/motion.c  **** {
+ 876              		.loc 1 219 0
+ 877              		.cfi_startproc
+ 878              		@ args = 0, pretend = 0, frame = 0
+ 879              		@ frame_needed = 0, uses_anonymous_args = 0
+ 880 0000 08B5     		push	{r3, lr}
+ 881              	.LCFI14:
+ 882              		.cfi_def_cfa_offset 8
+ 883              		.cfi_offset 3, -8
+ 884              		.cfi_offset 14, -4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 20
 
 
- 884 0000 08B5     		push	{r3, lr}
- 885              	.LCFI14:
- 886              		.cfi_def_cfa_offset 8
- 887              		.cfi_offset 3, -8
- 888              		.cfi_offset 14, -4
- 889              	.LVL70:
- 890              	.LBB5:
- 221:Src/motion.c  ****   float batt=0;
- 222:Src/motion.c  ****   for(int i=0;i<10;i++){
- 891              		.loc 1 222 0
- 892 0002 0023     		movs	r3, #0
- 893              	.LBE5:
- 221:Src/motion.c  ****   float batt=0;
- 894              		.loc 1 221 0
- 895 0004 9FED177A 		vldr.32	s14, .L74
- 896              	.LBB6:
- 897              		.loc 1 222 0
- 898 0008 08E0     		b	.L71
- 899              	.LVL71:
- 900              	.L72:
- 223:Src/motion.c  ****     batt += batt_analog;
- 901              		.loc 1 223 0 discriminator 3
- 902 000a 174A     		ldr	r2, .L74+4
- 903 000c 1288     		ldrh	r2, [r2]
- 904 000e 07EE902A 		vmov	s15, r2	@ int
- 905 0012 F8EEE77A 		vcvt.f32.s32	s15, s15
- 906 0016 37EE277A 		vadd.f32	s14, s14, s15
- 907              	.LVL72:
+ 885              	.LVL70:
+ 886              	.LBB5:
+ 220:Src/motion.c  ****   float batt=0;
+ 221:Src/motion.c  ****   for(int i=0;i<10;i++){
+ 887              		.loc 1 221 0
+ 888 0002 0023     		movs	r3, #0
+ 889              	.LBE5:
+ 220:Src/motion.c  ****   float batt=0;
+ 890              		.loc 1 220 0
+ 891 0004 9FED177A 		vldr.32	s14, .L74
+ 892              	.LBB6:
+ 893              		.loc 1 221 0
+ 894 0008 08E0     		b	.L71
+ 895              	.LVL71:
+ 896              	.L72:
  222:Src/motion.c  ****     batt += batt_analog;
- 908              		.loc 1 222 0 discriminator 3
- 909 001a 0133     		adds	r3, r3, #1
- 910              	.LVL73:
- 911              	.L71:
- 222:Src/motion.c  ****     batt += batt_analog;
- 912              		.loc 1 222 0 is_stmt 0 discriminator 1
- 913 001c 092B     		cmp	r3, #9
- 914 001e F4DD     		ble	.L72
- 915              	.LBE6:
- 224:Src/motion.c  ****   }
- 225:Src/motion.c  ****   batt /= 10.0f;
- 916              		.loc 1 225 0 is_stmt 1
- 917 0020 F2EE047A 		vmov.f32	s15, #1.0e+1
- 918 0024 C7EE276A 		vdiv.f32	s13, s14, s15
- 919              	.LVL74:
- 226:Src/motion.c  ****   batt = batt/4095.0f*133.0f/33.0f*3.3f;
- 920              		.loc 1 226 0
- 921 0028 DFED107A 		vldr.32	s15, .L74+8
- 922 002c 86EEA77A 		vdiv.f32	s14, s13, s15
- 923 0030 DFED0F7A 		vldr.32	s15, .L74+12
- 924 0034 27EE277A 		vmul.f32	s14, s14, s15
- 925 0038 DFED0E6A 		vldr.32	s13, .L74+16
- 926              	.LVL75:
- 927 003c C7EE267A 		vdiv.f32	s15, s14, s13
- 928 0040 9FED0D7A 		vldr.32	s14, .L74+20
- 929 0044 67EE877A 		vmul.f32	s15, s15, s14
- 930              	.LVL76:
- 227:Src/motion.c  ****   batt_Vcc = batt;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 21
+ 897              		.loc 1 222 0 discriminator 3
+ 898 000a 174A     		ldr	r2, .L74+4
+ 899 000c 1288     		ldrh	r2, [r2]
+ 900 000e 07EE902A 		vmov	s15, r2	@ int
+ 901 0012 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 902 0016 37EE277A 		vadd.f32	s14, s14, s15
+ 903              	.LVL72:
+ 221:Src/motion.c  ****     batt += batt_analog;
+ 904              		.loc 1 221 0 discriminator 3
+ 905 001a 0133     		adds	r3, r3, #1
+ 906              	.LVL73:
+ 907              	.L71:
+ 221:Src/motion.c  ****     batt += batt_analog;
+ 908              		.loc 1 221 0 is_stmt 0 discriminator 1
+ 909 001c 092B     		cmp	r3, #9
+ 910 001e F4DD     		ble	.L72
+ 911              	.LBE6:
+ 223:Src/motion.c  ****   }
+ 224:Src/motion.c  ****   batt /= 10.0f;
+ 912              		.loc 1 224 0 is_stmt 1
+ 913 0020 F2EE047A 		vmov.f32	s15, #1.0e+1
+ 914 0024 C7EE276A 		vdiv.f32	s13, s14, s15
+ 915              	.LVL74:
+ 225:Src/motion.c  ****   batt = batt/4095.0f*133.0f/33.0f*3.3f;
+ 916              		.loc 1 225 0
+ 917 0028 DFED107A 		vldr.32	s15, .L74+8
+ 918 002c 86EEA77A 		vdiv.f32	s14, s13, s15
+ 919 0030 DFED0F7A 		vldr.32	s15, .L74+12
+ 920 0034 27EE277A 		vmul.f32	s14, s14, s15
+ 921 0038 DFED0E6A 		vldr.32	s13, .L74+16
+ 922              	.LVL75:
+ 923 003c C7EE267A 		vdiv.f32	s15, s14, s13
+ 924 0040 9FED0D7A 		vldr.32	s14, .L74+20
+ 925 0044 67EE877A 		vmul.f32	s15, s15, s14
+ 926              	.LVL76:
+ 226:Src/motion.c  ****   batt_Vcc = batt;
+ 927              		.loc 1 226 0
+ 928 0048 0C4B     		ldr	r3, .L74+24
+ 929              	.LVL77:
+ 930 004a C3ED007A 		vstr.32	s15, [r3]
+ 227:Src/motion.c  ****   printf("\nbatt:%lf\r\n",batt);
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 21
 
 
  931              		.loc 1 227 0
- 932 0048 0C4B     		ldr	r3, .L74+24
- 933              	.LVL77:
- 934 004a C3ED007A 		vstr.32	s15, [r3]
- 228:Src/motion.c  ****   printf("\nbatt:%lf\r\n",batt);
- 935              		.loc 1 228 0
- 936 004e 17EE900A 		vmov	r0, s15
- 937 0052 FFF7FEFF 		bl	__aeabi_f2d
- 938              	.LVL78:
- 939 0056 0246     		mov	r2, r0
- 940 0058 0B46     		mov	r3, r1
- 941 005a 0948     		ldr	r0, .L74+28
- 942 005c FFF7FEFF 		bl	printf
- 943              	.LVL79:
- 229:Src/motion.c  **** }
- 944              		.loc 1 229 0
- 945 0060 08BD     		pop	{r3, pc}
- 946              	.L75:
- 947 0062 00BF     		.align	2
- 948              	.L74:
- 949 0064 00000000 		.word	0
- 950 0068 00000000 		.word	batt_analog
- 951 006c 00F07F45 		.word	1166012416
- 952 0070 00000543 		.word	1124401152
- 953 0074 00000442 		.word	1107558400
- 954 0078 33335340 		.word	1079194419
- 955 007c 00000000 		.word	batt_Vcc
- 956 0080 00000000 		.word	.LC3
- 957              		.cfi_endproc
- 958              	.LFE138:
- 960              		.comm	yawrate_pid,2,2
- 961              		.comm	straight_pid_r,2,2
- 962              		.comm	straight_pid_l,2,2
- 963              		.comm	y_sumsum,4,4
- 964              		.comm	y_sum,4,4
- 965              		.comm	s_sum_r,4,4
- 966              		.comm	s_sum_l,4,4
- 967              		.section	.rodata.Batt_Check.str1.4,"aMS",%progbits,1
+ 932 004e 17EE900A 		vmov	r0, s15
+ 933 0052 FFF7FEFF 		bl	__aeabi_f2d
+ 934              	.LVL78:
+ 935 0056 0246     		mov	r2, r0
+ 936 0058 0B46     		mov	r3, r1
+ 937 005a 0948     		ldr	r0, .L74+28
+ 938 005c FFF7FEFF 		bl	printf
+ 939              	.LVL79:
+ 228:Src/motion.c  **** }
+ 940              		.loc 1 228 0
+ 941 0060 08BD     		pop	{r3, pc}
+ 942              	.L75:
+ 943 0062 00BF     		.align	2
+ 944              	.L74:
+ 945 0064 00000000 		.word	0
+ 946 0068 00000000 		.word	batt_analog
+ 947 006c 00F07F45 		.word	1166012416
+ 948 0070 00000543 		.word	1124401152
+ 949 0074 00000442 		.word	1107558400
+ 950 0078 33335340 		.word	1079194419
+ 951 007c 00000000 		.word	batt_Vcc
+ 952 0080 00000000 		.word	.LC3
+ 953              		.cfi_endproc
+ 954              	.LFE138:
+ 956              		.comm	yawrate_pid,2,2
+ 957              		.comm	straight_pid_r,2,2
+ 958              		.comm	straight_pid_l,2,2
+ 959              		.comm	y_sumsum,4,4
+ 960              		.comm	y_sum,4,4
+ 961              		.comm	s_sum_r,4,4
+ 962              		.comm	s_sum_l,4,4
+ 963              		.section	.rodata.Batt_Check.str1.4,"aMS",%progbits,1
+ 964              		.align	2
+ 965              	.LC3:
+ 966 0000 0A626174 		.ascii	"\012batt:%lf\015\012\000"
+ 966      743A256C 
+ 966      660D0A00 
+ 967              		.section	.rodata.Sensor_Mode.str1.4,"aMS",%progbits,1
  968              		.align	2
- 969              	.LC3:
- 970 0000 0A626174 		.ascii	"\012batt:%lf\015\012\000"
- 970      743A256C 
- 970      660D0A00 
- 971              		.section	.rodata.Sensor_Mode.str1.4,"aMS",%progbits,1
+ 969              	.LC2:
+ 970 0000 25640900 		.ascii	"%d\011\000"
+ 971              		.section	.rodata.Show_log.str1.4,"aMS",%progbits,1
  972              		.align	2
- 973              	.LC2:
- 974 0000 25640900 		.ascii	"%d\011\000"
- 975              		.section	.rodata.Show_log.str1.4,"aMS",%progbits,1
- 976              		.align	2
- 977              	.LC0:
- 978 0000 0A613A25 		.ascii	"\012a:%d,c:%d,d:%d\015\012\000"
- 978      642C633A 
- 978      25642C64 
- 978      3A25640D 
- 978      0A00
- 979 0012 0000     		.space	2
- 980              	.LC1:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 22
+ 973              	.LC0:
+ 974 0000 0A613A25 		.ascii	"\012a:%d,c:%d,d:%d\015\012\000"
+ 974      642C633A 
+ 974      25642C64 
+ 974      3A25640D 
+ 974      0A00
+ 975 0012 0000     		.space	2
+ 976              	.LC1:
+ 977 0014 25660925 		.ascii	"%f\011%f\011%f\015\012\000"
+ 977      66092566 
+ 977      0D0A00
+ 978              		.text
+ 979              	.Letext0:
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 22
 
 
- 981 0014 25660925 		.ascii	"%f\011%f\011%f\015\012\000"
- 981      66092566 
- 981      0D0A00
- 982              		.text
- 983              	.Letext0:
- 984              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 985              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 986              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 987              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 988              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 989              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 990              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
- 991              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
- 992              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 993              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 994              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 995              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 996              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 997              		.file 15 "Inc/tim.h"
- 998              		.file 16 "Inc/global.h"
- 999              		.file 17 "Inc/control.h"
- 1000              		.file 18 "Inc/spi.h"
- 1001              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
- 1002              		.file 20 "Inc/maze.h"
- 1003              		.file 21 "Inc/gpio.h"
- 1004              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1005              		.file 23 "<built-in>"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 23
+ 980              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 981              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 982              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 983              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 984              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 985              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 986              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 987              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+ 988              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 989              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 990              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 991              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 992              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 993              		.file 15 "Inc/tim.h"
+ 994              		.file 16 "Inc/global.h"
+ 995              		.file 17 "Inc/control.h"
+ 996              		.file 18 "Inc/spi.h"
+ 997              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 998              		.file 20 "Inc/maze.h"
+ 999              		.file 21 "Inc/gpio.h"
+ 1000              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1001              		.file 23 "<built-in>"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 motion.c
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:18     .text.Normal_Turn_Half:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:25     .text.Normal_Turn_Half:00000000 Normal_Turn_Half
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:101    .text.Normal_Turn_Half:0000005c $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:107    .text.Turn_Half:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:114    .text.Turn_Half:00000000 Turn_Half
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:150    .text.Turn_Half:00000024 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:155    .text.Turn_Quarter_Left:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:162    .text.Turn_Quarter_Left:00000000 Turn_Quarter_Left
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:201    .text.Turn_Quarter_Left:00000020 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:206    .text.Turn_Quarter_Right:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:213    .text.Turn_Quarter_Right:00000000 Turn_Quarter_Right
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:249    .text.Turn_Quarter_Right:00000024 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:254    .text.Normal_Ennkai:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:261    .text.Normal_Ennkai:00000000 Normal_Ennkai
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:335    .text.Normal_Ennkai:0000005c $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:341    .text.Ennkai:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:348    .text.Ennkai:00000000 Ennkai
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:429    .text.Ennkai:00000064 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:435    .text.Normal_Straight:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:442    .text.Normal_Straight:00000000 Normal_Straight
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:518    .text.Normal_Straight:00000060 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:524    .text.Straight:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:531    .text.Straight:00000000 Straight
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:572    .text.Straight:00000028 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:577    .text.Straight_HalF:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:584    .text.Straight_HalF:00000000 Straight_HalF
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:628    .text.Straight_HalF:0000002c $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:634    .text.Show_log:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:641    .text.Show_log:00000000 Show_log
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:734    .text.Show_log:00000084 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:744    .text.Sensor_Mode:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:751    .text.Sensor_Mode:00000000 Sensor_Mode
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:820    .text.Sensor_Mode:00000044 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:827    .text.Test_Create_Map:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:834    .text.Test_Create_Map:00000000 Test_Create_Map
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:866    .text.Test_Create_Map:0000001c $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:871    .text.Batt_Check:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:878    .text.Batt_Check:00000000 Batt_Check
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:949    .text.Batt_Check:00000064 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:18     .text.Normal_Turn_Half:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:25     .text.Normal_Turn_Half:00000000 Normal_Turn_Half
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:101    .text.Normal_Turn_Half:0000005c $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:107    .text.Turn_Half:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:114    .text.Turn_Half:00000000 Turn_Half
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:151    .text.Turn_Half:00000020 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:156    .text.Turn_Quarter_Left:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:163    .text.Turn_Quarter_Left:00000000 Turn_Quarter_Left
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:200    .text.Turn_Quarter_Left:00000020 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:205    .text.Turn_Quarter_Right:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:212    .text.Turn_Quarter_Right:00000000 Turn_Quarter_Right
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:248    .text.Turn_Quarter_Right:00000024 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:253    .text.Normal_Ennkai:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:260    .text.Normal_Ennkai:00000000 Normal_Ennkai
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:334    .text.Normal_Ennkai:0000005c $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:340    .text.Ennkai:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:347    .text.Ennkai:00000000 Ennkai
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:428    .text.Ennkai:00000064 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:434    .text.Normal_Straight:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:441    .text.Normal_Straight:00000000 Normal_Straight
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:517    .text.Normal_Straight:00000060 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:523    .text.Straight:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:530    .text.Straight:00000000 Straight
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:571    .text.Straight:00000028 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:576    .text.Straight_HalF:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:583    .text.Straight_HalF:00000000 Straight_HalF
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:624    .text.Straight_HalF:00000028 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:630    .text.Show_log:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:637    .text.Show_log:00000000 Show_log
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:730    .text.Show_log:00000084 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:740    .text.Sensor_Mode:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:747    .text.Sensor_Mode:00000000 Sensor_Mode
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:816    .text.Sensor_Mode:00000044 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:823    .text.Test_Create_Map:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:830    .text.Test_Create_Map:00000000 Test_Create_Map
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:862    .text.Test_Create_Map:0000001c $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:867    .text.Batt_Check:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:874    .text.Batt_Check:00000000 Batt_Check
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:945    .text.Batt_Check:00000064 $d
                             *COM*:00000002 yawrate_pid
                             *COM*:00000002 straight_pid_r
                             *COM*:00000002 straight_pid_l
@@ -1339,16 +1334,16 @@ C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:949    .text.Batt_Check:00000064 $
                             *COM*:00000004 y_sum
                             *COM*:00000004 s_sum_r
                             *COM*:00000004 s_sum_l
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:968    .rodata.Batt_Check.str1.4:00000000 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:972    .rodata.Sensor_Mode.str1.4:00000000 $d
-C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s:976    .rodata.Show_log.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:964    .rodata.Batt_Check.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:968    .rodata.Sensor_Mode.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s:972    .rodata.Show_log.str1.4:00000000 $d
 
 UNDEFINED SYMBOLS
 Output_Buzzer
 gyro_offset_calc_reset
 Yawrate_Calc_fb
 HAL_Delay
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccgnCWJj.s 			page 24
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccii8IGc.s 			page 24
 
 
 Push
