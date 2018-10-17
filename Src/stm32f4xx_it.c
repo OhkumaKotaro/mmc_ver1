@@ -189,11 +189,10 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 1 */
   Update_gyro(flag.gyro_calc);
   update_encoder();
+  update_batt_date();
 
   if(flag.straight == ON){
     Straight_SysTic_fb();
-    //loger.target_velocity[straight_cnt]=calc.velocity;
-    //loger.velocity_c[straight_cnt] = enc.velocity_c;
   }else{
     straight_cnt = 0;
     straight_pid_l = 0;
@@ -202,8 +201,6 @@ void SysTick_Handler(void)
 
   if(flag.yawrate == ON){
     Yawrate_SysTic_fb();
-    loger.target_y_velocity[yawrate_cnt] = calc.yawrate_velocity;
-    loger.y_velocity[yawrate_cnt] = gyro.velocity;
   }else{
     yawrate_cnt = 0;
     yawrate_pid = 0;
@@ -254,7 +251,6 @@ void TIM5_IRQHandler(void)
         break;
       case 7:
         All_IR_OFF();
-        update_batt_date();
         break;
       case 8:
         update_wall();

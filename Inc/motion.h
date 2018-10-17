@@ -7,7 +7,8 @@
 
 void Normal_Turn_Half(void);
 void Turn_Half(void);
-void Turn_Quarter(int dir);
+void Turn_Quarter_Left(void);
+void Turn_Quarter_Right(void);
 void Normal_Ennkai(void);
 void Ennkai(void);
 void Normal_Straight(void);

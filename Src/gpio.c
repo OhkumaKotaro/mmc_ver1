@@ -146,6 +146,18 @@ void All_LED_OFF(void)
   HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
 }
 
+void LED_Control(unsigned char pattern){
+  if(pattern == 0) All_LED_OFF();
+  if((pattern & 0b0001) == 0b0001) HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
+  else                             HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
+  if((pattern & 0b0010) == 0b0010) HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
+  else                             HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
+  if((pattern & 0b0100) == 0b0100) HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
+  else                             HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
+  if((pattern & 0b1000) == 0b1000) HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
+  else                             HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
+}
+
 /****************************************************************************************
  * outline  : turn on all infrared led
  * argument : void

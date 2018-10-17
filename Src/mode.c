@@ -35,6 +35,7 @@ int8_t Mode_select(void){
             Output_Buzzer(HZ_C_H);
             break;
         }
+        LED_Control(mode);
         printf("%d\r",mode);
     }
     return mode;
@@ -49,8 +50,7 @@ int8_t Mode_select(void){
 void Mode_mouse(int8_t mode){
     switch(mode){
         case 0:
-            Ennkai();
-            //Show_log();
+            Mode_Circuit();
             break;
         case 1:
             Mode_Straight();
@@ -59,10 +59,10 @@ void Mode_mouse(int8_t mode){
             Mode_Turn_Half();
             break;
         case 3:
-            Normal_Straight();
+            Mode_Turn_Quarter_Left();
             break;
         case 4:
-            Normal_Turn_Half();
+            Normal_Straight();
             break;
         case 5:
             Sensor_Mode();
@@ -78,17 +78,18 @@ void Mode_mouse(int8_t mode){
 
 void LeftHand(void){
     short flag_goal = false;
+    Straight_HalF();
     while(flag_goal==false){
+        while(flag.motion_end==true)
         if(sensor.wall[2] == false){
-            Turn_Quarter(0);
+            Turn_Quarter_Left();
         }else if(sensor.wall[0]==true && sensor.wall[3]==true){
             Straight();
         }else if(sensor.wall[1]==true){
-            Turn_Quarter(1);
+            Turn_Quarter_Right();
         }else{
             Turn_Half();
         }
-
     }
 }
 
@@ -100,8 +101,9 @@ void Mode_Straight(void){
             break;
         }
     }
+    flag.ir_led = OFF;
     gyro_offset_calc_reset();
-    HAL_Delay(1030);
+    HAL_Delay(1500);
     Straight();
     while(1){
         if(Push()==ON){
@@ -133,4 +135,35 @@ void Mode_Turn_Half(void){
             break;
         }
     }
+}
+
+void Mode_Turn_Quarter_Left(void){
+    flag.ir_led = ON;
+    while(1){
+        if(sensor.wall[0]==ON && sensor.wall[3]==ON){
+            Output_Buzzer(HZ_C_H);
+            break;
+        }
+    }
+    gyro_offset_calc_reset();
+    HAL_Delay(1030);
+    Output_Buzzer(HZ_C_H);
+    Turn_Quarter_Left();
+    while(1){
+        if(Push()==ON){
+            flag.yawrate = OFF;
+            flag.straight = OFF;
+            Output_Buzzer(HZ_A);
+            break;
+        }
+    }
+}
+
+void Mode_Circuit(void){
+    Straight();
+    while(flag.motion_end==false);
+    Turn_Quarter_Left();
+    while(flag.motion_end==false);
+    Straight();
+    while(flag.motion_end==false);
 }

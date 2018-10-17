@@ -60,7 +60,12 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     float constant_L;
 
     calc.velocity = v_start;
+    enc.old_l = 0;
+    enc.old_r = 0;
+    s_sum_l = 0;
+    s_sum_l = 0;
     flag.straight_zero = OFF;
+    flag.motion_end = false;
 
     t1 = (float)(MAX_VELOCITY - v_start) / ACCEL;
     t3 = (float)(MAX_VELOCITY - v_end) / ACCEL;
@@ -120,6 +125,8 @@ void Straight_SysTic_fb(void){
         encoder_r = enc.velocity_r;
         calc.velocity = 0;
         flag.straight = OFF;
+        flag.yawrate = OFF;
+        flag.motion_end=true;
     }
     
     straight_pid_l = (int16_t)PID_value(calc.velocity,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
@@ -134,7 +141,10 @@ void Straight_SysTic_fb(void){
 ********************************************************************************************/
 void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
     calc.yawrate_velocity = v_start;
+    y_sum = 0;
+    gyro.befor = 0;
     flag.yawrate_zero = OFF;
+    flag.motion_end = false;
 
     float t1=0,t2=0,t3=0;
     float constant_L;
@@ -176,9 +186,11 @@ void Yawrate_SysTic_fb(void){
         Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
     }else{
         flag.yawrate = OFF;
+        flag.straight = OFF;
+        flag.motion_end = true;
         calc.yawrate_velocity = 0;
     }
-    yawrate_pid = (int16_t)PID_value((float)calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,1.4f,11.5f,0.004f);
+    yawrate_pid = (int16_t)PID_value((float)flag.dir * calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,1.4f,11.5f,0.004f);
 }
 
 void Control_pwm(void){

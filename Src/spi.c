@@ -184,17 +184,11 @@ void write_byte( uint8_t reg,uint8_t val){
  * return   : void
  ****************************************************************/
 void set_mpu6500(void){
-  uint8_t val;
-  val = read_byte(WHO_AM_I);
-  printf("\r\nI am 0x%x\r\n",val );
-  if(val != Certain){
-    while(1){
-    All_LED_ON();
-    HAL_Delay(1000);
-    All_LED_OFF();
-    }
+  uint8_t val = 0;
+  while(val!=Certain){
+    val = read_byte(WHO_AM_I);
   }
-  
+  printf("\r\nI am 0x%x\r\n",val );
   write_byte(PWR_MGMT_1,0x00);
   write_byte(CONFIG,0x00);
   write_byte(GYRO_CONFIG,0x18);

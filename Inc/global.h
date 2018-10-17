@@ -18,6 +18,8 @@
 #define ON 1
 #define OFF 0
 
+#define LEFT 1
+#define RIGHT -1
 
 //motor 003SR
 #define KT  1.98f//toluku[mNm/A]
@@ -60,6 +62,8 @@ typedef struct{
   uint8_t yawrate_zero;
   uint8_t ir_led;
   uint8_t accel;
+  int16_t dir;
+  uint8_t motion_end;
 }flag_t;
 extern volatile flag_t flag;
 

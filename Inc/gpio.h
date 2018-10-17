@@ -62,6 +62,7 @@ void MX_GPIO_Init(void);
 uint8_t Push(void);
 void All_LED_ON(void);
 void All_LED_OFF(void);
+void LED_Control(unsigned char pattern);
 void All_IR_ON(void);
 void All_IR_OFF(void);
 void IR_Contoroll(int pattern);

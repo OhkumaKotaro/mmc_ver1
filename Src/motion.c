@@ -32,6 +32,7 @@ void Normal_Turn_Half(void){
 
 
 void Turn_Half(void){
+    flag.dir = RIGHT;
     flag.ir_led = OFF;
     Yawrate_Calc_fb(180,0,0);
     Straight_Calc_Zero();
@@ -39,10 +40,24 @@ void Turn_Half(void){
     flag.straight = ON;
 }
 
-void Turn_Quarter(int dir){
-
+void Turn_Quarter_Left(void){
+    flag.ir_led = OFF;
+    flag.dir = LEFT;
+    Yawrate_Calc_fb(90,0,0);
+    Straight_Calc_Zero();
+    flag.motion_end = true;
+    flag.yawrate = ON;
+    flag.straight = ON;
 }
 
+void Turn_Quarter_Right(void){
+    flag.ir_led = OFF;
+    flag.dir = RIGHT;
+    Yawrate_Calc_fb(90,0,0);
+    Straight_Calc_Zero();
+    flag.yawrate = ON;
+    flag.straight = ON;
+}
 /****************************************************************************************
  * outline  : "ennkaigei"
  * argument : void
@@ -137,6 +152,7 @@ void Normal_Straight(void){
 void Straight(void){
     flag.ir_led = OFF;
     Straight_Calc_fb(180.0f,0.0f,0.0f);
+    Yawrate_Calc_Zero();
     HAL_Delay(10);
     Output_Buzzer(HZ_C_H);
     flag.straight = ON;
@@ -203,11 +219,11 @@ void Test_Create_Map(void){
 void Batt_Check(void)
 {
   float batt=0;
-  for(int i=0;i<50;i++){
+  for(int i=0;i<10;i++){
     batt += batt_analog;
   }
-  batt /= 50.0f;
+  batt /= 10.0f;
   batt = batt/4095.0f*133.0f/33.0f*3.3f;
   batt_Vcc = batt;
-  printf("\nbatt:%lf\r\n",batt_Vcc);
+  printf("\nbatt:%lf\r\n",batt);
 }

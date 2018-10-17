@@ -209,7 +209,7 @@ void Init_Main(void){
   setbuf(stdout, NULL);
   HAL_TIM_Base_Start_IT( &htim5 );
   HAL_TIM_Encoder_Start( &htim3, TIM_CHANNEL_ALL );
-  HAL_TIM_Encoder_Start( &htim4, TIM_CHANNEL_ALL );
+  HAL_TIM_Encoder_Start( &htim4, TIM_CHANNEL_ALL );  
   set_mpu6500();
   Batt_Check();
   flag.ir_led = OFF;
@@ -217,6 +217,8 @@ void Init_Main(void){
   flag.yawrate = OFF;
   straight_cnt = 0;
   yawrate_cnt = 0;
+  Output_Buzzer(HZ_D);
+  Output_Buzzer(HZ_F);
 }
 
 /* USER CODE END 4 */

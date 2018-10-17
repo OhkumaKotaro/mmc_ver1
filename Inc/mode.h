@@ -20,6 +20,8 @@ void Mode_mouse(int8_t mode);
 void LeftHand(void);
 void Mode_Straight(void);
 void Mode_Turn_Half(void);
+void Mode_Turn_Quarter_Left(void);
+void Mode_Circuit(void);
 
 
 #ifdef __cplusplus
