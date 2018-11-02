@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccWREHLx.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccE41wcb.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -30,7 +30,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccWREHLx.s 			page 1
   27              		.comm	batt_Vcc,4,4
   28              		.comm	batt_analog,2,2
   29              		.comm	count_tim5,2,2
-  30              		.comm	sensor,44,4
+  30              		.comm	sensor,48,4
   31              		.comm	position,3,4
   32              		.comm	s_accel,4,4
   33              		.comm	calc,16,4
@@ -46,7 +46,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccWREHLx.s 			page 1
   43              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
   44              		.file 7 "Inc/global.h"
   45              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccWREHLx.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccE41wcb.s 			page 2
 
 
 DEFINED SYMBOLS
@@ -64,7 +64,7 @@ DEFINED SYMBOLS
                             *COM*:00000004 batt_Vcc
                             *COM*:00000002 batt_analog
                             *COM*:00000002 count_tim5
-                            *COM*:0000002c sensor
+                            *COM*:00000030 sensor
                             *COM*:00000003 position
                             *COM*:00000004 s_accel
                             *COM*:00000010 calc

@@ -173,6 +173,7 @@ void Back(void){
     Yawrate_Calc_Zero();
     flag.straight = ON;
     flag.yawrate = ON;
+    flag.wall=OFF;
 }
 
 void Straight_Check(void){

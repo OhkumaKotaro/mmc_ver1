@@ -45,9 +45,9 @@
 /* USER CODE BEGIN 0 */
 #include "global.h"
 
-uint16_t thresh_l = 1800;
-uint16_t thresh_r= 2100;
-uint16_t thresh_fr=2380;
+uint16_t thresh_l = 1900;
+uint16_t thresh_r= 2200;
+uint16_t thresh_fr=2400;
 /* USER CODE END 0 */
 
 ADC_HandleTypeDef hadc1;

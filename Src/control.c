@@ -106,40 +106,40 @@ void Straight_Calc_Zero(void){
  * return   : void
 ********************************************************************************************/
 void Straight_SysTic_fb(void){
-    float encoder_l,encoder_r;
+    //float encoder_l,encoder_r;
     float target = 1;
     if(flag.straight_zero == ON){
-        encoder_l = enc.velocity_c;
-        encoder_r = enc.velocity_c;
+        //encoder_l = enc.velocity_c;
+        //encoder_r = enc.velocity_c;
         calc.velocity = 0;
     }
     else if(straight_cnt < accel_T){
-        encoder_l = enc.velocity_l;
-        encoder_r = enc.velocity_r;
+        //encoder_l = enc.velocity_l;
+        //encoder_r = enc.velocity_r;
         Calc_Palam(ACCEL,&calc.velocity,&straight_cnt);
     }
     else if(straight_cnt < constant_T + accel_T){
-        encoder_l = enc.velocity_l;
-        encoder_r = enc.velocity_r;
+        //encoder_l = enc.velocity_l;
+        //encoder_r = enc.velocity_r;
         Calc_Palam(0,&calc.velocity,&straight_cnt);
     }
     else if(straight_cnt < decrease_T + constant_T + accel_T){
-        encoder_l = enc.velocity_l;
-        encoder_r = enc.velocity_r;
+        //encoder_l = enc.velocity_l;
+        //encoder_r = enc.velocity_r;
         Calc_Palam(-ACCEL,&calc.velocity,&straight_cnt);
     }else{
-        encoder_l = enc.velocity_l;
-        encoder_r = enc.velocity_r;
+        //encoder_l = enc.velocity_l;
+        //encoder_r = enc.velocity_r;
         calc.velocity = 0;
         flag.straight = OFF;
         flag.yawrate = OFF;
-        flag.wall = OFF;
+        //flag.wall = OFF;
     }
 
     target = straight_dir * calc.velocity;
     
-    straight_pid_l = (int16_t)PID_value(target,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
-    straight_pid_r = (int16_t)PID_value(target,encoder_r,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_l = (int16_t)PID_value(target,enc.velocity_c,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_r = (int16_t)PID_value(target,enc.velocity_c,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
 }
 
 
@@ -201,8 +201,8 @@ void Yawrate_SysTic_fb(void){
 }
 void Control_Wall(void){
     int16_t wall_dif=0;
-    int16_t ref_l=2350;
-    int16_t ref_r=2590;
+    int16_t ref_l=2200;
+    int16_t ref_r=2666;
     
     /*
     if(sensor.dif_l<-20 || sensor.dif_l>20){
@@ -215,23 +215,23 @@ void Control_Wall(void){
 
     wall_dif = (sensor.adc[2] - ref_l) - (sensor.adc[1] - ref_r);
     if(sensor.wall[2]==true && sensor.wall[1]==true){
-        if(sensor.dif_l<-10 && sensor.dif_r<-10){
-            wall_pid = 0.3f * wall_dif;
+        if(sensor.dif_l>-20 && sensor.dif_r>-20){
+            wall_pid = 0.2f * wall_dif;
         }
     }else if(sensor.wall[2]==true && sensor.wall[1]==false){
-        if(sensor.dif_l>-10 && sensor.dif_l<10 ){
+        if(sensor.dif_l>-20 && sensor.dif_l<20 ){
             wall_pid = 2*(sensor.adc[2] - ref_l);
         }
     }else if(sensor.wall[2]==false && sensor.wall[1]==true){
-        if(sensor.dif_r>-10){
+        if(sensor.dif_r>-20){
             wall_pid = -2 * (sensor.adc[1] - ref_r);
         }
     }else{
         wall_pid=0;
     }
 
-    if(enc.velocity_c < 50.0f){
-        wall_pid=0;
+    if(enc.velocity_c < 30.0f){
+        //wall_pid=0;
     }
 
 }

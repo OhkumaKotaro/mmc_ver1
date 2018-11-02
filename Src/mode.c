@@ -52,10 +52,10 @@ int8_t Mode_select(void){
 void Mode_mouse(int8_t mode){
     switch(mode){
         case 0:
-            LeftHand();
+            Mode_Adachi();
             break;
         case 1:
-            Mode_Circuit();
+            LeftHand();
             break;
         case 2:
             flag.ir_led = ON;
@@ -91,7 +91,7 @@ void Mode_mouse(int8_t mode){
             Motion_Uturn();
             break;
         case 5:
-            Motion_Start();
+            Test_Create_Map();
             break;
         case 6:
             Sensor_Mode();
@@ -134,11 +134,8 @@ void LeftHand(void){
         }
 
         Update_Position(flag.next_dir);
-        //Maze_GoalCheck(flag_goal_is);
-        if(position.x==mazeDef.maze_goal_x && position.y==mazeDef.maze_goal_y){
-            flag_goal_is=true;
-        }
-
+        Maze_GoalCheck(flag_goal_is);
+        HAL_Delay(200);
         switch( flag.next_dir ){
             case LEFT:
                 Motion_Left();
@@ -161,7 +158,12 @@ void LeftHand(void){
 }
 
 void Mode_Adachi(void){
-    //uint8_t flag_goal_is;
+    uint8_t flag_goal_is=false;
+    uint8_t count=0;
+    int8_t next_dir;
+
+   
+    Init_maze();
 
     flag.ir_led = ON;
     while(1){
@@ -173,11 +175,40 @@ void Mode_Adachi(void){
     gyro_offset_calc_reset();
     HAL_Delay(2000);
     Motion_Start();
-    /*
+    position.x=0;
+    position.y=1;
+    position.dir=NORTH;
+    Maze_Set();
+    
     while(flag_goal_is==false){
-        
+        Maze_Get_Wall(position.x,position.y);
+        MAZE_Create_Step();
+        HAL_Delay(200);
+        next_dir=Maze_Next_Motion();
+        Update_Position(next_dir);
+        if(position.x==mazeDef.maze_goal_x && position.y==mazeDef.maze_goal_y){
+            flag_goal_is=true;
+        }
+
+        switch( next_dir ){
+            case LEFT:
+                Motion_Left();
+                break;
+
+            case STRAIGHT:
+                Motion_Straight();
+                break;
+            
+            case RIGHT:
+                Motion_Right();
+                break;
+
+            case UTURN:
+                Motion_Uturn();
+                break;
+        }
     }
-    */
+    Motion_Goal();
 }
 
 void Mode_Circuit(void){

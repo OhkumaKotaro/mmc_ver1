@@ -15,8 +15,6 @@ maze_t maze;
  * return : void
 ******************************************************************************************************/
 void Maze_Set(void){
-    mazeDef.maze_size_x = 15;
-    mazeDef.maze_size_y = 15;
     mazeDef.maze_goal_x = 1;
     mazeDef.maze_goal_y = 0;
 }
@@ -28,9 +26,9 @@ void Maze_Set(void){
 ******************************************************************************************************/
 void Init_maze(void) {
 	//init wall and is_search
-	for (uint8_t i = 0; i <= mazeDef.maze_size_y; i++)
+	for (int i = 0; i <= MAZE_SIZE; i++)
 	{
-		for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
+		for (int j = 0; j <= MAZE_SIZE; j++)
 		{
 			maze.wall_east[i][j] = 0;
 			maze.wall_north[i][j] = 0;
@@ -44,12 +42,12 @@ void Init_maze(void) {
 	maze.wall_east[0][0] = 1;
 	maze.wall_west[1][0] = 1;
 	//input outer
-	for (uint8_t i = 0; i <= mazeDef.maze_size_x; i++)
+	for (int i = 0; i <= MAZE_SIZE; i++)
 	{
-		maze.wall_east[mazeDef.maze_size_y][i] = 1;
+		maze.wall_east[MAZE_SIZE][i] = 1;
 		maze.wall_west[0][i] = 1;
         maze.wall_south[i][0] = 1;
-		maze.wall_north[i][mazeDef.maze_size_x] = 1;
+		maze.wall_north[i][MAZE_SIZE] = 1;
 	}
 }
 
@@ -59,88 +57,118 @@ void Init_maze(void) {
  * argument : void
  * return : void
 ******************************************************************************************************/
-void MAZE_Create_Step(void) {
-	maze.goal[mazeDef.maze_goal_y][mazeDef.maze_goal_x] = 1;
-	for (uint8_t i = 0; i <= mazeDef.maze_size_y; i++)
-	{
-		for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
-		{
-			if (maze.goal[i][j] == 1) {
+void MAZE_Create_Step( void ){
+	/* <概要>   : 歩数マップ作成
+	 * <引数>   : 走行の状態( 探索,最短 )
+	 * <戻り値> : なし
+	 */
+	// 初期化
+	for( int i = 0; i <= MAZE_SIZE; i++ ){
+		for( int j = 0; j <= MAZE_SIZE; j++ ){
+			if( i == mazeDef.maze_goal_x && j == mazeDef.maze_goal_y ){
 				maze.step[i][j] = 0;
 			}
-			else
-			{
+			else{
 				maze.step[i][j] = MAX_STEP;
 			}
-
 		}
 	}
 
-	short end_flag = 1;
-	uint8_t stepNum = 0;
-	while (end_flag==1) {
-		end_flag = 0;
-		for (uint8_t i = 0; i <= mazeDef.maze_size_y; i++)
-		{
-			for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
-			{
-				if (maze.step[i][j] == MAX_STEP) 
-				{
-					if (j < mazeDef.maze_size_x) //north wall
-					{
-						if (maze.wall_north[i][j] == 0 && maze.step[i][j+1] == stepNum) 
-						{
+	volatile uint8_t end_flag = true;	// 終了フラグ
+	uint8_t stepNum = 0;		// 設定中の歩数
+	// 探索
+	
+	while( end_flag == true ){
+		end_flag = false;
+		uint8_t i=0;
+		for( i = 0; i <= MAZE_SIZE; i++ ){
+			uint8_t j=0;
+			for( j = 0; j <= MAZE_SIZE; j++ ){
+				if( maze.step[i][j] == MAX_STEP ){
+					if( j < MAZE_SIZE){	//北壁
+						if( (maze.wall_north[i][j] == false)&&(maze.step[i][j+1] == stepNum) ){
 							maze.step[i][j] = stepNum + 1;
-							end_flag = 1;
+							end_flag = true;
 						}
 					}
-					if (i < mazeDef.maze_size_y)//east wall
-					{
-						if (maze.wall_east[i][j] == 0 && maze.step[i+1][j] == stepNum) 
-						{
+					if( i < MAZE_SIZE){	//東壁
+						if( (maze.wall_east[i][j] == false)&&(maze.step[i+1][j] == stepNum) ){
 							maze.step[i][j] = stepNum + 1;
-							end_flag = 1;
+							end_flag = true;
 						}
 					}
-					if (j>0)//south wall
-					{
-						if (maze.wall_south[i][j] == 0 && maze.step[i][j-1]==stepNum)
-						{
+					if( j > 0 ) {					//南壁
+						if( (maze.wall_south[i][j] == false)&&(maze.step[i][j-1] == stepNum) ){
 							maze.step[i][j] = stepNum + 1;
-							end_flag = 1;
+							end_flag = true;
 						}
 					}
-					if (i>0)//west wall
-					{
-						if (maze.wall_west[i][j] == 0 && maze.step[i-1][j]==stepNum)
-						{
+					if( i > 0 ){					//西壁
+						if( (maze.wall_west[i][j] == false)&&(maze.step[i-1][j] == stepNum) ){
 							maze.step[i][j] = stepNum + 1;
-							end_flag = 1;
+							end_flag = true;
 						}
 					}
 				}
 			}
 		}
-		stepNum ++;
+		if (end_flag == true) {
+			stepNum++;
+		}
 	}
+	
 }
 
-void Maze_GetWall(void){
-	switch(position.dir){
-		case NORTH:
-			if(sensor.wall[5]==true){
-				
-			}
-			break;
-		case EAST:
-
-			break;
-		case SOUTH:
-
-			break;
-		case WEST:
-
-			break;
+void Maze_Get_Wall( int8_t x, int8_t y){
+	int n_wall=0, e_wall=0, s_wall=0, w_wall=0;
+	// 探索済みに設定
+	maze.is_search[x][y] = true;
+	// 方向別に壁の状態を取得
+	switch( position.dir ){
+	case NORTH:
+		n_wall = sensor.wall[5];
+		e_wall = sensor.wall[1];
+		w_wall = sensor.wall[2];
+		s_wall = 0;
+		break;
+	case EAST:
+		e_wall = sensor.wall[5];
+		s_wall = sensor.wall[1];
+		n_wall = sensor.wall[2];
+		w_wall = 0;
+		break;
+	case SOUTH:
+		s_wall = sensor.wall[5];
+		w_wall = sensor.wall[1];
+		e_wall = sensor.wall[2];
+		n_wall = 0;
+		break;
+	case WEST:
+		w_wall = sensor.wall[5];
+		n_wall = sensor.wall[1];
+		s_wall = sensor.wall[2];
+		e_wall = 0;
+		break;
+	default:
+		break;
+	}
+	// 方向別に保存
+	maze.wall_north[x][y] = n_wall;
+	maze.wall_east[x][y] = e_wall;
+	maze.wall_south[x][y] = s_wall;
+	maze.wall_west[x][y] = w_wall;
+	// 隣り合う壁の情報を保存
+	if( y < MAZE_SIZE-1 ){
+		maze.wall_south[x][y+1] = n_wall;
+	}
+	if( x < MAZE_SIZE-1){
+		maze.wall_west[x+1][y] = e_wall;
+	}
+	if(y > 0){
+		maze.wall_north[x][y-1] = s_wall;
+	}
+	if(x > 0){
+		maze.wall_east[x-1][y] = w_wall;
 	}
 }
 
@@ -225,6 +253,137 @@ void Update_Position(int8_t next_motion){
 	}
 }
 
+int8_t Maze_Next_Motion(void){
+	/* <概要>   : 次の動作を決定
+	 * <引数>   : なし
+	 * <戻り値> : 次の動作
+	 */
+	uint8_t tmp_step = MAX_STEP;		// 歩数
+	int8_t tmp_dir = UTURN;				// 方向
+	// 現在の向きに応じて場合分けし、 歩数が少ない方向を判断
+	// 迷路外に進むのとゴールがスタートマス以外の場合(0,0)に進むのを阻止
+	switch( position.dir ){
+		case NORTH:
+			if( maze.step[position.x][position.y+1] < tmp_step ){
+				if( position.y < MAZE_SIZE ){
+					if( maze.wall_north[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x][position.y+1];
+						tmp_dir = STRAIGHT;
+					}
+				}
+			}
+			if( maze.step[position.x-1][position.y] < tmp_step ){
+				if( position.x > 0 ){
+					if( maze.wall_west[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x-1][position.y];
+						tmp_dir = LEFT;
+					}
+				}
+			}
+			if( maze.step[position.x+1][position.y] < tmp_step ){
+				if( position.x < MAZE_SIZE ){
+					if( maze.wall_east[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x+1][position.y];
+						tmp_dir = RIGHT;
+					}
+				}
+			}
+			if( tmp_step == MAX_STEP){
+				tmp_dir = UTURN;
+			}
+			break;
+		case EAST:
+			if( maze.step[position.x+1][position.y] < tmp_step ){
+				if( position.x < MAZE_SIZE ){
+					if( maze.wall_east[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x+1][position.y];
+						tmp_dir = STRAIGHT;
+					}
+				}
+			}
+			if( maze.step[position.x][position.y+1] < tmp_step ){
+				if( position.y < MAZE_SIZE ){
+					if( maze.wall_north[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x][position.y+1];
+						tmp_dir = LEFT;
+					}
+				}
+			}
+			if( maze.step[position.x][position.y-1] < tmp_step ){
+				if( position.y > 0 ){
+					if( maze.wall_south[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x][position.y-1];
+						tmp_dir = RIGHT;
+					}
+				}
+			}
+			if( tmp_step == MAX_STEP){
+				tmp_dir = UTURN;
+			}
+			break;
+		case SOUTH:
+			if( maze.step[position.x][position.y-1] < tmp_step ){
+				if( position.y > 0 ){
+					if( maze.wall_south[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x][position.y-1];
+						tmp_dir = STRAIGHT;
+				}
+				}
+			}
+			if( maze.step[position.x+1][position.y] < tmp_step ){
+				if( position.x < MAZE_SIZE){
+					if( maze.wall_east[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x+1][position.y];
+						tmp_dir = LEFT;
+					}
+				}
+			}
+			if( maze.step[position.x-1][position.y] < tmp_step ){
+				if( position.x > 0 ){
+					if( maze.wall_west[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x-1][position.y];
+						tmp_dir = RIGHT;
+					}
+				}
+			}
+			if( tmp_step == MAX_STEP){
+				tmp_dir = UTURN;
+			}
+			break;
+		case WEST:
+			if( maze.step[position.x-1][position.y] < tmp_step ){
+				if( position.x > 0 ){
+					if( maze.wall_west[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x-1][position.y];
+						tmp_dir = STRAIGHT;
+					}
+				}
+			}
+			if( maze.step[position.x][position.y-1] < tmp_step ){
+				if( position.y > 0 ){
+					if( maze.wall_south[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x][position.y-1];
+						tmp_dir = LEFT;
+					}
+				}
+			}
+			if( maze.step[position.x][position.y+1] < tmp_step ){
+				if( position.y < MAZE_SIZE ){
+					if( maze.wall_north[position.x][position.y] == false ){
+						tmp_step = maze.step[position.x][position.y+1];
+						tmp_dir = RIGHT;
+					}
+				}
+			}
+			if( tmp_step == MAX_STEP){
+				tmp_dir = UTURN;
+			}
+			break;
+		default:
+			break;
+	}
+	return tmp_dir;
+}
 
 /****************************************************************************************************
  * outline : output step
@@ -232,9 +391,11 @@ void Update_Position(int8_t next_motion){
  * return : void
 ******************************************************************************************************/
 void MAZE_Printf_Step(void) {
-	for (uint8_t i = 0; i <= mazeDef.maze_size_y; i++)
+	int i=0;
+	for (i = 0; i <= MAZE_SIZE; i++)
 	{
-		for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
+		int j;
+		for (j = 0; j <= MAZE_SIZE; j++)
 		{
 			printf("+");
 			if (maze.wall_west[i][j] == 1)
@@ -247,7 +408,7 @@ void MAZE_Printf_Step(void) {
 			}
 		}
 		printf("+\r\n");
-		for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
+		for (j = 0; j <= MAZE_SIZE; j++)
 		{
 			if (maze.wall_south[i][j] == 1)
 			{
@@ -261,7 +422,7 @@ void MAZE_Printf_Step(void) {
 		}
 		printf("|\r\n");
 	}
-	for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
+	for (i = 0; i <= MAZE_SIZE; i++)
 	{
 		printf("+");
 		printf("---");
