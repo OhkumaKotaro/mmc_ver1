@@ -30,33 +30,6 @@ void Normal_Turn_Half(void){
     }
 }
 
-
-void Turn_Half(void){
-    flag.dir = LEFT;
-    flag.ir_led = OFF;
-    Yawrate_Calc_fb(180,0,0);
-    Straight_Calc_Zero();
-    flag.yawrate = ON;
-    flag.straight = ON;
-}
-
-void Turn_Quarter_Left(void){
-    flag.ir_led = OFF;
-    flag.dir = LEFT;
-    Yawrate_Calc_fb(90,0,0);
-    Straight_Calc_Zero();
-    flag.yawrate = ON;
-    flag.straight = ON;
-}
-
-void Turn_Quarter_Right(void){
-    flag.ir_led = OFF;
-    flag.dir = RIGHT;
-    Yawrate_Calc_fb(90,0,0);
-    Straight_Calc_Zero();
-    flag.yawrate = ON;
-    flag.straight = ON;
-}
 /****************************************************************************************
  * outline  : "ennkaigei"
  * argument : void
@@ -148,27 +121,139 @@ void Normal_Straight(void){
  * argument : void
  * return   : void
 ********************************************************************************************/
-void Straight(void){
-    flag.ir_led = OFF;
-    Straight_Calc_fb(180.0f,0.0f,0.0f);
+void Straight_Start(void){
+    Straight_Calc_fb(135,0,0);
     Yawrate_Calc_Zero();
-    HAL_Delay(10);
-    Output_Buzzer(HZ_C_H);
     flag.straight = ON;
     flag.yawrate = ON;
+    flag.wall = OFF;
+}
+
+void Straight(void){
+    Straight_Calc_fb(180,0,0);
+    Yawrate_Calc_Zero();
+    flag.straight = ON;
+    flag.yawrate = ON;
+    flag.wall = ON;
 }
 
 void Straight_HalF(void){
-    flag.ir_led = OFF;
-    Straight_Calc_fb(90.0f,0.0f,0.0f);
+    Straight_Calc_fb(90,0,0);
     Yawrate_Calc_Zero();
-    HAL_Delay(10);
-    Output_Buzzer(HZ_C_H);
     flag.straight = ON;
     flag.yawrate = ON;
 }
 
+void Turn_Half(void){
+    flag.dir = LEFT;
+    Yawrate_Calc_fb(180,0,0);
+    Straight_Calc_Zero();
+    flag.yawrate = ON;
+    flag.straight = ON;
+}
 
+void Turn_Quarter_Left(void){
+    flag.dir = LEFT;
+    Yawrate_Calc_fb(90,0,0);
+    Straight_Calc_Zero();
+    flag.yawrate = ON;
+    flag.straight = ON;
+}
+
+void Turn_Quarter_Right(void){
+    flag.dir = RIGHT;
+    Yawrate_Calc_fb(90,0,0);
+    Straight_Calc_Zero();
+    flag.yawrate = ON;
+    flag.straight = ON;
+}
+
+void Back(void){
+    Straight_Calc_fb(-50,0,0);
+    Yawrate_Calc_Zero();
+    flag.straight = ON;
+    flag.yawrate = ON;
+}
+
+void Straight_Check(void){
+    Straight_Calc_fb(1080,0,0);
+    Yawrate_Calc_Zero();
+    HAL_Delay(10);
+    Output_Buzzer(HZ_C_H);
+    flag.straight = ON;
+    flag.wall=ON;
+    flag.yawrate = ON;
+}
+
+void Motion_Start(void){
+    Back();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Straight_Start();
+    while(flag.accel==ON || flag.straight==ON){}
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Straight(void){
+    Straight();
+    while(flag.accel==ON || flag.straight==ON){}
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Left(void){
+    Straight_HalF();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Turn_Quarter_Left();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Straight_HalF();
+    while(flag.accel==ON || flag.straight==ON){}
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Right(void){
+    Straight_HalF();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Turn_Quarter_Right();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Straight_HalF();
+    while(flag.accel==ON || flag.straight==ON){}
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Uturn(void){
+    Straight_HalF();
+    while( flag.accel==ON || flag.straight==ON ){}
+    Turn_Half();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Back();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Straight_Start();
+    while(flag.accel==ON || flag.straight==ON){}
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Goal(void){
+    Straight_HalF();
+    while( flag.accel==ON || flag.straight==ON ){}
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Straight_Check(void){
+    Straight_Check();
+    while(flag.motion_end==false){}
+}
+
+void Motion_Back(void){
+    Back();
+    while(flag.accel==ON || flag.straight==ON){}
+    Output_Buzzer(HZ_C_H);
+}
 /****************************************************************************************
  * outline  : show log
  * argument : void
@@ -207,7 +292,7 @@ void Test_Create_Map(void){
     Maze_Set();
     Init_maze();
     MAZE_Create_Step();
-    MAZE_Out_Step();
+    MAZE_Printf_Step();
 }
 
 /****************************************************************************************

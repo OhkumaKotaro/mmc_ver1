@@ -34,10 +34,16 @@ typedef struct {								// 迷路情報
 }maze_t;
 
 
+extern mazeDef_t mazeDef;
+
+
 void Init_maze(void);
 void Maze_Set(void);
 void MAZE_Create_Step(void);
-void MAZE_Out_Step(void);
+void Maze_GetWall(void);
+void Update_Position(int8_t next_motion);
+void MAZE_Printf_Step(void);
+void Maze_GoalCheck(uint8_t flag_goal_is);
 
 
 #ifdef __cplusplus

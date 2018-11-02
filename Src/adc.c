@@ -44,6 +44,10 @@
 
 /* USER CODE BEGIN 0 */
 #include "global.h"
+
+uint16_t thresh_l = 1800;
+uint16_t thresh_r= 2100;
+uint16_t thresh_fr=2380;
 /* USER CODE END 0 */
 
 ADC_HandleTypeDef hadc1;
@@ -413,49 +417,25 @@ void update_wall(void){
   for( int i=0;i<4;i++){
     sensor.adc[i] = sensor.adc_on[i] - sensor.adc_off[i];
   }
-  
-  if(sensor.adc[0] > threshhold_0){
-    if(sensor.count[0] > 20){
-      sensor.wall[0] = true;
-    } else{
-      sensor.count[0] ++;
-    }
-  }else{
-    sensor.wall[0] = false;
-    sensor.count[0] = 0;
-  }
-  
-  if(sensor.adc[1] > threshhold_1){
-    if(sensor.count[1] > 20){
-      sensor.wall[1] = true;
-    } else{
-      sensor.count[1] ++;
-    }
-  }else{
-    sensor.wall[1] = false;
-    sensor.count[1] = 0;
-  }
 
-  if(sensor.adc[2] > threshhold_2){
-    if(sensor.count[2] > 20){
-      sensor.wall[2] = true;
-    } else{
-      sensor.count[2] ++;
-    }
+  sensor.adc[5] = ( sensor.adc[0] + sensor.adc[3] ) /2;
+  
+  if(sensor.adc[2] > thresh_l){
+    sensor.wall[2] = true;
   }else{
     sensor.wall[2] = false;
-    sensor.count[2] = 0;
   }
-
-  if(sensor.adc[3] > threshhold_3){
-    if(sensor.count[3] > 20){
-      sensor.wall[3] = true;
-    } else{
-      sensor.count[3] ++;
-    }
+  
+  if(sensor.adc[1] > thresh_r){
+    sensor.wall[1] = true;
   }else{
-    sensor.wall[3] = false;
-    sensor.count[3] = 0;
+    sensor.wall[1] = false;
+  }
+  
+  if(sensor.adc[5] > thresh_fr){
+    sensor.wall[5] = true;
+  }else{
+    sensor.wall[5] = false;
   }
 }
 /* USER CODE END 1 */

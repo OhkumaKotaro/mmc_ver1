@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc86Km5X.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccWREHLx.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -27,31 +27,26 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc86Km5X.s 			page 1
   24              		.comm	motor,8,4
   25              		.comm	yawrate_cnt,2,2
   26              		.comm	straight_cnt,2,2
-  27              		.comm	sensor_count,8,4
-  28              		.comm	sensor_wall,8,4
-  29              		.comm	sensor_adc,8,4
-  30              		.comm	sensor_adc_off,8,4
-  31              		.comm	sensor_adc_on,8,4
-  32              		.comm	batt_Vcc,4,4
-  33              		.comm	batt_analog,2,2
-  34              		.comm	count_tim5,2,2
-  35              		.comm	sensor,36,4
-  36              		.comm	position,12,4
-  37              		.comm	s_accel,4,4
-  38              		.comm	calc,16,4
-  39              		.comm	enc,44,4
-  40              		.comm	gyro,24,4
-  41              		.comm	flag,7,4
-  42              	.Letext0:
-  43              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  44              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  45              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  46              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  47              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
-  48              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
-  49              		.file 7 "Inc/global.h"
-  50              		.file 8 "Src/global.c"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc86Km5X.s 			page 2
+  27              		.comm	batt_Vcc,4,4
+  28              		.comm	batt_analog,2,2
+  29              		.comm	count_tim5,2,2
+  30              		.comm	sensor,44,4
+  31              		.comm	position,3,4
+  32              		.comm	s_accel,4,4
+  33              		.comm	calc,16,4
+  34              		.comm	enc,44,4
+  35              		.comm	gyro,24,4
+  36              		.comm	flag,14,4
+  37              	.Letext0:
+  38              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  39              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  40              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  41              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  42              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+  43              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+  44              		.file 7 "Inc/global.h"
+  45              		.file 8 "Src/global.c"
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccWREHLx.s 			page 2
 
 
 DEFINED SYMBOLS
@@ -66,20 +61,15 @@ DEFINED SYMBOLS
                             *COM*:00000008 motor
                             *COM*:00000002 yawrate_cnt
                             *COM*:00000002 straight_cnt
-                            *COM*:00000008 sensor_count
-                            *COM*:00000008 sensor_wall
-                            *COM*:00000008 sensor_adc
-                            *COM*:00000008 sensor_adc_off
-                            *COM*:00000008 sensor_adc_on
                             *COM*:00000004 batt_Vcc
                             *COM*:00000002 batt_analog
                             *COM*:00000002 count_tim5
-                            *COM*:00000024 sensor
-                            *COM*:0000000c position
+                            *COM*:0000002c sensor
+                            *COM*:00000003 position
                             *COM*:00000004 s_accel
                             *COM*:00000010 calc
                             *COM*:0000002c enc
                             *COM*:00000018 gyro
-                            *COM*:00000007 flag
+                            *COM*:0000000e flag
 
 NO UNDEFINED SYMBOLS

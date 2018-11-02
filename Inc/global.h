@@ -19,7 +19,9 @@
 #define OFF 0
 
 #define LEFT 1
+#define STRAIGHT 0
 #define RIGHT -1
+#define UTURN 2
 
 //motor 003SR
 #define KT  1.98f//toluku[mNm/A]
@@ -34,7 +36,7 @@
 
 //mouse
 #define WEIGHT 100.0f //[g]
-#define TIRE_RADIUS 12.5f  //[mm]
+#define TIRE_RADIUS 12.6f  //[mm] 直径24.58mm
 #define INERTIA     23.0f 
 #define TREAD 73.0f  //[mm]
 #define GEAR_RATE 5.25f
@@ -64,6 +66,8 @@ typedef struct{
   uint8_t accel;
   int16_t dir;
   uint8_t motion_end;
+  uint8_t wall;
+  int8_t next_dir;
 }flag_t;
 extern volatile flag_t flag;
 
@@ -101,9 +105,13 @@ extern enc_t enc;
 typedef struct{
   uint16_t adc_on[4];
   uint16_t adc_off[4];
-  uint16_t adc[4];
-  uint8_t wall[4];
+  uint16_t adc[5];
+  uint8_t wall[5];
   uint16_t count[4];
+  int16_t befor_l;
+  int16_t befor_r;
+  int16_t dif_l;
+  int16_t dif_r;
 }sensor_t;
 extern sensor_t sensor;
 
@@ -152,8 +160,6 @@ typedef struct{
   uint8_t x;
   uint8_t y;
   uint8_t dir;
-  float angle;
-  float distance;
 }position_t;
 extern position_t position;
 

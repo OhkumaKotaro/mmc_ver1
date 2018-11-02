@@ -1,5 +1,6 @@
 #include "maze.h"
 #include "gpio.h"
+#include "global.h"
 
 
 /**************variable**********************/
@@ -14,10 +15,10 @@ maze_t maze;
  * return : void
 ******************************************************************************************************/
 void Maze_Set(void){
-    mazeDef.maze_size_x = 7;
-    mazeDef.maze_size_y = 7;
-    mazeDef.maze_goal_x = 3;
-    mazeDef.maze_goal_y = 3;
+    mazeDef.maze_size_x = 15;
+    mazeDef.maze_size_y = 15;
+    mazeDef.maze_goal_x = 1;
+    mazeDef.maze_goal_y = 0;
 }
 
 /****************************************************************************************************
@@ -124,13 +125,113 @@ void MAZE_Create_Step(void) {
 	}
 }
 
+void Maze_GetWall(void){
+	switch(position.dir){
+		case NORTH:
+			if(sensor.wall[5]==true){
+				
+			}
+			break;
+		case EAST:
+
+			break;
+		case SOUTH:
+
+			break;
+		case WEST:
+
+			break;
+	}
+}
+
+void Update_Position(int8_t next_motion){
+	switch(next_motion){
+		case LEFT:
+			switch(position.dir){
+				case NORTH:
+					position.x --;
+					position.dir = WEST;
+					break;
+				case EAST:
+					position.y ++;
+					position.dir = NORTH;
+					break;
+				case SOUTH:
+					position.x ++;
+					position.dir = EAST;
+					break;
+				case WEST:
+					position.y --;
+					position.dir = SOUTH;
+					break;
+			}
+			break;
+		case STRAIGHT:
+			switch(position.dir){
+				case NORTH:
+					position.y ++;
+					break;
+				case EAST:
+					position.x ++;
+					break;
+				case SOUTH:
+					position.y --;
+					break;
+				case WEST:
+					position.x --;
+					break;
+			}
+			break;
+		case RIGHT:
+			switch(position.dir){
+				case NORTH:
+					position.x ++;
+					position.dir = EAST;
+					break;
+				case EAST:
+					position.y --;
+					position.dir = SOUTH;
+					break;
+				case SOUTH:
+					position.x --;
+					position.dir = WEST;
+					break;
+				case WEST:
+					position.y ++;
+					position.dir = NORTH;
+					break;
+			}
+			break;
+		case UTURN:
+			switch(position.dir){
+				case NORTH:
+					position.y --;
+					position.dir = SOUTH;
+					break;
+				case EAST:
+					position.x --;
+					position.dir = WEST;
+					break;
+				case SOUTH:
+					position.y ++;
+					position.dir = NORTH;
+					break;
+				case WEST:
+					position.x ++;
+					position.dir = EAST;
+					break;
+			}
+			break;
+	}
+}
+
 
 /****************************************************************************************************
  * outline : output step
  * argument : void
  * return : void
 ******************************************************************************************************/
-void MAZE_Out_Step(void) {
+void MAZE_Printf_Step(void) {
 	for (uint8_t i = 0; i <= mazeDef.maze_size_y; i++)
 	{
 		for (uint8_t j = 0; j <= mazeDef.maze_size_x; j++)
@@ -166,4 +267,10 @@ void MAZE_Out_Step(void) {
 		printf("---");
 	}
 	printf("+\r\n\n");
+}
+
+void Maze_GoalCheck(uint8_t flag_goal_is){
+	if(position.x==mazeDef.maze_goal_x && position.y==mazeDef.maze_goal_y){
+		flag_goal_is = true;
+	}
 }

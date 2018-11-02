@@ -191,6 +191,12 @@ void SysTick_Handler(void)
   update_encoder();
   update_batt_date();
 
+  sensor.dif_l = sensor.adc[2] - sensor.befor_l;
+  sensor.befor_l=sensor.adc[2];
+
+  sensor.dif_r = sensor.adc[1] - sensor.befor_r;
+  sensor.befor_r=sensor.adc[1];
+
   if(flag.straight == ON){
     Straight_SysTic_fb();
   }else{
@@ -199,11 +205,16 @@ void SysTick_Handler(void)
     straight_pid_r = 0;
   }
 
+
   if(flag.yawrate == ON){
     Yawrate_SysTic_fb();
   }else{
     yawrate_cnt = 0;
     yawrate_pid = 0;
+  }
+
+  if(flag.wall==ON){
+    Control_Wall();
   }
 
   Control_pwm();

@@ -184,7 +184,7 @@ void write_byte( uint8_t reg,uint8_t val){
  * return   : void
  ****************************************************************/
 void set_mpu6500(void){
-  uint8_t val = 0;
+  uint8_t val = 0x00;
   while(val!=Certain){
     val = read_byte(WHO_AM_I);
   }

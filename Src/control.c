@@ -26,7 +26,7 @@ float PID_value(float target,float measured,float *sum,float *old,float Kp,float
     *sum += error * dt;
     i = *sum * Ki;
 
-    d = Kd * (error - *old) / dt;
+    d = Kd * (error - *old);
     *old = error;
 
     return (p+i+d);
@@ -65,7 +65,13 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     s_sum_l = 0;
     s_sum_l = 0;
     flag.straight_zero = OFF;
-    flag.motion_end = false;
+
+    if(distant<0){
+        distant = -1*distant;
+        straight_dir=-1;
+    }else{
+        straight_dir=1;
+    }
 
     t1 = (float)(MAX_VELOCITY - v_start) / ACCEL;
     t3 = (float)(MAX_VELOCITY - v_end) / ACCEL;
@@ -101,6 +107,7 @@ void Straight_Calc_Zero(void){
 ********************************************************************************************/
 void Straight_SysTic_fb(void){
     float encoder_l,encoder_r;
+    float target = 1;
     if(flag.straight_zero == ON){
         encoder_l = enc.velocity_c;
         encoder_r = enc.velocity_c;
@@ -126,11 +133,13 @@ void Straight_SysTic_fb(void){
         calc.velocity = 0;
         flag.straight = OFF;
         flag.yawrate = OFF;
-        flag.motion_end=true;
+        flag.wall = OFF;
     }
+
+    target = straight_dir * calc.velocity;
     
-    straight_pid_l = (int16_t)PID_value(calc.velocity,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
-    straight_pid_r = (int16_t)PID_value(calc.velocity,encoder_r,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_l = (int16_t)PID_value(target,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_r = (int16_t)PID_value(target,encoder_r,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
 }
 
 
@@ -144,7 +153,6 @@ void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end){
     y_sum = 0;
     gyro.befor = 0;
     flag.yawrate_zero = OFF;
-    flag.motion_end = false;
 
     float t1=0,t2=0,t3=0;
     float constant_L;
@@ -170,7 +178,7 @@ void Yawrate_Calc_Zero(void){
 }
 
 /****************************************************************************************
- * outline  : call 1ms (roll by feadbuck control)
+ * outline  : call 1ms (control yawrate by feadbuck)
  * argument : void
  * return   : void
 ********************************************************************************************/
@@ -187,14 +195,54 @@ void Yawrate_SysTic_fb(void){
     }else{
         flag.yawrate = OFF;
         flag.straight = OFF;
-        flag.motion_end = true;
         calc.yawrate_velocity = 0;
     }
-    yawrate_pid = (int16_t)PID_value((float)flag.dir * calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,1.4f,11.5f,0.004f);
+    yawrate_pid = (int16_t)PID_value((float)flag.dir * calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,1.2f,13.5f,4.0f);
+}
+void Control_Wall(void){
+    int16_t wall_dif=0;
+    int16_t ref_l=2350;
+    int16_t ref_r=2590;
+    
+    /*
+    if(sensor.dif_l<-20 || sensor.dif_l>20){
+        ref_l += sensor.dif_l;
+    }
+    if(sensor.dif_r<-20 || sensor.dif_r >20){
+        ref_r += sensor.dif_r;
+    }
+    */
+
+    wall_dif = (sensor.adc[2] - ref_l) - (sensor.adc[1] - ref_r);
+    if(sensor.wall[2]==true && sensor.wall[1]==true){
+        if(sensor.dif_l<-10 && sensor.dif_r<-10){
+            wall_pid = 0.3f * wall_dif;
+        }
+    }else if(sensor.wall[2]==true && sensor.wall[1]==false){
+        if(sensor.dif_l>-10 && sensor.dif_l<10 ){
+            wall_pid = 2*(sensor.adc[2] - ref_l);
+        }
+    }else if(sensor.wall[2]==false && sensor.wall[1]==true){
+        if(sensor.dif_r>-10){
+            wall_pid = -2 * (sensor.adc[1] - ref_r);
+        }
+    }else{
+        wall_pid=0;
+    }
+
+    if(enc.velocity_c < 50.0f){
+        wall_pid=0;
+    }
+
 }
 
 void Control_pwm(void){
     int16_t pwm_l=0,pwm_r=0;
+
+    if(flag.wall==ON){
+        pwm_l += wall_pid;
+        pwm_r -= wall_pid;
+    }
 
     if(flag.straight==ON){
         pwm_l += straight_pid_l;
@@ -224,26 +272,21 @@ void Output_Buzzer(uint8_t Hz){
  * return   : void
 ********************************************************************************************/
 void Sensor_Check(void){
-    if(sensor.wall[0]==true){
+    if(sensor.wall[1]==true){
         HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_RESET);
     }else{
         HAL_GPIO_WritePin(led0_GPIO_Port,led0_Pin,GPIO_PIN_SET);
     }
-    if(sensor.wall[1]==true){
-        HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
-    }else{
-        HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
-    }
     if(sensor.wall[2]==true){
-        HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
-    }else{
-        HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
-    }
-    if(sensor.wall[3]==true){
         HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_RESET);
     }else{
         HAL_GPIO_WritePin(led1_GPIO_Port,led1_Pin,GPIO_PIN_SET);
+    }
+    if(sensor.wall[5]==true){
+        HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_RESET);
+    }else{
+        HAL_GPIO_WritePin(led3_GPIO_Port,led3_Pin,GPIO_PIN_SET);
+        HAL_GPIO_WritePin(led2_GPIO_Port,led2_Pin,GPIO_PIN_SET);
     } 
 }
-
-

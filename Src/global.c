@@ -13,11 +13,7 @@ uint16_t count_tim5 ;
 uint16_t batt_analog;
 float batt_Vcc;
 
-uint16_t sensor_adc_on[4];
-uint16_t sensor_adc_off[4];
-uint16_t sensor_adc[4];
-uint16_t sensor_wall[4];
-uint16_t sensor_count[4];
+
 
 uint16_t straight_cnt;
 uint16_t yawrate_cnt;

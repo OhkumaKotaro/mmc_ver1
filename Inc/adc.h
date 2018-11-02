@@ -57,12 +57,6 @@ extern ADC_HandleTypeDef hadc3;
 
 /* USER CODE BEGIN Private defines */
 
-//wall threshhold
-#define threshhold_0  2800
-#define threshhold_1  2000
-#define threshhold_2  1800
-#define threshhold_3  2100
-
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
