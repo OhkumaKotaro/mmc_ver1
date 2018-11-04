@@ -35,6 +35,7 @@ int8_t Mode_select(void){
         }
         if(Push()==ON){
             Output_Buzzer(HZ_C_H);
+            HAL_Delay(500);
             break;
         }
         LED_Control(mode);
@@ -53,47 +54,43 @@ void Mode_mouse(int8_t mode){
     switch(mode){
         case 0:
             Mode_Adachi();
+
             break;
         case 1:
             LeftHand();
             break;
         case 2:
-            flag.ir_led = ON;
-            while(1){
-                if(sensor.wall[5]==true){
-                Output_Buzzer(HZ_C_H);
-                break;
-                }
-            }
-            flag.ir_led = OFF;
+            PT_Switch();
+            gyro_offset_calc_reset();
+            HAL_Delay(2000);
             Motion_Left();
             break;
         case 3:
-            flag.ir_led = ON;
-            while(1){
-                if(sensor.wall[5]==true){
-                Output_Buzzer(HZ_C_H);
-                break;
-                }
-            }
-            flag.ir_led = OFF;
+            PT_Switch();
+            gyro_offset_calc_reset();
+            HAL_Delay(2000);
             Motion_Right();
             break;
         case 4:
+            PT_Switch();
+            gyro_offset_calc_reset();
+            HAL_Delay(4000);
             flag.ir_led = ON;
-            while(1){
-                if(sensor.wall[5]==true){
-                Output_Buzzer(HZ_C_H);
-                break;
-                }
+            if(sensor.wall[5]==false){
+                flag.kabeate=false;
+            }else{
+                flag.kabeate=true;
             }
-            flag.ir_led = OFF;
             Motion_Uturn();
             break;
         case 5:
-            Test_Create_Map();
+            PT_Switch();
+            gyro_offset_calc_reset();
+            HAL_Delay(2000);
+            Motion_Kabeate();
             break;
         case 6:
+            //Show_log();
             Sensor_Mode();
             break;
         default:
@@ -159,7 +156,6 @@ void LeftHand(void){
 
 void Mode_Adachi(void){
     uint8_t flag_goal_is=false;
-    uint8_t count=0;
     int8_t next_dir;
 
    
@@ -205,6 +201,9 @@ void Mode_Adachi(void){
 
             case UTURN:
                 Motion_Uturn();
+                break;
+            case KABEATE:
+                Motion_Kabeate();
                 break;
         }
     }

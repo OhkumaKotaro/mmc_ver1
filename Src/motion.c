@@ -7,6 +7,8 @@
 #include "maze.h"
 
 
+static unsigned char flag_kabeate;
+
 void Normal_Turn_Half(void){
     flag.ir_led = ON;
     while(1){
@@ -122,7 +124,7 @@ void Normal_Straight(void){
  * return   : void
 ********************************************************************************************/
 void Straight_Start(void){
-    Straight_Calc_fb(135,0,0);
+    Straight_Calc_fb(136.4,0,0);
     Yawrate_Calc_Zero();
     flag.straight = ON;
     flag.yawrate = ON;
@@ -142,12 +144,14 @@ void Straight_HalF(void){
     Yawrate_Calc_Zero();
     flag.straight = ON;
     flag.yawrate = ON;
+    flag.wall = ON;
 }
 
 void Turn_Half(void){
     flag.dir = LEFT;
     Yawrate_Calc_fb(180,0,0);
     Straight_Calc_Zero();
+    flag.wall = OFF;
     flag.yawrate = ON;
     flag.straight = ON;
 }
@@ -156,6 +160,7 @@ void Turn_Quarter_Left(void){
     flag.dir = LEFT;
     Yawrate_Calc_fb(90,0,0);
     Straight_Calc_Zero();
+    flag.wall = OFF;
     flag.yawrate = ON;
     flag.straight = ON;
 }
@@ -164,16 +169,17 @@ void Turn_Quarter_Right(void){
     flag.dir = RIGHT;
     Yawrate_Calc_fb(90,0,0);
     Straight_Calc_Zero();
+    flag.wall = OFF;
     flag.yawrate = ON;
     flag.straight = ON;
 }
 
 void Back(void){
-    Straight_Calc_fb(-50,0,0);
+    Straight_Calc_fb(-55,0,0);
     Yawrate_Calc_Zero();
+    flag.wall = OFF;
     flag.straight = ON;
     flag.yawrate = ON;
-    flag.wall=OFF;
 }
 
 void Straight_Check(void){
@@ -228,6 +234,20 @@ void Motion_Right(void){
 void Motion_Uturn(void){
     Straight_HalF();
     while( flag.accel==ON || flag.straight==ON ){}
+    HAL_Delay(500);
+    Turn_Half();
+    while(flag.accel==ON || flag.straight==ON){}
+    HAL_Delay(500);
+    Straight_HalF();
+    while(flag.accel==ON || flag.straight==ON){}
+    
+    Output_Buzzer(HZ_C_H);
+}
+
+void Motion_Kabeate(void){
+    Straight_HalF();
+    while( flag.accel==ON || flag.straight==ON ){}
+    HAL_Delay(500);
     Turn_Half();
     while(flag.accel==ON || flag.straight==ON){}
     HAL_Delay(500);
@@ -240,7 +260,7 @@ void Motion_Uturn(void){
 }
 
 void Motion_Goal(void){
-    Straight_HalF();
+    Straight_Start();
     while( flag.accel==ON || flag.straight==ON ){}
     Output_Buzzer(HZ_C_H);
 }
@@ -266,6 +286,7 @@ void Show_log(void){
         printf("%f\t%f\t%f\r\n",loger.target_y_velocity[i],loger.y_velocity[i],loger.velocity_c[i]);
         if(Push()==ON){
             Output_Buzzer(HZ_A);
+            HAL_Delay(300);
             break;
         }
     }
@@ -311,4 +332,19 @@ void Batt_Check(void)
   batt = batt/4095.0f*133.0f/33.0f*3.3f;
   batt_Vcc = batt;
   printf("\nbatt:%lf\r\n",batt);
+}
+
+void PT_Switch(void){
+    flag.ir_led = ON;
+    while(1){
+        if(sensor.wall[5]==true){
+        Output_Buzzer(HZ_C_H);
+        break;
+        }
+    }
+    flag.ir_led=OFF;
+}
+
+void Kabeate_dec(unsigned char flag){
+    flag_kabeate = flag;
 }

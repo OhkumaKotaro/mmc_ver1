@@ -203,14 +203,23 @@ void SysTick_Handler(void)
     straight_cnt = 0;
     straight_pid_l = 0;
     straight_pid_r = 0;
+    s_sum_l=0;
+    s_sum_r=0;
+    enc.old_l=0;
+    enc.old_r=0;
   }
 
 
   if(flag.yawrate == ON){
     Yawrate_SysTic_fb();
+    loger.target_y_velocity[yawrate_cnt]=calc.yawrate_velocity;
+    loger.velocity_c[yawrate_cnt]=enc.velocity_c;
+    loger.y_velocity[yawrate_cnt]=gyro.velocity;
   }else{
     yawrate_cnt = 0;
     yawrate_pid = 0;
+    y_sum=0;
+    gyro.befor=0;
   }
 
   if(flag.wall==ON){

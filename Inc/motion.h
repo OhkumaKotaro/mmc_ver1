@@ -5,6 +5,7 @@
 #endif
 
 
+
 void Normal_Turn_Half(void);
 void Turn_Half(void);
 void Turn_Quarter_Left(void);
@@ -24,11 +25,14 @@ void Motion_Back(void);
 void Motion_Left(void);
 void Motion_Right(void);
 void Motion_Uturn(void);
+void Motion_Kabeate(void);
 void Motion_Goal(void);
 void Show_log(void);
 void Sensor_Mode(void);
 void Test_Create_Map(void);
 void Batt_Check(void);
+void PT_Switch(void);
+void Kabeate_dec(unsigned char flag);
 
 
 #ifdef __cplusplus

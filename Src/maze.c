@@ -15,8 +15,8 @@ maze_t maze;
  * return : void
 ******************************************************************************************************/
 void Maze_Set(void){
-    mazeDef.maze_goal_x = 1;
-    mazeDef.maze_goal_y = 0;
+    mazeDef.maze_goal_x = 7;
+    mazeDef.maze_goal_y = 7;
 }
 
 /****************************************************************************************************
@@ -121,6 +121,12 @@ void MAZE_Create_Step( void ){
 
 void Maze_Get_Wall( int8_t x, int8_t y){
 	int n_wall=0, e_wall=0, s_wall=0, w_wall=0;
+
+	if(sensor.wall[5]==false){
+    	flag.kabeate=false;
+    }else{
+        flag.kabeate=true;
+    }
 	// 探索済みに設定
 	maze.is_search[x][y] = true;
 	// 方向別に壁の状態を取得
@@ -250,6 +256,26 @@ void Update_Position(int8_t next_motion){
 					break;
 			}
 			break;
+		case KABEATE:
+			switch(position.dir){
+				case NORTH:
+					position.y --;
+					position.dir = SOUTH;
+					break;
+				case EAST:
+					position.x --;
+					position.dir = WEST;
+					break;
+				case SOUTH:
+					position.y ++;
+					position.dir = NORTH;
+					break;
+				case WEST:
+					position.x ++;
+					position.dir = EAST;
+					break;
+			}
+			break;
 	}
 }
 
@@ -289,7 +315,12 @@ int8_t Maze_Next_Motion(void){
 				}
 			}
 			if( tmp_step == MAX_STEP){
-				tmp_dir = UTURN;
+				if(flag.kabeate == false){
+					tmp_dir = UTURN;
+				}else if(flag.kabeate == true){
+					tmp_dir = KABEATE;
+				}
+				
 			}
 			break;
 		case EAST:
@@ -318,7 +349,11 @@ int8_t Maze_Next_Motion(void){
 				}
 			}
 			if( tmp_step == MAX_STEP){
-				tmp_dir = UTURN;
+				if(flag.kabeate == false){
+					tmp_dir = UTURN;
+				}else if(flag.kabeate == true){
+					tmp_dir = KABEATE;
+				}
 			}
 			break;
 		case SOUTH:
@@ -347,7 +382,11 @@ int8_t Maze_Next_Motion(void){
 				}
 			}
 			if( tmp_step == MAX_STEP){
-				tmp_dir = UTURN;
+				if(flag.kabeate == false){
+					tmp_dir = UTURN;
+				}else if(flag.kabeate == true){
+					tmp_dir = KABEATE;
+				}
 			}
 			break;
 		case WEST:
@@ -376,7 +415,11 @@ int8_t Maze_Next_Motion(void){
 				}
 			}
 			if( tmp_step == MAX_STEP){
-				tmp_dir = UTURN;
+				if(flag.kabeate == false){
+					tmp_dir = UTURN;
+				}else if(flag.kabeate == true){
+					tmp_dir = KABEATE;
+				}
 			}
 			break;
 		default:

@@ -22,6 +22,7 @@
 #define STRAIGHT 0
 #define RIGHT -1
 #define UTURN 2
+#define KABEATE 3
 
 //motor 003SR
 #define KT  1.98f//toluku[mNm/A]
@@ -36,7 +37,7 @@
 
 //mouse
 #define WEIGHT 100.0f //[g]
-#define TIRE_RADIUS 12.6f  //[mm] 直径24.58mm
+#define TIRE_RADIUS 12.3f  //[mm] 直径24.58mm
 #define INERTIA     23.0f 
 #define TREAD 73.0f  //[mm]
 #define GEAR_RATE 5.25f
@@ -49,7 +50,7 @@
 #define MAX_VELOCITY 300 //[mm/s]
 
 //yawrate
-#define Y_ACCEL 2000 //[degree/s^2]
+#define Y_ACCEL 2000 //[degree/s^2]//2000
 #define Y_MAX_VELOCITY 380//[degree/s]
 
 
@@ -68,6 +69,7 @@ typedef struct{
   uint8_t motion_end;
   uint8_t wall;
   int8_t next_dir;
+  uint8_t kabeate;
 }flag_t;
 extern volatile flag_t flag;
 

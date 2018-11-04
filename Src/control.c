@@ -88,15 +88,15 @@ void Straight_Calc_fb(int16_t distant,int16_t v_start,int16_t v_end){
     constant_T = t2;
     decrease_T = t3;
 
-    encoder_Kp = 3.0f;
-    encoder_Ki = 12.0f;
+    encoder_Kp = 4.0f;
+    encoder_Ki = 10.0f;
     encoder_Kd = 0;
 }
 
 void Straight_Calc_Zero(void){
     flag.straight_zero=ON;
-    encoder_Kp = 4.0f;
-    encoder_Ki = 0;
+    encoder_Kp = 4.0;  //4.0
+    encoder_Ki = 10.0;
     encoder_Kd = 0;
 }
 
@@ -106,40 +106,42 @@ void Straight_Calc_Zero(void){
  * return   : void
 ********************************************************************************************/
 void Straight_SysTic_fb(void){
-    //float encoder_l,encoder_r;
+    float encoder_l,encoder_r;
     float target = 1;
     if(flag.straight_zero == ON){
-        //encoder_l = enc.velocity_c;
-        //encoder_r = enc.velocity_c;
+        encoder_l = enc.velocity_c;
+        encoder_r = enc.velocity_c;
         calc.velocity = 0;
     }
     else if(straight_cnt < accel_T){
-        //encoder_l = enc.velocity_l;
-        //encoder_r = enc.velocity_r;
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         Calc_Palam(ACCEL,&calc.velocity,&straight_cnt);
     }
     else if(straight_cnt < constant_T + accel_T){
-        //encoder_l = enc.velocity_l;
-        //encoder_r = enc.velocity_r;
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         Calc_Palam(0,&calc.velocity,&straight_cnt);
     }
     else if(straight_cnt < decrease_T + constant_T + accel_T){
-        //encoder_l = enc.velocity_l;
-        //encoder_r = enc.velocity_r;
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         Calc_Palam(-ACCEL,&calc.velocity,&straight_cnt);
     }else{
-        //encoder_l = enc.velocity_l;
-        //encoder_r = enc.velocity_r;
+        encoder_l = enc.velocity_l;
+        encoder_r = enc.velocity_r;
         calc.velocity = 0;
-        flag.straight = OFF;
-        flag.yawrate = OFF;
+        if(enc.velocity_c==0){
+            flag.straight = OFF;
+            flag.yawrate = OFF;
+        }
         //flag.wall = OFF;
     }
 
     target = straight_dir * calc.velocity;
     
-    straight_pid_l = (int16_t)PID_value(target,enc.velocity_c,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
-    straight_pid_r = (int16_t)PID_value(target,enc.velocity_c,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_l = (int16_t)PID_value(target,encoder_l,&s_sum_l,&enc.old_l,encoder_Kp,encoder_Ki,encoder_Kd);
+    straight_pid_r = (int16_t)PID_value(target,encoder_r,&s_sum_r,&enc.old_r,encoder_Kp,encoder_Ki,encoder_Kd);
 }
 
 
@@ -193,16 +195,18 @@ void Yawrate_SysTic_fb(void){
     }else if(yawrate_cnt < y_decrease_T + y_constant_T + y_accel_T){
         Calc_Palam(-Y_ACCEL,&calc.yawrate_velocity,&yawrate_cnt);
     }else{
-        flag.yawrate = OFF;
-        flag.straight = OFF;
         calc.yawrate_velocity = 0;
+        //if(gyro.velocity==0){
+            flag.yawrate = OFF;
+            flag.straight = OFF;
+        //}
     }
-    yawrate_pid = (int16_t)PID_value((float)flag.dir * calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,1.2f,13.5f,4.0f);
+    yawrate_pid = (int16_t)PID_value((float)flag.dir * calc.yawrate_velocity,gyro.velocity,&y_sum,&gyro.befor,0.92f,9.0f,4.0f);
 }
 void Control_Wall(void){
     int16_t wall_dif=0;
-    int16_t ref_l=2200;
-    int16_t ref_r=2666;
+    int16_t ref_l=2658;
+    int16_t ref_r=2789;
     
     /*
     if(sensor.dif_l<-20 || sensor.dif_l>20){
@@ -218,7 +222,7 @@ void Control_Wall(void){
         if(sensor.dif_l>-20 && sensor.dif_r>-20){
             wall_pid = 0.2f * wall_dif;
         }
-    }else if(sensor.wall[2]==true && sensor.wall[1]==false){
+    }/*else if(sensor.wall[2]==true && sensor.wall[1]==false){
         if(sensor.dif_l>-20 && sensor.dif_l<20 ){
             wall_pid = 2*(sensor.adc[2] - ref_l);
         }
@@ -226,12 +230,12 @@ void Control_Wall(void){
         if(sensor.dif_r>-20){
             wall_pid = -2 * (sensor.adc[1] - ref_r);
         }
-    }else{
+    }*/else{
         wall_pid=0;
     }
 
-    if(enc.velocity_c < 30.0f){
-        //wall_pid=0;
+    if(enc.velocity_c < 250.0f){
+        wall_pid=0;
     }
 
 }
@@ -261,7 +265,7 @@ void Control_pwm(void){
 ********************************************************************************************/
 void Output_Buzzer(uint8_t Hz){
     Buzzer_pwm(Hz,300);
-    HAL_Delay(300);
+    HAL_Delay(100);
     Buzzer_pwm(HZ_NORMAL,0);
 }
 
