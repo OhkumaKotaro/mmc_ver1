@@ -20,6 +20,8 @@ float w_befor;
 int16_t straight_pid_l,straight_pid_r;
 int16_t yawrate_pid;
 int16_t wall_pid;
+int16_t fr_wall_pid_l;
+int16_t fr_wall_pid_r;
 int8_t straight_dir;
 
 
@@ -33,6 +35,7 @@ void Yawrate_Calc_fb(int16_t degree,int16_t v_start,int16_t v_end);
 void Yawrate_Calc_Zero(void);
 void Yawrate_SysTic_fb(void);
 void Control_Wall(void);
+void Front_Wall_Control(void);
 void Control_pwm(void);
 void Output_Buzzer(uint8_t Hz);
 void control_accel(int16_t accel_l,int16_t accel_r );

@@ -224,6 +224,14 @@ void SysTick_Handler(void)
 
   if(flag.wall==ON){
     Control_Wall();
+  }else{
+    wall_pid=0;
+  }
+  if(flag.fr_wall==ON){
+    Front_Wall_Control();
+  }else{
+    fr_wall_pid_l=0;
+    fr_wall_pid_r=0;
   }
 
   Control_pwm();

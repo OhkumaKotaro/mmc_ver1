@@ -53,8 +53,9 @@ int8_t Mode_select(void){
 void Mode_mouse(int8_t mode){
     switch(mode){
         case 0:
-            Mode_Adachi();
-
+            //Mode_Adachi();
+            flag.ir_led=ON;
+            flag.fr_wall=ON;
             break;
         case 1:
             LeftHand();
@@ -105,7 +106,7 @@ void LeftHand(void){
     Maze_Set();
 
     while(1){
-        if(sensor.wall[5]==ON){
+        if(sensor.wall[4]==ON){
             Output_Buzzer(HZ_C_H);
             break;
         }
@@ -163,7 +164,7 @@ void Mode_Adachi(void){
 
     flag.ir_led = ON;
     while(1){
-        if(sensor.wall[5]==true){
+        if(sensor.wall[4]==true){
             Output_Buzzer(HZ_C_H);
             break;
         }
@@ -213,7 +214,7 @@ void Mode_Adachi(void){
 void Mode_Circuit(void){
     flag.ir_led = ON;
     while(1){
-        if(sensor.wall[5]==true){
+        if(sensor.wall[4]==true){
             Output_Buzzer(HZ_C_H);
             break;
         }

@@ -122,7 +122,7 @@ void MAZE_Create_Step( void ){
 void Maze_Get_Wall( int8_t x, int8_t y){
 	int n_wall=0, e_wall=0, s_wall=0, w_wall=0;
 
-	if(sensor.wall[5]==false){
+	if(sensor.wall[4]==false){
     	flag.kabeate=false;
     }else{
         flag.kabeate=true;
@@ -132,25 +132,25 @@ void Maze_Get_Wall( int8_t x, int8_t y){
 	// 方向別に壁の状態を取得
 	switch( position.dir ){
 	case NORTH:
-		n_wall = sensor.wall[5];
+		n_wall = sensor.wall[4];
 		e_wall = sensor.wall[1];
 		w_wall = sensor.wall[2];
 		s_wall = 0;
 		break;
 	case EAST:
-		e_wall = sensor.wall[5];
+		e_wall = sensor.wall[4];
 		s_wall = sensor.wall[1];
 		n_wall = sensor.wall[2];
 		w_wall = 0;
 		break;
 	case SOUTH:
-		s_wall = sensor.wall[5];
+		s_wall = sensor.wall[4];
 		w_wall = sensor.wall[1];
 		e_wall = sensor.wall[2];
 		n_wall = 0;
 		break;
 	case WEST:
-		w_wall = sensor.wall[5];
+		w_wall = sensor.wall[4];
 		n_wall = sensor.wall[1];
 		s_wall = sensor.wall[2];
 		e_wall = 0;

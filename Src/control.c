@@ -240,12 +240,35 @@ void Control_Wall(void){
 
 }
 
+void Front_Wall_Control(void){
+    int16_t wall_dif_r=0;
+    int16_t wall_dif_l=0;
+    int16_t ref_fl=3065;
+    int16_t ref_fr=3011;
+
+    wall_dif_r = sensor.adc[0] - ref_fl;
+    wall_dif_l = sensor.adc[3] - ref_fr; 
+
+    if(sensor.wall[4]==true){
+        fr_wall_pid_l= -0.5 * wall_dif_l;
+        fr_wall_pid_r= -0.5 * wall_dif_r;
+    }else{
+        fr_wall_pid_l=0;
+        fr_wall_pid_r=0;
+    }
+}
+
 void Control_pwm(void){
     int16_t pwm_l=0,pwm_r=0;
 
     if(flag.wall==ON){
         pwm_l += wall_pid;
         pwm_r -= wall_pid;
+    }
+
+    if(flag.fr_wall==ON){
+        pwm_l += fr_wall_pid_l;
+        pwm_r += fr_wall_pid_r;
     }
 
     if(flag.straight==ON){

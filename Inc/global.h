@@ -68,6 +68,7 @@ typedef struct{
   int16_t dir;
   uint8_t motion_end;
   uint8_t wall;
+  uint8_t fr_wall;
   int8_t next_dir;
   uint8_t kabeate;
 }flag_t;

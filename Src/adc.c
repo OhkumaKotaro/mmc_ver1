@@ -418,7 +418,7 @@ void update_wall(void){
     sensor.adc[i] = sensor.adc_on[i] - sensor.adc_off[i];
   }
 
-  sensor.adc[5] = ( sensor.adc[0] + sensor.adc[3] ) /2;
+  sensor.adc[4] = ( sensor.adc[0] + sensor.adc[3] ) /2;
   
   if(sensor.adc[2] > thresh_l){
     sensor.wall[2] = true;
@@ -432,10 +432,10 @@ void update_wall(void){
     sensor.wall[1] = false;
   }
   
-  if(sensor.adc[5] > thresh_fr){
-    sensor.wall[5] = true;
+  if(sensor.adc[4] > thresh_fr){
+    sensor.wall[4] = true;
   }else{
-    sensor.wall[5] = false;
+    sensor.wall[4] = false;
   }
 }
 /* USER CODE END 1 */

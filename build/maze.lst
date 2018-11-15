@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
   37              		.loc 1 19 0
   38 0006 5A70     		strb	r2, [r3, #1]
   20:Src/maze.c    **** }
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 2
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 2
 
 
   39              		.loc 1 20 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
   80 0016 83F80024 		strb	r2, [r3, #1024]
   36:Src/maze.c    **** 			maze.wall_west[i][j] = 0;
   81              		.loc 1 36 0 discriminator 3
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 3
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 3
 
 
   82 001a 83F80025 		strb	r2, [r3, #1280]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
   46:Src/maze.c    **** 	{
   47:Src/maze.c    **** 		maze.wall_east[MAZE_SIZE][i] = 1;
  122              		.loc 1 47 0 discriminator 3
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 4
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 4
 
 
  123 0046 094A     		ldr	r2, .L12
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  164              		.cfi_startproc
  165              		@ args = 0, pretend = 0, frame = 8
  166              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 5
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 5
 
 
  167              		@ link register save eliminated.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  205 0022 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
  206 0024 9A42     		cmp	r2, r3
  207 0026 EFD1     		bne	.L16
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 6
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 6
 
 
   69:Src/maze.c    **** 			}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
   89:Src/maze.c    **** 						if( (maze.wall_north[i][j] == false)&&(maze.step[i][j+1] == stepNum) ){
   90:Src/maze.c    **** 							maze.step[i][j] = stepNum + 1;
  242              		.loc 1 90 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 7
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 7
 
 
  243 0048 6E1C     		adds	r6, r5, #1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  280 0090 525C     		ldrb	r2, [r2, r1]	@ zero_extendqisi2
  281 0092 AA42     		cmp	r2, r5
  282 0094 3ED0     		beq	.L36
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 8
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 8
 
 
  283              	.L22:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  328              		.loc 1 95 0 is_stmt 0 discriminator 1
  329 00e2 421C     		adds	r2, r0, #1
  330 00e4 1D4E     		ldr	r6, .L42
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 9
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 9
 
 
  331 00e6 06EB0212 		add	r2, r6, r2, lsl #4
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  376              		.loc 1 86 0 is_stmt 1
  377 012e 0023     		movs	r3, #0
  378 0130 B3E7     		b	.L27
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 10
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 10
 
 
  379              	.L39:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  419              		.cfi_restore 6
  420              		.cfi_restore 5
  421              		.cfi_restore 4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 11
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 11
 
 
  422              		.cfi_def_cfa_offset 0
@@ -638,16 +638,16 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  456              	.LVL25:
  123:Src/maze.c    **** 	int n_wall=0, e_wall=0, s_wall=0, w_wall=0;
  124:Src/maze.c    **** 
- 125:Src/maze.c    **** 	if(sensor.wall[5]==false){
+ 125:Src/maze.c    **** 	if(sensor.wall[4]==false){
  457              		.loc 1 125 0
  458 0002 354B     		ldr	r3, .L59
- 459 0004 DA7F     		ldrb	r2, [r3, #31]	@ zero_extendqisi2
+ 459 0004 9A7F     		ldrb	r2, [r3, #30]	@ zero_extendqisi2
  460 0006 8AB9     		cbnz	r2, .L45
  126:Src/maze.c    ****     	flag.kabeate=false;
  461              		.loc 1 126 0
  462 0008 344B     		ldr	r3, .L59+4
  463 000a 0024     		movs	r4, #0
- 464 000c 5C73     		strb	r4, [r3, #13]
+ 464 000c 9C73     		strb	r4, [r3, #14]
  465              	.L46:
  127:Src/maze.c    ****     }else{
  128:Src/maze.c    ****         flag.kabeate=true;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  467 000e 344B     		ldr	r3, .L59+8
  468 0010 03EB0013 		add	r3, r3, r0, lsl #4
  469 0014 0B44     		add	r3, r3, r1
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 12
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 12
 
 
  470 0016 0124     		movs	r4, #1
@@ -682,11 +682,11 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  485              		.loc 1 128 0
  486 002c 2B4B     		ldr	r3, .L59+4
  487 002e 0124     		movs	r4, #1
- 488 0030 5C73     		strb	r4, [r3, #13]
+ 488 0030 9C73     		strb	r4, [r3, #14]
  489 0032 ECE7     		b	.L46
  490              	.L48:
  134:Src/maze.c    **** 	case NORTH:
- 135:Src/maze.c    **** 		n_wall = sensor.wall[5];
+ 135:Src/maze.c    **** 		n_wall = sensor.wall[4];
  491              		.loc 1 135 0
  492 0034 1746     		mov	r7, r2
  493              	.LVL26:
@@ -706,22 +706,22 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  504              	.L47:
  139:Src/maze.c    **** 		break;
  140:Src/maze.c    **** 	case EAST:
- 141:Src/maze.c    **** 		e_wall = sensor.wall[5];
+ 141:Src/maze.c    **** 		e_wall = sensor.wall[4];
  142:Src/maze.c    **** 		s_wall = sensor.wall[1];
  143:Src/maze.c    **** 		n_wall = sensor.wall[2];
  144:Src/maze.c    **** 		w_wall = 0;
  145:Src/maze.c    **** 		break;
  146:Src/maze.c    **** 	case SOUTH:
- 147:Src/maze.c    **** 		s_wall = sensor.wall[5];
+ 147:Src/maze.c    **** 		s_wall = sensor.wall[4];
  148:Src/maze.c    **** 		w_wall = sensor.wall[1];
  149:Src/maze.c    **** 		e_wall = sensor.wall[2];
  150:Src/maze.c    **** 		n_wall = 0;
  151:Src/maze.c    **** 		break;
  152:Src/maze.c    **** 	case WEST:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 13
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 13
 
 
- 153:Src/maze.c    **** 		w_wall = sensor.wall[5];
+ 153:Src/maze.c    **** 		w_wall = sensor.wall[4];
  154:Src/maze.c    **** 		n_wall = sensor.wall[1];
  155:Src/maze.c    **** 		s_wall = sensor.wall[2];
  156:Src/maze.c    **** 		e_wall = 0;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  540 0078 02EB0313 		add	r3, r2, r3, lsl #4
  541 007c 0B44     		add	r3, r3, r1
  542 007e 83F80065 		strb	r6, [r3, #1280]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 14
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 14
 
 
  543              	.L54:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  144:Src/maze.c    **** 		break;
  587              		.loc 1 144 0
  588 00b0 0024     		movs	r4, #0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 15
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 15
 
 
  145:Src/maze.c    **** 	case SOUTH:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  631              	.L60:
  632 00d6 00BF     		.align	2
  633              	.L59:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 16
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 16
 
 
  634 00d8 00000000 		.word	sensor
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  186:Src/maze.c    **** 					position.x --;
  684              		.loc 1 186 0
  685 0024 524B     		ldr	r3, .L94
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 17
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 17
 
 
  686 0026 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  726 005a 7047     		bx	lr
  727              	.L65:
  201:Src/maze.c    **** 			}
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 18
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 18
 
 
  202:Src/maze.c    **** 			break;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  768 0090 013B     		subs	r3, r3, #1
  769 0092 1370     		strb	r3, [r2]
  216:Src/maze.c    **** 					break;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 19
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 19
 
 
  770              		.loc 1 216 0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  810 00c4 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  811 00c6 013A     		subs	r2, r2, #1
  812 00c8 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 20
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 20
 
 
  231:Src/maze.c    **** 					position.dir = WEST;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  853              	.L86:
  245:Src/maze.c    **** 				case EAST:
  246:Src/maze.c    **** 					position.x --;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 21
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 21
 
 
  854              		.loc 1 246 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  894 0132 02       		.byte	(.L89-.L90)/2
  895 0133 09       		.byte	(.L91-.L90)/2
  896 0134 10       		.byte	(.L92-.L90)/2
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 22
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 22
 
 
  897 0135 17       		.byte	(.L93-.L90)/2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  937 0166 1A70     		strb	r2, [r3]
  275:Src/maze.c    **** 					position.dir = EAST;
  938              		.loc 1 275 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 23
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 23
 
 
  939 0168 0122     		movs	r2, #1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  979 0010 0400     		.2byte	(.L98-.L99)/2
  980 0012 5300     		.2byte	(.L100-.L99)/2
  981 0014 A300     		.2byte	(.L101-.L99)/2
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 24
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 24
 
 
  982 0016 F200     		.2byte	(.L102-.L99)/2
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1022 0054 08D2     		bcs	.L104
  302:Src/maze.c    **** 				if( position.x > 0 ){
  1023              		.loc 1 302 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 25
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 25
 
 
  1024 0056 3AB1     		cbz	r2, .L104
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1063              	.L97:
  318:Src/maze.c    **** 				if(flag.kabeate == false){
  319:Src/maze.c    **** 					tmp_dir = UTURN;
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 26
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 26
 
 
  320:Src/maze.c    **** 				}else if(flag.kabeate == true){
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  374:Src/maze.c    **** 				}
  375:Src/maze.c    **** 			}
  376:Src/maze.c    **** 			if( maze.step[position.x-1][position.y] < tmp_step ){
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 27
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 27
 
 
  377:Src/maze.c    **** 				if( position.x > 0 ){
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1065 0090 30BC     		pop	{r4, r5}
  1066              	.LCFI8:
  1067              		.cfi_remember_state
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 28
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 28
 
 
  1068              		.cfi_restore 5
@@ -1647,13 +1647,13 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1087              		.loc 1 318 0
  1088 009e 824B     		ldr	r3, .L146+8
  1089              	.LVL59:
- 1090 00a0 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1090 00a0 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1091 00a2 002B     		cmp	r3, #0
  1092 00a4 00F0F880 		beq	.L121
  320:Src/maze.c    **** 					tmp_dir = KABEATE;
  1093              		.loc 1 320 0
  1094 00a8 7F4B     		ldr	r3, .L146+8
- 1095 00aa 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1095 00aa 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1096 00ac DBB2     		uxtb	r3, r3
  1097 00ae 012B     		cmp	r3, #1
  1098 00b0 EED1     		bne	.L97
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  328:Src/maze.c    **** 					if( maze.wall_east[position.x][position.y] == false ){
  1115              		.loc 1 328 0
  1116 00ca 0E29     		cmp	r1, #14
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 29
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 29
 
 
  1117 00cc 3ED8     		bhi	.L124
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1160              		.loc 1 343 0
  1161 010c 541E     		subs	r4, r2, #1
  1162 010e 654D     		ldr	r5, .L146+4
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 30
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 30
 
 
  1163 0110 05EB0115 		add	r5, r5, r1, lsl #4
@@ -1772,13 +1772,13 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1185              		.loc 1 352 0
  1186 0134 5C4B     		ldr	r3, .L146+8
  1187              	.LVL67:
- 1188 0136 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1188 0136 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1189 0138 002B     		cmp	r3, #0
  1190 013a 00F0AF80 		beq	.L128
  354:Src/maze.c    **** 					tmp_dir = KABEATE;
  1191              		.loc 1 354 0
  1192 013e 5A4B     		ldr	r3, .L146+8
- 1193 0140 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1193 0140 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1194 0142 DBB2     		uxtb	r3, r3
  1195 0144 012B     		cmp	r3, #1
  1196 0146 A3D1     		bne	.L97
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1207 0150 CAE7     		b	.L106
  1208              	.L125:
  331:Src/maze.c    **** 					}
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 31
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 31
 
 
  1209              		.loc 1 331 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1254 0198 07D8     		bhi	.L110
  370:Src/maze.c    **** 						tmp_step = maze.step[position.x+1][position.y];
  1255              		.loc 1 370 0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 32
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 32
 
 
  1256 019a 05EB0215 		add	r5, r5, r2, lsl #4
@@ -1908,17 +1908,17 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1291              		.loc 1 385 0
  1292 01d2 354B     		ldr	r3, .L146+8
  1293              	.LVL75:
- 1294 01d4 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1294 01d4 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1295 01d6 002B     		cmp	r3, #0
  1296 01d8 68D0     		beq	.L135
  387:Src/maze.c    **** 					tmp_dir = KABEATE;
  1297              		.loc 1 387 0
  1298 01da 334B     		ldr	r3, .L146+8
- 1299 01dc 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1299 01dc 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1300 01de DBB2     		uxtb	r3, r3
  1301 01e0 012B     		cmp	r3, #1
  1302 01e2 7FF455AF 		bne	.L97
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 33
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 33
 
 
  388:Src/maze.c    **** 				}
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  287:Src/maze.c    **** 	int8_t tmp_dir = UTURN;				// 方向
  1347              		.loc 1 287 0
  1348 0224 FE23     		movs	r3, #254
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 34
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 34
 
 
  1349              	.L112:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1393 026a 4FF0FF30 		mov	r0, #-1
  1394              	.LVL82:
  1395              	.L114:
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 35
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 35
 
 
  417:Src/maze.c    **** 				if(flag.kabeate == false){
@@ -2049,12 +2049,12 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1399              		.loc 1 418 0
  1400 0274 0C4B     		ldr	r3, .L146+8
  1401              	.LVL83:
- 1402 0276 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1402 0276 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1403 0278 D3B1     		cbz	r3, .L142
  420:Src/maze.c    **** 					tmp_dir = KABEATE;
  1404              		.loc 1 420 0
  1405 027a 0B4B     		ldr	r3, .L146+8
- 1406 027c 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 1406 027c 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
  1407 027e DBB2     		uxtb	r3, r3
  1408 0280 012B     		cmp	r3, #1
  1409 0282 7FF405AF 		bne	.L97
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1440 029e F7E6     		b	.L97
  1441              	.L147:
  1442              		.align	2
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 36
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 36
 
 
  1443              	.L146:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1488              	.L163:
  1489              	.LBB13:
  439:Src/maze.c    **** 	{
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 37
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 37
 
 
  440:Src/maze.c    **** 		int j;
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  454:Src/maze.c    **** 		for (j = 0; j <= MAZE_SIZE; j++)
  1526              		.loc 1 454 0
  1527 003a 0024     		movs	r4, #0
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 38
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 38
 
 
  1528 003c 0AE0     		b	.L153
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1566              	.LVL106:
  1567              	.LBE13:
  438:Src/maze.c    **** 	{
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 39
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 39
 
 
  1568              		.loc 1 438 0 discriminator 2
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1610              	.L167:
  1611 00a0 00000000 		.word	.LC0
  1612 00a4 00000000 		.word	maze
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 40
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 40
 
 
  1613 00a8 04000000 		.word	.LC1
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1664              		.file 4 "Inc/maze.h"
  1665              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
  1666              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 41
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 41
 
 
  1667              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
@@ -2408,55 +2408,55 @@ ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 1
  1671              		.file 11 "Inc/global.h"
  1672              		.file 12 "<built-in>"
  1673              		.file 13 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
-ARM GAS  C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s 			page 42
+ARM GAS  C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s 			page 42
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 maze.c
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:18     .text.Maze_Set:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:25     .text.Maze_Set:00000000 Maze_Set
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:44     .text.Maze_Set:0000000c $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:18     .text.Maze_Set:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:25     .text.Maze_Set:00000000 Maze_Set
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:44     .text.Maze_Set:0000000c $d
                             *COM*:00000002 mazeDef
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:49     .text.Init_maze:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:56     .text.Init_maze:00000000 Init_maze
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:149    .text.Init_maze:0000006c $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:49     .text.Init_maze:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:56     .text.Init_maze:00000000 Init_maze
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:149    .text.Init_maze:0000006c $d
                             *COM*:00000701 maze
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:154    .text.MAZE_Create_Step:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:161    .text.MAZE_Create_Step:00000000 MAZE_Create_Step
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:428    .text.MAZE_Create_Step:0000015c $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:434    .text.Maze_Get_Wall:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:441    .text.Maze_Get_Wall:00000000 Maze_Get_Wall
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:479    .text.Maze_Get_Wall:00000028 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:483    .text.Maze_Get_Wall:0000002c $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:634    .text.Maze_Get_Wall:000000d8 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:642    .text.Update_Position:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:649    .text.Update_Position:00000000 Update_Position
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:664    .text.Update_Position:0000000c $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:678    .text.Update_Position:00000020 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:682    .text.Update_Position:00000024 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:735    .text.Update_Position:0000006a $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:739    .text.Update_Position:0000006e $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:780    .text.Update_Position:000000a2 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:784    .text.Update_Position:000000a6 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:837    .text.Update_Position:000000ea $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:841    .text.Update_Position:000000ee $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:894    .text.Update_Position:00000132 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:898    .text.Update_Position:00000136 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:947    .text.Update_Position:00000170 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:952    .text.Maze_Next_Motion:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:959    .text.Maze_Next_Motion:00000000 Maze_Next_Motion
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:979    .text.Maze_Next_Motion:00000010 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:983    .text.Maze_Next_Motion:00000018 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1444   .text.Maze_Next_Motion:000002a0 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1450   .text.Maze_Next_Motion:000002ac $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1463   .text.MAZE_Printf_Step:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1470   .text.MAZE_Printf_Step:00000000 MAZE_Printf_Step
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1611   .text.MAZE_Printf_Step:000000a0 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1622   .text.Maze_GoalCheck:00000000 $t
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1629   .text.Maze_GoalCheck:00000000 Maze_GoalCheck
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:1645   .rodata.MAZE_Printf_Step.str1.4:00000000 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:669    .text.Update_Position:00000011 $d
-C:\Users\kotaro\AppData\Local\Temp\ccPTL5dK.s:669    .text.Update_Position:00000012 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:154    .text.MAZE_Create_Step:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:161    .text.MAZE_Create_Step:00000000 MAZE_Create_Step
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:428    .text.MAZE_Create_Step:0000015c $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:434    .text.Maze_Get_Wall:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:441    .text.Maze_Get_Wall:00000000 Maze_Get_Wall
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:479    .text.Maze_Get_Wall:00000028 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:483    .text.Maze_Get_Wall:0000002c $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:634    .text.Maze_Get_Wall:000000d8 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:642    .text.Update_Position:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:649    .text.Update_Position:00000000 Update_Position
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:664    .text.Update_Position:0000000c $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:678    .text.Update_Position:00000020 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:682    .text.Update_Position:00000024 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:735    .text.Update_Position:0000006a $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:739    .text.Update_Position:0000006e $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:780    .text.Update_Position:000000a2 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:784    .text.Update_Position:000000a6 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:837    .text.Update_Position:000000ea $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:841    .text.Update_Position:000000ee $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:894    .text.Update_Position:00000132 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:898    .text.Update_Position:00000136 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:947    .text.Update_Position:00000170 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:952    .text.Maze_Next_Motion:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:959    .text.Maze_Next_Motion:00000000 Maze_Next_Motion
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:979    .text.Maze_Next_Motion:00000010 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:983    .text.Maze_Next_Motion:00000018 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1444   .text.Maze_Next_Motion:000002a0 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1450   .text.Maze_Next_Motion:000002ac $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1463   .text.MAZE_Printf_Step:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1470   .text.MAZE_Printf_Step:00000000 MAZE_Printf_Step
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1611   .text.MAZE_Printf_Step:000000a0 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1622   .text.Maze_GoalCheck:00000000 $t
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1629   .text.Maze_GoalCheck:00000000 Maze_GoalCheck
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:1645   .rodata.MAZE_Printf_Step.str1.4:00000000 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:669    .text.Update_Position:00000011 $d
+C:\Users\kotaro\AppData\Local\Temp\cc1gLLek.s:669    .text.Update_Position:00000012 $t
 
 UNDEFINED SYMBOLS
 sensor

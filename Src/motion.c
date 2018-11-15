@@ -337,7 +337,7 @@ void Batt_Check(void)
 void PT_Switch(void){
     flag.ir_led = ON;
     while(1){
-        if(sensor.wall[5]==true){
+        if(sensor.wall[4]==true){
         Output_Buzzer(HZ_C_H);
         break;
         }
